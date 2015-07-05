@@ -1,0 +1,24 @@
+@font-face {
+font-family: SDWebMonggle;
+font-style:  normal;
+font-weight: normal;
+src: url(http://i1.daumcdn.net/cafeimg/webfont/091109/SDWebMonggle.eot);
+}
+
+body, div, li, td, table, input { font-size: 13px; font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; color:#333; line-height:1.3; }
+a:link, a:visited, a:active { font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; color:#333; text-decoration:none; }
+a:hover { font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; color:#333; text-decoration:underline; }
+
+h1, h2, h3, h4, h5 { font-size:13px; }
+
+#blogTitleText { font-weight:bold; font-size:13px; }
+
+.p12 { font-size: 13px; font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; }
+a.p12:link, a.p12:visited, a.p12:active { font-size: 13px; font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; }
+a.p12:hover { font-size: 13px; font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; }
+
+input.box { font-size: 13px; font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; }
+textarea.box { font-size: 13px; font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; }
+select { font-size: 13px; font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; }
+
+#cContent .webfontSmall, #cContent a.webfontSmall:link, #cContent a.webfontSmall:visited, #cContent a.webfontSmall:hover, #cContent a.webfontSmall:active { font-size: 12px; font-family: SDWebMonggle, 굴림, gulim, verdana, sans-serif; }

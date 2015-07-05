@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            icon="icons/csv.gif"
+            class="com.quantum.csv.wizard.ExportCSVWizard"
+            name="Export to CSV File"
+            id="com.quantum.csv.wizard.ExportCSVWizard">
+         
+         <description>
+         	A wizard that exports a database schema to a CSV (Comma Separated Values) file.
+         </description>
+         <selection
+               class="com.quantum.model.IBookmarkHolder">
+         </selection>
+      </wizard>
+      <wizard
+            name="Database Definition Language (DDL)"
+            icon="./icons/export_ddl.gif"
+            class="com.quantum.flatfiles.wizard.ExportDDLWizard"
+            id="com.quantum.flatfils.wizard.ExportDDLWizard">
+         <description>
+            A wizard that exports the table/view structure as a set of create statements.
+         </description>
+      </wizard>
+      <wizard
+            icon="icons/torque.gif"
+            class="com.quantum.flatfiles.wizard.ExportTorqueWizard"
+            name="Export to Torque XML File"
+            id="com.quantum.flatfiles.wizard.ExportTorqueWizard">
+         <description>
+         	A wizard that exports a database schema to a Torque-compatible XML file.
+         </description>
+         <selection
+               class="com.quantum.model.IBookmarkHolder">
+         </selection>
+      </wizard>
+    </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="com.quantum.sql.SQLResultSetResults"
+            id="com.quantum.flatfiles">
+         <action
+               id="com.quantum.flatfiles.action.ExportResultSetDataAction" 
+               label="Export Result Set Data"
+               tooltip="Exports the data in the result set to a file" 
+               class="com.quantum.flatfiles.action.ExportResultSetDataAction" 
+               menubarPath="com.quantum.flatfiles.menu1"
+               enablesFor="1" >
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            class="com.quantum.csv.wizard.ImportCSVWizard"
+            icon="icons/csvImport.gif"
+            id="com.quantum.csv.wizard.ImportCSVWizard"
+            name="Import from CSV File"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.quantum.preferences.export"
+            class="com.quantum.flatfiles.preferences.CSVPreferences"
+            id="com.quantum.flatfiles.preferences"
+            name="CSV"/>
+   </extension>
+</plugin>

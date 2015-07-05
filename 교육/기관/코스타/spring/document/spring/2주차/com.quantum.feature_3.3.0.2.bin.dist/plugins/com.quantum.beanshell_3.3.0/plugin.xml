@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="com.quantum.views"
+            class="com.quantum.view.beanshell.BeanShellView"
+            icon="icons/beanshell.gif"
+            id="com.quantum.view.beanshellview"
+            name="BeanShell Script View">
+      </view>
+         
+   </extension>
+   <extension
+         point="com.quantum.Quantum.data">
+      <dataActor></dataActor>
+   </extension>
+
+</plugin>

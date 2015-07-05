@@ -1,0 +1,7 @@
+select 
+DECODE(a.RESID_NO,NULL,'',TRIM(REPLACE(CryptIT.decrypt(a.RESID_NO,'lrskey'),'#',''))) a_resid_no,
+DECODE(b.RESID_NO,NULL,'',TRIM(REPLACE(CryptIT.decrypt(b.RESID_NO,'lrskey'),'#',''))) b_resid_no 
+from YKT9060 a  full outer join  SMARTUSER001.YKT9060 b 
+on( a.RESID_NO = b.RESID_NO )
+where a.RESID_NO is null;
+

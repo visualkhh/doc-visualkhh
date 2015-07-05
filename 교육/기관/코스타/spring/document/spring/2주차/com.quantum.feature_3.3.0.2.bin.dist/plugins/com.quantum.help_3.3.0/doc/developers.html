@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Tutorial of developing and changing QuantumDb</title>
+</head>
+<body>
+Author: jparrai<br>
+Date: 03-December-2006<br>
+Subject: Tutorial of developing and changing QuantumDb<br>
+<br>
+To modify the quantumdb plug-in, first you get it to the Eclipse development system.<br>
+<h3> 1. Getting the project from CVS.<br>
+</h3>
+First you go to <span style="font-weight: bold;">Open a Perspective</span>
+and open the <span style="font-weight: bold;">CVS repository exploring
+perspective</span>. It can be in the <span style="font-weight: bold;">Others...</span>.
+You get a perspective. You right-click on the <span
+ style="font-weight: bold;">CVS Repositories</span> view and create a <span
+ style="font-weight: bold;">New -&gt; Repository Location...</span><br>
+The data to access quantum is:<br>
+<br>
+Host: <span style="font-weight: bold;">cvs.sourceforge.net</span><br>
+Repository Path: <span style="font-weight: bold;">/cvsroot/quantum</span><br>
+User: <span style="font-weight: bold;">anonymous</span><br>
+Password:<br>
+<br>
+There is no password for <span style="font-style: italic;">anonymous</span>. You 
+can substitute the User and Password for you own, if you are registered in <a href="http://sourceforge.net">sourcefoge.net</a>. 
+If you have permissions to write and want to modify the CVS data, remember to 
+use <span
+ style="font-style: italic;">extssh</span> as the connexion type, so as to be 
+able to update the cvs repository with your changes (action that needs a ssh connection 
+in <a href="http://sourceforge.net">sourceforge</a> so the need for extsst)<br>
+<br>
+After that, if you are connected to Internet, you will be able to get the project 
+files. You will see a <span style="font-weight: bold;">HEAD</span> sub-item, a 
+<span style="font-weight: bold;">Branches</span>, and a <span
+ style="font-weight: bold;">Versions</span>. You select the <span
+ style="font-weight: bold;">HEAD</span>, and then right-click onto <span
+ style="font-weight: bold;">quantum-plugin</span>. Then select <span
+ style="font-weight: bold;">Check Out As...</span>. <br>
+<br>
+<h3> 2. Configuring the project.<br>
+  (TODO: OUTDATED, review)</h3>
+So you "Check Out As..." and select an Plug-In project, call it as you
+wish, (I will use "com.quantum") and then select an Empty Plug In. If
+everything goes ok, you should end with a new project and about 1600
+errors. The errors are caused because you have now a default classpath,
+and the quantumdb project uses some plug-ins, so these plug-ins
+directories must be referenced.<br>
+<br>
+My classpath for Eclipse 2.0 is as follows:<br>
+<br>
+<span style="font-family: monospace;"><nobr> &lt;?xml version="1.0"
+encoding="UTF-8"?&gt;</nobr></span><br style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &lt;classpath&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="src" path="src"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="var" path="JRE_LIB" rootpath="JRE_SRCROOT"
+sourcepath="JRE_SRC"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="lib"</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+path="C:/Parsec/eclipse/plugins/org.eclipse.core.boot_2.0.2/boot.jar"
+sourcepath="C:/Parsec/eclipse/plugins/org.eclipse.platform.source_2.0.2/src/org.eclipse.core.boot_2.0.2/bootsrc.zip"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="lib"</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+path="C:/Parsec/eclipse/plugins/org.eclipse.core.runtime_2.0.2/runtime.jar"
+sourcepath="C:/Parsec/eclipse/plugins/org.eclipse.platform.source_2.0.2/src/org.eclipse.core.runtime_2.0.2/runtimesrc.zip"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="lib"</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+path="C:/Parsec/eclipse/plugins/org.eclipse.core.resources_2.0.1/resources.jar"
+sourcepath="C:/Parsec/eclipse/plugins/org.eclipse.platform.source_2.0.2/src/org.eclipse.core.resources_2.0.1/resourcessrc.zip"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="lib"</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+path="C:/Parsec/eclipse/plugins/org.eclipse.swt.win32_2.0.2/ws/win32/swt.jar"
+sourcepath="C:/Parsec/eclipse/plugins/org.eclipse.platform.win32.source_2.0.2/src/org.eclipse.swt.win32_2.0.2/ws/win32/swtsrc.zip"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="lib"</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+path="C:/Parsec/eclipse/plugins/org.eclipse.ui_2.0.2/workbench.jar"
+sourcepath="C:/Parsec/eclipse/plugins/org.eclipse.platform.source_2.0.2/src/org.eclipse.ui_2.0.2/workbenchsrc.zip"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="lib"</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+path="C:/Parsec/eclipse/plugins/org.eclipse.ui.win32_2.0.0/workbenchwin32.jar"</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rootpath=""
+sourcepath="C:/Parsec/eclipse/plugins/org.eclipse.platform.win32.source_2.0.2/src/org.eclipse.ui.win32_2.0.0/workbenchwin32src.zip"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &nbsp;&nbsp;&nbsp;
+&lt;classpathentry kind="output" path="bin"/&gt;</nobr></span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"><nobr> &lt;/classpath&gt;</nobr></span><br
+ style="font-family: monospace;">
+<br>
+Where, as you can see, my Eclipse home is <span
+ style="font-family: monospace;">C:\Parsec\eclipse</span>. In any case,
+you need to reference those plug-ins you see below, from org.eclipse:<br>
+<ul>
+  <li> core.boot</li>
+  <li> core.runtime</li>
+  <li> core.resources</li>
+  <li> ui</li>
+  <li> swt.win32 (substitute by your platform)</li>
+  <li> ui.win32 (substitute by your platform)</li>
+</ul>
+<p><br>
+  Remember after changing manually the <span style="font-style: italic;">.classpath</span> 
+  file that you have to <span style="font-weight: bold;">Refresh</span> the project 
+  to take the changes in.<br>
+  <br>
+  If you want to reference those plug-ins using the workspace, select <span
+ style="font-weight: bold;">Properties </span>from the newly created <span
+ style="font-weight: bold;">com.quantum</span> project and go to <span
+ style="font-weight: bold;">Java Build Path</span>, then <span
+ style="font-weight: bold;">Libraries </span>tab, and select the <span
+ style="font-weight: bold;">.jar</span> files the project needs.<br>
+  <br>
+  It should now build without errors.<br>
+  <br>
+  In Eclipse 2.1 that won't work. Dependencies amongs plug-ins have changed and 
+  instead of redoing all of them again I chose to use the new "classpath container" 
+  facility. When I say that won't work I mean if linking against the 2.1 libraries. 
+  If you link against the 2.0 libraries will work all right.<br>
+</p>
+<p>The libraries for 2.1 are as follows (I copy my classpath) :</p>
+<p><font face="Courier New, Courier, mono">&lt;classpath&gt;<br>
+  &lt;classpathentry kind=&quot;src&quot; path=&quot;src&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.core.boot_2.1.0/boot.jar&quot; sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.core.boot_2.1.0/bootsrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.core.runtime_2.1.0/runtime.jar&quot; 
+  sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.core.runtime_2.1.0/runtimesrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.core.resources_2.1.0/resources.jar&quot; 
+  sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.core.resources_2.1.0/resourcessrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.swt.win32_2.1.0/ws/win32/swt.jar&quot; 
+  sourcepath=&quot;ORG_ECLIPSE_PLATFORM_WIN32_SOURCE_SRC/org.eclipse.swt.win32_2.1.0/ws/win32/swtsrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.ui_2.1.0/ui.jar&quot; sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.ui_2.1.0/uisrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.text_2.1.0/text.jar&quot; sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.text_2.1.0/textsrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.jface_2.1.0/jface.jar&quot; sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.jface_2.1.0/jfacesrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.jface.text_2.1.0/jfacetext.jar&quot; 
+  sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.jface.text_2.1.0/jfacetextsrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.ui.views_2.1.0/views.jar&quot; sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.ui.views_2.1.0/viewssrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.ui.workbench_2.1.0/workbench.jar&quot; 
+  sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.ui.workbench_2.1.0/workbenchsrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.ui.win32_2.1.0/workbenchwin32.jar&quot; 
+  sourcepath=&quot;ORG_ECLIPSE_PLATFORM_WIN32_SOURCE_SRC/org.eclipse.ui.win32_2.1.0/workbenchwin32src.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.ui.workbench.texteditor_2.1.0/texteditor.jar&quot; 
+  sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.ui.workbench.texteditor_2.1.0/texteditorsrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;var&quot;<br>
+  path=&quot;ECLIPSE_HOME/plugins/org.eclipse.ui.editors_2.1.0/editors.jar&quot; 
+  sourcepath=&quot;ORG_ECLIPSE_PLATFORM_SOURCE_SRC/org.eclipse.ui.editors_2.1.0/editorssrc.zip&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;con&quot; path=&quot;org.eclipse.jdt.launching.JRE_CONTAINER&quot;/&gt;<br>
+  &lt;classpathentry kind=&quot;output&quot; path=&quot;bin&quot;/&gt;<br>
+  &lt;/classpath&gt;<br>
+  <br>
+  </font></p>
+<h3>3. Running the project.<br>
+</h3>
+First go to <span style="font-weight: bold;">Window -&gt; Preferences
+-&gt; Plug-in Development -&gt; Target Platform</span> and to select all
+the plug-ins that should be used when running a platform from the
+plug-in development. I select all of them not in the workspace because I
+don't want to resolve all the cross-references.<br>
+<br>
+Then go to <span style="font-weight: bold;">Run -&gt; Run As -&gt;
+Run-time Workbench</span>. If all is well, a new workbench should
+appear, that has you just-compiled quantum plug-in installed. To check
+it, open the quantumdb perspective (<span style="font-weight: bold;">Perspective
+Button -&gt; Others... -&gt;QuantumDb Perspective</span>), and see if
+it appears. This is not<br>
+the usual QuantumDb perspective, but the one you are developing. Of
+course, if you have made no change to the standard source, there is no
+difference. <br>
+<br>
+<h3>4. Making a small change.<br>
+</h3>
+To check that we are really using our modified QuantumDb, and not the
+standard, let's make a change. Open the <span
+ style="font-style: italic;">QuantumResources.properties</span> file,
+(in the <span style="font-weight: bold;">com.quantum</span> package),
+and modify the line<br>
+<br>
+<span style="font-family: monospace;"><nobr> bookmarkview.newBookmark =
+New Bookmark...</nobr></span><br>
+<br>
+to <br>
+<br>
+<span style="font-family: monospace;"><nobr> bookmarkview.newBookmark =
+Add New Bookmark...</nobr></span><br>
+<br>
+(for example)<br>
+<br>
+Then Run the testing workbench again, you can now use simply <span
+ style="font-weight: bold;">Ctrl+F11</span> to run the last launched
+environment. Now, in the bookmark view, when you right-click on it, it
+should show your modified string. So you are now ready to change the
+plug-in.<br>
+<h3> 5. Creating a .jar file.<br>
+</h3>
+<p>You have one feature project (com.quantum.feature), which contains a feature.xml 
+  description and many associated plugins which contain plugin.xml files.</p>
+<p>If you are changing the version number, you update the version numbers in the 
+  associated plugin.xml files of all the plugins present.</p>
+<p>You also update the (multiple) version numbers in the feature.xml files for 
+  all the features.</p>
+<p>After that you select every plugin.xml and press &quot;right mouse button&quot; 
+  in the Package Explorer view and choose menu:<br>
+  <code>PDE Tools-&gt;Create Ant Build File</code></p>
+<p>Do the same for each feature.xml file: press &quot;right mouse button&quot; 
+  in the PackageExplorer view and choose menu:<br>
+  <code>PDE Tools-&gt;Create Ant Build File</code></p>
+<p>Then select the build.xml in the &quot;feature project&quot; and choose menu:<br>
+  <code>Run-&gt;Ant Build....</code></p>
+<p>Select the following &quot;Target executionorder&quot;:<br>
+  <code>clean, build.jars, build.sources, zip.sources, zip.distribution, refresh</code><br>
+  and press the &quot;Run&quot; button. After a while you should have two new 
+  files in your <code>com.quantum.feature</code> folder, called <code>com.quantum.feature_&lt;version_number&gt;.bin.dist.zip</code> 
+  (the binary distribution, as you might have guessed), and the <code>com.quantum.feature_&lt;version_number&gt;.src.zip</code> 
+  (the source distribution).</p>
+<p><br>
+</p>
+<h3>6. Uploading the change to CVS.</h3>
+<p>(<i>I copy directly from the Eclipse Help, so as to have all the info in the 
+  same place</i>) </p>
+<h4>Synchronizing with a CVS repository</h4>
+<p><br>
+  In the CVS team programming environment, there are two distinct processes involved 
+  in synchronizing resources: updating with the latest changes from a branch and 
+  committing to the branch. </p>
+<p>When you make changes in the Workbench, the resources are saved locally. Eventually 
+  you will want to commit your changes to the branch so others can have access 
+  to them. Meanwhile, others may have committed changes to the branch. You will 
+  want to update your Workbench resources with their changes.</p>
+<p>Important!: It is preferable to update before committing, in case there are 
+  conflicts with the resources in your Workbench and the resources currently in 
+  the branch. </p>
+<p>The synchronize view contains filters to control whether you want to view only 
+  incoming changes or outgoing changes. Incoming changes come from the branch. 
+  If accepted, they will update the Workbench resource to the latest version currently 
+  committed into the branch. Outgoing changes come from the Workbench. If committed, 
+  they will change the branch resources to match those currently present in the 
+  Workbench. </p>
+<p>Regardless of which mode (filter) you select, the Synchronize view always shows 
+  you conflicts that arise when you have locally modified a resource for which 
+  a more recent version is available in the branch. In this situation you can 
+  choose to do one of three things: update the resource from the branch, commit 
+  your version of the resource to the branch ,or merge your work with the changes 
+  in the branch resource. Typically you will want to merge, as the other two options 
+  will result in loss of work. </p>
+<p>(<i>End of copy from Eclipse Help, there are lots more, just go there and have 
+  a look</i>) Basically to get all the changes since the last time you took the 
+  sources, accept all the files that have changed in the CVS and you haven't touched. 
+  If there are some that you have touched and are also touched by someone else 
+  at CVS then you have to inspect the changes, see if they conflict with yours, 
+  and merge both until you have a working set. Then you can upload that &quot;working&quot; 
+  set to CVS. That's the idea.</p>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0105)http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=0Dm0t&articleno=11313276&looping=0&longOpen= -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="title" content="transistor 트랜지스터란 무엇인가..">
+<title>transistor 트랜지스터란 무엇인가..</title>
+<link rel="canonical" href="transistor 트랜지스터란 무엇인가...htm">
+<script type="text/javascript" language="javascript" src="httpRequest_v1.0.js"></script><style type="text/css"></style><style type="text/css"></style>
+<script type="text/javascript" language="javascript" src="common_view.js"></script>
+<script type="text/javascript" language="javascript" src="article_contents_view.js"></script>
+<script type="text/javascript" language="javascript" src="jigu.min.js"></script>
+<script id="DragSearchJs" type="text/javascript" src="searchDragSelection.js" charset="euc-kr"></script>
+<script type="text/javascript" language="javascript">
+<!--
+	document.domain = "daum.net";
+	var uaLower = navigator.userAgent.toLowerCase();
+	var isIOS = (uaLower.indexOf("iphone")!=-1 || uaLower.indexOf("ipod")!=-1 || uaLower.indexOf("ipad")!=-1) && (uaLower.indexOf("applewebkit")!=-1);
+	if(parent.document.getElementById("div_11313276") == null || parent.document.getElementById("div_11313276") == 'undefine'){
+		document.location.replace("http://blog.daum.net/autonics/11313276");
+	}
+	//-->
+</script>	
+
+ 
+
+
+<style type="text/css">
+	html img {-webkit-touch-callout:none;}
+	html img {-webkit-user-select:none;}
+	body { background-color:transparent; margin:0; padding:0; overflow-x:auto; overflow-y:hidden; scrollbar-3dlight-color:#FFFFFF; scrollbar-arrow-color:#FFFFFF; scrollbar-darkshadow-color:#FFFFFF; scrollbar-face-color:#DBDBDB; scrollbar-highlight-color:#BBBBBB; scrollbar-shadow-color:#BBBBBB; scrollbar-track-color:#F3F3F3; }
+	body p { line-height:1.6; }
+	p { margin:0; padding:0; }
+	a img { border:none; }
+	div#ThemeArticle div { text-align:left; } 
+	div#ThemeArticle div { height:auto !important; }
+	
+	.p11, a.p11:link, a.p11:visited, a.p11:active, a.p11:hover { font-size: 11px; font-family:'돋움', 'dotum', 'verdana'; }
+
+	.under { text-decoration:underline; }
+	a.under:link, a.under:visited, a.under:active { text-decoration:underline; }
+	a.under:hover { text-decoration:underline; }
+	
+	.scrap_bgm	{text-align: center; font-family: 굴림, gulim, tahoma, sans-serif; font-size: 12px;}
+	.signArea	{padding-top: 30px; clear: both;}
+	.signArea img, #cclArea img	{border: none;}
+	
+	/* bgm 플레이어 (블로그,여러곡) */
+	#articleBGM { height: 31px; white-space: normal; }
+	.playerBox	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/bgm_bg.png) no-repeat; width: 289px; height: 31px; text-align: left;}
+	* html .playerBox	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/bgm_bg.png', sizingMethod='crop');}
+	.playerSongTit marquee	{width: 110px; color: #fff; font-size: 11px; font-family: 돋움, dotum; letter-spacing: -1px; margin: 0; position: relative; padding: 0;}
+	.playerOn	{width: 19px; height: 19px; float: left; margin: 4px 0 0 2px; position: relative;}
+	.playerOff	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/btn_stop.png) no-repeat; width: 19px; height: 19px; float: left; margin: 4px 0 0 2px; position: relative;}
+	* html .playerOff	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/btn_stop.png', sizingMethod='crop');}
+	.preSong	{width: 19px; height: 19px; float: left; margin: 4px 0 0 15px; position: relative;}
+	.nextSong	{width: 19px; height: 19px; float: left; margin: 4px 0 0 2px; position: relative;}
+	.playerVolumeBg	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/bg_stick_p.png) no-repeat; width: 16px; height: 4px; font-size: 0; line-height: 0;}
+	* html .playerVolumeBg	{background: none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/bg_stick_p.png', sizingMethod='crop')}
+	.playerControl	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/bg_stick_j.png) no-repeat; width: 15px; height: 15px; position: absolute; top: 7px; left: 0px; z-index: 5; cursor: pointer;}
+	* html .playerControl	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/bg_stick_j.png', sizingMethod='crop')}
+	.volumeOn	{background: url(http://i1.daumcdn.net/pimg/blog3/bgm/bgm_v_i.gif) no-repeat; width: 10px; height: 10px; float: left; margin: 8px 0 0 6px; position: relative;}
+	.volumeOff	{background: url(http://i1.daumcdn.net/pimg/blog3/bgm/bgm_v_i_off.gif) no-repeat; width: 10px; height: 10px; float: left; margin: 8px 0 0 6px; position: relative;}
+	.playerSong	{width: 23px; height: 17px; float: left; margin: 5px 0 0 4px; position: relative;}
+	.scrap_volume	{background: url(http://i1.daumcdn.net/cafeimg/cf_img2/bbs2/i_speaker.gif) no-repeat; width: 10px; height: 9px; margin-right: 4px;}
+	.playerSongTit	{padding: 7px 0 0 16px; width: 110px; float: left; }
+	.playerVolumeBox	{float:left; width: 30px; margin-left: 18px;}
+	.playerVolume	{padding: 11px 0 0 0; position: relative;}
+	.noactive_player	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/bgm_bg_g.png) no-repeat; width: 289px; height: 31px; text-align: left; white-space: normal;}
+	* html .noactive_player	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/bgm_bg_g.png', sizingMethod='crop');}
+	.noactive_player .playerSongTit {padding: 7px 0 0 9px; width: 152px;}
+	.noactive_player .playerSongTit span {display: block; width: 152px; color: #fff; font-size: 11px; font-family: 돋움, dotum; letter-spacing: -1px; margin: 0; position: relative; padding: 0;}
+	.noactive_player .playerOn {margin-left: 0;}
+
+	/* bgm 플레이어 (블로그,1곡) */
+	.wBGMPlayer {position: relative; white-space: normal;}
+	.wBGMPlayer a, .wBGMPlayer a:link, .wBGMPlayer a:hover, .wBGMPlayer a:visited, .wBGMPlayer a:active {text-decoration: none;}
+	.wBGMPlayer .active_player {width: 270px; height: 31px;}
+	.wBGMPlayer .not_active_player {width: 270px; height: 31px;}
+	.wBGMPlayer .active_player, 
+	.wBGMPlayer .not_active_player {position:relative; display:inline-block; zoom:1; *display:inline;}
+	.wBGMPlayer .playerBox_new	{width: 270px; height: 31px; background: url(http://img-contents.daum-img.net/music/2009_home/common/bg_player_ca.png) no-repeat 0 0;}
+	* html .wBGMPlayer .playerBox_new	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img-contents.daum-img.net/music/2009_home/common/bg_player_ca.png', sizingMethod='crop');}
+	.wBGMPlayer .playerSongTit	{position: relative; float: left; padding: 7px 0 0 16px; width: 110px;}
+	.wBGMPlayer .playerSongTit marquee {width: 110px; color: #fff; font-size: 11px; font-family: 돋움, dotum; letter-spacing: -1px; text-decoration: none; cursor: pointer;}
+	.wBGMPlayer .playerOnWrap	{position: absolute; left: 140px; top: 4px;}
+	.wBGMPlayer .btnLyricsWrap	{position: absolute; left: 214px; top: 9px;}
+	.wBGMPlayer .btnVideoWrap	{position: absolute; left: 240px; top: 9px;}
+	.wBGMPlayer .playerVolume	{text-align: left;}
+	.wBGMPlayer .playerVolumeBox {position: absolute; left: 178px; top: 0; margin: 0;}
+	.wBGMPlayer .playerOn	{float: none; margin: 0; background:url(http://img-contents.daum-img.net/music/2009_home/common/bt_play.gif) no-repeat;}
+	.wBGMPlayer .playerOff	{float: none; margin: 0; background:url(http://img-contents.daum-img.net/music/2009_home/common/bt_stop.gif) no-repeat;}
+	.wBGMPlayer .btnLyrics	{float: none; margin: 0; background:url(http://img-contents.daum-img.net/music/2009_home/common/bg_player.gif) no-repeat 0 -350px;}
+	.wBGMPlayer .btnVideo	{float: none; margin: 0; background:url(http://img-contents.daum-img.net/music/2009_home/common/bg_player.gif) no-repeat 0 -250px;}
+	.wBGMPlayer .not_active_player .playerControl	{top: 8px;}
+	
+	/*sns글 가져오기*/
+	.tx-blog-ul-profile, .tx-blog-ul { margin: 0; padding: 0; list-style: none; line-height: 1.6; }
+	.tx-blog-li, .tx-blog-li-ext { margin-bottom: 10px; position: relative; float: left; width: 99%; }
+	.tx-blog-ext { _display: inline; padding-bottom: 5px; float: left; }
+	.tx-blog-cont, .tx-blog-cont-small { padding-top: 1px; } 
+	.tx-blog-ul-profile .tx-blog-li-ext .tx-blog-cont { margin-left: 150px; _margin-left: 147px; }
+	.tx-blog-ul .tx-blog-li-ext .tx-blog-cont, .tx-blog-ul .tx-blog-li-ext .tx-blog-cont-small { margin-left: 85px; _margin-left: 82px; }
+	.tx-blog-ul-profile .tx-blog-li .tx-blog-cont, .tx-blog-ul-profile .tx-blog-li-ext .tx-blog-ext { margin-left: 65px; }
+	.tx-blog-ext a { display: block; }
+	.tx-blog-profile, .tx-blog-profile-small { display: block; margin: 0; padding: 0; position: absolute; left: 0; top: 0; }
+	
+	.tx-blog-profile-bg { margin: 0; padding: 0; position: absolute; left: 0; top: 0; }
+	.tx-blog-profile-img, .tx-blog-profile { border: none; width: 50px; height: 50px;}
+	.tx-blog-author-y, .tx-blog-author-t { padding: 2px 0 0 22px; display: inline-block; line-height: 19px; }
+	.tx-blog-author-t { background:url('http://i1.daumcdn.net/pimg/blog4/skin/common/ico_retweet01.gif') no-repeat 0 0; }
+	.tx-blog-author-y { background:url('http://i1.daumcdn.net/pimg/blog4/skin/common/ico_retweet02.gif') no-repeat 0 0; }	
+	.tx-blog-sns { padding: 5px 0; }
+	.tx-blog-sns .fbUnderline { text-decoration: underline; }
+	.tx-blog-sns-img { border: none; display: block; margin:11px 0 5px 0; display: block; max-height: 400px; }
+	.tx-blog-sns-info { display: inline-block; opacity: 0.50; _filter: alpha(opacity=50); padding: 0; font-weight: normal; }
+	.tx-blog-from-yozm, .tx-blog-from-twitter, .tx-blog-from-facebook { display: inline-block; font-weight: normal; opacity: 0.50; _filter: alpha(opacity=50); }
+
+	.tx-blog-bar { display: inline-block; opacity: 0.15; _filter: alpha(opacity=15); padding: 0 3px 0 4px; }
+	.tx-blog-bold { font-weight: bold; line-height: 1; } 
+	.tx-blog-bold .tx-blog-name, .tx-blog-bold .tx-blog-name:hover { font-size: 9pt; line-height: 1; margin-right: 3px; }	
+	.tx-blog-bold span.tx-blog-sns-info, .tx-blog-bold a.tx-blog-from-yozm, .tx-blog-bold a.tx-blog-from-twitter, .tx-blog-bold a.tx-blog-from-facebook, .tx-blog-bold a.tx-blog-from-yozm:link, .tx-blog-bold a.tx-blog-from-twitter:link, .tx-blog-bold a.tx-blog-from-facebook:link, .tx-blog-bold a.tx-blog-from-yozm:visited, .tx-blog-bold a.tx-blog-from-twitter:visited, .tx-blog-bold a.tx-blog-from-facebook:visited, .tx-blog-bold a.tx-blog-from-yozm:hover, .tx-blog-bold a.tx-blog-from-twitter:hover, .tx-blog-bold a.tx-blog-from-facebook:hover, .tx-blog-bold a.tx-blog-from-yozm:active, .tx-blog-bold a.tx-blog-from-twitter:active, .tx-blog-bold a.tx-blog-from-facebook:active { font: 8pt 'dotum', 'verdana', 'sans-serif'; }
+	.tx-blog-ext-img, .tx-blog-ext-info, .tx-blog-ext-info .bg, .tx-blog-ext-info .text { width: 76px; }
+	.tx-blog-ext-img { border: none; }
+	.tx-blog-ext-info { position: absolute; height: 18px; margin-top: -18px; display: block; }
+	.tx-blog-ext-info .bg { opacity: 0.8; _filter:alpha(opacity=80); background-color: #4a4a4a; position: absolute; height: 18px; }
+	.tx-blog-ext-info .text { font-size: 11px; line-height: 15px; font-family: '돋움', 'dotum', 'sans-serif'; color:#e2e0e0; text-align: center; position: relative; height: 14px; padding-top: 3px; } 
+	.tx-blog-p8 { font-size: 8pt; }
+	.tx-blog-p8 a.tx-blog-name, .tx-blog-p8 a.tx-blog-name:link, .tx-blog-p8 a.tx-blog-name:visited, .tx-blog-p8 a.tx-blog-name:hover, .tx-blog-p8 a.tx-blog-name:active, list_type_lim { line-height: 1.3; font-size: 8pt; display: inline-block; padding: 4px 5px 2px 0; }
+	.tx-blog-retweet { position: static; padding: 1px 5px 2px 0; display: inline-block; letter-spacing: -1px; }
+	.tx-link-reply { padding-right: 4px; }
+	.tx-blog-btn-zoom { position: absolute; border: none; margin-left: -18px; }	
+
+	/*sns글 가져오기 프로필 이미지 35*35 변경*/
+	.tx-blog-ul-profile .tx-blog-li-ext .tx-blog-cont-small { margin-left: 135px; _margin-left: 132px; }
+	.tx-blog-ul-profile .tx-blog-li-ext .tx-blog-ext-small, .tx-blog-ul-profile .tx-blog-li .tx-blog-cont-small { margin-left: 47px; }
+	.tx-blog-profile-small, .tx-blog-profile-img-small { border: none; width: 35px; height: 35px; }
+	.tx-blog-cont-small .tx-blog-sns { padding: 7px 0 4px 0; }
+	.tx-blog-cont-small .tx-blog-sns-img { max-width: 320px; }
+
+	/*facebook 지도, 동영상, 사진첩*/
+	.tx-blog-facebook { padding-bottom: 9px; } 
+	.tx-blog-facebook .tx-blog-sns-img, .tx-blog-facebook .tx-blog-bold { margin: 0; }
+	.tx-blog-facebook .tx-blog-sns-info { opacity: 0.70; _filter: alpha(opacity=70); _display: inline-block;  padding: 4px 0 0; }
+	.tx-blog-img-info { padding: 14px 0 10px; }
+	.tx-blog-sns-time { padding-top: 10px; letter-spacing: -1px; font-size: 8pt; line-height: 10px;}
+	.tx-blog-time { letter-spacing: normal; }
+	a.tx-blog-sns-title, .tx-blog-img-info { font-size: 9pt; }
+	.tx-blog-sns-title { padding-top: 11px; display: inline-block; }
+	.tx-blog-facebook .tx-blog-sns-img { margin: 17px 0 0; }
+	.tx-blog-img-title { padding-bottom: 6px; }
+	
+	/* 간편 글쓰기 */
+	.tx-blog-simple-img { border:none; display:block; margin:5px 0 5px 0; display:block; }
+	
+	/* 색깔 */
+	a.tx-blog-name, a.tx-blog-name:link, a.tx-blog-name:visited, a.tx-blog-name:hover, a.tx-blog-name:active { color: #333333 !important; text-decoration: none; } /* #333333 색상 강조글 색상 */
+	.tx-blog-line { padding: 0; margin: 0; font-size: 0; height: 15px; border-top: 1px solid #333333; line-height: 0; clear: both; opacity: 0.08; _filter: alpha(opacity=8);  }	/* #333333 색상 게시글 색상 */ 
+	a.tx-blog-friend, a.tx-blog-friend:link, a.tx-blog-friend:visited, a.tx-blog-friend:hover, a.tx-blog-friend:active { color: #333333 !important; } /* #333333 색상 게시글 색상 */ 
+	a.tx-blog-sns-title, .tx-blog-sns-info, .tx-blog-sns-info a:link, .tx-blog-sns-info a:hover, .tx-blog-sns-info a:visited, .tx-blog-sns-info a:active { font-family: '돋움', 'dotum', 'sans-serif'; color : #333333 !important; /* #333333 색상 게시글 색상 */ line-height: 1.3; }
+		
+	/*sns에 공유하기*/
+	.article_to_sns_wrap { height: 95px; clear: both; margin: 25px auto 0 auto; padding: 0; position: relative; text-align: center; color:#4c4c4c; z-index: 2; }
+	.article_to_sns_box { display: inline-block; position: relative; width: 266px; height: 24px; padding: 0; margin: 0; }
+	.article_to_sns_bg { background: url('http://i1.daumcdn.net/pimg/blog4/admin/sns_bg_n4.png') no-repeat 0 0;  _background: none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/admin/sns_bg_n4.png',sizingMethod='crop'); width: 266px; height: 24px; padding: 0; margin: 0; }
+	.article_to_twitter, .article_to_mypeople, .article_to_more, .article_to_facebook { height: 24px; padding: 0; margin: 0; position: absolute; top: 0; overflow: hidden; text-indent: -9999em; }
+	.article_to_mypeople { width: 78px; left: 0; }
+	.article_to_twitter { width: 64px; left: 78px; }
+	.article_to_facebook { width: 69px; left: 142px; }
+	.article_to_more { width: 55px; left: 211px; }
+	.sns_more a.article_to_etc { color: #4c4c4c; text-decoration: none; display: block; text-align: left; overflow: hidden; height: 22px; width: 92px; width: 97px\9; padding-left: 5px; cursor: pointer; position: relative; letter-spacing:-1px; }
+	.sns_more a.article_to_etc:hover { color: #555; text-decoration: none; background: url('http://i1.daumcdn.net/pimg/blog4/admin/sns_over_n.gif') no-repeat 0 0; }
+	.sns_more_wrap { display: none; position: absolute; top: 23px; left:163px; }
+	.article_to_sns_wrap .sns_more { width: 97px; height: 44px; margin: 0; padding: 3px; background: url('http://i1.daumcdn.net/pimg/blog4/admin/sns_l_bg.png') no-repeat 0 0; _background: none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/admin/sns_l_bg.png',sizingMethod='crop'); }
+	.nate_icon, .me2day_icon, .yozm_icon { vertical-align: -2px; width: 13px; height: 13px; margin: 4px 6px 0 0; }
+	.nate_icon { background: url('http://i1.daumcdn.net/pimg/blog4/admin/i_cyworld.png') no-repeat 0 0; _background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/admin/i_cyworld.png', sizingMethod='crop'); }
+	.me2day_icon { background: url('http://i1.daumcdn.net/pimg/blog4/admin/i_me2day.gif') no-repeat 0 0; }
+	.yozm_icon { background: url('http://pimg.daum-img.net/blog4/admin/i_yozm_3.png') no-repeat 0 0; _background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://pimg.daum-img.net/blog4/admin/i_yozm_3.png', sizingMethod='crop');  }
+	
+	/* viewADbox table clear */
+	.txc-table { clear: both; }
+	.txc-info { margin: 0 auto !important; }
+	
+	#DaumBlogMap { margin-top: 20px; }
+</style>
+<script type="text/javascript">
+<!--
+	var contents_article_no = "11313276";
+	var looping = "0";
+	var BLOGID= "0Dm0t";
+	var isblock =  true ;
+	isblock = parent.document.getElementById("div_" + contents_article_no).oncontextmenu() || isblock;
+	if(isblock) {
+		document.write("<meta http-equiv=\"imagetoolbar\" content=\"no\">");
+		document.oncontextmenu = function() { return false; };
+		document.onselectstart = function() { return false; };
+		document.ondragstart = function() { return false; };
+		if (document.addEventListener){
+			document.addEventListener('selectstart', blockContent, false);
+			document.addEventListener('dragstart', blockContent, false);
+			document.addEventListener('contextmenu', blockContent, false);
+			document.addEventListener('copy', blockContent, false);
+			document.addEventListener('keydown', blockContent, false);
+			document.onmousedown = disableselect;
+    		document.onmouseup = reEnable;
+		} else if (document.attachEvent){
+			document.attachEvent('onselectstart', blockContent);
+			document.attachEvent('ondragstart', blockContent);
+			document.attachEvent('oncontextmenu', blockContent);
+			document.attachEvent('oncopy', blockContent);
+		}
+	}
+//-->
+</script><meta http-equiv="imagetoolbar" content="no">
+<link id="fontStyle" rel="stylesheet" type="text/css" href="002.css">
+</head>
+<body bgcolor="transparent" onload="articleFileViewGeneration();">
+	
+
+<div id="cContent" style="margin: 0 0 10px 0;">
+	<div id="contentDiv" class="cContentBody" style="margin: 0 0 0 0;">
+
+		 			<link rel="stylesheet" href="contents4view.css" type="text/css" charset="utf-8">
+		<style type="text/css">
+	<!--
+		div { color: #333333; }
+		li { color: #333333; }
+		a, a:link, a:hover, a:visited { color: #333333; }
+		td { color: #333333; }
+		.txc-search-border { border-color: #333333; }
+		.me2day_daily_digest p, .me2day_daily_digest a, .me2day_daily_digest a:hover { font: 11px '돋움', dotum, sans-serif; }
+	//-->
+	</style>
+																			<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span style="FONT-SIZE: 18pt">Transistor 트랜지스터란 </span></strong></p><span style="FONT-SIZE: 10pt"><!--StartFragment--></span>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">트랜지스터 (영어: transistor)는 증폭 작용과 스위칭 역할을 하는 반도체소자이다. </span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt">1948년 미국의 벨 연구소에서 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><font color="#660058">월터 브래튼, 윌리엄 쇼클리, 존 바딘이 </font>처음 만들었다</span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">트랜지스터는 기본적으로는 전류를 증폭할 수 있는 부품이다.</span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">아날로그 회로에서는 매우 많은 종류의 트랜지스터가 사용되지만, </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">디지털 회로에서는 그다지 많은 종류는 사용하지 않는다.</span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">디지털 회로에서는 ON 아니면 OFF의 2치신호를 취급하기 때문에 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">트랜지스터의 증폭 특성에 대한 차이는 별로 문제가 되지 않는다.</span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">회로 기능은 대부분이 IC로 처리하는 경우가 많다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">디지털 회로에서 트랜지스터를 사용하는 경우는 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">릴레이라고 하는 전자석 스위치를 동작시킬 때<font face="굴림">나, </font></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><font face="굴림">발광 다이오드를 제어하는 경우 등이다.</font></span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><strong><font color="#ff0000">(릴레이는 구동전류를 많이 필요로 하기 때문에 IC만으로는 감당하기 어려운 경우가 있다).</font></strong></span></span></p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><img src="1968AB224CEC93802F7272" class="txc-image" style="clear: none; float: none; cursor: pointer;" actualwidth="324" hspace="1" width="324" vspace="1" border="0" id="A_1968AB224CEC93802F7272" isset="true"></span></span></p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글" style="TEXT-ALIGN: center">&nbsp;</p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">회로 기호는 PNP 타입은 , NPN 타입은 으로 표시한다</span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">트랜지스터는 반도체 다이오드의 기능을 포함하면서 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">증폭·발진·스위칭·정류·검파 등의 기능을 가지기 때문에 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">진공관과 다음과 같이 구분할 수 있다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">장점으로는 pnp와 npn의 두 가지 종류가 있는 것, </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">저전압·소전력으로 동작시킬 수 있는 것, </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">형태가 매우 작은 것, 수명이 긴 것 등을 들 수 있다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">단점으로는 특성이 온도의 지배를 받기 쉬운 것, </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">고온에서는 동작하지 못하는 것, 초고주파 등에서 아직 전력이 약한 것 등을 들 수 있다.</span></span></p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><img src="17610E224CEC939A23B860" class="txc-image" style="clear: none; float: none; cursor: pointer;" actualwidth="375" hspace="1" width="375" vspace="1" border="0" id="A_17610E224CEC939A23B860" isset="true"></span></span></p>
+<p class="바탕글"><span style="FONT-SIZE: 10pt">&nbsp; </span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">트랜지스터는 크게 양극성 트랜지스터와 단극형 트랜지스터로 분류된다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">흔히 트랜지스터라고 하면 양극성 트랜지스터를 의미한다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">양극성 트랜지스터는 기본적으로는 2개의 p-n 접합의 결합으로 구성되는데, </span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt">n 또는 p 영역이 2개의 p-n 접합에 공통적이기 때문에 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">그림과 같이 각각 p-n-p형의 트랜지스터 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">또는 n-p-n형의 트랜지스터가 된다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">전극은 이미터, 베이스 및 컬렉터라고 한다. </span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt">p-n-p형의 n영역과 p-n-n형의 p영역은 베이스 영역이라고 한다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">트랜지스터에 전압이 가해지면 한 p-n 접합은 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">순방향(forward di-rection)으로 </span></span><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">바이어스되고 다른 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">p-n 접합은 역방향(reverse direction)으로 바이어스된다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">전류는 순방향으로 바이어스된 p-n 접합을 통해서 흐른다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">이때에 전자는 n형의 영역에서 베이스 영역으로 흘러 들어가고 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">홀(hole)은 </span></span><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">베이스 영역에서 n형의 영역으로 흘러 들어간다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">이 접합을 이미터-베이스 접합(emitter-base junction)이라고 하는데, </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">이때에 이미터가 n형의 영역이다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">베이스로 들어가는 전자는 역방향으로 바이어스 된 p-n 접합 쪽으로 확산된다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">일단 이들 전자가 이 p-n 접합의 공핍층(depletion layer)에 들어가면 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">컬렉터가 있는 다른 n형의 영역으로 쓸려 들어가 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">이 전극의 최하 에너지대(energy band)에 들어간다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">베이스 내의 홀이 베이스를 떠나서 순방향으로 바이어스된 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">이미터-베이스 접합을 통해 이미터로 들어가고, </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">거기에서 이미터로부터 주입된 전자와 재결합함에 따라 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">베이스 내의 홀의 집중도는 떨어진다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">이 결과로 p-n 접합의 순방향 전압이 떨어져서 전류가 정지될 수 있다. </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">만일 베이스 영역이 회로 내의 적절한 점에 접속되어 </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">이미터-베이스 접합이 순방향으로 바이어스된 상태로 유지되면, </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">전자는 베이스 영역에서 흘러나와 홀의 집중을 유지하고, </span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt">따라서 전류는 컬렉터에서 이미터로(즉 전자 흐름의 반대 방향으로) 계속 흐르게 된다.</span></span></p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><strong><span style="FONT-SIZE: 18pt">트랜지스터 검사 방법</span></strong></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>회로 시험기의 전환 스위차를 x1R 위치에 놓고 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>두 개의 리드봉을 붙여 <font color="#0900ff">0Ω</font>으로 조정한다.</strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>트랜지스터는 3개의 다리 <font color="#0900ff">E, B, C </font>가 있는데 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>이미터(<font color="#ff0000">E</font>) 다리는 가운데 위치하지 않고 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>반드시 양쪽 끝에 있다.</strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>글씨가 보이게 놓은 상태에서 검정색 리드봉을 맨 왼쪽에 대고 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>남은 두 다리에 빨간색 리드봉을 연결하여 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>지침이 움이는지를 확인하여 본다.</strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>움직이지 않으면 검정 리드선 자리에 빨간 리드선을 바꾸어 연결 하고 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>검정색 리드선을 남은 두 다리에 연결하여 지침이 두 다리 모두에서 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>움직이면 맨 왼쪽 다리는 베이스(B), </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>가운데 다리는 컬렉터(C)이며 오른쪽 다리가 이미터(E)가 되면 </strong></span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><strong>PNP형의 트랜지스터임을 알 수 있다.</strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>반대로 트랜지스터의 맨 왼쪽 다리에 연결했던 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>리드봉 색깔이 빨간색이 아니고 검정색이면서 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>남은 두 다리 모두에서 움직이면 NPN형이다. </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>두 다리 모두에서 움직이지 않고 한쪽 다리에서만 움직이면 움직이는 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>다리에 있는 리드선은 그대로 고정시켜 두고 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>움직이지 않는 쪽 다리의 리드선을 남은 두 다리에 연결하면 양쪽 모두에서 움직이게 된다. 이 때 고정시켜 놓았던 다리가 가운데이면 가운데 다리가 베이스(B), </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>왼쪽 다리가 이미터(E), 맨 오른쪽 다리가 컬렉터(C)이고, </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>고정시켜 놓았던 다리가 오른쪽이면 오른쪽 다리가 베이스(B), </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>가운데 다리가 컬렉터(C), 왼쪽 다리가 이미터(E)이다. </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>가운데 또는 오른쪽에 고정시켜 놓았던 회로시험기의 </strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong>리드봉의 색깔이 검정색이면 NPN형이고 반대로 빨간색이면 PNP형이다.</strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong></strong></span></span>&nbsp;</p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong><img src="154198204CEC94C2236DD8" class="txc-image" style="clear: none; float: none; cursor: pointer;" actualwidth="207" hspace="1" width="207" vspace="1" border="0" id="A_154198204CEC94C2236DD8" isset="true"><img src="151EA8214CEC956F2CBCCF" class="txc-image" style="clear: none; float: none; cursor: pointer;" actualwidth="137" hspace="1" width="137" vspace="1" border="0" id="A_151EA8214CEC956F2CBCCF" isset="true"></strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong></strong></span></span>&nbsp;</p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong></strong></span></span>&nbsp;</p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong></strong></span></span>&nbsp;</p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong><img src="172170214CEC946E201F8D" class="txc-image" style="clear: none; float: none; cursor: pointer;" actualwidth="141" hspace="1" width="141" vspace="1" border="0" id="A_172170214CEC946E201F8D" isset="true"></strong></span></span></p>
+<p class="바탕글"><span style="FONT-FAMILY: 바탕"><span style="FONT-SIZE: 10pt"><strong></strong></span></span>&nbsp;</p>
+<p class="바탕글" style="TEXT-ALIGN: center">&nbsp;</p>
+<p class="바탕글"><strong><span style="FONT-SIZE: 10pt"><span style="mso-fareast-font-family: 바탕">c-b 사이</span></span></strong></p><strong>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕">0.738v</span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕">5.08M옴</span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕">전압과저항이 낮다=collector</span></p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><img src="1124DF1F4CEC948C1A2503" class="txc-image" style="clear: none; float: none; cursor: pointer;" actualwidth="157" hspace="1" width="157" vspace="1" border="0" id="A_1124DF1F4CEC948C1A2503" isset="true"></span></p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글" style="TEXT-ALIGN: center">&nbsp;</p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글" style="TEXT-ALIGN: center">&nbsp;</p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글">&nbsp;</p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕">e-b 사이</span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕">0.742v</span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕">5.22M옴</span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕">전압과저항이 상대적으로높다=emitter</span></p></strong>
+<p class="바탕글"><strong><span style="FONT-SIZE: 10pt"><font color="#ff0000">주의 !!모든 테스트는 무부하 상태에서 실행하여야 합니다.&nbsp; </font></span></strong></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><strong>1. 이미터는 반드시 양쪽 다리에 위치하게 되어 있다.</strong></span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><strong>2. 글씨가 보이게 놓은 상태에서 베이스가 가운데나 </strong></span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><strong>&nbsp;&nbsp; 오른쪽 다리인 </strong></span></span><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><strong>경우에는 반드시 왼쪽 다리가 이미터가 된다.</strong></span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><strong>3. 베이스(B)를 중심으로 베이스와 이미터(E)사이의 저항값과 </strong></span></span></p>
+<p class="바탕글"><span style="mso-fareast-font-family: 바탕"><span style="FONT-SIZE: 10pt"><strong>&nbsp;&nbsp;&nbsp; 베이스와 컬렉터(C) 사이의 저항값이 같아야 정상이다. </strong></span></span></p>
+<p class="바탕글"><strong>&nbsp; </strong></p>
+<p class="바탕글"><strong>&nbsp; </strong></p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+<p class="바탕글">&nbsp; </p>
+			
+				</div>
+		 
+															<div class="article_to_sns_wrap">
+			<div class="article_to_sns_box">
+				<div class="article_to_sns_bg"></div>
+				<a class="article_to_mypeople" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=0Dm0t&articleno=11313276&looping=0&longOpen=#" onclick="shareSNS(&#39;mypeople&#39;, &#39;http://blog.daum.net/autonics/11313276&#39;, &#39;transistor 트랜지스터란 무엇인가..&#39;, &#39; Transistor 트랜지스터란 트랜지스터 (영어: transistor)는 증폭 작용과 스위칭 역할을 하는 반도체소자이다. 1948년 미국의 벨 연구소에서 월터 브래튼, 윌리엄 쇼클리, 존 바딘이 처음 만들었다 트랜지스터는 &#39;); return false;" target="_blank">요즘</a>
+				<a class="article_to_twitter" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=0Dm0t&articleno=11313276&looping=0&longOpen=#" onclick="shareSNS(&#39;twitter&#39;, &#39;http://blog.daum.net/autonics/11313276&#39;, &#39;transistor 트랜지스터란 무엇인가..&#39;, &#39; Transistor 트랜지스터란 트랜지스터 (영어: transistor)는 증폭 작용과 스위칭 역할을 하는 반도체소자이다. 1948년 미국의 벨 연구소에서 월터 브래튼, 윌리엄 쇼클리, 존 바딘이 처음 만들었다 트랜지스터는 &#39;, &#39;&#39;, &#39;http://cfile233.uf.daum.net/image/1968AB224CEC93802F7272&#39;); return false;" target="_blank">트위터</a>
+				<a class="article_to_facebook" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=0Dm0t&articleno=11313276&looping=0&longOpen=#" onclick="shareSNS(&#39;facebook&#39;, &#39;http://blog.daum.net/autonics/11313276&#39;, &#39;transistor 트랜지스터란 무엇인가..&#39;, &#39; Transistor 트랜지스터란 트랜지스터 (영어: transistor)는 증폭 작용과 스위칭 역할을 하는 반도체소자이다. 1948년 미국의 벨 연구소에서 월터 브래튼, 윌리엄 쇼클리, 존 바딘이 처음 만들었다 트랜지스터는 &#39;, &#39;&#39;, &#39;http://cfile233.uf.daum.net/image/1968AB224CEC93802F7272&#39;); return false;" target="_blank">페이스북</a>
+				<a class="article_to_more" href="javascript:;" onmouseover="showMoreSNS(event);" onmouseout="hideMoreSNS(event);">더보기</a>
+				<div class="sns_more_wrap" id="moreSNS" onmouseout="hideMoreSNS(event);">
+					<div class="sns_more">
+						<a class="article_to_etc p11" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=0Dm0t&articleno=11313276&looping=0&longOpen=#" onclick="shareSNS(&#39;nate&#39;, &#39;http://blog.daum.net/autonics/11313276&#39;, &#39;transistor 트랜지스터란 무엇인가..&#39;, &#39; Transistor 트랜지스터란 트랜지스터 (영어: transistor)는 증폭 작용과 스위칭 역할을 하는 반도체소자이다. 1948년 미국의 벨 연구소에서 월터 브래튼, 윌리엄 쇼클리, 존 바딘이 처음 만들었다 트랜지스터는 &#39;, &#39;&#39;, &#39;http://cfile233.uf.daum.net/image/1968AB224CEC93802F7272&#39;); return false;" target="_blank"><img class="nate_icon" src="img_blank.gif">싸이월드</a>
+						<a class="article_to_etc p11" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=0Dm0t&articleno=11313276&looping=0&longOpen=#" onclick="shareSNS(&#39;me2day&#39;, &#39;http://blog.daum.net/autonics/11313276&#39;, &#39;transistor 트랜지스터란 무엇인가..&#39;, &#39; Transistor 트랜지스터란 트랜지스터 (영어: transistor)는 증폭 작용과 스위칭 역할을 하는 반도체소자이다. 1948년 미국의 벨 연구소에서 월터 브래튼, 윌리엄 쇼클리, 존 바딘이 처음 만들었다 트랜지스터는 &#39;, &#39;&#39;, &#39;http://cfile233.uf.daum.net/image/1968AB224CEC93802F7272&#39;); return false;" target="_blank"><img class="me2day_icon" src="img_blank.gif">미투데이</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="ExifViewer2.js"></script>
+<script type="text/javascript">
+var flashVersion = parent.swfobject.getFlashPlayerVersion();
+if(typeof flashVersion != "undefined" && typeof flashVersion.major != "undefined" && flashVersion.major >= 10  && typeof ExifViewer != "undefined"){
+	var getTxImages = function () {
+	    var result, txImages, images, i, len, img;
+	    result = [];
+	    images = [];
+	    txImages = document.body.getElementsByTagName("img");
+	    len = txImages.length;
+	    for (i = 0; i < len; i += 1) {
+	        img = txImages[i];
+	        if (/tx\-daum\-image|txc\-image/.test(img.className)) {
+	            images.push(img);
+	        }
+	    }
+	    	    		    		for(var i = 0, len = images.length; i < len; i++){
+	    			img = images[i];
+	    			
+	    			if(img.src == "http://cfile233.uf.daum.net/image/1968AB224CEC93802F7272"){
+	    				result.push(img);
+	    				images.splice(i, i);
+	    				break;
+	    			}
+	    		}
+	    		    		for(var i = 0, len = images.length; i < len; i++){
+	    			img = images[i];
+	    			
+	    			if(img.src == "http://cfile202.uf.daum.net/image/17610E224CEC939A23B860"){
+	    				result.push(img);
+	    				images.splice(i, i);
+	    				break;
+	    			}
+	    		}
+	    		    		for(var i = 0, len = images.length; i < len; i++){
+	    			img = images[i];
+	    			
+	    			if(img.src == "http://cfile203.uf.daum.net/image/172170214CEC946E201F8D"){
+	    				result.push(img);
+	    				images.splice(i, i);
+	    				break;
+	    			}
+	    		}
+	    		    		for(var i = 0, len = images.length; i < len; i++){
+	    			img = images[i];
+	    			
+	    			if(img.src == "http://cfile213.uf.daum.net/image/1124DF1F4CEC948C1A2503"){
+	    				result.push(img);
+	    				images.splice(i, i);
+	    				break;
+	    			}
+	    		}
+	    		    		for(var i = 0, len = images.length; i < len; i++){
+	    			img = images[i];
+	    			
+	    			if(img.src == "http://cfile210.uf.daum.net/image/154198204CEC94C2236DD8"){
+	    				result.push(img);
+	    				images.splice(i, i);
+	    				break;
+	    			}
+	    		}
+	    		    		for(var i = 0, len = images.length; i < len; i++){
+	    			img = images[i];
+	    			
+	    			if(img.src == "http://cfile240.uf.daum.net/image/151EA8214CEC956F2CBCCF"){
+	    				result.push(img);
+	    				images.splice(i, i);
+	    				break;
+	    			}
+	    		}
+	    		    	    return result;
+	};
+	var txImages = getTxImages();
+	ExifViewer.load({
+		serviceName: "blog",
+	    images: txImages,
+	    showAllItem: false,
+	    imageViewer: {
+	        templateValue: {
+				blogid: encodeURIComponent(BLOGID),
+				articleurl: encodeURIComponent("http://blog.daum.net/autonics/11313276")
+			},
+			photoList: {
+				photoListProtocol: "blogphotolistselect",
+				photoListDataFromUrl: "http://blog.daum.net/_blog/api/PhotoListSelectImageViewer.do?blogid={blogid}&articleurl={articleurl}&imageurl={imageurl}"
+			},
+			groupList: {
+				groupListProtocol: "blogcatelist",
+				groupListDataFromUrl: "http://blog.daum.net/_blog/api/CategoryList.do?blogid={blogid}"
+			},
+			data: {
+				count: txImages.length,
+				getViewingUrl: function (index) {
+					return txImages[index].src;
+				}
+			}
+		}
+	});
+}
+</script>
+<br>
+
+ 
+<div style="clear: both; line-height: 0; font-size: 0; margin: 0; padding: 0;"></div>
+
+<script type="text/javascript">
+//<!--
+	articleFileViewGeneration();
+	var myAgent = navigator.userAgent.toLowerCase();
+   	if(myAgent.indexOf("msie 8")!=-1){
+		var webFontStyleEl = parent.document.getElementById("fontStyle"); 
+		if(webFontStyleEl) webFontStyleEl.styleSheet.cssText = webFontStyleEl.styleSheet.cssText;
+	}
+	
+	var ImageErrorChecker = {
+		process: function() {
+			var articleArea = daum.$("contentDiv");
+			var articleImages = daum.$T("img", articleArea);
+			
+			for(var i = 0; i < articleImages.length; i ++) {
+				var id = "imageCheckerTempId_" + i;
+				if(articleImages[i].id == null || articleImages[i].id == "") {
+					articleImages[i].id = id;
+				} else {
+					id = articleImages[i].id;
+				}
+				this.addHandlers(daum.$(id));
+			}
+		},
+		addHandlers: function(original) {
+			var img = new Image();
+			img.id = original.id;
+			img.src = original.src;
+			img.onload = function(e) {}
+			img.onerror = function() {
+				original.src = "http://i1.daumcdn.net/cafeimg/blog3/image_not_found.png";
+				original.width = 200;
+				original.height = 200;
+			}
+		},
+		loadImage: function(e) {},
+		showErrorImage: function(e) {
+			var ev = e || window.event, target = ev.target || ev.srcElement, key;
+			var target = ev.target;
+			target.src = "http://i1.daumcdn.net/cafeimg/blog3/image_not_found.png";
+			target.width = 200;
+			target.height = 200;
+		}
+		
+	};
+
+	ImageErrorChecker.process();
+	
+//-->
+</script>
+<div style="position: absolute; z-index: 99999; top: -99999px; left: -99999px; width: 72px; height: 20px; overflow: hidden; background-image: url(http://s1.daumcdn.net/editor/easel/img0/btn_info.png); cursor: pointer; background-position: initial initial; background-repeat: initial initial;"></div><div style="position: absolute; z-index: 99999; top: -99999px; left: -99999px; width: 72px; height: 20px; overflow: hidden; background-image: url(http://s1.daumcdn.net/editor/easel/img0/btn_viewer.png); cursor: pointer; background-position: initial initial; background-repeat: initial initial;"></div><div style="overflow: hidden; position: absolute; z-index: 99999; left: -99999px; top: -99999px; width: 164px; text-align: left;"><div style=""></div><div style="position:absolute;left:0;top:0;width:100%;height:300px;background-color:#000;opacity:0.65;FILTER:alpha(opacity=65);"></div><div style="position:absolute;z-index:2;left:0;top:0;width:100%;height:300px;background-color:#FFF;opacity:0;FILTER:alpha(opacity=0);"></div></div></body></html>

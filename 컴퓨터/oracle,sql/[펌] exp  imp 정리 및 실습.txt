@@ -1,0 +1,743 @@
+[펌] exp / imp 정리 및 실습 
+## export
+
+
+형식 :  EXP KEYWORD=값 또는 KEYWORD=(값1,값2,...,값N)
+
+예    :  EXP SCOTT/TIGER GRANTS=Y TABLES=(EMP,DEPT,MGR)
+           또는 T1이 분할된 테이블인 경우 TABLES=(T1:P1,T1:P2)
+
+ 
+
+예 ) exp scott/tiger file=emp.dmp log=emp.log tables=emp direct=y
+예 ) exp system/oracle file=full.dmp full=y indexes=n triggers=n
+예 ) exp system/oracle file=scott.dmp owner=scott rows=n
+
+ 
+
+option
+
+수많은 exp 옵션들... 다 외울순 없다..
+
+exp help=y 
+
+하게 되면 친절히 설명해주니 기억이 나지 않을시 참고 하도록 하자
+
+
+scott/tiger                           : db 유저/password
+full                                       : 해당 db 전체 데이터 추출 여부(기본값 N)
+buffer                                   : 작업 단위의 크기 설정
+owner                                  :  db 유저별 오브젝트 추출 설정
+file                                       : 추출한 데이터를 저장할 파일 이름 설정
+tables                                  : 데이터를 추출할 대상 테이블 설정
+compress                            :  익스텐트 통합 여부를 지정(기본값 Y)
+grants                                  : 오브젝트 권한 설정에 대한 정보 추출 여부(기본값 Y)
+indexes                                : 인덱스 스크립트 추출 여부(기본값 Y)
+direct                                   : 직접 경로로 export 수행 여부(기본값 N)
+triggers                                  : 트리거 정보 추출 여부(기본값 Y)
+log                                       : 로그를 저장할 파일 지정
+rows                                     : 테이블의 데이터 추출 여부(기본값 Y)
+consistent                             : 대상 테이블의 읽기 일관성 지정(기본값 N)
+constraints                            : 제약 조건의 추출 여부(기본값 Y)
+parfile                                 :  파라메터 파일을 export시 적용
+INCTYPE                               : 증분 엑스포트 유형
+RECORD                               : 증분 엑스포트 추적(기본값 Y)
+
+OBJECT_CONSISTENT            : 객체 엑스포트 동안 읽기 전용으로 설정된 트랜잭션(N)
+FEEDBACK                            : 매 x행마다 진행 상황 표시(0)
+FILESIZE                             : 각 덤프 파일의 최대 크기
+FLASHBACK_SCN                   : 세션 스냅샷을 되돌리는 설정에 사용된 SCN
+FLASHBACK_TIME                  : 지정된 시간에 가장 가까운 SCN을 가져오는 데 사용된 시간
+QUERY                                 : 테이블의 부분 집합을 엑스포트하는 데 사용된 select 절
+RESUMABLE                          : 공간 관련 오류가 발생하면 일시 중지됨(N)
+RESUMABLE_NAME                : 재개 가능한 명령문을 식별하는 데 사용된 텍스트 문자열
+RESUMABLE_TIMEOUT            : RESUMABLE 대기 시간
+TTS_FULL_CHECK                   : TTS에 대한 전체 또는 부분 종속성 검사 수행
+TABLESPACES                     : 엑스포트할 테이블스페이스 목록
+TRANSPORT_TABLESPACE : 이동 가능한 테이블스페이스 메타 데이터 엑스포트(N)
+TEMPLATE                             : iAS 모드 엑스포트를 호출하는 템플리트 이름
+
+ 
+
+** compress 옵션을 Y로 설정 하여 사용하면 여러개의 익스텐트가 하나의 큰 익스텐트로 통합된다
+   실제 운영에서는 익스텐트를 통합하는것은 좋지 않으므로 반드시 compress 옵션을 N로 설정 한다.
+** direct 옵션을 사용하면 SGA를 사용하지 않고 export/import 하게 되며 
+   추출 및 적재 작업시 보다 빠른 속도를 보장 받는다.
+** comsistent 옵션을 Y로 설정하면 export를 수행한 시점의 데이터를 추출한다.
+   export 중 변경된 데이터는 언두 데이터를 이용해서 이전 값을 추출한다.
+   따라서 'snap shot too old' 에러가 발생하기 쉽다.
+
+
+## export 작업시 주의 사항
+
+** full, ower 및 tables 옵션은 동시 사용 불가
+** direct=Y인 경우 consistent=y로 설정 불가
+** full=Y로 expor를 수행하기 위해서는 exp_full_database 권한 필요
+
+ 
+
+----- 추출 파일의 크기를 확인하는 SQL
+
+SQL> select sum(bytes)/1024/1024
+     from dba_segments
+     where segment_name='TEST';
+
+ 
+
+export 작업을 수행 하면 실제 테이블의 크기보다 작게 생성된다.
+위 SQL을 수행하여 나온 크기만큼 디스크의 크기를 확보하면 export 작업을 수행하는데 충분하다.
+또한 추출 파일에는 해당 테이블의 인덱스를 생성할 수 있는 정의만 저장하므로 별도의 디스크공간은 필요하지 않다.
+하지만 import 시에는 실제 인덱스를 생성하므로 인덱스 테이블스페이스에 여유 공간을 확보해야한다.
+
+
+## import
+
+-- import 순서 : 테이블 생성 > 데이터 적재 > B*트리 인덱스 생성 > 제약조건 > 트리거 및 비트맵 인덱스 생성
+
+ 
+
+예 ) imp scott/tiger file=emp.dmp log=emp.log tables=emp
+예 ) system/manager file=full.dmp log=full.log full=y
+예 ) system/manager file=scott.dmp fromuser=scott touser=mike
+
+ 
+
+option
+
+scott/tiger                         : db 유저 / password
+full                                     : 전체 db에 대해 import 여부(기본값 N)
+buffer                                 : 작업 단위의 크기 지정
+fromuser                       : export한 테이블의 소유자 지정
+touser                                : import되는 테이블의 소유자 지정
+tables                                : import 대상 테이블 지정
+ignore                                : import 대상 테이블이 존재할 경우 에러 발생 여부(기본값 N)
+grants                                 : 권한 적재 여부 지정 (기본값 Y)
+indexes                             : index 생성 여부(기본값 Y)
+commit                               : import 수행중 커밋 수행여부, 
+                                           Y로 지정할 경우 buffer 옵션 단위로 커밋 수행(기본값 N)
+rows                                   : 테이블의 데이터 적재 여부(기본값 Y)
+log                                     : 로그를 저장할 파일 지정
+constrainsts                      : 제약 조건 적재 여부(기본값 Y)
+parfile                                : 파라메터 파일을 지정하여 import 작업시 적용
+
+SHOW                                 : 파일 목차만 목록 (기본값 N)
+RECORDLENGTH IO               : 레코드의 길이
+INCTYPE                              : 증분 임포트 유형
+DESTROY                             : 테이블스페이스 데이터 파일 겹쳐쓰기(기본값 N)
+INDEXFILE                          : 지정된 파일에 테이블/인덱스 정보 쓰기
+SKIP_UNUSABLE_INDEXES     : 사용되지 않은 인덱스들의 유지를 건너뜁니다 (기본값 N)
+FEEDBACK                           : 매 x행마다 진행 상황 표시(기본값 0)
+TOID_NOVALIDATE                : 지정된 유형 ID 검증 건너뛰기
+FILESIZE                            : 각 덤프 파일의 최대 크기
+STATISTICS                          : 미리 계산된 통계 임포트(항상)
+RESUMABLE                         : 공간 관련 오류가 발생하면 일시 중지됨(기본값 N)
+RESUMABLE_NAME               : 재개 가능한 명령문을 식별하는 데 사용되는 텍스트 문자열
+RESUMABLE_TIMEOUT          : RESUMABLE 대기 시간
+COMPILE                              : 프로시저, 패키지 및 함수 컴파일(기본값 Y)
+STREAMS_CONFIGURATION   : 일반 스트림 메타 데이터 임포트(기본값 Y)
+STREAMS_INSTANTIATION      : 스트림 인스턴스화 메타 데이터 임포트(기본값 N)
+
+ 
+
+아래의 키워드만이 이동가능한 테이블스페이스에 적용할 수 있다.
+
+TRANSPORT_TABLESPACE  : 이동가능한 테이블스페이스 메타데이터을 임포트합니다 (기본값 N)
+TABLESPACES                     : 데이터베이스안에 테이블스페이스가 이동되었습니다
+DATAFILES                            : 데이터베이스안에 데이터 파일들이 이동되었습니다
+TTS_OWNERS                          : 이동가능한 테이블스페이스 설정에 데이터를 소우하고 있는 사용자
+
+ 
+
+## import 작업시 주의 사항
+
+** full 옵션과 tables 옵션은 동시 사용 불가
+** full=y 및 touser 옵션을 사용하기 위해서는 imp_fyll_database 권한 필요
+** 적은 양의 데이터 import 경우를 제외하곤 commit 옵션을 Y로 설정 권장.
+** export 시와 동일한 tablespace가 존재하지 않을 경우 유저 default tablespace로 import 된다
+   system 유저로 import 하게 되면 system tablespace에 일반 유저 세그먼트가 생성 될수 있으므로
+   반드시 export시 tablespace와 동일한 이름의 tablespace를 생성한 후 작업을 수행해야한다.
+
+ 
+
+------------------------- exp/imp 실습 --------------------------
+
+실습 준비 사항
+
+SQL> create tablespace test datafile 'D:\ORACLE\PRODUCT\10.2.0\ORADATA\ORCL\TEST1.DBF' size 1m;
+
+SQL> alter tablespace test add datafile 'D:\ORACLE\PRODUCT\10.2.0\ORADATA\ORCL\TEST2.DBF' size 1m;
+
+SQL> alter tablespace test add datafile 'D:\ORACLE\PRODUCT\10.2.0\ORADATA\ORCL\TEST3.DBF' size 1m;
+
+SQL> create user orcl identified by orcl
+  2  default tablespace test;
+
+SQL> grant connect, resource, select any table to orcl;
+
+SQL> grant exp_full_database, imp_full_database to orcl;            // exp, imp database 사용시
+
+SQL> create table orcl.test as select * from scott.emp;
+
+
+------------------------- exp/imp database --------------------------
+
+## exp 백업의 이름을 잘 정해야 한다. 해당 백업 파일을 언제 누가 보든 쉽게 이해할수있도록 룰을 잘 정해야한다.
+## exp의 경우 datapump와 다르게 디렉토리 지정이 없다.
+## exp 할 대상 경로로 이동해 실행하거나, 
+## file=[ 경로명 ]\test.dmp , log=[ 경로명 ]\test.log 와 같이 직접 지정해야한다.
+
+
+D:\test>exp orcl/orcl full=y log=test.log file=test.dmp
+
+엑스포트가 경고 없이 정상적으로 종료되었습니다.
+
+D:\test>dir
+
+2009-04-15  오후 01:12        82,259,968 test.dmp
+2009-04-15  오후 01:12            61,816 test.log
+
+D:\test>imp orcl/orcl full=y file=testfull.dmp
+.
+.
+IMP-00015: 객체가 이미 존재하므로 다음 명령이 실패했습니다
+ "CREATE UNDO TABLESPACE "UNDOTBS1" BLOCKSIZE 8192 DATAFILE  'D:\ORACLE\PRODU"
+ "CT\10.2.0\ORADATA\ORCL\UNDOTBS01.DBF' SIZE 62914560       AUTOEXTEND ON NEX"
+ "T 5242880  MAXSIZE 32767M EXTENT MANAGEMENT LOCAL "
+.
+.
+
+########## 완료시 경고성 완료가 될수 있다. 이유? 당연히 DB가 멀쩡히 있기 때문이다.
+########## 작업중 err를 발생할 수도 있다.. 걱정마라 system 관련 parameter 또는 동적 뷰다.
+########## system 관련 데이터까지 모두 날릴순 없지 않은가..
+########## 그럼 어떨때 export/import database를 쓸까??
+########## 마이그레이션 작업할때 쓴다!!!
+
+ 
+
+D:\test>imp orcl/orcl full=y file=testfull.dmp ignore=y
+
+엑스포트 파일은 직접 경로를 거쳐 EXPORT:V10.02.01 에 의해 생성되었습니다
+KO16MSWIN949 문자집합과 AL16UTF16 NCHAR 문자 집합에 임포트가 완성되었습니다
+. SYSTEM 객체를 SYSTEM(으)로 임포트하는 중입니다
+. OLAPSYS 객체를 OLAPSYS(으)로 임포트하는 중입니다
+.
+.
+
+
+-------------------------- exp/imp transport_tablespace --------------------------
+
+같은 환경을 가진 두개 이상의 분산 DB 환경에서 어떤 DB가 가진 여러개의 데이터 파일을 다른 DB로 이동 시키는 기능.
+
+ 
+
+------- 주의사항
+## transport_tablespace를 사용하려면 해당 tablespace를 read only 시켜야 한다.
+## tablespace내 하나의 특정 데이터 파일만 이동 할수 없다.
+## 같은 환경을 가진 OS에서만 가능함.
+## 오라클 8i 이상 사용 가능.
+## DB_BLOCK_SIZE 파라메터의 값이 같아야 함.
+## 같은 언어타입을 사용해야함.
+## VARRAY 타입과 중첩 테이블 컬럼이 있는 테이블은 사용할수 없음.
+## bit-map-index는 사용할수 없음.
+
+## LOB 타입을 가진 테이블 또는 분할 테이블은 사용할수 있음.
+
+
+SQL> conn orcl/orcl
+연결되었습니다.
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+ 
+
+SQL> conn / as sysdba
+연결되었습니다.
+
+
+SQL> select tablespace_name, status from dba_tablespaces;
+
+TABLESPACE_NAME                STATUS
+------------------------------ ---------
+SYSTEM                                  ONLINE
+UNDOTBS1                               ONLINE
+SYSAUX                                  ONLINE
+TEMP                                      ONLINE
+USERS                                     ONLINE
+EXAMPLE                                ONLINE
+TEST                                       ONLINE
+
+7 개의 행이 선택되었습니다.
+
+ 
+
+SQL> alter tablespace test read only;         // export transport tablespace 하려면 
+테이블스페이스가 변경되었습니다.              // tablespace를 read only로 변경해야한다
+
+
+SQL> exit
+
+
+-------------------- export transport tablespace 시작
+D:\test>exp '/ as sysdba' file=aaa.dmp transport_tablespace=y tablespaces=test
+.
+.
+엑스포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+D:\test>sqlplus / as sysdba
+
+ 
+
+SQL> drop tablespace test including contents;
+
+테이블스페이스가 삭제되었습니다.
+
+ 
+
+SQL> select * from orcl.test;                   // tablespace가 삭제 되어서 table을 찾을수 없다.
+select * from orcl.test
+              *
+1행에 오류:
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+ 
+
+SQL> exit
+
+------------------------- aaa.dmp 파일을 이용한 tablespace import
+D:\test>imp '/ as sysdba' file=aaa.dmp transport_tablespace=y tablespaces=test datafiles=D:\ORACLE\P
+임포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+D:\test>sqlplus orcl/orcl
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+ 
+
+SQL> select tablespace_name, status from dba_tablespaces;           
+
+TABLESPACE_NAME                STATUS
+------------------------------ ---------
+SYSTEM                         ONLINE
+UNDOTBS1                       ONLINE
+SYSAUX                         ONLINE
+TEMP                           ONLINE
+USERS                          ONLINE
+EXAMPLE                        ONLINE
+TEST                           READ ONLY
+
+7 개의 행이 선택되었습니다.
+
+ 
+
+SQL> alter tablespace test read write;               // import 완료 했으므로 다시 online으로 변경
+
+테이블스페이스가 변경되었습니다.
+
+
+------------------------------------- exp/imp table--------------------------------------
+
+예 ) exp orcl/orcl file=test.dmp log=test.log tables=test
+예 ) exp orcl/orcl file=test.dmp log=test.log tables=scott.emp
+예 ) exp orcl/orcl file=test.dmp log=test.log tables=(scott.emp, hr.employees, scott.dept)
+
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+ 
+
+D:\test>exp orcl/orcl file=test.dmp log=test.log tables=ss
+.
+.
+엑스포트가 경고 없이 정상적으로 종료되었습니다.
+
+
+####### case 1) table을 drop 한 경우 #######
+
+SQL> drop table test;
+
+ 
+
+SQL> select count(*) from test;
+select count(*) from test
+                     *
+1행에 오류:
+ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+
+ 
+
+D:\test>imp orcl/orcl file=table.dmp tables=test
+임포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+
+####### case 2) table을 delete 한 경우 #######
+
+SQL> delete test;
+
+14 행이 삭제되었습니다.
+
+ 
+
+SQL> select * from test;
+
+선택된 레코드가 없습니다.
+
+ 
+
+SQL> commit;
+
+커밋이 완료되었습니다.
+
+ 
+
+D:\test>imp orcl/orcl file=table.dmp tables=test
+.
+.
+ "CREATE TABLE "TEST" ("EMPNO" NUMBER(4, 0), "ENAME" VARCHAR2(10), "JOB" VARC"
+ "HAR2(9), "MGR" NUMBER(4, 0), "HIREDATE" DATE, "SAL" NUMBER(7, 2), "COMM" NU"
+ "MBER(7, 2), "DEPTNO" NUMBER(2, 0))  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRA"
+ "NS 255 STORAGE(INITIAL 65536 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFA"
+ "ULT)                   LOGGING NOCOMPRESS"
+경고와 함께 임포트가 정상 종료되었습니다.
+
+ 
+
+// imp table을 할때 create table 구문이 들어가 있다.
+// 즉, table의 row는 없더라도 같은 이름의 table이 있다면 import 되지 않는다.
+// 이러한 경우 ignore=y 옵션을 사용한다.
+
+D:\test>imp orcl/orcl file=table.dmp tables=test ignore=y
+
+임포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+
+####### case 2) data가 들어있는 table에 ignore 옵션을 사용할 경우 #######
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+ 
+
+D:\test>imp orcl/orcl file=table.dmp tables=test ignore=y
+
+임포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        28
+
+ 
+
+// row수가 14개 더 늘어난걸 볼수있다.
+// ignore 옵션은 해당 테이블에 중복 데이터가 있으면 해당 데이터를 덮어 쓰는게 아니다.
+
+ 
+
+----------------------------------- exp/imp owner ---------------------------------------
+
+D:\test>exp '/ as sysdba' file=user.dmp log=user.log owner=orcl
+
+엑스포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+SQL> drop user orcl cascade;                    // 해당 유저와 유저의 데이터까지 모두 삭제.
+
+사용자가 삭제되었습니다.
+
+ 
+
+SQL> create user orcl identified by orcl
+  2  default tablespace test;
+
+사용자가 생성되었습니다.
+
+ 
+
+SQL> grant connect, resource to orcl;
+
+권한이 부여되었습니다.
+
+ 
+
+D:\test>imp '/ as sysdba' file=user.dmp fromuser=orcl touser=orcl
+
+경고와 함께 임포트가 정상 종료되었습니다.
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+ 
+
+------------------------------ exp/imp query ------------------------------------
+
+## export시 쿼리 문을 사용하여 해당 table내 원하는 데이터만 추출할수 있다.
+   - 테이블 레벨의 export 명령어에서만 가능하다.
+   - Direct 옵션과 함께 사용될 수 없다.
+   - Nested 테이블을 갖는 테이블에는 적용할 수 없다.
+   - Partition 테이블에 대한 export에도 적용가능하다.
+   - Import 명령에는 적용되지 않는다.
+
+ 
+
+D:\test>exp orcl/orcl file=dump.emp log=dump.log tables=orcl.test query='where empno=7788'
+
+엑스포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+------------------------------------ 참고 사항 ---------------------------------------------
+## UNIX reserved characters( ", ', ,< .. 등)를 사용하는 경우에는 escape ('') 을 반드시 사용해야 한다.
+
+ 
+
+----- win
+예 ) exp orcl/orcl file=dump.emp log=dump.log tables=orcl.test query=\"where ename like 'SCOT%'\"
+----- UNIX
+예 ) exp orcl/orcl file=dump.emp log=dump.log tables=orcl.test query=\"where ename like \'SCOT%\'\"
+
+ 
+
+## command line에서 query 내에 '," 을사용하지 않는 다면 '나 " 으로 query option을 사용할수 있다
+   query=\'where deptno = 20\'
+   query=\"where deptno = 20\"
+   query=\'where deptno \< 2\' 
+   (이 경우  single 이나  double quotes 을 둘다 사용할수 있다.)
+
+ 
+
+## command line에서 export option을 사용할때는 반드시 escape가 있어야 하나 
+   parfile을 사용할때는 eacape이 불필요하다. 
+  
+parfile을 사용하는 경우에는 다음과 같이 단순하게  사용이 가능하다.
+query='where deptno = 20'
+query="where deptno = 20"
+query='where deptno < 20'
+
+
+---------------------------------------------------------------------------------------------------
+
+
+########### case 1) ########### 
+SQL> drop table test;
+
+ 
+
+D:\test>imp orcl/orcl file=dump.emp tables=test
+
+임포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+         1
+
+
+########### case 2) ########### 
+SQL> delete from test where empno=7788;
+
+ 
+
+SQL> commit;
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        13
+
+ 
+
+D:\test>imp orcl/orcl file=table.dmp tables=test ignore=y
+
+임포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+
+// 실제로 imp된 7788사원은 해당 테이블의 가장 마지막 로우에 import 된다.
+
+
+## 그렇다면 table 단위로 emp 하고 query로 뽑아서 import 할수 있을까?
+   -> 정답은 안된다. 궁금하면 해보시라.
+   LRM-00101: 알 수 없는 'query' 매개변수 이름. 이런 메세지가 기다리고 있을것이다.
+
+ 
+
+---------------------------------- exp/imp parfile 방식 -----------------------------------
+
+## parfile 안에 해당 exp/imp 설정을 작성한후 parfile을 이용해서 exp/imp를 할수있다.
+
+ 
+
+########### exp case 1
+file=full.dmp
+log=full.log
+full=y
+direct=y
+.
+.
+
+########### exp case 2
+file=emp.dmp
+log=emp.log
+tables=scott.emp
+direct=y
+.
+.
+
+########### exp case 3
+file=scott.dmp
+log=scott.log
+owner=scott
+direct=y
+.
+.
+########### exp case 4
+file=query.dmp
+log=query.log
+tables=scott.emp
+query="where ename like 'SCOT%'"
+direct=y
+.
+.
+
+---------------------------
+// 윈도우 이기 때문에 노트 패드로 pa.par 파일을 작성 한뒤 실습 내용임
+
+
+D:\test>more pa.par
+file=table.dmp
+log=table.log
+tables=orcl.test
+direct=y
+
+ 
+
+D:\test>exp test/test parfile=pa.par
+
+엑스포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+D:\test>more impa.par
+file=table.dmp
+tables=test
+
+ 
+
+D:\test>imp orcl/orcl parfile=impa.par
+
+임포트가 경고 없이 정상적으로 종료되었습니다.
+
+ 
+
+SQL> select count(*) from test;
+
+  COUNT(*)
+----------
+        14
+
+ 
+
+--------------------------------------- DIALOG 방식 -----------------------------------
+
+D:\test>exp
+
+Export: Release 10.2.0.1.0 - Production on 수 4월 15 15:54:52 2009
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+
+사용자명: test
+암호:
+
+다음에 접속됨: Oracle Database 10g Enterprise Edition Release 10.2.0.1.0 - Production
+With the Partitioning, OLAP and Data Mining options
+배열 인출 버퍼 크기 입력: 4096 > 409
+
+엑스포트 파일: EXPDAT.DMP > 111
+
+(1)E(전체 데이터베이스), (2)U(사용자), 또는 (3)T(테이블): (2)U > 1
+
+권한부여 엑스포트 (yes/no): yes > yes
+
+테이블 데이터 엑스포트 (yes/no): yes > yes
+
+확장 영역 압축 (yes/no): yes > yes
+
+KO16MSWIN949 문자 설정과 AL16UTF16 NCHAR 문자 설정에서 엑스포트가 종료되었습니다
+
+전체 데이터베이스를 엑스포트하려고 합니다 ...
+테이블 정의 엑스포트 중
+프로파일 엑스포트 중
+사용자 정의 엑스포트 중
+.
+.
+.
+
+
+
+-출처 : 네이버카페 OCMKOREA 
+http://cafe.naver.com/ocmkorea.cafe?iframe_url=/ArticleRead.nhn%3Farticleid=4204 
+[출처] IT.DevInfo ∽ 힘든 IT개발자들의 즐거운 공유(ITDI.co.kr) - http://www.itdi.co.kr/onuri/bbs/board.php?bo_table=04_2&wr_id=128 
+ 
+
+

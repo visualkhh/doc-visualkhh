@@ -1,0 +1,40 @@
+<P>'A' DB&nbsp;&nbsp; --- DB Link --→ 'B' DB<BR>&nbsp;(로컬)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (원격지)</P>
+<P>&nbsp;</P>
+<P><STRONG><FONT color=#000000>1. 로컬 'A' DB 의 tnsnames.ora 파일에 원격지 'B' DB 접속 정보 추가</FONT></STRONG><BR>ex)<BR><STRONG><FONT color=#ff8b16>B_DB</FONT></STRONG>&nbsp;=<BR>&nbsp; (DESCRIPTION =<BR>&nbsp;&nbsp;&nbsp; (ADDRESS_LIST =<BR>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; (ADDRESS = (PROTOCOL = TCP) (HOST = 192.168.0.1) (PORT = 1521))<BR>&nbsp;&nbsp;&nbsp; )<BR>&nbsp;&nbsp;&nbsp; (CONNECT_DATA =<BR>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; (SID = ORA9)<BR>&nbsp;&nbsp;&nbsp; )<BR>&nbsp; )</P>
+<P>※ 'B' DB 접속 정보가 올바르게 입력되었는지 확인 : tnsping&nbsp;명령으로 확인할 수 있다.<BR>tnsping <STRONG><FONT color=#ff8b16>B_DB</FONT></STRONG></P>
+<P>&nbsp;</P>
+<P><STRONG><FONT color=#000000>2. DB Link 설정 명령</FONT></STRONG><BR>CREATE [PUBLIC] DATABASE LINK <STRONG><FONT color=#801fbf>DB LINK 이름</FONT></STRONG><STRONG><FONT color=#801fbf><BR></FONT></STRONG>CONNECT TO <STRONG><FONT color=#105738>유저명</FONT></STRONG><BR>IDENTIFIED BY <STRONG><FONT color=#2b8400>비밀번호</FONT></STRONG><BR>USING <STRONG><FONT color=#ff8b16>'서비스 이름'</FONT><BR></STRONG><BR>ex)<BR>CREATE&nbsp;DATABASE LINK <FONT color=#801fbf><STRONG>DBLK_B_DB<BR></STRONG></FONT>CONNECT TO <FONT color=#105738><STRONG>SCOTT</STRONG></FONT><BR>IDENTIFIED BY <STRONG><FONT color=#2b8400>TIGER</FONT></STRONG><BR><SPAN style="WIDTH: 1px; FLOAT: right; HEIGHT: 1px" id=callbackneststoringtistorycom56410><EMBED id=bootstrapperstoringtistorycom56410 height=1 type=application/x-shockwave-flash width=1 src=http://storing.tistory.com/plugin/CallBack_bootstrapperSrc?nil_profile=tistory&amp;nil_type=copied_post swLiveConnect="true" FlashVars="&amp;callbackId=storingtistorycom56410&amp;host=http://storing.tistory.com&amp;embedCodeSrc=http%3A%2F%2Fstoring.tistory.com%2Fplugin%2FCallBack_bootstrapper%3F%26src%3Dhttp%3A%2F%2Fs1.daumcdn.net%2Fcfs.tistory%2Fv%2F0%2Fblog%2Fplugins%2FCallBack%2Fcallback%26id%3D56%26callbackId%3Dstoringtistorycom56410%26destDocId%3Dcallbackneststoringtistorycom56410%26host%3Dhttp%3A%2F%2Fstoring.tistory.com%26float%3Dleft" EnableContextMenu="false" wmode="transparent" allowscriptaccess="always"></SPAN> USING <FONT color=#ff8b16><STRONG>'B_DB'</STRONG></FONT>&nbsp;</P>
+<P><FONT color=#000000><STRONG><FONT color=#000000>※ tnsnames.ora 추가 없이 DB Link 설정하기</FONT></STRONG><BR>tnsnames.ora 에 원격지 'B' DB 정보 추가 없이 아래와 같이 CREATE DATABASE LINK 명령에 직접 기술함으로 추가할 수도 있다.</FONT></P>
+<P><FONT color=#000000>ex)<BR></FONT><FONT color=#3058d2>CREATE DATABASE LINK</FONT> <FONT color=#801fbf><STRONG>DBLK_B_DB<BR></STRONG></FONT><FONT color=#3058d2>CONNECT TO</FONT> <FONT color=#174600><STRONG>SCOTT<BR></STRONG></FONT><FONT color=#3058d2>IDENTIFIED BY</FONT> <FONT color=#2b8400><STRONG>TIGER<BR></STRONG></FONT><FONT color=#3058d2>USING</FONT> <FONT color=#e31600>'(DESCRIPTION =<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (ADDRESS_LIST =<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.1)(PORT = 1521))<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (CONNECT_DATA =<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (SID = ORA9)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)'</FONT><FONT color=#3058d2>;&nbsp;</FONT></P>
+<P><FONT color=#000000>※ DB Link 설정하기 위해서는 권한이 필요하다. 만약 권한이 없다면 다음으로 권한 설정을 해준다.<BR>&nbsp;&nbsp;&nbsp; <FONT color=#3058d2>GRANT CREATE PUBLIC DATABASE LINK, DROP PUBLIC DATABASE LINK TO </FONT>user_id<FONT color=#3058d2>;</FONT></FONT></P>
+<P><FONT color=#3058d2></FONT>&nbsp;</P>
+<P><FONT color=#000000><STRONG>3. DB Link 사용<BR></STRONG></FONT><FONT color=#000000>SELECT * FORM <STRONG>TABLE명<FONT color=#e31600>@</FONT><A href="" target=""><FONT color=#801fbf>DBLK_B_DB</A></FONT></STRONG></FONT></P>
+<P><STRONG><FONT color=#801fbf></FONT></STRONG>&nbsp;</P>
+<P><FONT color=#000000><STRONG>4. DB Link 삭제</STRONG><BR>DROP DATABASE LINK <FONT color=#801fbf><STRONG>DB LINK 이름</STRONG></FONT><BR><BR>ex)<BR>DROP DATABASE LINK <STRONG><FONT color=#801fbf>DBLK_B_DB</FONT></STRONG></FONT></P>
+<P><FONT color=#000000></FONT>&nbsp;</P>
+<P><STRONG><FONT color=#000000>※ DB Link 생성 시 GLOBAL_DB_NAME - <EM>REGRESS.RDBMS.DEV.US.ORACLE.COM </EM>이 붙는&nbsp;현상</FONT><BR></STRONG>DB Link 생성 시 <STRONG><FONT color=#801fbf>DBLK_B_DB.<EM><U>REGRESS.RDBMS.DEV.US.ORACLE.COM</U></EM></FONT></STRONG> 와 같이 사용자가 정한 DB Link&nbsp;<STRONG><FONT color=#801fbf>DBLK_B_DB</FONT></STRONG> 이름&nbsp;뒤에 GLOBAL_DB_NAME 이 붙을 때는 GLOBAL_DB_NAME 을 DB_NAME 으로 변경하고 DB_LINK 를 생성하면 된다.</P>
+<P><STRONG>DB Link 이름 뒤에 붙어 있는 GLOBAL_DB_NAME 일반적으로 DB Link 사용 시에 크게 문제되지 않는다.<BR></STRONG>(그저 보기 지저분할 뿐...)</P>
+<P>단, 원격 DB&nbsp;의&nbsp;SHOW PARAMETERS GLOBAL_NAMES 의 값(Value) 이 TRUE 인 경우 GLOBAL_DB_NAME 까지 일치해야 한다.<BR>(일반적으로&nbsp;디폴트&nbsp;SHOW PARAMETERS GLOBAL_NAME 의 값은 FALSE 이다.)<BR>&nbsp;</P>
+<UL style="LIST-STYLE-TYPE: disc">
+<LI><STRONG>GLOBAL_DB_NAME 확인</STRONG><BR><FONT color=#3058d2>SELECT</FONT>&nbsp; * &nbsp;<FONT color=#3058d2>FROM</FONT> <FONT color=#ec9c2c>PROPS$</FONT> <FONT color=#3058d2>WHERE</FONT> NAME = <FONT color=#e31600>'GLOBAL_DB_NAME'</FONT><FONT color=#3058d2>; </FONT>&nbsp;(VALUE$ 컬럼 값이 GLOBAL_DB_NAME 이다)</LI>
+<LI><STRONG>DB_NAME 확인</STRONG><BR>SHOW PARAMETERS DB_NAME</LI>
+<LI><STRONG>GLOBAL_DB_NAME 의 변경<BR></STRONG><FONT color=#3058d2>UPDATE</FONT> <FONT color=#ec9c2c>PROPS$</FONT> <FONT color=#3058d2>SET</FONT> VALUE$ = <FONT color=#e31600>'&lt;DB_NAME&gt;'</FONT> <FONT color=#3058d2>WHERE</FONT> NAME = <FONT color=#e31600>'GLOBAL_DB_NAME'</FONT>;<BR>&lt;DB_NAME&gt; 은 SHOW PARAMETERS DB_NAME 으로 확인한 이름값을 넣어준다.</LI></UL>
+<P><FONT color=#e31600>GLOBAL_DB_NAME 변경 후 DB 인스턴스를 재기동 해주어야 반영된다.!!! </FONT>(shutdown immediate / Startup)</P>
+<P>&nbsp;</P>
+<DIV style="TEXT-ALIGN: right; MARGIN-BOTTOM: 10px; CLEAR: both" class=entry-ccl><IMG id=ccl-icon-56-0 class=entry-ccl-by onmouseover="tistoryCcl.show(this, 5)" onmouseout=tistoryCcl.hide() alt="저작자 표시" src="http://i1.daumcdn.net/cfs.tistory/v/0/static/admin/editor/ccl_black01.png"> <IMG id=ccl-icon-56-1 class=entry-ccl-nc onmouseover="tistoryCcl.show(this, 5)" onmouseout=tistoryCcl.hide() alt=비영리 src="http://i1.daumcdn.net/cfs.tistory/v/0/static/admin/editor/ccl_black02.png"> <IMG id=ccl-icon-56-2 class=entry-ccl-sa onmouseover="tistoryCcl.show(this, 5)" onmouseout=tistoryCcl.hide() alt="동일 조건 변경 허락" src="http://i1.daumcdn.net/cfs.tistory/v/0/static/admin/editor/ccl_black04.png"> <!--
+	<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+		<Work rdf:about="">
+			<license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/kr/" />
+		</Work>
+		<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/">
+			<permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+			<permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+			<requires rdf:resource="http://web.resource.org/cc/Notice"/>
+			<requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+			<prohibits rdf:resource="http://web.resource.org/cc/CommercialUse"/>
+		</License>
+	</rdf:RDF>
+	--></DIV>
+<SCRIPT type=text/javascript>
+if(/MSIE [0-6]\./.test(navigator.userAgent)){for(var i=0;i<3;i++){var el=document.getElementById('ccl-icon-56-'+i);el.style.filter='progid:DXImageTransform.Microsoft.AlphaImageLoader(src="'+el.src+'",sizingMethod="image")';el.src='http://i1.daumcdn.net/cfs.tistory/v/0/static/admin/form/s.gif';}}
+</SCRIPT>

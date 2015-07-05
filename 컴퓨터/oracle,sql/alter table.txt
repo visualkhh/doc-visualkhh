@@ -1,0 +1,1 @@
+alter table kht1000 modify fld_depu_nm varchar2(30);

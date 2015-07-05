@@ -1,0 +1,247 @@
+
+
+select * from dba_dml_locks;
+
+
+ select distinct x.session_id,  a.serial#,d.object_name,a.machine,a.terminal,a.program, a.logon_time
+ from gv$locked_object x, gv$session a, dba_objects d
+where x.session_id = a.sid
+and x.object_id = d.object_id
+order by logon_time ;
+
+
+alter system kill session '90,8847';
+
+
+
+
+----------------------------
+
+
+
+
+
+
+
+Oracle)Table lock 확인 및 Process Kill
+Etc... 2009/03/31 11:35
+
+ 
+
+1.lock 걸린 테이블 확인
+
+select * from dba_dml_locks
+2.해당 sid,serial 가져오기
+
+select sid, serial# from v$session 
+where sid in (select session_id from dba_dml_locks where name = 'lock 걸린 테이블 이름')
+3.해당 프로세스 킬
+
+alter system kill session ':sid:,:serial:'
+
+
+
+
+
+
+
+오라클 테이블 락 확인 및 해제 lock(9i)
+ 
+-- 테이블에 lock을 발생시킨 user를 찾을 경우가 많습니다. 
+-- 특히 OPS(RAC on 9i) system에서는 더더욱 그런 경우가 많구요. 
+-- 제가 관리하던 시스템에서 자주 썼던 sql입니다.
+-- 기타 많은 유사한 sql로 있습니다만 한번 써 보시길 바랍니다. 
+
+
+/* 락발생 사용자와 sql, object 조회 */
+
+select distinct x.session_id,  a.serial#,d.object_name,a.machine,a.terminal,a.program,b.address,b.piece, b.sql_text
+from v$locked_object x, v$session a, v$sqltext b, dba_objects d
+where x.session_id = a.sid
+and x.object_id = d.object_id
+and a.sql_address = b.address
+--and a.terminal = ''
+order by b.address,b.piece;
+
+
+
+/* 락 발생 사용자확인 */
+
+select distinct x.session_id,  a.serial#,d.object_name,a.machine,a.terminal,a.program, a.logon_time
+ --select  'alter system kill session ''' || a.sid || ',' || a.serial# || ''';'
+from gv$locked_object x, gv$session a, dba_objects d
+where x.session_id = a.sid
+and x.object_id = d.object_id
+order by logon_time;
+;
+
+
+
+/* 현재 접속자의 sql 분석 */
+
+select distinct a.sid,a.serial#,a.machine,a.terminal,a.program,b.address,b.piece, b.sql_text
+from v$session a, v$sqltext b
+where a.sql_address = b.address
+order by a.sid, a.serial#,b.address,b.piece;
+
+
+/* 접속 사용자 제거 */
+
+--alter system kill session 'session_id,serial#';
+alter system kill session '51,1111; 
+ 
+SQL> ed
+file afiedt.buf(이)가 기록되었습니다
+  1  select distinct x.session_id,  a.serial#,d.object_name,a.machine,a.terminal,a.program, a.logon_time
+  2  --select  'alter system kill session ''' || a.sid || ',' || a.serial# || ''';'
+  3  from gv$locked_object x, gv$session a, dba_objects d
+  4  where x.session_id = a.sid
+  5  and x.object_id = d.object_id
+  6* order by logon_time
+SQL> /
+SESSION_ID    SERIAL# OBJECT_NAME                                                                                                              MACHINE
+---------- ---------- -------------------------------------------------------------------------------------------------------------------------------- ---------
+------
+        11         35 MR_CMSAPPLYDT                                                                                                            MSHOME\JAEHYUK
+        11         35 MR_CMSDT                                                                                                                 MSHOME\JAEHYUK
+        12        280 MR_CMSDT                                                                                                                 MSHOME\JAEHYUK
+        14         16 MR_CMSDT                                                                                                                 MSHOME\JAEHYUK
+
+SQL> alter system kill session '11,35';
+시스템이 변경되었습니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+오라클 테이블 락 확인 및 해제 lock(9i)
+ 
+-- 테이블에 lock을 발생시킨 user를 찾을 경우가 많습니다. 
+-- 특히 OPS(RAC on 9i) system에서는 더더욱 그런 경우가 많구요. 
+-- 제가 관리하던 시스템에서 자주 썼던 sql입니다.
+-- 기타 많은 유사한 sql로 있습니다만 한번 써 보시길 바랍니다. 
+
+
+/* 락발생 사용자와 sql, object 조회 */
+
+select distinct x.session_id,  a.serial#,d.object_name,a.machine,a.terminal,a.program,b.address,b.piece, b.sql_text
+from v$locked_object x, v$session a, v$sqltext b, dba_objects d
+where x.session_id = a.sid
+and x.object_id = d.object_id
+and a.sql_address = b.address
+--and a.terminal = ''
+order by b.address,b.piece;
+
+
+
+/* 락 발생 사용자확인 */
+
+select distinct x.session_id,  a.serial#,d.object_name,a.machine,a.terminal,a.program, a.logon_time
+ --select  'alter system kill session ''' || a.sid || ',' || a.serial# || ''';'
+from gv$locked_object x, gv$session a, dba_objects d
+where x.session_id = a.sid
+and x.object_id = d.object_id
+order by logon_time;
+;
+
+
+
+/* 현재 접속자의 sql 분석 */
+
+select distinct a.sid,a.serial#,a.machine,a.terminal,a.program,b.address,b.piece, b.sql_text
+from v$session a, v$sqltext b
+where a.sql_address = b.address
+order by a.sid, a.serial#,b.address,b.piece;
+
+
+/* 접속 사용자 제거 */
+
+--alter system kill session 'session_id,serial#';
+alter system kill session '51,1111; 
+ 
+SQL> ed
+file afiedt.buf(이)가 기록되었습니다
+  1  select distinct x.session_id,  a.serial#,d.object_name,a.machine,a.terminal,a.program, a.logon_time
+  2  --select  'alter system kill session ''' || a.sid || ',' || a.serial# || ''';'
+  3  from gv$locked_object x, gv$session a, dba_objects d
+  4  where x.session_id = a.sid
+  5  and x.object_id = d.object_id
+  6* order by logon_time
+SQL> /
+SESSION_ID    SERIAL# OBJECT_NAME                                                                                                              MACHINE
+---------- ---------- -------------------------------------------------------------------------------------------------------------------------------- ---------
+------
+        11         35 MR_CMSAPPLYDT                                                                                                            MSHOME\JAEHYUK
+        11         35 MR_CMSDT                                                                                                                 MSHOME\JAEHYUK
+        12        280 MR_CMSDT                                                                                                                 MSHOME\JAEHYUK
+        14         16 MR_CMSDT                                                                                                                 MSHOME\JAEHYUK
+
+SQL> alter system kill session '11,35';
+시스템이 변경되었습니다.
+
+
+
+
+
+
+
+
+
+
+
+** 락 확인 **
+
+select s.sid as sid, s.serial# as serial#, s.username as username, s.logon_time as logon_time, s.machine as machine,
+decode(l.type, 'MR','Media Recovery',
+'RT','Redo Thread',
+'UN','User Namer',
+'TX', 'Transaction',
+'UL','P/L SQL User Block',
+'DX','Distributed Xaction',
+'CF','Control File',
+'IS','Instance State',
+'FS','File Set',
+'IR','Instance Recovery',
+'ST','Disk Space Transaction',
+'TS','Temp Segment',
+'IV','Library Cache Invalidation',
+'LS','Log State or Switch',
+'RW','Row Wait',
+'TE','Extend Table',
+'Tt','Temp Table','UNKnown') as lock_type,
+decode(l.lmode,0,'None',
+1,'Null',
+2,'Row-S(SS)',
+3,'Row-X(SX)',
+4,'Share',
+5,'S/Row-X(SSX)',
+6,'Exclusive','UNKnown') as lock_mode,
+decode(l.request,0,'None',
+1,'Null',
+2,'Row-S(SS)',
+3,'Row-X(SX)',
+4,'Share',
+5,'S/Row-X(SSX)',
+6,'Exclusive','UNKnown') as request,
+s.status as status, s.program as program, s.osuser as osuser, q.sql_text as sql_text
+from v$session s, v$lock l, v$sql q
+where l.sid=s.sid
+and s.sql_address = q.address
+and s.sql_hash_value = q.hash_value
+order by s.sid;
+
+
+** 락 해제 **
+
+ALTER SYSTEM KILL SESSION '119, 16917'; --sid, serial# 
+

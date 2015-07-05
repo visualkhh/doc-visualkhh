@@ -1,0 +1,3 @@
+select LPAD(1+1, 4, '0')  from 
+
+select to_char(NVL(max(seq)+1,0),'0000') from NTO1100 where comp_no='SE02925';

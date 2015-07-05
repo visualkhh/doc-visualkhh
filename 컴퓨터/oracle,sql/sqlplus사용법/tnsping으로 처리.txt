@@ -1,0 +1,3 @@
+tnsping TNSNAME 
+
+하면 된다

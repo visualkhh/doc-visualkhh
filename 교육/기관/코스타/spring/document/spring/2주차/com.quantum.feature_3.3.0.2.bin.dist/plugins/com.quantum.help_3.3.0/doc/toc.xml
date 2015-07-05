@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="QuantumDB User's Guide" topic="doc/index.html">
+	<topic label="Getting Started">
+	  <topic label="Opening the Quantum DB Perspective" href="doc/getting_started_perspective.html" />
+	  <topic label="Creating bookmarks" href="doc/getting_started_connections.html">
+	  	<topic label="Choosing JDBC Drivers" href="doc/jdbc_driver.html" />
+	  	<topic label="JDBC Connection Details" href="doc/jdbc_connection_details.html" />
+	  	<topic label="Selecting a Bookmark Name" href="doc/bookmark_name.html" />
+	  	<topic label="Choosing Schemas" href="doc/schema_rules.html" />
+	  </topic>
+	  <topic label="Working with bookmarks" href="doc/working_bookmarks.html">
+	  	<topic label="Export and Import" href="doc/export_import.html" />
+		<topic label="Custom Copy" href="doc/quantum_custom_copy.html" />
+	  </topic>
+	  <topic label="SQL Query View" href="doc/query_editor_view.html" />
+	  <topic label="The Table View" href="doc/table_view.html" />
+	  <topic label="Quantum Log View" href="doc/sql_log_view.html" />
+  	  <topic label="Beanshell Script View" href="doc/beanshell_view.html" />
+  	  <topic label="The SQL Editor" href="doc/sql_editor.html" />
+  	  <topic label="The Entity Relationship Editor" href="doc/erd_editor.html" />
+	</topic>
+	<topic label="Configuring Quantum" href="doc/preferences_properties.html" />
+	<topic label="Databases">
+		<topic label="Ms Access" href="doc/databases/Access.html" />
+	</topic>
+    <topic label="Developing Quantum">
+		<topic label="Getting Quantum from CVS" href="doc/developers/developing_quantum_cvs.html" />
+		<topic label="Extending Quantum" href="doc/developers/extension_points.html" />
+		<topic label="Developers' Cookbook" href="doc/developers/developer_cookbook.html" />
+	</topic>
+    <topic label="Change Log" >
+      <topic label="Changes Since 3.0.2" href="doc/changelog/changelog_3_0_4.html" />
+      <topic label="Changes Since 3.0.2" href="doc/changelog/changelog_3_0_3.html" />
+      <topic label="Changes Since 3.0.1" href="doc/changelog/changelog_3_0_2.html" />
+      <topic label="Changes Since 3.0.0" href="doc/changelog/changelog_3_0_1.html" />
+      <topic label="Changes Since 2.4.5" href="doc/changelog/changelog_3_0_0.html" />
+      <topic label="Changes Since 2.4.4" href="doc/changelog/changelog_2_4_5.html" />
+      <topic label="Changes Since 2.4.3" href="doc/changelog/changelog_2_4_4.txt" />
+      <topic label="Changes Since 2.4.2" href="doc/changelog/changelog_2_4_3.txt" />
+    </topic>
+</toc>

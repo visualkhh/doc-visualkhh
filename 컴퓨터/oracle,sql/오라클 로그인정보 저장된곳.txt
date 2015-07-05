@@ -1,0 +1,1 @@
+D:\oracle\ora90\network\admin\tnsnames.ora

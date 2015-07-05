@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: QuantumDB DbUnit Plug-in
+Bundle-SymbolicName: com.quantum.dbunit; singleton:=true
+Bundle-Version: 3.3.0
+Bundle-ClassPath: quantum-dbunit.jar,
+ lib/dbunit-2.1.jar
+Bundle-Activator: com.quantum.dbunit.QuantumDbUnitPlugin
+Bundle-Vendor: The QuantumDB Development Team
+Bundle-Localization: plugin
+Export-Package: com.quantum.dbunit,
+ com.quantum.dbunit.wizard,
+ org.dbunit,
+ org.dbunit.ant,
+ org.dbunit.database,
+ org.dbunit.database.statement,
+ org.dbunit.dataset,
+ org.dbunit.dataset.csv,
+ org.dbunit.dataset.csv.handlers,
+ org.dbunit.dataset.datatype,
+ org.dbunit.dataset.excel,
+ org.dbunit.dataset.filter,
+ org.dbunit.dataset.stream,
+ org.dbunit.dataset.xml,
+ org.dbunit.ext.db2,
+ org.dbunit.ext.mssql,
+ org.dbunit.ext.mysql,
+ org.dbunit.ext.oracle,
+ org.dbunit.operation,
+ org.dbunit.operation.mssqlserver,
+ org.dbunit.util,
+ org.dbunit.util.concurrent,
+ org.dbunit.util.xml
+Require-Bundle: com.quantum.Quantum,
+ org.eclipse.ui,
+ org.eclipse.swt,
+ org.eclipse.core.runtime
+Eclipse-LazyStart: true

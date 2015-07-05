@@ -1,0 +1,18 @@
+             select 
+                     d.officecd uppo_officecd,
+                     d.office_nm uppo_office_nm,
+                     c.officecd,
+                     c.office_nm,
+                     b.deptcd,
+                     b.dept_nm,
+                     a.CONS_COMP_NO,
+                     a.COMP_NM,
+                     a.BIZNO,
+                     a.RPSNT_NM,a.ADDR,
+                     a.PHONENO,EMAILID,
+                     a.FAXNO,
+                     a.REGST_DEPTCD
+                     from KMT0110@DCWEB  a  , hxt1020@DCWEB b ,hxt1010@DCWEB c,hxt1010@DCWEB d where a.REGST_DEPTCD = b.deptcd and b.officecd=c.officecd
+                     and c.uppo_officecd = d.officecd  
+                     and c.officecd LIKE DECODE('9999','9999','%','999') and a.COMP_NM LIKE ('%ÅÂÈ­%')		 
+                     order by officecd;

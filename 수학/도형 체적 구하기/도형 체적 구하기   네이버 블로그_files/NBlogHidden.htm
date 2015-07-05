@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0067)http://blog.naver.com/NBlogHidden.nhn?blogId=multiham&musicYN=false -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta name="robots" content="noindex">
+
+<script type="text/javascript" src="Hidden-434847.js" charset="utf-8"></script><style type="text/css"></style><style type="text/css"></style>
+
+<script type="text/javascript">
+// 뮤직플레이어에서 사용하는 음악객체
+var Song = function(itemSeq, itemName, artistId, artistName, sourceId, trackId){
+	this.itemSeq = itemSeq;
+	this.itemName = itemName;
+	this.artistId = artistId;
+	this.artistName = artistName;
+	this.sourceId = sourceId;
+	this.trackId = trackId;
+}
+
+</script>
+
+</head>
+<body>
+<div id="axGuide"></div>
+<div id="axArea"></div>
+<div id="musicList"></div>
+<script type="text/javascript">
+
+var SongIdx = null;
+var musicYN = false;
+var isPlayMusic = null;	//현재 플레이 중인가?
+var playType = null; //현재 플레이중인 음악의 종류 (블로그뮤직? 포스트뮤직?)
+var totalPlayList = null; //전체 플레이 리스트
+var sSAXReturnCode = '';
+
+
+var sRequestInstallType = 'setup';
+
+function setRequestInstallType(type) {
+	sRequestInstallType = type;
+}
+
+var setMusicList = new Array();
+
+
+
+function setMusiclistForHidden(){
+	if($('musicList').innerHTML.length == 0) $('musicList').innerHTML = "<iframe id='ownMusiclist' name='ownMusiclist'  src='http://blog.naver.com/blogMusicOwnList.nhn?blogId=multiham' frameborder='0' style='display:none'></iframe>";
+}
+
+
+function OnGogsComplete(param) {
+	if(parent.mainFrame.music) parent.mainFrame.music.nextPlay();
+}
+
+function OnUnLoad(){
+	$('axArea').innerHTML = "";
+}
+
+
+var axGuideProperty = {
+	"moduleName":"bgmplayer",
+	"serviceName":"blogbgmplayer",
+	"executeModule": function(code) {
+		$('axArea').innerHTML = "<OBJECT ID='gogsweb' style='width:0px;height:0px' CLASSID='CLSID:BE340868-A6AC-4700-A3B2-440D54DDDA50' codebase='/common/item/nhnbgmplayer.cab#version=1,0,0,6'></OBJECT>";
+
+		
+		if(isMainFrame() && isMusicActiveXInstall(code) && sRequestInstallType=="install") {
+			parent.mainFrame.music.resetMusic('setup');
+			setTimeout(function(){
+				parent.mainFrame.music.resetMusic(sRequestInstallType);
+			}, 1000);
+		}
+
+		if (parent && typeof parent.oFramesetMusicController != "undefined" && parent.oFramesetMusicController) {
+			parent.oFramesetMusicController.setHiddenConstructor(code);
+		}
+	}
+};
+
+/**
+ * 뮤직 ActiceX 가 설치되었는 지를 확인.
+ */
+function isMusicActiveXInstall(code) {
+	return code == true || code == 100;
+}
+
+/**
+ * mainFrame 이 존재하는 지를 체크하는 로직.
+ */
+function isMainFrame() {
+	return typeof parent.mainFrame != "undefined" && typeof parent.mainFrame.music != "undefined" && 
+		parent && parent.mainFrame && parent.mainFrame.music;
+}
+
+function axGuideInstall(){
+	var iframeTag = "<iframe id='installMusicIFrame' name='installMusicIFrame' src='/common/ui/widget/Musicsamplayer.jsp' frameborder='0' style='display:none' title='뮤직플레이어리스트'></iframe>";
+	$('axGuide').innerHTML = iframeTag;
+}
+
+function isAXInstall(){
+	// 가이드 설치되어 있고 뮤직플레이어 설치되어 있으면 자동으로 실행
+	if (typeof axGuide != "undefined") { // 가이드 설치되어 있고
+		var ver = axGuide.GetFileVersion("[DOWNLOADED]nhnbgmplayer.dll");
+		// 뮤직샘플레이어가 설치되어 있고
+		if (ver != "0,0,0,0") axGuideInstall();
+	}
+}
+if($Agent().navigator().ie){
+	$Fn(function(){
+		try {
+			if(parent.mainFrame.music) parent.mainFrame.music.onUnload();
+		} catch (e) {}
+	},this).attach(window,"unload");
+
+	var axGuide;
+	try{ axGuide = new ActiveXObject("NaverSetup.NaverSetupCtrl"); } catch(e){};
+	isAXInstall();
+}
+</script>
+
+
+</body></html>

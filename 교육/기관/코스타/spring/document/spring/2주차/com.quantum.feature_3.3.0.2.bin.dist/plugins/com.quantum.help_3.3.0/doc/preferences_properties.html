@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>Preferences and Properties</title>
+<link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>Quantum Preferences and Properties</h1>
+<p>As in other plugins in Eclipse, we must differentiate between Preferences and 
+  Properties. Preferences apply to all of the items in the plugin, and properties 
+  only to one.</p>
+<p>The Quantum generic preferences are accessed in the same place as other Eclipse 
+  plug-ins, under <code>Window &gt; Preferences </code>, and then <code>Quantum 
+  DB</code>. </p>
+<p>The properties that apply to a particular item will be accessed selecting the 
+  item and clicking on &quot;Properties&quot; in the context menu.</p>
+<h2><a name="preferences"></a>Preferences</h2>
+<h2><img src="images/quantum_preferences_tree.jpg" width="134" height="117"></h2>
+<h3><a name="rootPreferences"></a>Root preferences (Quantum DB)</h3>
+<p>The Quantum preferences tree is to date like this. The main Preferences screen, 
+  that you get when you select the top of the tree (Quantum DB, like in the image), 
+  is:</p>
+<p><img src="images/quantum_preferences_root.jpg"  ></p>
+<p>The <b>Maximum size of query history</b> is self-explanatory. </p>
+<p>The <b>Default-files directory path</b> is not (self-explanatory, I mean). 
+</p>
+<p>Quantum DB allows (from version 2.4.5) the possibility of having a default 
+  bookmark file, for new installations. This bookmak file will be called <code>def_bookmarks_&lt;operating-system&gt;.xml</code>, 
+  and is to be found in the path set in <b>Default-files directory path</b> preference. 
+  The &quot;&lt;operating-system&gt;&quot; part of the file name is the Eclipse 
+  abbreviation for operating systems. So if you are in a Windows system, the file 
+  name will be <code>def_bookmarks_win32.xml</code>, if you are in linux, <code>def_bookmarks_linux.xml</code>, 
+  etc. This makes easier to bundle Quantum with other plugins, and offer a ready-made 
+  default connection. If no path is given, Quantum will look in the Eclipse installation 
+  directory for the file.</p>
+<p>The <b>Maximum rows in Table View (0 = no limit)</b> allows the user to set 
+  a limit (default 200) to the rows that the Table View will show when displaying 
+  a Table, View, or Query. If you set it to 0, all the rows will be displayed, 
+  what can easily leave you out-of-memory, so use with care.</p>
+<p>The <b>Maximum chars in cell in Table View </b>allows you to change the 2048 
+  default for the maximum cell buffer size in case you have cells holding more 
+  text that that.</p>
+<p>The <b>Loggin Preferences</b> refer to the <b><a href="sql_log_view.html">Quantum 
+  SQL Log</a></b><a href="sql_log_view.html"> view</a>. You can set the maximum 
+  number of saved entries, and the level of detail of the logging. </p>
+<h3><a name="copyPreferences"></a>Copy preferences</h3>
+<p>Copy preferences asks only for the <b>Normal Copy Separator</b>, that only 
+  is applied when copying several columns. If you select several columns from 
+  the bookmarks view, and hit <b>Copy</b>, the column names will be copied to 
+  the clipboard, separated by the separator you have selected. For more complex 
+  copy customization, there are the three next preference pages, the <a href="quantum_custom_copy.html">Custom 
+  Copy</a>. As custom copy is rather complex, it's described in a separate page. 
+  Click the preceding link to learn about it.</p>
+<h3><a name="databasesPreferences"></a>Databases preferences</h3>
+<p>Database preferences set some general preferences for databases. These could 
+  possibly one day be made into bookmark properties. To date, they only work for 
+  Oracle, and they are selectable because the <b>Get Remarks for Columns</b> option 
+  makes for a extremely slow column query (when you expand a table to see the 
+  columns it has).</p>
+<p><img src="images/quantum_preferences_databases.jpg" width="630" height="539"></p>
+<p><b>Get Remarks for Columns</b> allows the user (for now only for Oracle) to 
+  see the possible remarks defined for the columns. These will be shown in the 
+  XML generated when you copy a table, or in the Properties of the table.</p>
+<p><b>Get Synonyms from Database</b> makes the bookmark display not only the tables 
+  and views, but also the synonyms, marked with a different icon. This option 
+  is also to date only available for Oracle databases.</p>
+<h3><a name="sqlEditorPreferences"></a>SQL Editor Preferences</h3>
+<p>This preferences page is pretty much self-explanatory. It allows you to choose 
+  the font for your SQL Editor view, the colors of the background and the different 
+  syntax highlighting elements.</p>
+<p><img src="images/quantum_preferences_sql_editor.jpg" width="630" height="539"></p>
+<h2><a name="exportPreferences"></a>Export Preferences</h2>
+<h2><img src="images/quantum_preferences_export.jpg" width="580" height="360"></h2>
+<p>Depending on your configuration of quantum features, you'll have export capabilitites. 
+  The configuration options for the Export capabilities are defined in the <b>Export</b> 
+  item. The only general option for now, is the possibility of making Quantum 
+  not ask you for confirmation when overwriting exported files.</p>
+<p>There are preferences too for the CSV (Comma Separated Values) export.</p>
+<p><img src="images/quantum_preferences_export_csv.jpg" width="489" height="367"></p>
+<p>You can set the default for writing column headers, with the <b>Write Column 
+  Headers ?</b> check box.</p>
+<p>The <b>Default Column Separator</b> text box gives you the possibility of changing 
+  the default for the separator between data columns. Usually is a comma, as the 
+  name implies, but, at least for some applications (read Excel), that changes 
+  depending on the localization settings of the operating system.</p>
+<p>You can also set a default path for you saved files, and a default file name, 
+  so you don't need to give one when making fast export tests.</p>
+<h2><a name="properties"></a>Properties</h2>
+<h3><a name="bookmarkProperties"></a>Bookmark Properties</h3>
+<p>Selecting a Bookmark in the Bookmark view, and then using the context menu 
+  to get the Properties, gets you the following dialog:</p>
+<p><img src="images/quantum_boomark_properties.jpg" width="630" height="539"></p>
+<p>In the first selection of the lef tree (<b>Bookmark</b>) you get to change 
+  some options of the Bookmark. The first tab, shown in the image, allows to change 
+  the Connection data. You can also change the JDBC driver using the second tab. 
+  Those options are the same as when creating a bookmark. Refer to &quot;<a href="getting_started_connections.html">Creating 
+  a bookmark</a>&quot; for more info.</p>
+<h4><a name="autoCommit"></a>Auto-Commit </h4>
+<p>The third tab, <b>Options</b>, allows you to change two options of the Bookmark 
+  (at the moment). The first one is the Auto-Commit feature. It has three possibilities: 
+  <i>Always True, Always False </i>and <i>Last Saved</i>. If you select <i>Always 
+  True</i>, all your SQL statements issued against that bookmark will be automatically 
+  committed on completion. So if you make an INSERT statement, the inserted data 
+  will be part from the shared database table from the moment the INSERT is finished. 
+  If you select <i> Always False</i>, you won't have any automatic commit, and 
+  you'll have to manually commit all your SQL statements that modify data in the 
+  database. This selection is de <i>default</i> selection for that bookmark, and 
+  will be used when the bookmark is open. Then you can change the auto-commit 
+  value using the <a href="query_editor_view.html#toolbarMenu">toolbar menu in 
+  the SQL Query Editor view</a>. </p>
+<p>If you select the third option <i>Last Saved</i>, then your selection in the 
+  toolbar menu of the SQL Query Editor view will be remembered and used the next 
+  time you open that bookmark.</p>
+<p><img src="images/quantum_bookmark_properties_options.jpg" ></p>
+<p>The second one, <b>Ignore the Autocommit setting of the Query View</b>, does 
+  just that. If set, the connection for that bookmark will have the AutoCommit 
+  defined in the first option, no matter what the Query View says. Note that this 
+  behaviour will be silent, so you have to be sure of what you are doing when 
+  setting this option, specially if you have the &quot;on-connection AutoCommit&quot; 
+  option to <b>Always True</b>.</p>
+<p>The third one,<b>Qoute all schemas, tables and columns</b>, permits you to 
+  quote all schemas, tables and columns in the quantum generated SQL. The default 
+  is unchecked, that is, quote only the names that have spaces, signs, mixed case 
+  or are a reserved keyword (this last only from version 2.4.5). Quoting everything 
+  is safer, but uglier on display.</p>
+<p><b>Strip new lines when sending to JDBC</b> is an option thought for some JDBC 
+  drivers for DB2, that seem to get confused by newlines. Don't check it if you 
+  have not that particular problem. The newlines are substituted by spaces. Default 
+  unchecked. </p>
+<p><b>Send query text as-is to the JDBC</b> does exactly that. Normally Quantum 
+  will parse the queries text and divide it into queries and send those queries 
+  one by one to the JDBC driver. However, sometimes is better to forget about 
+  that and just send what you wrote exactly as it is to the JDBC driver (if <b>Strip 
+  new lines when sending to JDBC</b> is checked, it's still applied). Default 
+  unchecked.</p>
+<p><b>Default encoding</b> defines a default encoding for all tables in that bookmark. 
+  Useful for not having to change the encoding every time. Leave blank (default) 
+  if the normal encoding applied by the java machine suits you fine.</p>
+<h4>Schemas</h4>
+<p>The tree item <b>Schemas</b> allows you to change the visible schemas in your 
+  bookmark. It's the same as the Schema selection page in the Create New Bookmark 
+  wizard.</p>
+<h4>Database and Data Types</h4>
+<p>The <b>Database</b> tree item simply shows you information about the database 
+  to which the bookmark connects. The <b>Data Types</b> is similar, but shows 
+  info about the data types supported by that database. Both are merely informational, 
+  you cannot change anything there. These two categories are common to all items, 
+  so if you only see them it's because the item has no properties of its own (like 
+  the Quick List, for example).</p>
+<h3><a name="tableProperties"></a>Table and View Properties </h3>
+<p>Tables, views and sequences properties have the same elements, even if some 
+  not apply, like Indices and References for View, for example.</p>
+<p>The first category is <b>Columns</b>, where you can see the info for the columns 
+  of the selected Table or View. No change is possible there. <b>Indices</b> and 
+  <b>References</b> are also displays of the indices and references of the table.</p>
+<p><img src="images/quantum_table_properties_columns.jpg" width="635" height="388"></p>
+<p><b>SQL</b> shows the SELECT clause used to create the view . Note that it may 
+  not be exact, as clauses like WITH CHECK OPTION can be not included (check the 
+  SQL92 standard) and, in any case, it'll depend on the database, as IBM databases 
+  tend to include the CREATE clause, for example. Some databases are not implemented 
+  yet, so if you see a blank SQL, contact the Quantum developers with info about 
+  the right query for your database. </p>
+<p><img src="images/quantum_properties_sql.jpg" >
+<h3>&nbsp;</h3>
+
+</body>
+
+</html>

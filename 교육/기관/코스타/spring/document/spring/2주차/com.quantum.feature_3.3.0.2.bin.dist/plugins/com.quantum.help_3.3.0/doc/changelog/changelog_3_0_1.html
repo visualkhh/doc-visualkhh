@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Changes Since 2.4.5</title>
+  <link rel="stylesheet" href="../book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+
+<h1>Changes Since 3.0.0</h1>
+<h3>&nbsp;</h3>
+<ul>
+  <li> 
+    <h3> Now Quantum requires the GEF plugin to work. So if you don't have it 
+      installed, get it (easiest way if you are in 3.1 from &quot;Help-&gt;Software 
+      Updates-&gt;Find &amp; Install&quot;, else download the required version 
+      from the Eclipse website).</h3>
+  </li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+  <li>Now double-clicking on a character in the Query View<b><font color="#000000"> 
+    </font></b><font color="#000000">will select the corresponding SQL command 
+    (defined by semicolons). You can then execute that command only.</font></li>
+  <li><font color="#000000">The sort-filter string in the Table View is now editable</font></li>
+  <li><font color="#000000">There is a new option (<b>Paste tableview query</b>) 
+    in the menu of the Query view that adds into the Query view the SQL SELECT 
+    command that was used to create the displayed table view.</font></li>
+  <li><font color="#000000">There is a new option (<b>Paste from Java</b>) in 
+    the menu of the Query view that adds into the Query view the SQL code resulting 
+    from stripping the commas and other marks from the java code that was in the 
+    clipboard. To use it, copy some java code (that resolves into a string) into 
+    the clipboard, and then the Paste from java will evaluate the string (using 
+    JavaBean) and return the result into the Query View.</font></li>
+  <li>The new behaviour of the Table view (not generating new tabs for the same 
+    table or query) is now selectable in the Query View menu (default is new system). 
+  </li>
+  <li>A search utility is now available. You can search for a string in a range 
+    of tables and/or views, or a whole bookmark. Just select the tables/views 
+    in which to search, select the context menu and then &quot;Search&quot;. Then 
+    the &quot;Quantum Search Results&quot; view should appear, with the results, 
+    if any. The results are the tables or views that contain in any column the 
+    searched string or number.</li>
+  <li>Basic Drag-and-Drop functionality has been added between the Bookmark View 
+    and the Query View. Now you can drag a table to the Query view to get the 
+    name of the table.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Changes Since 2.4.5</title>
+  <link rel="stylesheet" href="../book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+
+<h1>Changes Since 2.4.5</h1>
+
+<ul>
+  <li>A pop-up menu now appears in the SQL Query view. This pop-up menu gives 
+    you access to some new features. <img src="../images/quantum_query_view_context_menu.jpg"> 
+  </li>
+  <li>Added an EXPLAIN action in the SQL Query View. The EXPLAIN action tries 
+    to perform a database-specific EXPLAIN on the query. Available only to few 
+    databases. If you are interested in adding to yours, please explain :) how 
+    the EXPLAIN facility works in your database.</li>
+  <li>The ability to work with files that end in .sql or .ddl has been restored. 
+    The EXECUTE and EXPLAIN actions are also available from the pop-up menu of 
+    those editors, as well. 
+  <li>The strAdded a DDL Export facility.</li>
+  <li>Revised the SQL Log to capture more logging information. This will be most 
+    apparent to users in two ways: 
+    <ol>
+      <li>The colors have changed.</li>
+      <li>The log will capture information even before the Log view has been made 
+        visible.</li>
+    </ol>
+    <p>&nbsp;</p>
+  <li>Added a new option to the bookmark preferences, <b>Ignore the Autocommit 
+    setting of the Query View</b>,that does just that. If set, the connection 
+    for that bookmark will have the AutoCommit defined in the first option, no 
+    matter what the Query View says. Note that this behaviour will be silent, 
+    so you have to be sure of what you are doing when setting this option, specially 
+    if you have the &quot;on-connection AutoCommit&quot; option to <b>Always True</b>. 
+  <li>Added a new view, Beanshell script View. This view adds scripting capabilities 
+    to the Quantum plugin. It's basically a quick wrapup of the Beanshell facility. 
+    I cite from <a href="http://www.beanshell.org/">its website</a>: 
+    <p><i>BeanShell is a small, free, embeddable Java source interpreter with 
+      object scripting language features, written in Java. BeanShell dynamically 
+      executes standard Java syntax and extends it with common scripting conveniences 
+      such as loose types, commands, and method closures like those in Perl and 
+      JavaScript.</i></p>
+    <p> For more information, refer to the Quantum Help, installed as a extension 
+      of the Eclipse Help, under Getting Started-&gt;Beanshell Script View. 
+  <li>The Insert, Update and Delete Wizards have been added a column that disables 
+    quoting. 
+  <li> In the context menu for items of the Bookmark View, some changes have been 
+    made, some regrouping, and a new group called Structure. 
+    <blockquote> 
+      <p> The <b>Structure </b>submenu groups all actions having to do with the 
+        metadata of the selected table(s) or view(s). </p>
+      <blockquote> 
+        <p><b>Copy</b> will make a full structure copy of the selected items. 
+          The resulting XML may differ, usually being more extensive than the 
+          normal Copy action of the table.</p>
+        <p><b>Write to file...</b> saves the full structure XML to a file that 
+          the user selects.</p>
+        <p><b>DDL from clipboard</b> is a VERY experimental feature that tries 
+          to create a DDL statement that would create a table, view or sequence 
+          similar in structure to the ones selected. The structure data is taken 
+          from the clipboard. Note that even if this option appears when you select 
+          a table, you must be on a Bookmark or Schema to generate DDL for a table. 
+          The development of this feature is in very early stages, basically working 
+          only partially for ORACLE at the moment, but we make it available in 
+          case somebody has a use for it. The generated DDL will be pasted into 
+          the Query View, <font color="#FF0000">deleting whatever is there.</font></p>
+      </blockquote>
+    </blockquote>
+</ul>
+<blockquote> 
+  <p><font color="#000000">The XML definition for most of the structure is in 
+    state of flow, so it could change in the future, you shouldn't write utilities 
+    that use that XML definition. If you want you database to be supported sooner 
+    rather than later, you can write with explanations of the proper DDL sentences 
+    to apply for generation. If some data is missing in the XML definition, say 
+    it.</font></p>
+</blockquote>
+<ul>
+  <li><font color="#000000">We are trying to improve the tab management in the 
+    Table View. Now you won't get a new tab if your selected table, view or query 
+    is already opened. More changes are on the way, and you could share your ideas 
+    about what would you like on that respect. For example, you like the different 
+    tabs, or could you do with a single tab showing only the last requested data. 
+    What do you prefer ? </font></li>
+  <li><font color="#000000">At the request of a user, we have added a <b>Copy 
+    As Java.</b></font> The <b>Copy As Java</b> option will copy the existing 
+    text in the Query View and format it ready to be inserted as java code for 
+    the creation of a String. For example: 
+    <p><code>SELECT * <br>
+      FROM &quot;TEMP&quot;<br>
+      WHERE ID = 45</code></p>
+    <p>will be copied to the clipboard as :</p>
+    <p><code>&quot;SELECT * &quot; +<br>
+      &quot;FROM \&quot;TEMP\&quot; &quot; +<br>
+      &quot;WHERE ID = 45 &quot; ;</code></p>
+    <font color="#000000"><b> </b></font></li>
+</ul>
+</body>
+</html>

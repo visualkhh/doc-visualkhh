@@ -1,0 +1,78 @@
+insert  into  iit0850chk  (COMPUROOM_CD,BILL_YM,EXE_YMD)  values(to_char(sysdate,'MM'),to_char(sysdate,'YYYY'),to_char(sysdate,'ss'));
+
+insert into  NTO1100 (seq,comp_no,user_id,user_pwd,user_tel,user_email,user_ask,user_askdate,user_apply,user_apply_date)
+values (..........)
+
+
+
+
+INSERT INTO TR_LS_AMR_HOUR
+SELECT   t1.DV_SEQNO+:A,AMR_CH,TX_DATE,TX_TIME,HOUR_USE,SRT_VALUE,LST_VALUE
+FROM TR_LS_AMR_HOUR t1 join TR_IF_DEVICE t2 on t1.DV_SEQNO +:A = t2.dv_seqno
+order by t2.DV_SEQNO
+
+select MAX(DV_SEQNO) FROM TR_LS_AMR_HOUR
+
+commit
+
+
+INSERT INTO TR_LS_AMR_HOUR
+SELECT   DV_SEQNO,AMR_CH,TX_DATE+7,TX_TIME,HOUR_USE,SRT_VALUE,LST_VALUE
+FROM TR_LS_AMR_HOUR WHERE TX_DATE='20091102'
+
+rollback;
+
+delete FROM TR_LS_AMR_HOUR
+
+select *   FROM TR_LS_AMR_HOUR 
+
+-----------------------------------------------
+
+
+INSERT INTO TR_LS_AMR_DAY
+SELECT   t1.DV_SEQNO+:A,AMR_CH,TX_DATE,DAY_USE,SRT_VALUE,LST_VALUE
+FROM TR_LS_AMR_DAY t1 join TR_IF_DEVICE t2 on t1.DV_SEQNO +:A = t2.dv_seqno
+order by t2.DV_SEQNO
+
+select MAX(DV_SEQNO) FROM TR_LS_AMR_DAY
+
+commit
+
+rollback;
+
+INSERT INTO TR_LS_AMR_DAY
+SELECT   DV_SEQNO,AMR_CH,TX_DATE+7,DAY_USE,SRT_VALUE,LST_VALUE
+FROM TR_LS_AMR_DAY WHERE TX_DATE='20091102'
+
+
+
+delete FROM TR_LS_AMR_DAY
+
+select *   FROM TR_LS_AMR_DAY WHERE DV_SEQNO=1  ORDER BY AMR_CH,TX_DATE
+
+
+
+
+
+-----------------------------------------------
+
+
+INSERT INTO TR_LS_AMR_DAY
+SELECT   t1.DV_SEQNO+:A,AMR_CH,TX_DATE,DAY_USE,SRT_VALUE,LST_VALUE
+FROM TR_LS_AMR_DAY t1 join TR_IF_DEVICE t2 on t1.DV_SEQNO +:A = t2.dv_seqno
+order by t2.DV_SEQNO
+
+select MAX(DV_SEQNO) FROM TR_LS_AMR_DAY
+
+commit
+
+
+INSERT INTO TR_LS_AMR_DAY
+SELECT   DV_SEQNO,AMR_CH,TX_DATE+7,DAY_USE,SRT_VALUE,LST_VALUE
+FROM TR_LS_AMR_DAY WHERE TX_DATE='20091102'
+
+rollback;
+
+delete FROM TR_LS_AMR_DAY
+
+select *   FROM TR_LS_BASE_HOUR WHERE DV_SEQNO=1  ORDER BY TX_DATE

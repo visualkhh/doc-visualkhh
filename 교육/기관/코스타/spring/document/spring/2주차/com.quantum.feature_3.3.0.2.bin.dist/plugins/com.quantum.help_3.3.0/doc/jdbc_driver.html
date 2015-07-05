@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Creating a QuantumDB Bookmark</title>
+  <link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>Specifying a JDBC Driver</h1>
+<p>QuantumDB uses standard JDBC Drivers to access databases. The first step in 
+  setting up a database bookmark is, therefore, selecting a JDBC Driver. A JDBC 
+  Driver is usually one file, although some databases have drivers composed of 
+  several files. You have to find the file and select it. Usually the file is 
+  a <code>.jar</code> or <code>.zip</code> file that is located in some directory 
+  of your database, usually called <code>jdbc</code>. Sometimes you'll have to 
+  separately download the JDBC drivers needed for your database. Usually a database 
+  has more than one driver, differing in capabilities, or from completely different 
+  vendors. </p>
+<p>The image below shows a &quot;New Bookmark&quot; page with several JDBC drivers 
+  defined. The first time you try to configure a bookmark, QuantumDB will already 
+  recognize one driver: the standard JDBC-ODBC driver provided with the Java Runtime 
+  Environment. If you have ODBC connections already defined, you can use this 
+  driver to connect to them. If not, you need to find your database's driver and 
+  add it to the list of drivers using the &quot;Add driver...&quot; Button.</p>
+ 
+<img src="images/quantum_new_bookmark/page1.jpg" />
+
+<p>(Note: You have the possibility of deleting the drivers that you have but don't 
+  use, selecting the driver and clicking on the &quot;Delete driver&quot; button. 
+  You won't be allowed to delete a driver that is used in a bookmark. Delete first 
+  the bookmark if you aren't using it.)
+<p>Select the "Add Driver..." button to choose an alternate driver.</p>
+
+<p><img src="images/quantum_new_bookmark/add_driver.gif" /> </p>
+<p>Press the Add External Jar (it could be other extension, but usually is a jar 
+  file), and navigate your file system to select the file that contains the JDBC 
+  driver. If your driver has more than one file, add all the needed files in this 
+  dialog. </p>
+<p>Once you specify the .jar locations, you can use the "Browse..." button beside 
+  the class name field to select valid driver class names. Sometimes drivers have 
+  several possible classes to select. You'll have to refer to the driver documentation 
+  to know about the different capabilities of each one. If no class to select 
+  appears when you hit the Browse button, most likely the file you selected is 
+  not a JDBC driver, or not the main one if you have several files.
+<p>Finally, the Add Driver Wizard asks for a database type. If you're setting 
+  up a fairly standard driver (such as, for example, the standard Oracle or DB2 
+  driver), QuantumDB will probably recognize the driver class name and select 
+  the appropriate driver from the list. Otherwise, choose the corresponding database 
+  type or, if your database type isn't listed, select "Generic JDBC". If your 
+  database is listed but your driver not, write to the Quantum Forum so that it'll 
+  be recognized in the future.
+<p>The database type helps QuantumDB provide defaults for later parts of the bookmark 
+  set-up process, and also tells the plugin how to support some of the non-standard 
+  database features (such as sequences). In general is best to select the right 
+  database type, even if the &quot;Generic&quot; type will work for most of the 
+  functions.
+</body>
+</html>

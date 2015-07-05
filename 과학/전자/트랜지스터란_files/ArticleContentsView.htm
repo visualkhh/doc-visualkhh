@@ -1,0 +1,912 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0105)http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=065fc&articleno=13376267&looping=0&longOpen= -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="title" content="트랜지스터란">
+<title>트랜지스터란</title>
+<link rel="canonical" href="트랜지스터란.htm">
+<script type="text/javascript" language="javascript" src="httpRequest_v1.0.js"></script><style type="text/css"></style>
+<script type="text/javascript" language="javascript" src="common_view.js"></script>
+<script type="text/javascript" language="javascript" src="article_contents_view.js"></script>
+<script type="text/javascript" language="javascript" src="jigu.min.js"></script>
+<script id="DragSearchJs" type="text/javascript" src="searchDragSelection.js" charset="euc-kr"></script>
+<script type="text/javascript" language="javascript">
+<!--
+	document.domain = "daum.net";
+	var uaLower = navigator.userAgent.toLowerCase();
+	var isIOS = (uaLower.indexOf("iphone")!=-1 || uaLower.indexOf("ipod")!=-1 || uaLower.indexOf("ipad")!=-1) && (uaLower.indexOf("applewebkit")!=-1);
+	if(parent.document.getElementById("div_13376267") == null || parent.document.getElementById("div_13376267") == 'undefine'){
+		document.location.replace("http://blog.daum.net/yongsanct/13376267");
+	}
+	//-->
+</script>	
+
+ 
+
+
+<style type="text/css">
+	html img {-webkit-touch-callout:none;}
+	html img {-webkit-user-select:none;}
+	body { background-color:transparent; margin:0; padding:0; overflow-x:auto; overflow-y:hidden; scrollbar-3dlight-color:#FFFFFF; scrollbar-arrow-color:#FFFFFF; scrollbar-darkshadow-color:#FFFFFF; scrollbar-face-color:#DBDBDB; scrollbar-highlight-color:#BBBBBB; scrollbar-shadow-color:#BBBBBB; scrollbar-track-color:#F3F3F3; }
+	body p { line-height:1.6; }
+	p { margin:0; padding:0; }
+	a img { border:none; }
+	div#ThemeArticle div { text-align:left; } 
+	div#ThemeArticle div { height:auto !important; }
+	
+	.p11, a.p11:link, a.p11:visited, a.p11:active, a.p11:hover { font-size: 11px; font-family:'돋움', 'dotum', 'verdana'; }
+
+	.under { text-decoration:underline; }
+	a.under:link, a.under:visited, a.under:active { text-decoration:underline; }
+	a.under:hover { text-decoration:underline; }
+	
+	.scrap_bgm	{text-align: center; font-family: 굴림, gulim, tahoma, sans-serif; font-size: 12px;}
+	.signArea	{padding-top: 30px; clear: both;}
+	.signArea img, #cclArea img	{border: none;}
+	
+	/* bgm 플레이어 (블로그,여러곡) */
+	#articleBGM { height: 31px; white-space: normal; }
+	.playerBox	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/bgm_bg.png) no-repeat; width: 289px; height: 31px; text-align: left;}
+	* html .playerBox	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/bgm_bg.png', sizingMethod='crop');}
+	.playerSongTit marquee	{width: 110px; color: #fff; font-size: 11px; font-family: 돋움, dotum; letter-spacing: -1px; margin: 0; position: relative; padding: 0;}
+	.playerOn	{width: 19px; height: 19px; float: left; margin: 4px 0 0 2px; position: relative;}
+	.playerOff	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/btn_stop.png) no-repeat; width: 19px; height: 19px; float: left; margin: 4px 0 0 2px; position: relative;}
+	* html .playerOff	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/btn_stop.png', sizingMethod='crop');}
+	.preSong	{width: 19px; height: 19px; float: left; margin: 4px 0 0 15px; position: relative;}
+	.nextSong	{width: 19px; height: 19px; float: left; margin: 4px 0 0 2px; position: relative;}
+	.playerVolumeBg	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/bg_stick_p.png) no-repeat; width: 16px; height: 4px; font-size: 0; line-height: 0;}
+	* html .playerVolumeBg	{background: none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/bg_stick_p.png', sizingMethod='crop')}
+	.playerControl	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/bg_stick_j.png) no-repeat; width: 15px; height: 15px; position: absolute; top: 7px; left: 0px; z-index: 5; cursor: pointer;}
+	* html .playerControl	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/bg_stick_j.png', sizingMethod='crop')}
+	.volumeOn	{background: url(http://i1.daumcdn.net/pimg/blog3/bgm/bgm_v_i.gif) no-repeat; width: 10px; height: 10px; float: left; margin: 8px 0 0 6px; position: relative;}
+	.volumeOff	{background: url(http://i1.daumcdn.net/pimg/blog3/bgm/bgm_v_i_off.gif) no-repeat; width: 10px; height: 10px; float: left; margin: 8px 0 0 6px; position: relative;}
+	.playerSong	{width: 23px; height: 17px; float: left; margin: 5px 0 0 4px; position: relative;}
+	.scrap_volume	{background: url(http://i1.daumcdn.net/cafeimg/cf_img2/bbs2/i_speaker.gif) no-repeat; width: 10px; height: 9px; margin-right: 4px;}
+	.playerSongTit	{padding: 7px 0 0 16px; width: 110px; float: left; }
+	.playerVolumeBox	{float:left; width: 30px; margin-left: 18px;}
+	.playerVolume	{padding: 11px 0 0 0; position: relative;}
+	.noactive_player	{background: url(http://i1.daumcdn.net/pimg/blog4/bgm/bgm_bg_g.png) no-repeat; width: 289px; height: 31px; text-align: left; white-space: normal;}
+	* html .noactive_player	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/bgm/bgm_bg_g.png', sizingMethod='crop');}
+	.noactive_player .playerSongTit {padding: 7px 0 0 9px; width: 152px;}
+	.noactive_player .playerSongTit span {display: block; width: 152px; color: #fff; font-size: 11px; font-family: 돋움, dotum; letter-spacing: -1px; margin: 0; position: relative; padding: 0;}
+	.noactive_player .playerOn {margin-left: 0;}
+
+	/* bgm 플레이어 (블로그,1곡) */
+	.wBGMPlayer {position: relative; white-space: normal;}
+	.wBGMPlayer a, .wBGMPlayer a:link, .wBGMPlayer a:hover, .wBGMPlayer a:visited, .wBGMPlayer a:active {text-decoration: none;}
+	.wBGMPlayer .active_player {width: 270px; height: 31px;}
+	.wBGMPlayer .not_active_player {width: 270px; height: 31px;}
+	.wBGMPlayer .active_player, 
+	.wBGMPlayer .not_active_player {position:relative; display:inline-block; zoom:1; *display:inline;}
+	.wBGMPlayer .playerBox_new	{width: 270px; height: 31px; background: url(http://img-contents.daum-img.net/music/2009_home/common/bg_player_ca.png) no-repeat 0 0;}
+	* html .wBGMPlayer .playerBox_new	{background:none; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img-contents.daum-img.net/music/2009_home/common/bg_player_ca.png', sizingMethod='crop');}
+	.wBGMPlayer .playerSongTit	{position: relative; float: left; padding: 7px 0 0 16px; width: 110px;}
+	.wBGMPlayer .playerSongTit marquee {width: 110px; color: #fff; font-size: 11px; font-family: 돋움, dotum; letter-spacing: -1px; text-decoration: none; cursor: pointer;}
+	.wBGMPlayer .playerOnWrap	{position: absolute; left: 140px; top: 4px;}
+	.wBGMPlayer .btnLyricsWrap	{position: absolute; left: 214px; top: 9px;}
+	.wBGMPlayer .btnVideoWrap	{position: absolute; left: 240px; top: 9px;}
+	.wBGMPlayer .playerVolume	{text-align: left;}
+	.wBGMPlayer .playerVolumeBox {position: absolute; left: 178px; top: 0; margin: 0;}
+	.wBGMPlayer .playerOn	{float: none; margin: 0; background:url(http://img-contents.daum-img.net/music/2009_home/common/bt_play.gif) no-repeat;}
+	.wBGMPlayer .playerOff	{float: none; margin: 0; background:url(http://img-contents.daum-img.net/music/2009_home/common/bt_stop.gif) no-repeat;}
+	.wBGMPlayer .btnLyrics	{float: none; margin: 0; background:url(http://img-contents.daum-img.net/music/2009_home/common/bg_player.gif) no-repeat 0 -350px;}
+	.wBGMPlayer .btnVideo	{float: none; margin: 0; background:url(http://img-contents.daum-img.net/music/2009_home/common/bg_player.gif) no-repeat 0 -250px;}
+	.wBGMPlayer .not_active_player .playerControl	{top: 8px;}
+	
+	/*sns글 가져오기*/
+	.tx-blog-ul-profile, .tx-blog-ul { margin: 0; padding: 0; list-style: none; line-height: 1.6; }
+	.tx-blog-li, .tx-blog-li-ext { margin-bottom: 10px; position: relative; float: left; width: 99%; }
+	.tx-blog-ext { _display: inline; padding-bottom: 5px; float: left; }
+	.tx-blog-cont, .tx-blog-cont-small { padding-top: 1px; } 
+	.tx-blog-ul-profile .tx-blog-li-ext .tx-blog-cont { margin-left: 150px; _margin-left: 147px; }
+	.tx-blog-ul .tx-blog-li-ext .tx-blog-cont, .tx-blog-ul .tx-blog-li-ext .tx-blog-cont-small { margin-left: 85px; _margin-left: 82px; }
+	.tx-blog-ul-profile .tx-blog-li .tx-blog-cont, .tx-blog-ul-profile .tx-blog-li-ext .tx-blog-ext { margin-left: 65px; }
+	.tx-blog-ext a { display: block; }
+	.tx-blog-profile, .tx-blog-profile-small { display: block; margin: 0; padding: 0; position: absolute; left: 0; top: 0; }
+	
+	.tx-blog-profile-bg { margin: 0; padding: 0; position: absolute; left: 0; top: 0; }
+	.tx-blog-profile-img, .tx-blog-profile { border: none; width: 50px; height: 50px;}
+	.tx-blog-author-y, .tx-blog-author-t { padding: 2px 0 0 22px; display: inline-block; line-height: 19px; }
+	.tx-blog-author-t { background:url('http://i1.daumcdn.net/pimg/blog4/skin/common/ico_retweet01.gif') no-repeat 0 0; }
+	.tx-blog-author-y { background:url('http://i1.daumcdn.net/pimg/blog4/skin/common/ico_retweet02.gif') no-repeat 0 0; }	
+	.tx-blog-sns { padding: 5px 0; }
+	.tx-blog-sns .fbUnderline { text-decoration: underline; }
+	.tx-blog-sns-img { border: none; display: block; margin:11px 0 5px 0; display: block; max-height: 400px; }
+	.tx-blog-sns-info { display: inline-block; opacity: 0.50; _filter: alpha(opacity=50); padding: 0; font-weight: normal; }
+	.tx-blog-from-yozm, .tx-blog-from-twitter, .tx-blog-from-facebook { display: inline-block; font-weight: normal; opacity: 0.50; _filter: alpha(opacity=50); }
+
+	.tx-blog-bar { display: inline-block; opacity: 0.15; _filter: alpha(opacity=15); padding: 0 3px 0 4px; }
+	.tx-blog-bold { font-weight: bold; line-height: 1; } 
+	.tx-blog-bold .tx-blog-name, .tx-blog-bold .tx-blog-name:hover { font-size: 9pt; line-height: 1; margin-right: 3px; }	
+	.tx-blog-bold span.tx-blog-sns-info, .tx-blog-bold a.tx-blog-from-yozm, .tx-blog-bold a.tx-blog-from-twitter, .tx-blog-bold a.tx-blog-from-facebook, .tx-blog-bold a.tx-blog-from-yozm:link, .tx-blog-bold a.tx-blog-from-twitter:link, .tx-blog-bold a.tx-blog-from-facebook:link, .tx-blog-bold a.tx-blog-from-yozm:visited, .tx-blog-bold a.tx-blog-from-twitter:visited, .tx-blog-bold a.tx-blog-from-facebook:visited, .tx-blog-bold a.tx-blog-from-yozm:hover, .tx-blog-bold a.tx-blog-from-twitter:hover, .tx-blog-bold a.tx-blog-from-facebook:hover, .tx-blog-bold a.tx-blog-from-yozm:active, .tx-blog-bold a.tx-blog-from-twitter:active, .tx-blog-bold a.tx-blog-from-facebook:active { font: 8pt 'dotum', 'verdana', 'sans-serif'; }
+	.tx-blog-ext-img, .tx-blog-ext-info, .tx-blog-ext-info .bg, .tx-blog-ext-info .text { width: 76px; }
+	.tx-blog-ext-img { border: none; }
+	.tx-blog-ext-info { position: absolute; height: 18px; margin-top: -18px; display: block; }
+	.tx-blog-ext-info .bg { opacity: 0.8; _filter:alpha(opacity=80); background-color: #4a4a4a; position: absolute; height: 18px; }
+	.tx-blog-ext-info .text { font-size: 11px; line-height: 15px; font-family: '돋움', 'dotum', 'sans-serif'; color:#e2e0e0; text-align: center; position: relative; height: 14px; padding-top: 3px; } 
+	.tx-blog-p8 { font-size: 8pt; }
+	.tx-blog-p8 a.tx-blog-name, .tx-blog-p8 a.tx-blog-name:link, .tx-blog-p8 a.tx-blog-name:visited, .tx-blog-p8 a.tx-blog-name:hover, .tx-blog-p8 a.tx-blog-name:active, list_type_lim { line-height: 1.3; font-size: 8pt; display: inline-block; padding: 4px 5px 2px 0; }
+	.tx-blog-retweet { position: static; padding: 1px 5px 2px 0; display: inline-block; letter-spacing: -1px; }
+	.tx-link-reply { padding-right: 4px; }
+	.tx-blog-btn-zoom { position: absolute; border: none; margin-left: -18px; }	
+
+	/*sns글 가져오기 프로필 이미지 35*35 변경*/
+	.tx-blog-ul-profile .tx-blog-li-ext .tx-blog-cont-small { margin-left: 135px; _margin-left: 132px; }
+	.tx-blog-ul-profile .tx-blog-li-ext .tx-blog-ext-small, .tx-blog-ul-profile .tx-blog-li .tx-blog-cont-small { margin-left: 47px; }
+	.tx-blog-profile-small, .tx-blog-profile-img-small { border: none; width: 35px; height: 35px; }
+	.tx-blog-cont-small .tx-blog-sns { padding: 7px 0 4px 0; }
+	.tx-blog-cont-small .tx-blog-sns-img { max-width: 320px; }
+
+	/*facebook 지도, 동영상, 사진첩*/
+	.tx-blog-facebook { padding-bottom: 9px; } 
+	.tx-blog-facebook .tx-blog-sns-img, .tx-blog-facebook .tx-blog-bold { margin: 0; }
+	.tx-blog-facebook .tx-blog-sns-info { opacity: 0.70; _filter: alpha(opacity=70); _display: inline-block;  padding: 4px 0 0; }
+	.tx-blog-img-info { padding: 14px 0 10px; }
+	.tx-blog-sns-time { padding-top: 10px; letter-spacing: -1px; font-size: 8pt; line-height: 10px;}
+	.tx-blog-time { letter-spacing: normal; }
+	a.tx-blog-sns-title, .tx-blog-img-info { font-size: 9pt; }
+	.tx-blog-sns-title { padding-top: 11px; display: inline-block; }
+	.tx-blog-facebook .tx-blog-sns-img { margin: 17px 0 0; }
+	.tx-blog-img-title { padding-bottom: 6px; }
+	
+	/* 간편 글쓰기 */
+	.tx-blog-simple-img { border:none; display:block; margin:5px 0 5px 0; display:block; }
+	
+	/* 색깔 */
+	a.tx-blog-name, a.tx-blog-name:link, a.tx-blog-name:visited, a.tx-blog-name:hover, a.tx-blog-name:active { color: #b61a3f !important; text-decoration: none; } /* #b61a3f 색상 강조글 색상 */
+	.tx-blog-line { padding: 0; margin: 0; font-size: 0; height: 15px; border-top: 1px solid #4d4938; line-height: 0; clear: both; opacity: 0.08; _filter: alpha(opacity=8);  }	/* #4d4938 색상 게시글 색상 */ 
+	a.tx-blog-friend, a.tx-blog-friend:link, a.tx-blog-friend:visited, a.tx-blog-friend:hover, a.tx-blog-friend:active { color: #4d4938 !important; } /* #4d4938 색상 게시글 색상 */ 
+	a.tx-blog-sns-title, .tx-blog-sns-info, .tx-blog-sns-info a:link, .tx-blog-sns-info a:hover, .tx-blog-sns-info a:visited, .tx-blog-sns-info a:active { font-family: '돋움', 'dotum', 'sans-serif'; color : #4d4938 !important; /* #4d4938 색상 게시글 색상 */ line-height: 1.3; }
+		
+	/*sns에 공유하기*/
+	.article_to_sns_wrap { height: 95px; clear: both; margin: 25px auto 0 auto; padding: 0; position: relative; text-align: center; color:#4c4c4c; z-index: 2; }
+	.article_to_sns_box { display: inline-block; position: relative; width: 266px; height: 24px; padding: 0; margin: 0; }
+	.article_to_sns_bg { background: url('http://i1.daumcdn.net/pimg/blog4/admin/sns_bg_n4.png') no-repeat 0 0;  _background: none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/admin/sns_bg_n4.png',sizingMethod='crop'); width: 266px; height: 24px; padding: 0; margin: 0; }
+	.article_to_twitter, .article_to_mypeople, .article_to_more, .article_to_facebook { height: 24px; padding: 0; margin: 0; position: absolute; top: 0; overflow: hidden; text-indent: -9999em; }
+	.article_to_mypeople { width: 78px; left: 0; }
+	.article_to_twitter { width: 64px; left: 78px; }
+	.article_to_facebook { width: 69px; left: 142px; }
+	.article_to_more { width: 55px; left: 211px; }
+	.sns_more a.article_to_etc { color: #4c4c4c; text-decoration: none; display: block; text-align: left; overflow: hidden; height: 22px; width: 92px; width: 97px\9; padding-left: 5px; cursor: pointer; position: relative; letter-spacing:-1px; }
+	.sns_more a.article_to_etc:hover { color: #555; text-decoration: none; background: url('http://i1.daumcdn.net/pimg/blog4/admin/sns_over_n.gif') no-repeat 0 0; }
+	.sns_more_wrap { display: none; position: absolute; top: 23px; left:163px; }
+	.article_to_sns_wrap .sns_more { width: 97px; height: 44px; margin: 0; padding: 3px; background: url('http://i1.daumcdn.net/pimg/blog4/admin/sns_l_bg.png') no-repeat 0 0; _background: none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/admin/sns_l_bg.png',sizingMethod='crop'); }
+	.nate_icon, .me2day_icon, .yozm_icon { vertical-align: -2px; width: 13px; height: 13px; margin: 4px 6px 0 0; }
+	.nate_icon { background: url('http://i1.daumcdn.net/pimg/blog4/admin/i_cyworld.png') no-repeat 0 0; _background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/admin/i_cyworld.png', sizingMethod='crop'); }
+	.me2day_icon { background: url('http://i1.daumcdn.net/pimg/blog4/admin/i_me2day.gif') no-repeat 0 0; }
+	.yozm_icon { background: url('http://pimg.daum-img.net/blog4/admin/i_yozm_3.png') no-repeat 0 0; _background:none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://pimg.daum-img.net/blog4/admin/i_yozm_3.png', sizingMethod='crop');  }
+	
+	/* viewADbox table clear */
+	.txc-table { clear: both; }
+	.txc-info { margin: 0 auto !important; }
+	
+	#DaumBlogMap { margin-top: 20px; }
+</style>
+<script type="text/javascript">
+<!--
+	var contents_article_no = "13376267";
+	var looping = "0";
+	var BLOGID= "065fc";
+	var isblock =  true ;
+	isblock = parent.document.getElementById("div_" + contents_article_no).oncontextmenu() || isblock;
+	if(isblock) {
+		document.write("<meta http-equiv=\"imagetoolbar\" content=\"no\">");
+		document.oncontextmenu = function() { return false; };
+		document.onselectstart = function() { return false; };
+		document.ondragstart = function() { return false; };
+		if (document.addEventListener){
+			document.addEventListener('selectstart', blockContent, false);
+			document.addEventListener('dragstart', blockContent, false);
+			document.addEventListener('contextmenu', blockContent, false);
+			document.addEventListener('copy', blockContent, false);
+			document.addEventListener('keydown', blockContent, false);
+			document.onmousedown = disableselect;
+    		document.onmouseup = reEnable;
+		} else if (document.attachEvent){
+			document.attachEvent('onselectstart', blockContent);
+			document.attachEvent('ondragstart', blockContent);
+			document.attachEvent('oncontextmenu', blockContent);
+			document.attachEvent('oncopy', blockContent);
+		}
+	}
+//-->
+</script><meta http-equiv="imagetoolbar" content="no">
+<link id="fontStyle" rel="stylesheet" type="text/css" href="038.css">
+<style type="text/css"></style></head>
+<body bgcolor="transparent" onload="articleFileViewGeneration();">
+	
+
+<div id="cContent" style="margin: 0 0 10px 0;">
+	<div id="contentDiv" class="cContentBody" style="margin: 0 0 0 0;">
+
+		 			<link rel="stylesheet" href="contents4view.css" type="text/css" charset="utf-8">
+		<style type="text/css">
+	<!--
+		div { color: #4d4938; }
+		li { color: #4d4938; }
+		a, a:link, a:hover, a:visited { color: #4d4938; }
+		td { color: #4d4938; }
+		.txc-search-border { border-color: #4d4938; }
+		.me2day_daily_digest p, .me2day_daily_digest a, .me2day_daily_digest a:hover { font: 11px '돋움', dotum, sans-serif; }
+	//-->
+	</style>
+																			<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td width="392" height="46"><font size="2"><img height="34" src="transistor1-1.gif" width="195" id="imageCheckerTempId_0"></font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td class="pos20" bgcolor="#fafafa"><font size="2">N형 반도체와 P형 반도체를 PNP / NPN 형태로 접합한 구조의 소자로 전류의 흐름등을 조절할 수 있도록 하여 만든 회로구성에서 중요한 반도체 소자입니다. 세 가지 기능, 즉 스위칭, 검파, 증폭용으로써 모든 전자 시스템에 한가지 또는 여러 가지 형태로 사용됩니다.</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="30"><font size="2">&nbsp;</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 트랜지스터의 역사</b></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">1948년에 세명의 물리학자 (W. Shockley, J. Bardeen, W. Brattain)에 의해 트랜지스터가 발명되었으며 당시 전자 공업계에 상당한 충격을 주었습니다. 그로부터 전자 산업은 빠르게 발전하기 시작했으며 오늘날 엘렉트로닉스 시대의 개막에 시초가 되었습니다. 그 후의 컴퓨터를 시작으로 전자공학의 급속한 발전은 우리의 생활을 편리하고 풍부하게 해 주었습니다. <br><br>트랜지스터는 당초 게르마늄이라는 반도체로 만들어젔으나 게르마늄은 약 80℃정도의 온도밖에 견디지 못하는 결점이 있었습니다. 이때문에 지금에 와서는 거의 실리콘을 이용하고 있으며 실리콘은 약 180℃ 이상의 온도에도 견딜 수 있는 물질입니다. </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 트랜지스터의 동작원리</b></font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2"><b>PNP형 트랜지스터의 동작원리</b> </font></td></tr>
+<tr>
+<td>
+<div align="left">
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td class="pos20"><font size="2">P형, N형, P형의 반도체를 아래 그림과 같이 접합하고 각 반도체로부터 도선을 내놓으면 PNP형 트랜지스터가 됩니다. 세 조각의 반도체중 가운데의 엷은 막으로 되어있는것은 베이스(B : Base)라고 하고 베이스의 양쪽에 있는 다른 종류의 반도체중 작은 쪽은 이미터(E : Emitter)라 하며 큰 쪽은 콜렉터(C : Collector)라고 합니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="280" src="t1.png" width="464" vspace="10" id="imageCheckerTempId_1"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">위의 그림과 같은 트랜지스터(TR)는 P형, N형, P형의 순서로 접합되어 있으므로 PNP형 트랜지스터라고 합니다. <br><br>PNP형 TR을 아래의 그림과 같이 이미터와 베이스 사이에 순방향으로 전압 V<sub>BE</sub>를 공급하면 이 때는 PN접합의 2극에서 순방향 전압을 공급한 것이 되므로 이미터에서 베이스 측으로 정공이 이동하여 그림의 점선과 같이 순방향 전류가 흐르게 됩니다. 이때 전자는 정공과 반대 방향으로 즉, 베이스에서 이미터측으로 이동합니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="312" src="t2.png" width="464" vspace="10" id="imageCheckerTempId_2"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">이 때 아래의 그림과 같이 콜렉터와 베이스 사이에 역방향으로 더 높은 전압 V<sub>CE</sub>를 공급하면 이미터에서 베이스 측으로 들어가던 정공의 대부분이 콜렉터 측의 높은 전압에 끌려 콜렉터 측으로 이동하고 소수의 정공만이 베이스측으로 이동합니다. 즉 대부분의 전류는 콜렉터 측으로 흐르고 작은 전류가 베이스측으로 흐르게 됩니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="312" src="t3.png" width="464" id="imageCheckerTempId_3"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">순방향 전압 V<sub>BE</sub>에 의하여 이미터 측의 정공이 이동 할 때는 원래 베이스 측으로 이동하기 위하여 베이스의 영역내로 들어가게 되나 정공이 베이스의 영역에 일단 들어가면 훨씬 높은 전압이 걸려있는 콜렉터에 가까워 졌으므로 정공은 대부분 콜렉터에 끌려가고 소수의 정공이 베이스 측으로 이동하게 되는 것입니다. <br><br>그러므로 순방향 전압 V<sub>BE</sub>를 높여서 이미터로부터 베이스측으로 들어가는 정공의 수를 많아지게 하면 거기에 비례하여 콜렉터 측으로 끌려가는 정공의 수도 자연히 많아지게 됩니다. <br>따라서 TR은 순방향 전압 V<sub>BE</sub>에 의하여 베이스 전류(Ib)를 증가시키면 콜렉터 전류(Ic)는 자연히 증가하게 되는 것입니다. 이와 같은 원리로 동작하는 TR은 일반적으로 콜렉터 전류가 베이스 전류보다 수배~수십배로 증가하여 흐릅니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="312" src="t4.png" width="519" id="imageCheckerTempId_4"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">위와 같은 경우 이미터 전류(Ie)를 100mA흐르게 하면 콜렉터 전류 (Ic)는 99mA가 흐르고 베이스전류(Ib)는 1mA가 흐르게 됩니다. 마찬가지로 이미터 전류(Ie)를 200mA흐르게 하면 콜렉터 전류 (Ic)는 198mA가 흐르고 베이스전류(Ib)는 2mA가 흐르게 됩니다. 그러므로 이런 TR은 Ib가 1mA에서 2mA로 1mA증가할때 Ic는 99mA에서 198mA로 99mA가 증가하게 되므로 Ic는 Ib의 99배나 확대되어 흐르는 것이 됩니다. <br><br>이와 같은 예에서 Ic는 Ib가 99배 전류증폭이 되었다고 하며 이 TR은 전류증폭률이 99라고 합니다. <br><br>이 처럼 TR은 베이스 측으로 약간의 전류만 흘려도 콜렉터 측으로는 수배내지 수십배로 큰 전류가 흐르게 하는 전류 증폭 자용이 있는 것입니다. 그리고 이때 이미터에 흐르는 전류(Ie)는 콜렉터 전류 (Ic)와 베이스 전류(Ib)로 나누어져 흐르므로 항상 Ie = Ic + Ib의 관계가 성립합니다. </font></td></tr></tbody></table><br></div></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 다이오드의 회로 기호</b></font></td></tr>
+<tr>
+<td class="pos20" valign="top" align="middle" height="32">
+<table cellspacing="1" cellpadding="3" width="100%" bgcolor="#666666" border="0">
+<tbody>
+<tr align="middle" bgcolor="#f0f0f0">
+<td width="92" height="25"><font size="2">회로도 기호</font></td>
+<td width="130" height="25"><font size="2">명칭</font></td>
+<td width="188" height="25"><font size="2">설명</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="41" alt="" src="image011.gif" width="55" border="0" id="imageCheckerTempId_5"></font></td>
+<td><font size="2">일반 범용 다이오드</font></td>
+<td><font size="2">정류 , 스위칭 , 검파용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="47" alt="" src="image012.gif" width="29" border="0" id="imageCheckerTempId_6"></font></td>
+<td><font size="2">Zener diode</font></td>
+<td><font size="2">정전압 다이오드</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="45" alt="" src="image013.gif" width="33" border="0" id="imageCheckerTempId_7"></font></td>
+<td><font size="2">Schottky Barrier Diode</font></td>
+<td><font size="2">고주파 스위칭용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="43" alt="" src="image014.gif" width="63" border="0" id="imageCheckerTempId_8"></font></td>
+<td><font size="2">Variable-capacitance Diode</font></td>
+<td><font size="2">가변 용량 다이오드. 고주파 동조용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="63" alt="" src="image015.gif" width="65" border="0" id="imageCheckerTempId_9"></font></td>
+<td><font size="2">브릿지 다이오드</font></td>
+<td><font size="2">전원 정류용 </font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="45" alt="" src="image016.gif" width="53" border="0" id="imageCheckerTempId_10"></font></td>
+<td><font size="2">발광 다이오드</font></td>
+<td><font size="2">디스플레이용</font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>NPN형 트랜지스터의 동작원리</b></font> </font></td></tr>
+<tr>
+<td class="pos20">
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td align="middle" width="602"><font size="2"><img height="280" src="t5.png" width="464" vspace="10" id="imageCheckerTempId_11"></font></td></tr>
+<tr>
+<td><font size="2">위의 그림은 N형, P형, N형의 순으로 서로 잡합된 NPN형 트랜지스터입니다. <br><br>NPN형 트랜지스터 역시 PNP형 트랜지스터와 같이 가운데에 엷은 막으로 되어 있는 것이 베이스이고 양쪽에 있는 다른 종류의 반도체 중 작은 쪽은 이미터이며 큰 쪽은 콜렉터입니다. <br>PNP형에서는 이미터에 들어있는 정공이 전류를 운반하였으나 NPN형에서는 이미터에 들어있는 전자가 전류를 운반합니다. NPN형 트랜지스터에서는 이미터에서 베이측으로 들어가던 전자의 대부분이 콜렉터 측의 +전압에 끌려가는 동작을 합니다. 즉 아래의 그림과 같이 NPN형 트랜지스터의 이미터-베이스 사이에 순방향 전압 V<sub>EB</sub>를 공급하면 이미터에서 콜렉터 측으로 전자가 이동합니다. <br>전류는 전자의 방향과 반대이므로 이 때 전류는 베이스에서 이미터측으로 흐릅니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="312" src="t6.png" width="464" vspace="10" id="imageCheckerTempId_12"></font></td></tr>
+<tr>
+<td><font size="2">그런데 이 때 아래의 그림과 같이 콜렉터-베이스 사이에 역방향으로 더 높은 전압 V<sub>CB</sub>를 공급하면 이미터에서 베이스 측으로 들어가던 전자의 대부분이 콜렉터 측의 높은 전압에 끌려 콜렉터 측으로 이동하게 되는 것입니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="312" src="t7.png" width="464" vspace="10" id="imageCheckerTempId_13"></font></td></tr>
+<tr>
+<td><font size="2">여기에서도 Ib가 흐르면 Ic가 흐르고 Ib가 증가하면 Ic가 수배내지 수십배 정도로 크게 증폭되어 흐릅니다. <br><br>트랜지스터의 기능을 수도에 비유해 보면 이해가 쉽습니다. <br>베이스는 수도의 벨브, 콜렉터는 수도꼭지 그리고 이미터는 수도배괸에 비유할 수 있습니다. 수도벨브를 작은힘(베이스의 입력신호)으로 콘트롤 하여 수도꼭지에서 많은 물이 나오며 물의 양(콜렉터 흐르는 전류)을 조절한다고 생각하면 이해하면 정확합니다. </font></td></tr></tbody></table><br></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 다이오드의 회로 기호</b></font></td></tr>
+<tr>
+<td class="pos20" valign="top" height="32">
+<table cellspacing="1" cellpadding="3" width="100%" bgcolor="#666666" border="0">
+<tbody>
+<tr align="middle" bgcolor="#f0f0f0">
+<td width="92" height="25"><font size="2">회로도 기호</font></td>
+<td width="130" height="25"><font size="2">명칭</font></td>
+<td width="188" height="25"><font size="2">설명</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="41" alt="" src="image011.gif" width="55" border="0" id="imageCheckerTempId_14"></font></td>
+<td><font size="2">일반 범용 다이오드</font></td>
+<td><font size="2">정류 , 스위칭 , 검파용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="47" alt="" src="image012.gif" width="29" border="0" id="imageCheckerTempId_15"></font></td>
+<td><font size="2">Zener diode</font></td>
+<td><font size="2">정전압 다이오드</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="45" alt="" src="image013.gif" width="33" border="0" id="imageCheckerTempId_16"></font></td>
+<td><font size="2">Schottky Barrier Diode</font></td>
+<td><font size="2">고주파 스위칭용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="43" alt="" src="image014.gif" width="63" border="0" id="imageCheckerTempId_17"></font></td>
+<td><font size="2">Variable-capacitance Diode</font></td>
+<td><font size="2">가변 용량 다이오드. 고주파 동조용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="63" alt="" src="image015.gif" width="65" border="0" id="imageCheckerTempId_18"></font></td>
+<td><font size="2">브릿지 다이오드</font></td>
+<td><font size="2">전원 정류용 </font></td></tr>
+<tr bgcolor="#ffffff">
+<td align="middle"><font size="2"><img height="45" alt="" src="image016.gif" width="53" border="0" id="imageCheckerTempId_19"></font></td>
+<td><font size="2">발광 다이오드</font></td>
+<td><font size="2">디스플레이용</font></td></tr></tbody></table></td></tr></tbody></table>
+<p>&nbsp;</p>
+<p>
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td width="392" height="46"><font size="2"><img height="34" src="transistor2-1.gif" width="195" id="imageCheckerTempId_20"></font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 구조에 따른 분류 </b></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">트랜지스터의 동작구조상 차이에 따라 바이폴러(bipolar) 트랜지스터와 유니폴라(unipolar) 트랜지스터로 분류 할 수 있습니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="120" src="t8.gif" width="380" vspace="10" id="imageCheckerTempId_21"> </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>바이폴러 트랜지스터</b></font> </font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">Bi(2개) Polar(극성)의 의미로서 트랜지스터를 구성하는 반도체에 정공(플러스극성)과 전자(마이너스극성)에 의해 전류가 흐르게 되어있는것을 바이폴러 트랜지스터라고 합니다. 일반적인 트랜지스터는 실리콘으로 되어 있는 바이폴러 트랜지스터를 가리킵니다. </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>FET</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">Field Effect Transistor의 약어로 전계 효과 트랜지스터라 하며 접합형 FET와 MOS형 FET 및 GaAs형 FET가 있습니다. 접합형 FET는 오디오 기기등 아날로그 회로에 많이 이용되며 MOS형 FET는 주로 마이크로컴퓨터 등의 디지탈 IC에 사용도ㅣ고 있습니다. GaAs형FET는 위성방송 수신 등의 마이크로파의 증폭에 사용됩니다.</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>※MOS</b></font> </font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">Metal Oxide Semiconductor의 약어로 그 구조가 금속(Metal), 실리콘 산화막(Oxide), 반도체(Semiconductor)의 순으로 되어 있어서 MOS로 불리고 있습니다. MOS에는 P형과 N형, C형이 있으며 소비 전류를 작게 할 수 있기 때문에 마이크로컴퓨터 등 집적도가 높은 IC에 사용됩니다.</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 허용전력에 따른 분류</b></font></td></tr>
+<tr>
+<td height="32">
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td align="middle" width="602"><font size="2"><img height="140" src="t9.gif" width="240" vspace="10" id="imageCheckerTempId_22"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">주로 최대정격의 콜렉터 손실 Pc에 따라 분류하는 방법입니다. 크게 나누어 소신호 트랜지스터와 파워트랜지스터로 분류하며 일반적으로 파워트랜지스터라 하면 1 W이상의 것을 가리킵니다. </font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>소신호 트랜지스터</b></font> </font></td></tr>
+<tr>
+<td>
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td class="pos20"><font size="2">최대 콜렉너 전류(IC max)가 500 mA 이하, 최대 콜렉터 손실(PC max) 1 W미만의 트랜지스터를 파워트랜지스터에 비해 소신호 트랜지스터로 부르며 일반적으로 수지몰드 타입이 많은 것이 특색입니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="157" src="trsmall.jpg" width="193" vspace="10" border="1" id="imageCheckerTempId_23"></font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2"><b>파워트랜지스터</b> </font></td></tr>
+<tr>
+<td>
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td class="pos20"><font size="2">일반적으로 파워트랜지스터라고 할 때는 PC 1W 이상의 것을 가리킵니다. 소신호 트랜지스터에 비해 최대 콜렉터 전류와 최대 콜렉터 손실이 크고 발열에 대비하여 형상도 크고 금속으로 쉴드 되어 있거나 방열핀 이 첨부되기도 합니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="211" src="trlarge.jpg" width="301" vspace="10" border="1" id="imageCheckerTempId_24"></font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 트랜지스터의 세부 분류</b></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">트랜지스터는 반도체 가운데에서도 가장 많이 쓰여왔던 기본적인 반도체 부품으로 증폭 작용을 발견하여 사용되기 시작 하였습니다. 트랜지스터에는 상당히 많은 종류가 있으며 용도나 특성에 따라 아주 많은 종류가 만들어지고 있으나 흔히 사용되며 비교적 쉽게 입수할 수 있는 것으로서 기본적인 분류를 한다면 아래와 같습니다. </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>트랜지스터</b></font></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">접합형의 트랜지스터로「전류」를 증폭하는 작용이 있습니다 ． <br><br>NPN 트랜지스터<br>접합의 구성에 의한 종류로 플러스 전원으로 동작합니다.<br>２SC×××　：고주파 용（저주파용에도 사용할 수 있다）<br>２SD×××　：저주파 용<br><br><br>PNP 트랜지스터<br>접합의 구성에 의한 종류로 마이너스 전원으로 동작합니다． <br>２SA×××　：고주파 용（저주파용에도 사용할 수 있다） <br>２SB×××　：저주파 용<br><br>고주파용과 저주파용의 구별은 명확하지 않으며 제조업체(등록업체)의 지정에 의해 정해집니다. 예를들면 200MHz 정도의 저주파용도 있는가 하면 30MHz 이하의 고주파용도 있습니다.</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>전계효과 트랜지스터（FET)</b></font></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">진공관과 비슷한 원리로 입력 전압으로 출력 전류를 제어하는 특성을 갖고 있습니다． <br><br>접합형 FET : 입력 게이트가 반도체의 접합으로 구성되고 있는 ＦＥＴ 로 트랜지스터와 비교하여 훨씬 적은 입력 전류로 동작합니다． <br><br>ＭＯＳ 형 ＦＥＴ: 입력 게이트가 산화 실리콘 박막으로 절연되어 있는 ＦＥＴ로 상당히 높은 입력 임피던스전류가 흐르지 않는）를 갖고 있는 것이 특징입니다. </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 회로도 기호</b></font></td></tr>
+<tr>
+<td class="pos20" height="32">
+<table cellspacing="1" cellpadding="3" width="100%" bgcolor="#666666" border="0">
+<tbody>
+<tr bgcolor="#f0f0f0">
+<td width="120" height="20">
+<div align="center"><font size="2">회로기호</font></div></td>
+<td width="51" height="20">
+<div align="center"><font size="2">약호</font></div></td>
+<td width="126" height="20">
+<div align="center"><font size="2">명칭</font></div></td>
+<td width="192" height="20">
+<div align="center"><font size="2">기능</font></div></td></tr>
+<tr bgcolor="#ffffff">
+<td><font size="2"><img height="65" alt="" src="pnptr.gif" width="109" border="0" id="imageCheckerTempId_25"></font></td>
+<td><font size="2">TR</font></td>
+<td><font size="2">PNP 트랜지스터</font></td>
+<td><font size="2">증폭 및 스위칭</font></td></tr>
+<tr bgcolor="#ffffff">
+<td><font size="2"><img height="59" alt="" src="npntr.gif" width="111" border="0" id="imageCheckerTempId_26"></font></td>
+<td><font size="2">TR</font></td>
+<td><font size="2">NPN 트랜지스터</font></td>
+<td><font size="2">증폭 및 스위칭</font></td></tr>
+<tr bgcolor="#ffffff">
+<td><font size="2"><img height="51" alt="" src="nfet.gif" width="111" border="0" id="imageCheckerTempId_27"></font></td>
+<td><font size="2">FET</font></td>
+<td><font size="2">전계 효과 트랜지스터</font></td>
+<td><font size="2">고 입력 임피던스, 증폭 및 스위칭용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td><font size="2"><img height="49" alt="" src="pfet.gif" width="107" border="0" id="imageCheckerTempId_28"></font></td>
+<td><font size="2">FET</font></td>
+<td><font size="2">전계 효과 트랜지스터</font></td>
+<td><font size="2">고 입력 임피던스, 증폭 및 스위칭용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td><font size="2"><img height="45" alt="" src="nmos.gif" width="103" border="0" id="imageCheckerTempId_29"></font></td>
+<td><font size="2">MOS FET</font></td>
+<td><font size="2">전계 효과 트랜지스터</font></td>
+<td><font size="2">고 입력 임피던스, 증폭 및 스위칭용</font></td></tr>
+<tr bgcolor="#ffffff">
+<td><font size="2"><img height="45" alt="" src="pmos.gif" width="103" border="0" id="imageCheckerTempId_30"></font></td>
+<td><font size="2">MOS FET</font></td>
+<td><font size="2">전계 효과 트랜지스터</font></td>
+<td><font size="2">고 입력 임피던스, 증폭 및 스위칭용</font></td></tr></tbody></table></td></tr></tbody></table></p>
+<p>&nbsp;</p>
+<p>
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td width="392" height="46"><font size="2"><img height="34" src="transistor3-1.gif" width="276" id="imageCheckerTempId_31"></font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="25"><font size="2">&nbsp;</font></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 트랜지스터의 데이터시트 보는법</b></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">TR의 특성은 콜렉터 전압, 이미터 전류(혹은 콜렉터 전류), 주위 온도 등에 따라서 크게 달라집니다. <br><br>따라서 TR의 특성을 나타낼 때는 위의 조건을 고려하고 일정한 기준을 정할 필요가 있는데 일반적으로 소출력 TR일 경우에는 콜렉터 전압 6V, 이미터 전류 1mA, 주위온도 25도의 조건 하에서 측정한 결과를 나타내고 있습니다. 수 mW이하의 출력을 낼 수 있는 TR은 소출력 TR이라고 하고 수십mW ~ 수백mW의 출력을 낼 수 있는 TR은 중출력, 수W 이상의 출력을 낼 수 있는 TR은 대출력 TR이라고 합니다. <br><br>TR은 종류가 많기 때문에 특성을 일일히 기억해 두었다가 이용하는 것은 현실적으로 거의 불가능합니다. <br><br>그러므로 TR을 이용할때는 각종 TR의 여러가지 특성을 수록한 TR의 데이터시트를 이용하지 않으면 안됩니다. </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>형명</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">형명은 TR고유의 명칭입니다. 즉, 2SA12, 2SA49, 2SC1815 등의 이름을 말합니다.</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>최대정격</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">TR을 사용할 수 있는 최고 한도의 값을 나타냅니다.<br>Ta = 25도인 경우 주위온도가 25도 일때 TR이 정상작동 할 수 있는 최고의 한계값을 나타냅니다. 만약 최대 정격 이상으로 동작하게 되면 TR의 특성이 변하거나 수명이 짧아지며 너무 지나치게 되면 TR이 파손될 수 있습니다.</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>최대 V<sub>CBO</sub></b> </font></font></td></tr>
+<tr>
+<td height="32">
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td class="pos20"><font size="2">V<sub>CBO</sub>는 V<sub>cmax</sub>라고 표시하는 경우도 있습니다. 이는 다음과 같은 뜻을 가지고 있습니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="130" src="t9.png" width="230" id="imageCheckerTempId_32"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">위의 그림과 같이 콜렉터와 베이스 사이에 역방향 전압 V<sub>CB</sub>를 공급하고 이 전압을 점점 높여가면 콜렉터와 베이스 사이에 흐르는 전류 I<sub>CBO</sub>는 아래의 그림과 같이 극히 적은 값으로 거의 일정하게 흐르다가 어느 한계점에 도달하면 역방향 전류가 급격히 증가하는 지점이 있습니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="249" src="t10.png" width="419" id="imageCheckerTempId_33"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">이 때 전류가 급격히 증가하기 시작하는 것은 PN접합부에 역방향 전압이 정도 이상으로 너무 높게 걸려서 강전계의 의하여 반도체 내에 공유결합을 하고 있던 전자가 튀어나와 전원의 -측으로부터 +측으로 이동하므로 역방향 특성을 읽기 때문입니다. <br><br>이때 역방향 특성을 잃어버리기 시작하는 한계점의 전압을 콜렉터와 베이스 사이의 항복전압이라고 합니다. 이와 같은 항복전압이 걸려있는 상태에서는 TR이 TR로서의 정상적인 동작을 할 수 없습니다. <br><br>따라서 TR이 정상적으로 동작할 수 있으려면 콜렉터에는 항상 항복전압보다 낮은 전압을 공급하지 않으면 안됩니다. </font></td></tr></tbody></table></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>최대 V<sub>EBO</sub></b> </font></font></td></tr>
+<tr>
+<td height="32">
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td class="pos20"><font size="2">아래 그림과 같이 콜렉터를 차단시킨 상태에서 이미터와 베이스 사이에 역방향으로 공급할 수 있는 최대 전압을 나타냅니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="130" src="t11.png" width="115" id="imageCheckerTempId_34"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">이것은 위에서 설명한 것과 같이 콜렉터를 차단시킨 상태에서 이미터와 베이스간 역방향의 항복전압보다 약간 낮은 전입입니다. <br><br>만약 최대 V<sub>EBO</sub>이상의 전압이 공급되면 역방향 특성이 없어지고 심하면 TR의 특성이 변하거나 파손됩니다. </font></td></tr></tbody></table></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>최대 I<sub>c</sub></b></font> </font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">I<sub>cmax</sub>라고도 표시하기도 합니다. 이는 콜렉터에 흘릴 수 있는 최고 한도의 전류를 나타낸 것입니다. <br><br>그 이상으로 전류를 흘리면 특성이 변화되거나 수명이 짧아지고 심하면 파손될 수도 있습니다. </font></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>최대 P<sub>c</sub></b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">P<sub>cmax</sub>라고도 표시하기도 합니다. 이것은 콜렉터의 최대 허용 전력손실을 나타냅니다. <br><br>TR을 동작시킬때는 콜렉터에 전압을 공급하고 콜렉터 전류를 흘리기때문에 콜렉터에서는 상당한 전력이 소비됩니다. <br>이 때 소비되는 전력은 콜렉터측 PN접합부의 온도를 높이므로 소비전력이 어느정도 이상으로 증가하면 TR이 과열되어 파손되는 것입니다. 이와 같이 TR은 전력소비에 한도가 있는데 이것이 콜렉터의 최대 허용 전력손실입니다. <br><br>데이터 시트에 나와있는 최대 정격 P<sub>c</sub>는 주위온도가 25도일때 콜렉터의 최대 허용 손실전력입니다. <br>이와 같은 콜렉터의 최대 허용 손실전력은 같은 TR일지라도 주위의 온도가 높을때는 TR이 쉽게 과열되므로 콜렉터의 호용 손실적력이 감소되는데 일반적으로 주위온도가 1도 상승하는데 약 2%정도의 비율로 허용 손실전력이 감소됩니다. <br><br>수십mW ~ 수백mW의 출력을 낼 수 있는 중출력용 TR이나 수W 이상의 출력을 낼 수 있는 대출력 TR이 각각 최대의 출력을 낼 때는 주위온도가 50~60도까지 상승하므로 중출력 TR이나 대출력 TR을 사용할 때는 주위온도를 50~60도로 간주하고 허용 손실 전력을 환산해야 합니다.</font></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>I<sub>CBO</sub></b></font></font></td></tr>
+<tr>
+<td height="32">
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td class="pos20"><font size="2">이것은 아래의 그림과 같이 이미터 측을 차단하고 콜렉터와 베이스 사이에 역방향전압 V<sub>CB</sub>를 공급했을 때 콜렉터에 흐르는 전류의 크기를 나타내는 것인데 이것을 콜렉터 차단전류라고 합니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="130" src="t9.png" width="230" id="imageCheckerTempId_35"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">차단전류는 동형의 TR일때 작은 것일 수록 성능이 좋은 것입니다. </font></td></tr></tbody></table></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>h<sub>fe</sub></b></font></font></td></tr>
+<tr>
+<td height="32">
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td class="pos20"><font size="2">h<sub>fe</sub>는 아래의 그림과 같이 이미터 공통 접속(또는 이미터접지라고도 함) 회로에서 베이스에 펄스 전류 Ib를 흘릴때 콜렉터측에 증폭된 펄스전류 Ic를 측정하여 Ib로 Ic를 나누어 얻은 값을 나타냅니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="204" src="t12.png" width="263" id="imageCheckerTempId_36"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">따라서 이 값을 이미터접지때의 펄스 전류 증폭율 또는 직류 전류 증폭율이라고 합니다. <br>여러개의 TR을 이용하여 다단으로 증폭을 할 경우에 마지막단의 TR에는 앞에서 증폭된 큰 신호 전력이 공급되므로 마지막단의 TR, 즉 출력단의 TR은 큰 신호 전력이 공급될 때의 전류증폭율을 사용하는 것이 정확합니다. 따라서 마지막 단에 많이 이용하는 중출력 TR이나 대출력 TR은 대부분 충분히 큰 펄스 전류를 베이스에 흘리고 그때 흐르는 콜렉터의 펄스 전류를 측정하여 증폭율을 구하고 이것을 데이터시트에 h<sub>fe</sub>로 나타내는 것입니다. <br>그러므로 이것을 대신호 증폭율이라고도 합니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="164" src="t13.png" width="255" id="imageCheckerTempId_37"></font></td></tr>
+<tr>
+<td class="pos20"><font size="2">TR의 증폭율을 측정할때는 위의 그림에서 I<sub>b</sub> = 2mA 일때 I<sub>c</sub> = 100mA가 흐르고 전류를 증가시켜서 I<sub>b</sub> = 3mA가 흐를때 I<sub>c</sub> = 150mA가 흐른다고 가정하면, <br><br>h<sub>fe</sub> = 콜렉터 전류의 변화량 / 베이스전류의 변화량 = (150 - 100) / (3 - 2) = 50 / 1 = 50이 됩니다. 따라서 이때 이미터 접지때의 진류전류 증폭율은 50이라고 합니다. <br><br>여기서 변화시킨 베이스전류가 측정하는 TR의 베이스 전류로서 충분히 큰 편일때는 대신호 증폭율(h<sub>FE</sub>)이라고 하고 작은 편이면 소신호 증폭율(h<sub>fe</sub>)이라고 합니다. </font></td></tr></tbody></table></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>f<sub>T</sub>(트랜지션 주파수)</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">증폭하는 신호의 주파수가 높아지면 전류 증폭율이 점점 저하되는데 이미터 접지때에 주파수가 높아져서 증폭율이 1이 되는 때의 주파수를 트랜지션 주파수라고 합니다. <br>높은 주파수에서의 h<sub>fe</sub>는 주파수가 2배로 높아지면 증폭율은 1/2로 저하되므로 고주파에서의 f<sub>T</sub> = h<sub>fe</sub> x (측정 주파수)의 관계가 성립됩니다. <br><br>즉 측정주파수가 높을때는 대신 증폭율이 저하되어 측정주파수와 증폭율의 곱은 항상 f<sub>T</sub>로서 일정합니다. <br><br>따라서 f<sub>T</sub>는 증폭율과 측정 주파수를 곱한 것과 같기 때문에 이득대역폭이라고도 합니다. f<sub>T</sub>값이 높은 것일 수록 높은 주파수를 증폭할 수 있는 TR입니다. <br><br><b>θ</b><br>이것은 열저항이라 하는 것으로 TR의 전력손실에 의한 온도 상승율을 나타내는 것입니다. <br>예를 들어서 콜렉터 손실전력이 1W 증가하는데 따라 콜렉터 접합부의 온도가 3도 높아진다면 그 TR의 열저항(θ)은 3도/W라 합니다. <br><br>이와 같이 열저항이 표시되어 있을때는 콜렉터의 최대 허용 손실전력 (P<sub>c</sub>)도 다음과 같이 계산하여 알 수 있습니다. <br><br>P<sub>c</sub> = (T<sub>j</sub> - T<sub>a</sub>) / θ <br><br>(P<sub>c</sub> = 최대허용 손실 전력, T<sub>j</sub> = 접합부 온도, T<sub>a</sub> = 주위 온도, θ = 열저항) </font></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>PG (Power Gain)</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">TR의 베이스와 이미터사이(입력)에 신호 전력을 공급하면 콜렉터와 이미터(출력)사이에는 증폭된 전력이 나옵니다. <br>만약 TR입력측에 2W의 전력을 공급하였을 때 전력이 증폭되어 출력측에 100W의 전력이 나온다면 그 TR의 전력증폭도는 100 / 2 = 50이 된다고 합니다. <br>이와같이 입력측에 공급된 신호전력으로 출력측에 증폭되어 나오는 신호전력을 나누어 얻은 값을 전력 증폭도라 합니다. 전력 증폭도는 편의상 데시벨(db)라는 단위로 환산하여 나타내며 이것을 전력이득(PG : Power Gain)이라고 합니다. <br><br>전력 증폭도를 db로 환산하여 나타내면 음성 증폭기일 경우 귀에 느껴지는 정도를 곧 알 수 있으며 종합증폭도 계산이 간편해 진다는 장점이 있습니다.</font></td></tr></tbody></table></p>
+<p>&nbsp;</p>
+<p>
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td width="392" height="46"><font size="2"><img height="34" src="transistor4-1.gif" width="195" id="imageCheckerTempId_38"></font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td class="pos20" align="justify" bgcolor="#fafafa"><font size="2">FET란 전계효과트랜지스터(Field effect transistor)를 가르키는 말인데 FET는 일반적인 접합트랜지스터와 외관은 거의 유사하지만 내부구조와 동작원리는 전혀 다른 것입니다. FET는 각종 고급 전자기계와 측정장비, 자동제어회로 등에 이용되고 있습니다. <br><br>이와같은 FET는 구조에 의해 분류하면 접합FET(J-FET)와 MOS FET의 두 종료가 있으며 이것들은 각각 전류의 통로가 P형 반도체로 된 P체널형과 전류의 통로가 N형 반도체로 된 N체널 형이 있습니다. <br><br>P체널형은 정공이 전류를 운반하는 것으로 PNP형 TR과 비슷하고 N체널형은 전자가 전류를 운반하는 것으로 NPN형의 TR과 비슷합니다. </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td align="middle" height="30"><font size="2"><img height="210" src="t14.png" width="478" vspace="15" id="imageCheckerTempId_39"></font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: P체널형 접합 FET</b></font></td></tr>
+<tr>
+<td class="pos20">
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td align="middle" width="602"><font size="2"><img height="301" src="t15.png" width="480" vspace="10" id="imageCheckerTempId_40"></font></td></tr>
+<tr>
+<td align="justify"><font size="2">위의 그림은 P체널 접합 FET의 구조입니다. 이것은 P형 반도체의 측면에 N형 반도체를<span id="callbacknestkkang4444tistorycom981985" style="FLOAT: right; WIDTH: 1px; HEIGHT: 1px"><embed id="bootstrapperkkang4444tistorycom981985" src="http://kkang4444.tistory.com/plugin/CallBack_bootstrapperSrc" width="1" height="1" type="application/x-shockwave-flash" swliveconnect="true" flashvars="&amp;callbackId=kkang4444tistorycom981985&amp;host=http://kkang4444.tistory.com&amp;embedCodeSrc=http%3A%2F%2Fkkang4444.tistory.com%2Fplugin%2FCallBack_bootstrapper%3F%26src%3Dhttp%3A%2F%2Fcfs.tistory.com%2Fblog%2Fplugins%2FCallBack%2Fcallback%26id%3D98%26callbackId%3Dkkang4444tistorycom981985%26destDocId%3Dcallbacknestkkang4444tistorycom981985%26host%3Dhttp%3A%2F%2Fkkang4444.tistory.com%26float%3Dleft" enablecontextmenu="false" wmode="transparent" allowscriptaccess="always"></span> 접합하고 P형 반도체의 양단과 측면에 부착된 N형 반도체로부터 각각 리드를 내놓은 것인데 측면에 나온 리드는 게이트(G: Gate)이고 P형 반도체의 양단에서 나온 두개의 리드중 한쪽은 소스(S: Source)라 하며 다른 한쪽은 드레인(D : Drain)이라고 합니다. <br><br>위의 그림의 우측은 P채널 접합 FET를 나타내는 기호입니다. 게이트에 표시된 화살표는 게이트 접합부의 순방향을 나타낸 것으로 P채널 형임을 알려 주는 것입니다. <br><br>화살표가 TR에서 밖으로 나오는 방향으로 있을때는 P체널 형이고, 밖에서 TR쪽으로 들어가는 방향일때는 N체널 형입니다. <br><br>FET가 동작할 때는 드레인과 소스간에 전류가 흐르는데 위의 그림에서는 전류가 흐르는 통로가 P형 반도체로 되어 있기 때문에 P체널 형이라고 합니다. FET의 명칭 가운데서 2SJ11, 3SJ11등과 같이 J형으로 되어 있는 트랜지스터는 P체녈 형의 FET입니다. <br><br>위의 그림과 달리 게이트가 2개로 되어 있는 경우도 있습니다. 게이트가 2개로 되어 있는 것은 2개의 게이트가 내부에서 연결되어 있지 않고 개별적으로 나와있는 것입니다. </font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: N체널형 접합 FET</b></font></td></tr>
+<tr>
+<td class="pos20">
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td align="middle" width="602"><font size="2"><img height="301" src="t16.png" width="480" id="imageCheckerTempId_41"></font></td></tr>
+<tr>
+<td align="justify"><font size="2">위의 그림은 N형 반도체의 측면에 P형 반도체를 접합하고 N형 반도체의 양단과 측면에 있는 P형 반도체로부터 각각 리드를 내놓은 것인데 이것은 N체널 접합 FET입니다. <br><br>FET의 명칭 가운데서 2SK11, 3SK14등과 같이 K형으로 되어 있는 트랜지스터는 N체녈 형의 FET입니다. </font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: MOS FET</b></font></td></tr>
+<tr>
+<td class="pos20" height="32">
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td align="middle" width="602"><font size="2"><img height="556" src="t17.png" width="513" vspace="10" id="imageCheckerTempId_42"></font></td></tr>
+<tr>
+<td align="justify"><font size="2">위의 그림은 MOS(Metal Oxide Semiconductor)형 FET의 구조입니다. P형 반도체의 기판에 N형 반도체를 만들고 N형 반도체의 표면에 알루미늄으로 된 게이트를 부착시킨 것인데 N형 반도체와 게이트사이에는 실리콘 산화물의 엷은 막을 형성시켜서 절연도가 매우 높게 하였습니다. <br><br>위의 그림의 좌측에는 N형 반도체 양단에서 나온 두개의 리드중 한쪽은 드레인이고 다른 한쪽은 소스인데 이와같은 구조로 된 것을 디플레이션(depletion)형 MOS FET이라고 합니다. <br><br>그림 중간의 것은 인핸스먼트(enhancement)형 MOS FET라고 하는 것의 구조도로, 이것은 N체널이 없는 것으로 되어있으나 동작시에는 실리콘산화물의 엷은 막 옆에 N체널이 형성됩니다. <br><br>FET와 접합 트랜지스터를 비교하면 FET의 드레인은 TR의 콜렉터와 같고, 소스는 이미터와 같으며, 게이트는 베이스와 같습니다. 그리고 P체널형은 PNP형과 비슷하고 N체널형은 NPN형 TR과 비슷하기 때문에 PNP형 TR의 콜렉터에 -전압을 공급하는 것과 마찬가지로 P체널 FET의 드레인에는 -의 전압을 공급하고, NPN형 TR의 콜렉터에 +전압을 공급하는 것 처럼 N체널 FET의 드레인에는 +전압을 공급해야 합니다. </font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: FET의 동작원리</b></font></td></tr>
+<tr>
+<td class="pos20">
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td align="middle" width="602"><font size="2"><img height="259" src="t18.png" width="224" vspace="10" id="imageCheckerTempId_43"></font></td></tr>
+<tr>
+<td align="justify"><font size="2">위의 그림과 같이 N체널 접합 FET의 드레인과 소스에 드레인이 +가 되는 방향으로 전압을 공급하면 (이것을 드레인 전압이라고 함) N형 반도체 내에 산재하여 있는 과잉전자가 소스전극에서 드레인전극 측으로 이동하여 드레인 전류 I<sub>D</sub>가 흐릅니다. <br><br>이 때 아래의 그림과 같이 게이트와 소스간에 역방향 전압을 공급하면(이것을 게이트전압이라고 함) 게이트의 -전압에 의해 N체널 내에 전자가 반발당하여 공핍층이 생깁니다. 이때 생긴 공핍층은 전자가 없는 부분으로 절연영역이므로 전자가 이동할 수 있는 통로(체널)가 좁아져서 드레인전류 I<sub>D</sub>는 감소합니다. 여기에서 만약 역방향 전압을 더욱 증가시킨다면 통로는 더욱 좁아져서 I<sub>D</sub>는 더욱 감소하게 됩니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="544" src="t19.png" width="299" vspace="10" id="imageCheckerTempId_44"></font></td></tr></tbody></table></td></tr></tbody></table></p>
+<p>&nbsp;</p>
+<p>
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+<tbody>
+<tr>
+<td width="392" height="46"><font size="2"><img height="34" src="transistor5-1.gif" width="276" id="imageCheckerTempId_45"></font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 트랜지스터 회로 설계시 유의사항</b></font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>몇 볼트까지 사용할 것인가?</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">컬렉터·이미터간 최대정격전압（Vceo)를 기준으로 하며<br>실제로는 이것의 1/2 이하의 전압에서 사용하는 것이 좋습니다.</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>몇 암페어까지 흐르게 할 것인가?</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">이것은 ２가지 관점에서 생각해야 합니다.<br>먼저 컬렉터 최대정격전류（Ic)를 초과해서는 않되며 실제 사용시에는 1/2 이하에서 사용해야 합니다.<br>또 하나는 콜렉터 손실(Pc)을 기준으로 최대 전력을 초과하여 사용하지 않도록 하는 것입니다. 이것의 사용전압 × 전류로 계산하여 역시 1/2 이하에서 사용해야합니다.<br>그러나 이것은 방열판의 유무와 주위 온도에따라 큰 차이가 있으므로 데이터 쉬트를 확인하는 것이 좋습니다.</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>증폭률을 얼마로 사용할 것인가?</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">직류전류증폭율(hfe)로 단순하게 입력전류의 몇 배가 되어 출력되는지 계산하면 되지만 트랜지스터마다 편차가 있으므로 최소값을 기준으로 해야합니다.</font></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>어느정도의 주파수까지 증폭할 것인가?</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">이것은 이득 대역폭 (f<sub>T</sub>)을 기준으로 하여 다음과 같이 산출 합니다.<br>사용 가능한 주파수 ＝ 이득 대역폭(f<sub>T</sub>) ÷ 직류 전류 증폭 율(hfe)</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font class="fonttx0" size="2"><b>:: 디지탈 회로에서 사용법 </b></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">트랜지스터를 디지탈 회로에서 사용하는 목적은 주로 다음과 같은 것이 있으며 그에 따른 사용법을 설명합니다. </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>큰전류나 높은전압의 제어</b></font> </font></td></tr>
+<tr>
+<td class="pos20"><font size="2">세그먼트 발광 다이오드의 제어, 모터나 릴레이등의 드라이브, 전원의 On/Off，조명등의 제어<br>전압레벨의 변환 : 광센서나 마이크의 신호 증폭 및 변환<br>직류전압 증폭 : A/D 변환 입력 신호 증폭및　센서 출력의 증폭 </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>큰 부하 제어</b></font></font></td></tr>
+<tr>
+<td class="pos20">
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td><font size="2">여기서 말하는 큰부하라는 것은 수 10mA 이상의 전류가 흐르거나 ５V 이상의 전압이 필요한 부하를 말하며 디지탈 IC로는 직접 드라이브할 수 없는 모터의 제어나 릴레이또는 솔레노이드 코일등의 드라이브가 여기에 해당됩니다. <br><br>이와 같은 경우 트랜지스터의 사용법은 다음 그림과 같이 사용하는 것이 기본이며 부하전류의 방향에 따라서 (a)，(b)의 두가지 사용법이 있고 사용하는 트랜지스터도 NPN형과 PNP형으로 각각구분하여 사용해야 합니다．</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="229" src="trsch1.gif" width="531" id="imageCheckerTempId_46"></font></td></tr>
+<tr>
+<td><font size="2">트랜지스터의 선정은 드라이브하는 전압과 전류를 고려하여 선정하며 전류 증폭율이나 주파수 특성은 생각할 필요가 없습니다. <br>동작 원리는 (a)의 경우 디지탈 IC의 출력이 High 가 되면 4.5V 이상의 전압이 되어 이것이 저항을 통하여 트랜지스터에 Ib가 흐르게하여 트랜지스터가 On되고 Ic가 흘러서 부하가 작동합니다. <br><br>역으로 디지탈 IC의 출력이 Low로 되면 트랜지스터의 Vbe(0.6V 정도）보다 작은 출력전압 (0.2V 정도）이 되기 때문에 Ib는 흐르지 않아서 트랜지스터가 Off되어 부하전류도 흐르지 않게 됩니다. <br><br>(b)의 경우에는 반대로 디지탈 IC의 출력이 High가 되면 트랜지스터는 Off 되어 부하전류는 흐르지 않으며，디지탈 IC 출력이 Low로 되면 트랜지스터가 On 되어 부하에 전류가 흐르게 됩니다. <br><br>R1과 R2의 저항치 결정은 트랜지스터가 On되었을때 베이스 전류（Ib)＝부하 전류(Ic)÷직류 전류 증폭 율(hfe) 로 정해지는 전류 Ib보다 약간 큰 전류가 흐르도록 저항값을 설정해야 합니다. 이 저항이 없으면 디지탈 IC에 과전류가 흐르게 되어 디지탈 IC가 발열로 파손됩니다. <br><br>예：부하전류가 100mA 이고 hfe=100, Ib=1mA 라 하고 IC의 전원을 5V라고 하면 ，Vbe는 약 0.6V로 일정이기 때문에 R1 = R2 = (5V - 0.6V) ÷ 1mA = 4.4KΩ　이나 약간 여유를 주어서 ３.3 KΩ 정도면 적당할것입니다. <br><br><br><strong>* 주의사항 </strong><br><br>트랜지스터로 드라이브하는 부하가 모터나 릴레이처럼 코일부하일때는 역기전력에 주의할 필요가 있습니다．즉 코일의 전류를 On/Off할때 순간적으로 역방향의 높은 전압이 코일의 양단에 발생하는데 이것을 그데로 방치하면 트랜지스터의 컬렉터-이미터간에 가해져서 경우에 따라 트랜지스터가 파손될수도 있습니다．<br>또한 이 역기전력은 노이즈로 작용하여 주변 회로의 오동작을 유발 할 수도 있습니다. 따라서 이것을 방지하기 위해 다음 그림과 같이 다이오드를 코일의 양단에 병렬에 접속합니다． 또한 이 다이오드는 최대한 코일에 가까운 위치에 붙여서 역 기전력을 흡수시켜야 합니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="246" src="trsch2.gif" width="335" id="imageCheckerTempId_47"></font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font size="2"><font class="fonttx0"><b>:: 전압레벨 변환 방법</b></font> </font></td></tr>
+<tr>
+<td class="pos20" height="32">
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td><font size="2">각종 센서류는 출력 전압이 낮아서 디지탈 회로에 직접입력으로 사용하기 부적절한 경우가 많으며 이때 트랜지스터로 전압레벨을 증폭하여 사용합니다. 이때는 결국 직류전압증폭기로 사용하는것이 되기 때문에 본래의 기본증폭 회로로 구성하면 되나 On/Off를 판정하는 정도면 족하기 때문에 회로를 간략화 할 수 있습니다. <br><br>실제로 사용하는 회로는 그림과 같이 되며 입력으로 사용된 센서의 출력 전압이 평상시는 거의 0V이고 검출시에 0.6V 이상 일때와 0.6V 이하 일 때 회로가 조금 다르게 됩니다. </font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="242" src="trsch31.gif" width="296" id="imageCheckerTempId_48"></font></td></tr>
+<tr>
+<td><font size="2">(a)의 회로에서 센서의 출력이 평상시 0V에 가깝기 때문에 트랜지스터는 Off 되어 디지탈 IC의 입력은 거의 전원전압에 가까워저서 High로 되고, 센서 검출시에 출력이 0.6V 이상이 되면 트랜지스터가 On으로 되어 디지탈 IC의 입력은 거의 0V가 되고 Low로 됩니다. <br><br>R1과 Rc의 저항치 결정방법은 먼저 Rc는 디지탈 IC의 입력전류는 수 10μA 이하이기때문에 트랜지스터가 Off되었을 때 Rc 를 경유하여 디지탈 IC에 전류가 흐를 수 있도록 수 10KΩ 이하의 저항이면 적당하며 보통은 5KΩ∼20KΩ 정도가 쓰여집니다． <br><br>R1은 센서의 출력 전류에 의하여 결정되며 너무 작게 하면 센서에 무리를 주어 감도가 떨어질수 있습니다. 대부분은 수10KΩ 정도면 적당하며 일반적으로 10KΩ ~ 50KΩ 정도가 쓰여지지만 센서의 규격에 최적 부하저항치가 있으면 그에따른 저항치를 사용하며 이때는 센서의 부하는 R1과 트랜지스터의 입력 저항이 병렬이 되므로 이점도 주의하여 결정해야 합니다, 참고로 트랜지스터의 입력저항은 수 10KΩ정도 입니다．</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="242" src="trsch32.gif" width="298" id="imageCheckerTempId_49"></font></td></tr>
+<tr>
+<td><font size="2">(b) 회로에서 저항치의 결정 방법은 R1과 Rc는 (a)와 같지만 R2는 수 10KΩ의 가변저항을 사용하여 평상시에 트랜지스터가 Off되고 센서감지시에 On으로 되도록 조정하는 것이 필요합니다．이때 R1 과 R2의 비가 0.6대 Vcc의 비와 거의 같은 정도가 되도록 하는 것이 좋습니다. <br><br>R1 과 트랜지스터 입력저항(수 10KΩ)의 병렬 저항이 센서의 부하가 되기 때문에 센서의 부하 드라이브 능력을 넘지 않게 R1 이 수KΩ (많게는 2KΩ~ 5KΩ정도)이 되도록 합니다. <br><br>센서의 출력 신호가 １msec 이하의 짧은 펄스일때는 사용할 트랜지스터의 주파수 특성을 고려할 필요가 있지만 그 이외에는 주파수 특성을 걱정할 필요가 없으며 사용전압과 전류증폭율이 적당한 것을 사용하면 좋을것입니다. 출력전류는 디지탈 IC정도라면 수 10μA 정도면 충분하기 때문에 걱정하지 않아도 될 것입니다.</font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td height="32"><font size="2"><font class="fonttx0"><b>:: 아날로그 회로에서 사용법</b></font> </font></td></tr>
+<tr>
+<td class="pos20" height="32">
+<table class="st" cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr>
+<td><font size="2">아날로그 신호를 증폭하기 위한 기본 회로는 대부분 이미터 접지 회로를 사용하며 최대한 깨끗하게 입력 신호를 증폭하도록 해야 합니다. <br><br>그 기본회로는 다음 그림과 같으며 회로정수의 결정방법은 아래와 같은 순서로 행합니다．여기로 미리 사용할 전원전압（Vcc)은 정해 있는 것으로 하고 사용할 트랜지스터의 전류 증폭율(hfe)은 100으로 가정합니다. 트랜지스터의 선정시는 주파수 특성이 중요하고 이득 대역폭 (f<sub>T</sub>)이 높은것을 사용할 필요가 있습니다． <br><br>예：<br>f<sub>T</sub>가 200MHz 이고 hfe가 100이라면，200MHz ÷ 100 = 2MHz 로 되어<br>실제로 사용할 수 있는 주파수는 ２MHz 정도가 됩니다.<br>따라서 10MHz 이상의 주파수로 사용하려면 ft는 1GHz 이상이 필요하게됩니다.</font></td></tr>
+<tr>
+<td align="middle"><font size="2"><img height="240" src="trsch4.gif" width="334" vspace="10" id="imageCheckerTempId_50"></font></td></tr></tbody></table></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>1. 컬렉터 저항（Rc)의 결정</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">이것은 부하전류（Ic)를 고려해서 결정해야 합니다. <br>파워가 필요한 드라이브일때는 수 １００ｍA 정도가 필요하며 통상은 수 ｍA ~ 수 １０ｍA 정도가 일반적입니다． <br>Rc는 무신호시 출력전압이 전원 전압의 １／２이 되도록 하면 되며 <br><br>Rc = （Vcc/2) ÷ Ic 로 계산하면 구할 수 있습니다. <br><br>(예：Vcc = 5V　Ic = ２mA 라면 　Rc = 1.25KΩ = 약1KΩ) </font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>2. 이미터 저항（Re）의 결정 </b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">이 저항은 입력신호가 １V 이상이 되어도 출력이 포화하지 않도록 하여 신호를 깨끗하게 증폭 할 수 있도록 합니다. 값의 결정은 러프하게 생각해도 좋으며 통상 Rc의 1/5 ∼ 1/10 정도면 족합니다. (예：1KΩ ÷ 5 =　200Ω）</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>3. 베이스 저항（R1과 R2）의 결정</b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">먼저 필요한 베이스 전압（Vb)을 구합니다.<br>무신호시 Re에는 Ic의 전류가 흐르고 있고 베이스 이미터간 전압은 약 0.6V로 거의 일정하기 때문에 <br><br>Vb = Ic×Re＋0.6로 됩니다．（예：　2mA × 200Ω＋0.6 = 1.0V） <br><br>다음에 필요한 베이스 전류（Ib)를 전류 증폭율(hfe)에 의해 계산하면 <br><br>Ib = Ic ÷ hfe（예：2mA÷100 = 0.02mA　hfe=100）가 됩니다. <br><br>여기에서 베이스 저항은 베이스 전류의 １０배 이상의 전류가 흐르게 하여 베이스전류 및 베이스 전압이 변동하지 않도록 하며 R1，R2는 다음과 같이 계산합니다. <br><br>R1 = （Vcc - Vb) ÷（10×Ic）, R2 = Vb ÷ (10 × Ic)<br>(예：R1=(5V-1V)÷10×0.02mA=20KΩ　　R2=1V÷(10×0.02mA)=5KΩ ）</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>4.커플링 콘덴서(Cin)의 용량결정 </b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">교류신호를 증폭하는 경우는 직류전압과 무관하게 하기 위해 커플링 콘덴서（Cin）가 필요해집니다．이 값은 입력신호의 최저 주파수（ｆｃ）에 대하여 충분히 무시할 수 있는 임피던스가 되도록 해야 합니다. 입력용 콘덴서 Cin 은 트랜지스터의 입력 임피던스를 Rin이라고 한다면 <br><br>ｆｃ ＞　１÷（2π × Rin × Cin) 이 되도록 정해야 하며 입력 임피던스 Rin은 대략 R1과 R2의 병렬 저항값이 됩니다. <br><br>예：ｆｃ를 20Hz라고 할때 Cin &gt; １／(6.3 × 4KΩ × 20Hz) = 2μF <br>Cｉｎ = 4.7μF 정도를 사용하면 좋습니다,）</font></td></tr>
+<tr>
+<td background="dot.gif" height="1"></td></tr>
+<tr>
+<td bgcolor="#f0eee8" height="37"><font size="2">&nbsp; <font class="fonttx0"><b>5. 바이패스 콘덴서（Ce）의 결정 </b></font></font></td></tr>
+<tr>
+<td class="pos20" height="32"><font size="2">이미터의 콘덴서도 최저 주파수에 대하여 충분히 낮은 인피던스가 되도록 정해야 하며<br>Ce ＞ １÷（２π × ｆｃ × Re）로 구합니다． <br><br>예：　Ce＞１／（6.3×20Hz×200Ω）=40μF　→ Ce=100μF） <br><br>《참고》직류증폭시는 Cin이나 Ce는 불필요 하기 때문에 사용하지 않아도 좋습니다. </font></td></tr></tbody></table></p>
+<p>&nbsp;</p>
+<p><font size="2">출처: ICBANK</font></p>
+			
+				</div>
+		 
+													<div class="article_to_sns_wrap">
+			<div class="article_to_sns_box">
+				<div class="article_to_sns_bg"></div>
+				<a class="article_to_mypeople" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=065fc&articleno=13376267&looping=0&longOpen=#" onclick="shareSNS(&#39;mypeople&#39;, &#39;http://blog.daum.net/yongsanct/13376267&#39;, &#39;트랜지스터란&#39;, &#39; N형 반도체와 P형 반도체를 PNP / NPN 형태로 접합한 구조의 소자로 전류의 흐름등을 조절할 수 있도록 하여 만든 회로구성에서 중요한 반도체 소자입니다. 세 가지 기능, 즉 스위칭, 검파, 증폭용으로써 모든 전자 시스템에 한가지 또는 여러 가지 형태로&#39;); return false;" target="_blank">요즘</a>
+				<a class="article_to_twitter" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=065fc&articleno=13376267&looping=0&longOpen=#" onclick="shareSNS(&#39;twitter&#39;, &#39;http://blog.daum.net/yongsanct/13376267&#39;, &#39;트랜지스터란&#39;, &#39; N형 반도체와 P형 반도체를 PNP / NPN 형태로 접합한 구조의 소자로 전류의 흐름등을 조절할 수 있도록 하여 만든 회로구성에서 중요한 반도체 소자입니다. 세 가지 기능, 즉 스위칭, 검파, 증폭용으로써 모든 전자 시스템에 한가지 또는 여러 가지 형태로&#39;, &#39;&#39;); return false;" target="_blank">트위터</a>
+				<a class="article_to_facebook" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=065fc&articleno=13376267&looping=0&longOpen=#" onclick="shareSNS(&#39;facebook&#39;, &#39;http://blog.daum.net/yongsanct/13376267&#39;, &#39;트랜지스터란&#39;, &#39; N형 반도체와 P형 반도체를 PNP / NPN 형태로 접합한 구조의 소자로 전류의 흐름등을 조절할 수 있도록 하여 만든 회로구성에서 중요한 반도체 소자입니다. 세 가지 기능, 즉 스위칭, 검파, 증폭용으로써 모든 전자 시스템에 한가지 또는 여러 가지 형태로&#39;, &#39;&#39;); return false;" target="_blank">페이스북</a>
+				<a class="article_to_more" href="javascript:;" onmouseover="showMoreSNS(event);" onmouseout="hideMoreSNS(event);">더보기</a>
+				<div class="sns_more_wrap" id="moreSNS" onmouseout="hideMoreSNS(event);">
+					<div class="sns_more">
+						<a class="article_to_etc p11" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=065fc&articleno=13376267&looping=0&longOpen=#" onclick="shareSNS(&#39;nate&#39;, &#39;http://blog.daum.net/yongsanct/13376267&#39;, &#39;트랜지스터란&#39;, &#39; N형 반도체와 P형 반도체를 PNP / NPN 형태로 접합한 구조의 소자로 전류의 흐름등을 조절할 수 있도록 하여 만든 회로구성에서 중요한 반도체 소자입니다. 세 가지 기능, 즉 스위칭, 검파, 증폭용으로써 모든 전자 시스템에 한가지 또는 여러 가지 형태로&#39;, &#39;&#39;); return false;" target="_blank"><img class="nate_icon" src="img_blank.gif">싸이월드</a>
+						<a class="article_to_etc p11" href="http://blog.daum.net/_blog/hdn/ArticleContentsView.do?blogid=065fc&articleno=13376267&looping=0&longOpen=#" onclick="shareSNS(&#39;me2day&#39;, &#39;http://blog.daum.net/yongsanct/13376267&#39;, &#39;트랜지스터란&#39;, &#39; N형 반도체와 P형 반도체를 PNP / NPN 형태로 접합한 구조의 소자로 전류의 흐름등을 조절할 수 있도록 하여 만든 회로구성에서 중요한 반도체 소자입니다. 세 가지 기능, 즉 스위칭, 검파, 증폭용으로써 모든 전자 시스템에 한가지 또는 여러 가지 형태로&#39;, &#39;&#39;); return false;" target="_blank"><img class="me2day_icon" src="img_blank.gif">미투데이</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+var flashVersion = parent.swfobject.getFlashPlayerVersion();
+if(typeof flashVersion != "undefined" && typeof flashVersion.major != "undefined" && flashVersion.major >= 10  && typeof ExifViewer != "undefined"){
+	var getTxImages = function () {
+	    var result, txImages, images, i, len, img;
+	    result = [];
+	    images = [];
+	    txImages = document.body.getElementsByTagName("img");
+	    len = txImages.length;
+	    for (i = 0; i < len; i += 1) {
+	        img = txImages[i];
+	        if (/tx\-daum\-image|txc\-image/.test(img.className)) {
+	            images.push(img);
+	        }
+	    }
+	    	    return result;
+	};
+	var txImages = getTxImages();
+	ExifViewer.load({
+		serviceName: "blog",
+	    images: txImages,
+	    showAllItem: false,
+	    imageViewer: {
+	        templateValue: {
+				blogid: encodeURIComponent(BLOGID),
+				articleurl: encodeURIComponent("http://blog.daum.net/yongsanct/13376267")
+			},
+			photoList: {
+				photoListProtocol: "blogphotolistselect",
+				photoListDataFromUrl: "http://blog.daum.net/_blog/api/PhotoListSelectImageViewer.do?blogid={blogid}&articleurl={articleurl}&imageurl={imageurl}"
+			},
+			groupList: {
+				groupListProtocol: "blogcatelist",
+				groupListDataFromUrl: "http://blog.daum.net/_blog/api/CategoryList.do?blogid={blogid}"
+			},
+			data: {
+				count: txImages.length,
+				getViewingUrl: function (index) {
+					return txImages[index].src;
+				}
+			}
+		}
+	});
+}
+</script>
+<br>
+
+ 
+<div style="clear: both; line-height: 0; font-size: 0; margin: 0; padding: 0;"></div>
+
+<script type="text/javascript">
+//<!--
+	articleFileViewGeneration();
+	var myAgent = navigator.userAgent.toLowerCase();
+   	if(myAgent.indexOf("msie 8")!=-1){
+		var webFontStyleEl = parent.document.getElementById("fontStyle"); 
+		if(webFontStyleEl) webFontStyleEl.styleSheet.cssText = webFontStyleEl.styleSheet.cssText;
+	}
+	
+	var ImageErrorChecker = {
+		process: function() {
+			var articleArea = daum.$("contentDiv");
+			var articleImages = daum.$T("img", articleArea);
+			
+			for(var i = 0; i < articleImages.length; i ++) {
+				var id = "imageCheckerTempId_" + i;
+				if(articleImages[i].id == null || articleImages[i].id == "") {
+					articleImages[i].id = id;
+				} else {
+					id = articleImages[i].id;
+				}
+				this.addHandlers(daum.$(id));
+			}
+		},
+		addHandlers: function(original) {
+			var img = new Image();
+			img.id = original.id;
+			img.src = original.src;
+			img.onload = function(e) {}
+			img.onerror = function() {
+				original.src = "http://i1.daumcdn.net/cafeimg/blog3/image_not_found.png";
+				original.width = 200;
+				original.height = 200;
+			}
+		},
+		loadImage: function(e) {},
+		showErrorImage: function(e) {
+			var ev = e || window.event, target = ev.target || ev.srcElement, key;
+			var target = ev.target;
+			target.src = "http://i1.daumcdn.net/cafeimg/blog3/image_not_found.png";
+			target.width = 200;
+			target.height = 200;
+		}
+		
+	};
+
+	ImageErrorChecker.process();
+	
+//-->
+</script>
+</body></html>

@@ -1,0 +1,1310 @@
+유닉스/리눅스 명령어
+ 유닉스 명령어 (1) ] 
+ 
+
+@.@ : 다음은 Solaris, Korn Shell을 기준으로 한 설명입니다.
+
+       순서대로 실습해 보시면 부족하나마 유닉스 명령어 들에 대해 알게 될 것입니다.
+
+ 
+
+c:\> telnet ip_address   # 사용할 수 있는 Unix 서버의 주소를 입력한다
+
+ 
+
+ 
+
+# SunOS 5.?                                                                                                                                                                   #
+
+#                                                                                                                                                                                    #
+
+# login:          #사용 가능한 유저명을 입력한다.                                                                                                                #
+
+# Password:     # 암호를 입력한다. 암호는 입력값이 보이지 않는다                                                                                   #
+
+ 
+
+OS] abcd       #임의의 글자를 입력한 뒤 글자를 지워보자.
+
+ 
+
+# Unix에서 한 글자 지우기 : ← (백스페이스) 또는 ^h (Ctrl키를 누른채 h를 누른다)
+
+# Unix에서 한 글자 지우기 : 경우에 따라 delete 버튼을 누르도록 설정되어 있다.
+
+ 
+
+# Unix에서 한 줄 지우기 : ^u (Ctrl키를 누른채 u를 누른다)
+
+ 
+
+OS] man stty      # 어떤 명령의 설명을 보고 싶으면 man 명령을 이용한다.
+
+OS] stty ?a         # 현재 설정된 상태 확인
+
+ 
+
+OS] stty erase ^?    # delete 버튼으로 한글자 지우고 싶으면 이렇게..
+
+OS] stty erase ^h    # 백스페이스 버튼으로 한글자 지우고 싶으면 이렇게..
+
+ 
+
+OS] stty kill ^k        # 이렇게 해두면 한 줄 지울 때 Ctrl 키를 누르고 k를 눌러야 한다
+
+OS] stty kill ^u        # 이렇게 해두면 한 줄 지울 때 Ctrl 키를 누르고 u를 눌러야 한다
+
+ 
+
+OS] stty ?a            # 현재 설정된 상태 확인
+
+ 
+
+OS] passwd          # 암호를 수정하고 싶으면 이렇게 하고 이전 암호와 새 암호를 입력한다
+
+                             # 너무 단순한 암호를 설정하면 다시 설정하라는 메시지가 나타난다.
+
+ 
+
+OS] su                 # 일반 유저가 수퍼유저(root)로 역할 변경
+
+                            # 물론 root 유저의 암호를 알고 있어야 한다.
+
+                            # root 유저에서 일반 유저로 되돌아가려면 ^d 하면 된다.
+
+OS] uname          # 운영체제 정보 확인
+
+OS] uname ?rpns   # 좀 더 자세한 정보
+
+OS] uname ?r ?p ?n ?s
+
+OS] uname ?a
+
+OS] man uname    # a, r, p, n, s 등의 옵션이 무슨 의미인가를 확인해보자..
+
+                   # space bar : next screen, enter : next line
+
+                   # b : move back one scree, f : move  forword one screen
+
+                   # q : quit, /패턴 : 패턴 찾기, n : 다음 패턴 찾기, h : 도움말
+
+ 
+
+OS] date                # 날짜를 확인한다
+
+OS] cal                  # 달력을 표시한다
+
+OS] cal 2009          # 2009년 달력
+
+OS] cal 5 2009       # 2009년 5월 달력
+
+OS] date;cal;pwd   # 한번에 여러 명령 사용하기
+
+ 
+
+OS] banner oracle  # 어떤 결과가 나올까요? (ORACLE 라는 문자가 나옴)
+
+ 
+
+OS] ls                                           # 파일명과 디렉토리명을 출력
+
+OS] ls ?l                                        # 파일과 디렉토리에 관한 자세한 정보 출력
+
+OS] la ?a                                       # 숨겨진 파일명도 출력
+
+OS] ls ?ul                                      # 파일을 액세스한 최종 날짜 및 시간
+
+OS] ls ?lt                                       # 최근에 수정한 파일이 먼저 나오게..
+
+OS] ls ?ltr                                      # 최근에 수정한 파일이 나중에 나오게 (reverse)
+
+OS] ls ?R 디렉토리명                      # 특정 디렉토리 아래의 모든 파일 확인
+
+OS] ls ?R $ORACLE_HOME/demo  #오라클 사용자라면 이렇게 한번 해보자.
+
+ 
+
+OS] whomi          # 자신의 계정을 알아내려면..
+
+OS] who am I      # 조금 더 자세한 정보
+
+OS] id                 # 계정에 관한 정보
+
+OS] id root         # root 계정에 관한 정보
+
+OS] id ?a root     # root 계정과 root가 속한 그룹 확인
+
+OS] clear           # 화면지우기
+
+ 
+
+OS] users          # 현재 연결된 사용자들의 계정
+
+OS] who            # 현재 연결된 사용자의 조금 더 자세한 정보
+
+OS] w                # 각 사용자는 무슨 작업을 하고 있는가?
+
+ 
+
+OS] df ?k           # 사용 가능한 디스크 공간이 얼마인지를 확인
+
+ 
+
+To Be Continued…
+
+ 
+
+출처: http://blog.naver.com/orapybubu/40011989090  님의 블로그 에서 타이핑으로 옮겨옴 
+
+[출처] uxix command(1) stty, ls 등|작성자 독수리한
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+[ 유닉스 명령여 (2) : vi 편집기 명령
+
+ 
+
+@.@ 다음 명령을 이용하여 vi 편집기 사용법을 익혀야 한다. 기본중에 기본이다.
+
+      전체 명령어를 외울 필요없지만 파일생성, 내용입력, 수정, 삭제 등은 할 수 있어야 한다.
+
+ 
+
+◆ vi 편집기 명령어 요약 ◆
+
+ 
+
+▶ vi test01.txt        : 새로운 파일의 생성
+
+   vi + test01.txt     : 파일의 마지막에 커서 위치
+
+   vi +3 test01.txt    : 파일의 세번째 행에 커서 위치
+
+   vi ?w10            : 윈도우의 행을 10 라인으로 만든다
+
+ 
+
+▶ zz 또는 : wq : 저장 후 종료
+
+: ql           : 저장 없이 종료
+
+: q            : open 한 뒤에 바로 종료(편집한 것이 없을 경우)
+
+: w           : 편집한 내용 저장
+
+ 
+
+▶/text          : search for text(torword)
+
+?text          : search for text(backword)
+
+n              : repeat(forword)
+
+N              : repeat(backword)
+
+ 
+
+▶(숫자)x        : 문자 삭제
+
+dw            : delete a word
+
+(숫자)dd       : delete a line
+
+D or d$        : delete rest of line (커서위치 포함)
+
+d0             : 커서 위치에서 라인 시작까지 삭제
+
+dL              : 현재 -> 화면의 끝까지 삭제
+
+dG             : 현재 -> 파일의 끝까지 삭제
+
+d)                                           : 현재 구 삭제
+
+ð      이상의 삭제는 동시에 버퍼에 기록하는 작업이 수행된다
+
+ð       따라서 문자의 이동은 삭제(d)한 뒤에 복사(p)를 이용하면 된다.
+
+ 
+
+▶(숫자)yy       : 버퍼에 정해진 라인을 복사
+
+yw            : 단어 하나를 복사
+
+y$               : 현재 -> 라인 끝
+
+yL               : 현재 -> 화면 끝
+
+yG               : 현재 -> 파일 끝
+
+p                : 커서 뒤에 붙여넣기 (대문자 P 는 커서 앞에 붙여넣기
+
+=> 5yy 했다면 5p 해야 한다.
+
+ 
+
+▶반드시 좌측 Ctrl 버튼 이용할 것, 대소문자 구분 없음
+
+^F                 : forward screen (한 화면)
+
+^B                 : backward screen (한 화면)
+
+^D                 : scroll down half screen
+
+^U                 : scroll up half screen
+
+^E                 : 화면 한 라인 올림
+
+^Y                 : 화면 한 라인 내림
+
+ 
+
+▶커서의 위치 이동
+
+H                   :top line on screen
+
+L                   : last line on screen
+
+M                  : middle line on screen
+
+ 
+
+nG                 : 지정한 행으로 이동 (G 는 마지막 행으로 이동)
+
+ 
+
+v                   : next line, same column
+
+k                   : previous line, same column
+
+ 
+
+0(zero)             : beginning of line
+
+$                   : end of line
+
+w(숫자w)           : forward a word
+
+b(숫자b)            : back a word
+
+e                   : end of word
+
++                   : 다음 행 처음
+
+-                    : 이전 행 처음
+
+ 
+
+▶삽입
+
+a              : append after cursor
+
+A              : append at end of line
+
+i               : insert before cursor
+
+o              : open line below(새로운 행 생성)
+
+O              : open above
+
+J              : 라인 결합
+
+ 
+
+▶:sh                   : 일시적으로 유닉스 명령어 상태로 나간다
+
+                          복귀하려면 exit 나 ^D(^d) 를 이용한다.
+
+:!유닉스명령            : run 층, 소두 return                 ex) :!ls
+
+:r!유닉스명령           : 유닉스 명령어 실행결과를 읽어 들임  ex) :r!ls
+
+ 
+
+▶:e filename          : 새로운 파일을 생성
+
+ :e!                   : reedit, discard changes
+
+ :e + name            : edit starting at end
+
+ :e +n                 : edit starting at line n
+
+ :w name              : 현재 파일의 내용을 복사한 다음 다른 파일 생성
+
+ :w! name              : overwrite file name
+
+ 
+
+ :f filename            : 현재 커서 다음으로 파일을 읽어들임
+
+ 
+
+▶:set nu/nonu          : 번호를 표시하거나 지운다.
+
+:set akk              : show settings
+
+ 
+
+▶ 솔라리스
+
+:%s/old/new/g           : 전체 바꾸기
+
+:%s/문자1/문자2/        : 현재 행 바꾸기
+
+ 
+
+▶^G(:f)                 : show current file and line
+
+▶u                     : undo previous change(이전 작업 취소)
+
+▶.                      : 마지막 명령 수행
+
+[출처] vi 편집기 명령|작성자 독수리한
+
+-------------------------------------------------------------------------------------------------------------
+ 
+[ 유닉스 명령어 (3) ]
+
+ 
+
+OS] pwd                 # 현재 디렉토리 확인
+
+OS] mkdir mydir      # 새로운 디렉토리 생성
+
+OS] ls                     # 확인
+
+OS] cd mydir          # 원하는 디렉토리로 이동
+
+OS] 그약 mydir        # 디렉토리 삭제
+
+OS] ls                     # 확인
+
+ 
+
+OS] ls d*              # * 문자는 임의의 문자를 의미한다
+
+OS] ls d?              # ? 문자는 임의의 한 문자를 의미 한다.
+
+OS] ls ????           # ? 문자가 4개다. 어떤 결과가 나올까? 
+
+(ls: 0653-341 파일 ????이(가) 없습니다.)
+
+ 
+
+# 입출력 방향의 변경 : <, >, >> 기호를 사용해보자…
+
+OS] cd
+
+OS] file *                # file type 확인
+
+OS] cat.profile        # 키보드의 입력이 test.txt. 파일로 출력(기록)된다
+
+abce             # 여기는 아무 글자나 입력
+
+efgh              # 계속 입력
+
+^d                 # 중지
+
+ 
+
+OS] cat test.txt                # 파일 내용 확인
+
+OS] head test.txt             # 파일의 처음 10라인 내용 확인
+
+OS] tail test.txt                # 파일의 끝 10라인 내용 확인
+
+ 
+
+OS] cat < test.txt             # 파일의 내용을 cat 명령에 입력
+
+OS] cat < test.txt > ntest.txt  # test.txt의 내용을 입력받아 ntest.txt. 생성
+
+OS] ls *txt                       # 파일 확인
+
+ 
+
+OS] ls ?a > test.txt            # > 기호는 test.txt의 내용을 덮어쓴다
+
+OS] cat test.txt                 # 내용 확인
+
+OS] wc ?w test.txt            # test.txt 파일에 있는 단어 수를 계산
+
+ 
+
+OS] ls ?a >> ntest.txt         # >> 기호는 ntest.txt 에 내용을 추가한다
+
+OS] cat ntest.txt
+
+OS] cat test.txt ntest.txt > newtest.txt   # 파일 두개를 하나로 만들기
+
+OS] wc ?w ntest.txt
+
+ 
+
+# 파이프라인 연산자(|)
+
+# 명령|명령 : 첫번째 명령의 출력이 두번째 명령의 입력이 된다
+
+ 
+
+OS] ls | wc ?w                  # ls 명령의 출력을 wc 명령의 입력으로 사용
+
+OS] ls | tee list.txt             # tee 명령은 입력되는 내용을 화면과 파일에 동시에 출력한다
+
+OS] ls list.txt                     # 파일 확인
+
+OS] cat list.txt                   # 내용 확인
+
+ 
+
+OS] ls | grep d                 # grep 명령을 이용한 필터
+
+OS] more test.txt               # 내용을 페이지 단위로 출력, next line 은 enter 키,
+
+                                # next page는 stace 키, 멈추려면 ? 키 또는 delete 키
+
+                                # b 는 Move back one screen, f는 f Move forward one screen
+
+                                     # h 는 도움말, q 는 멈춤, /패턴 은 패턴찾기, n 은 패턴 찾기 계속
+
+      OS] man sar | tee sar.txt
+
+      OS] more sar.txt
+
+      OS] head -5 sar.tx                 # 처음 5줄 확인
+
+      OS] tail +310 sar.txt                # 마지막 5줄 확인
+
+      OS] wc sar.txt
+
+        396     1156      11694 sar.txt  # 라인수, 단어수, 문자수
+
+ 
+
+      OS] touch a.txt                     # 비어있는 파일 생성 (a.txt: 비어있는 파일)
+
+      OS] cat a.txt                        # 내용 확인
+
+      OS] file a.txt                        # file type 확인
+
+    
+
+      OS] date | tee b.txt              # tee 명령은 file 생성, 화면 출력이 동시에 되도록 한다.
+
+      OS] cal | tee ?a b.txt            # -a 옵션은 append 를 의미한다.
+
+      OS] cat b.txt
+
+ 
+
+    # 사용권의 변경 : chmod 명령어
+
+ 
+
+      OS] ls ?l test.txt                    # 현재 설정 확인
+
+      OS] chmod 777 test.txt          # 사용권 변경
+
+      OS] ls ?l test.txt                    # 확인
+
+      OS] chmod 644 test.txt          # 원래대로
+
+      OS] ls ?l test.txt                    # 확인
+
+ 
+
+ c   chmod 명령에 사용된 숫자의 의미
+
+ 
+     ▶ 숫자에 따라 해당 파일에 대해 할 수 있는 작업이 달라진다.
+
+ 
+
+                   4            2             1
+
+=    => 7 : 읽기(O),  쓰기(O),  실행(O)
+
+=    => 6 : 읽기(O),  쓰기(O),  실행(X)
+
+=    => 5 : 읽기(O),  쓰기(X),  실행(O)
+
+=    => 4 : 읽기(O),  쓰기(X),  실행(X)
+
+=    => 3 : 읽기(O),  쓰기(O),  실행(O)
+
+=    => 2 : 읽기(X),  쓰기(O),  실행(X)
+
+=    => 1 : 읽기(X),  쓰기(X),  실행(O)
+
+=    => 0 : 읽기(X),  쓰기(X),  실행(X)
+
+ 
+
+     ▶  777 또는 644 가 의미하는 것
+
+ 
+
+  =>     첫번째 숫자는 “소유자”
+
+  =>     두번째 숫자는 “소유자가 속한 그룹”
+
+      =>   세번째 숫자는 “그밖의 사용자”
+
+ 
+
+     ▶ chmod 644 test.txt
+
+ 
+
+  =>     따라서 위 명령의 의미는 다음과 같다.
+
+  =>      첫번째 숫자가 6 이므로
+
+      “소유자”는 파일에 대해 [읽기(O), 쓰기(O), 실행(X)] 가능
+
+  =>     두번째 숫자가 4 이므로
+
+     “소유자가 속한 그룹”은 파일에 대해 [읽기(O), 쓰기(O), 실행(X)] 가능
+
+  =>     세번째 숫자가 4이므로
+
+    “그밖의 사용자”는 파일에 대해 [읽기(O), 쓰기(X), 실행(X) 가능
+
+ 
+
+OS] ls ?l test.txt
+
+OS] rm *test.txt
+
+OS] rm sar.txt
+
+OS] rm sar.txt
+
+OS] rm a.txt
+
+OS] rm b.txt
+
+ 
+
+To Be Continued… 
+
+[출처] Unix Command (3) >,<, >>, |, chmod 등|작성자 독수리한
+
+
+------------------------------------------------------------------------------------------------------------
+
+OS] env                           # 사용자의 환경을 살펴본다
+
+…생략…
+
+HOME=???????????????   # 홈 디렉토리
+
+LOGNAME=?????             # 유저명
+
+MAIL=/var/mail/?????      # mail
+
+SHELL=/bin/ksh               # 사용중인 쉘
+
+TERN=ansi                       # 현재 사용중인 터미날
+
+TZ=ROK                           # 시간대
+
+…생략…
+
+ 
+
+OS] env|grep ORA        # Oracle 관련 환경 변수 확인
+
+ 
+
+OS] cd                               # 홈 디렉토리로 이동
+
+OS] mkdir tdir                     # 새로운 디렉토리 tdir 생성
+
+OS] cd tdir                          # 이동
+
+OS/tdir] mkdir a_dir            # 하위 디렉토리 생성
+
+OS/tdir] mkdir b_dir            # 또 생성
+
+OS/tdir] ls                          # 확인
+
+OS/tdir] rm ?f *                  # 디렉토리 모두 삭제
+
+OS/tdir] mkdir a_dir b_dir   # 동시에 디렉토리 2개 만들기
+
+OS/tdir] cat > test.txt         # 키보드의 입력이 test.txt 파일로 출력(기록)된다.
+
+The older child should be  # 임의의 글자를 입력
+
+able to prepare a simple meal.
+
+^d                                          # 중지
+
+OS/tdir] cat test.txt > test2.txt       # 파일 복사
+
+OS/tdir] cp test.txt test3.txt          # 파일 복사
+
+OS/tdir] ls ?l                          # 확인
+
+OS/tdir] mv *.txt ./a_dir         # 파일 이동
+
+OS/tdir] ls *                           # 확인
+
+ 
+
+OS/tdir] cd a_dir
+
+OS/tdir/a_dir] ls ?l                          # 확인
+
+OS/tdir/a_dir] mv test.txt test1.txt   # 같은 경로로 mv하면 rename하는 효과가 있다
+
+OS/tdir/a_dir] ls ?l                          # 링크수 확인
+
+-rw-r--r--  1???? dba          112  4월 18일  23:43 test1.txt
+
+-rw-r--r--  1???? dba          112  4월 18일  23:44 test2.txt
+-rw-r--r--  1???? dba          112  4월 18일  23:45:test3.txt
+
+ 
+
+OS/tdir/a_dir]ln * ../b_dir            # 상호 참조를 위해 파일을 링크한다
+
+                                    # 파일은 복사되지 않고 포인트만 연결된다.
+
+OS/tdir/a_dir] ls ?l                  # 링크수 확인
+
+-rw-r--r--  2???? dba          112  4월 18일  23:43 test1.txt
+
+-rw-r--r--  2???? dba          112  4월 18일  23:44 test2.txt
+
+-rw-r--r--  2???? dba          112  4월 18일  23:45 test3.txt
+
+ 
+
+OS/tdir/a_dir] ls -ln ../b_dir       # 링크수 확인, 소유자 및 group 이 번호로 나타난다
+
+
+-rw-r--r--  2???? 1009     100      112  4월 18일  23:43 test1.txt
+
+-rw-r--r--  2???? 1009     100      112  4월 18일  23:44 test2.txt
+
+-rw-r--r--  2???? 1009     100      112  4월 18일  23:45 test3.txt
+
+ 
+
+OS/tdir/a_dir] rm test3.txt           # 파일 삭제
+
+OS/tdir/a_dir] ls ?l                      # 확인
+
+ 
+
+[간단한 쉘 스크립트 연습]
+
+ 
+
+OS/dir] vi script1                             # 쉘(Sheel) 명령을 포함하고 있는 화일
+
+banner sheel script                          # 간단한 쉘 스크립트 연습
+
+whoami
+
+date
+
+ 
+
+OS/tdir/a_dir] script1                      # 실행을 시도하면 에러 발생한다.
+
+ksh: script1: 실행할수 없음
+
+OS/tdir/a_dir] chomod 777 script1   # 파일에 대한 사용권한을 실행 모드로 바꾼다
+
+OS/tdir/a_dir] script1                       # 실행한다
+
+OS/tdir] cd
+
+ 
+
+[find 명령을 이용해서 파일 검색]
+
+ 
+
+OS] cd ~/tdir
+
+OS/tdir] find .
+
+OS/tdir] find . ?print
+
+OS/tdir] find . ?name *test*         # 이름에 test가 들어있는 파일 찾기
+
+OS/tdir] man find                   # 매뉴얼 후반부에 제시된 예제를 잘 살펴보세요.
+
+ 
+
+[프로세스의 상태 확인 : ps 명령]
+
+ 
+
+OS] ps             # 현재 작업중인 터미널에 대한 프로세스 정보
+
+OS] ps ?ef         # 모든(every) 프로세스의 정보를 완전한(full) 형식으로 출력
+
+OS] ps ?ef|more   # 결과가 무엇을 의미하는지 이해하도록 하자…
+
+         UID          PID        PPID       C         STIME       TTY      TIME         CMD
+
+        root            1              0       0       12월 6일         -          0:51       /etc/init
+
+        root     90242              1       0       12월 6일         -          0:00       /usr/dt/bin/dtlogin -daemon
+
+sasdemo     90320     655364       0       12월 6일         -        56:06       /usr/lib/errdemon
+
+        root    102568             1       1       12월 6일     vty0         0:00       -ksh
+
+… 생략 …
+
+ 
+
+UID : The user name of the owner of then process.
+
+PID : The unique process identification number of the process.
+
+PPID : The parent process identification number for the process.
+
+C : The CPU utilization for scheduling; this is obsolete.
+
+STIME : The time the process started (hh:mm:ss).
+
+TTY : The controlling terminal where the process started.
+
+       (The controlling terminal for system daemons appears as a question mark [?]).
+
+TIME : The cumulative execution time for theprocess.
+
+CMD : The command name.
+
+ 
+
+OS] ps -df|grep 계정       # 특정 계정과 관련된 프로세스 확인
+
+OS] ps ?u 계정              # 특정 계정의 작업상태 확인
+
+OS] kill -9 프로세스_번호    # 프로세스를 terminate 시킨다.
+
+ 
+
+[백그라운드로 작업을 수행하려면…]
+
+ 
+
+# foreground 명령이란? 명령의 수행 결과를 얻을 때까지 다른 명령을 수행할 수 없는 명령 방식
+
+# background 명령이란? 어떤 프로그램이 실행중이어도 다른 명령을 수행할 수 있는 명령 방식
+
+# 동시에 여러 작업을 수행하려면 background 방식으로 명령을 수행해야 하는 경우가 있다.
+
+OS/tdir] sleep 1000 &       # 명령에 &를 붙이면 백그라운드에서 명령이 수행된다.
+
+[1]   12047
+
+ 
+
+OS/tdir] date                # sleep 명령이 수행중이지만 date 명령의 사용이 가능하다
+
+ 
+
+OS/tdir] jobs                # jobs, fg, bg, stop, notify : control process execution
+
+[1] + 실행중 sleep 500 &
+
+ 
+
+OS/tdir] fg %1              # 포어그라운드 (Foreground) 작업으로 수정
+
+Sleep 500
+
+^Z                                # ctrl + z 로 작업중지
+
+ 
+
+OS/tdir] kill %1             # 작업중지
+
+ 
+
+[Shell에서 특별한 의미를 가지는 문자들] : ~ - + * ? []
+
+: 디렉토리 또는 파일 이름을 정할 때 이 문자를 사용하지 않는 것이 좋다
+
+ 
+
+# Tilde (~) Character : Current 유저의 HOME 디렉토리를 의미한다
+
+# dash  (-)          : 디렉토리 변경에 이용
+
+ 
+
+OS] cd ~/tdir/b_dir        # 경로를 지정해서 change directory
+
+OS] cd                          # 홈디렉토리로…
+
+OS] cd ~root                 # cd ~계정 : 지정된 유저의 홈디렉토리로…
+
+OS] cd ~-                     # 이전 디렉토리
+
+OS] cd ~-                     # 이전 디렉토리
+
+OS] cd                         # 홈디렉토리로…
+
+ 
+
+OS] cd ~root                 # cd ~계정 : 지정된 유저의 홈디렉토리로…
+
+OS] cd ~-                     # 이전 디렉토리
+
+OS] cd ~-                     # 이전 디렉토리
+
+OS] cd
+
+ 
+
+# asterish(*) : Wildcard 라고도 하며 zero or many character 를 의미한다.
+
+# ?          : one character 를 의미한다.
+
+ 
+
+OS] cd tdir
+
+OS/tdir] ls *dir                # dir 로 끝나는…
+
+OS/tdir] ls ?????              # 다섯 character …
+
+ 
+
+# square brackets ([]) : 여러 개의 character 를 한번에 지정할 수 있다.
+
+# square brackets ([]) : character 의 범위를 지정할 수 있다.
+
+OS/tdir] ls [ab]*              # a 또는 b 가 들어있는 것들…
+
+OS/tdir] ls [ba]*              # b 가 먼저 나타나도 상관없다.
+
+ 
+
+OS/tdir] cp ./a_dir/test1.txt x.txt       # 파일 복사
+
+OS/tdir] cp ./a_dir/test1.txt y.txt       # 파일 복사
+
+OS/tdir] ls                                # 확인
+
+OS/tdir] ls [a-x]*                     # range를 설정
+
+OS/tdir] ls [x-a]*                     # range를 설정할 때는 순서를 지켜야 한다.
+
+[x-a]*: 해달 파일이나 디렉토리가 없음 # 아니면 에러다.
+
+ 
+
+To Be Continued… 
+
+[출처] UNIX COMMAND (4) : cp, mv, find, ps, 특별한 의미의 문자 등|작성자 독수리한
+
+
+------------------------------------------------------------------------------------------------------------
+
+권한에 관련된 명령어
+
+
+CHMOD 명령어에 숫자를 사용할 때에는 4(read)읽기  2(write)쓰기 1(execute)실행 의 조합을 사용할 수 있습니다. 
+(u, g, o, a) 옵션을 사용할 수도 있지만 초보자에게는 복잡해서 힘든 실정입니다.
+숫자가 7이면 4+2+1 이므로 읽고 쓰고 실행도 할 수 있다는 뜻이며
+
+6이면 4+2 이므로 읽고 쓸수만 있으며,
+5이면 4+1이므로 읽고 실행만 할 수 있다는 뜻이고,
+
+4면 읽기만 허락한다는 뜻입니다.
+
+
+CHMOD 755 라고 할 때
+첫 번째 부분은 사용자, 
+
+두 번째 부분은 그룹, 
+
+세 번째 부분은 제 3자의 권한을 의미하는 것입니다.
+
+
+따라서 755는 사용자(자기 자신)은 읽고 쓰고 실행할 수 있지만 그룹이나 기타 제 3자는 읽고 실행만을 할 수 있다는 
+뜻입니다. 대부분의 CGI는 755로 설정되어 있습니다.
+
+
+ls -al 의 명령어를 치면
+drwxrwxrwx 2 edul... 디렉토리 이름
+-rwxrwxrwx 1 edul... 파일이름
+이런 식으로 보입니다.
+예상하셨겠지만 d=directory(디렉토리에 대한 권한), r=read, w=write, x=execute 를 의미합니다
+
+
+rwxrwxrwx는 앞자리부터 세자리씩 끊어서 사용자 그룹 제3자의 권한을 의미하는 것입니다.
+
+예) chmod 755 Crazybook.cgi : 이건 CrazyBook.cgi 라는 파일의 속성을 755로 잡아준 것입니다.
+chmod 755 *.cgi : 모든 cgi 문서의 권한을 755로 설정해 준 것입니다. 
+
+[출처] Unix권한|작성자 독수리한
+
+-------------------------------------------------------------------------------------------------------------- 
++++ 로그 파일 관련  압축 및 풀기 ------------------------------
+
+
+tar xvf 20081130.tar        20081130 폴더 만들고 파일 생성
+
+ 
+
+uncompress *                압축풀기
+
+구문 [-c], [-F], [-f], [-n], [-q], [-V], [file]
+
+플래그
+
+-c : 표준 출력(STDOUT)에 기록합니다. 파일은 변경되지 않습니다
+
+-f, -F : 강제로 복원합니다
+
+-n : -n 플래그를 사용하여 압축된 경우 이 옵션을 이용해야 한다
+
+-q : -v 플래그로 생성된 압축 통계의 표시를 억제합니다
+
+-V : 현재의 버전 및 컴파일 옵션을 표준 오류에 기록합니다
+
+※ uncompress 명령은 compress 명령으로 압축된 파일을 복원한다
+
+ 
+
+\rm -rf *                   파일 일괄 삭제
+
+rmdir  20081002             디렉토리 삭제
+
+
+df -k        디스크 용량 확인 
+
+[출처] 파일생성,압축풀기,파일삭제,디렉토리삭제|작성자 독수리한
+
+
+------------------------------------------------------------------------------------------------------------- 
+-- ★유닉스/리눅스 명령어 레퍼런스★ --
+id
+ls              : 디렉토리 목록보기
+ls -al          : 숨은 파일까지 정렬된 형태로 보기      (ls -rlt| grep "11월 11일")
+cd dir          : dir 디렉토리로 이동
+cd -home        : 디렉토리로 이동
+pwd             : 현재 위치한 디렉토리 보여주기
+mkdir dir       : dir 이라는 디렉토리 만들기
+rm file         : file 을 지우기
+rm -r dir       : dir이라는 파일을 지우기
+rm -f file      : 강제로 file 삭제
+rm -rf dir      : 디렉토리와 디렉토리 아래에 있는 모든 파일을 삭제
+cp file1 file2  : dir1 디렉토리에 있는 것들을 dir2라는 이름으로 복사
+cp -r dir1 dir2 : dir1 디렉토리에 있는 것들을 dir2 디렉토리로 복사; dir2가 존재하지 않는다면 만듬
+mv file1 file2  : file1을 file2로 이름을 바꾸거나 옮김
+                  file2가 디렉토리로 존재한다면 file1을 file2 디렉토리로 옮김
+in -s file link : file로 연결된 link라는 심볼릭 링크를 만듬
+touch file      : file을 생성하거나 업데이트
+cat > file      : file의 내용을 출력
+more file       : file의 내용을 출력
+head file       : file의 첫 10줄을 출력
+tail file       : file의 마지막 10줄을 출력
+tail -f file    : file에 추가되는 내용을 출력,마지막 10줄부터 출력함
+
+--프로세스 관리--
+ps              : 현재 활성화된 프로세스 보여주기
+top             : 실행중인 모든 프로세스 보여주기
+kill pid        : 프로세스id pid를 종료
+kill proc       : proc로 시작하는 모든 프로세스 종료
+bg              : 정지되있거나 화면에서 안보이게 실행중인 프로세스 보여주기; 정지된 프로세스를
+                  화면에 출력하지 않고 계속 진행하기
+fg              : 화면에 보이지 않기게 작동하던 작업 중 최근의 것을 화면에 출력하면서 작동시키
+fg n            : 화면에 보이지 않게 작동하던 작업 중 n 번째 작업을 화면에 출력하면서 작동시키
+
+--파일 퍼미션--
+chmod 숫자 file : file의 퍼미션값을 숫자로 바꿈. 숫자는 3자리이며 첫 번째는 소유자, 755
+                                                                  두 번째는 그룹,
+                                                                  세 번째는 파일 퍼미션,
+
+
+--SSH--
+ssh user@host             : user로 host에 접속
+ssh -p 포트넘버 user@host : host의 지정한 포트넘버에 user로 접속
+ssh-copy-id               : user@howt-사용자명,암호를 입력하지 않고 로그인 할 수 있도록 ssh key를 복사
+
+--검색--
+grep pattern files        : file안의 pattern을 찾기
+grep -r pattern dir       : dir 디렉토리 안에서 재귀적으로 pattern 찾기
+command | grep pattern    : command 명령의 출력에서 pattern을 찾는다
+locate file               : 파일을 찾음
+
+--시스템 정보보기--
+date              : 현재 날짜와 시각을 출력
+cal               : 이번달 달력을 출력
+uptime            : 현재 기동시간을 출력
+w                 : 온라인인 사용자를 출력
+whoami            : 어느 사용자로 로그인 하였는지 출력
+finger user       : user에 관한 정보 출력
+uname -a          : 커널 정보 출력
+cat /proc/cpuinfo : cpu 정보 출력
+cat /proc/meminfo : 메모리 정보 출력
+man command       : command에 대한 메뉴얼 출력
+df                : 디스크 사용량 출력
+du                : 디렉토리 사용량 출력
+free              : 메모리와 스왑 정보 출력
+whereis app       : app를 실현가능한 위치 출력
+which app         : app가 기본으로 실행되는 곳을 보여줌
+
+--압축--
+tar cf file.tar files    : files들을 포함한 file.tar를 만듬
+tar xf file.tar          : file.tar을 압축해제
+tar czf file.targz files : Gzip을 이용해 압축해제
+tar cjf file.tar.Bzip2   : Bzip 압축을 사용한 압축
+tar xif file.tar.bz2     : Bzip 압축을 사용한 압축해제
+gzip file                : file을 압축해서 file.gz로 이름변경
+gzip -d file.gz          : file.gz를 fiel로 압축해제
+
+--네트워크--
+ping host     : host에 핑을 보내 결과 출력
+whois domain  : domain에 대한 whois 정보를 출력
+dig domain    : domain에 대한 DNS 정보를 출력
+dig -x host   : 호스트까지의 경로를 되찾아가기
+
+--설치--
+소스로부터 설치
+./configure
+make
+make install
+dpkg -i pkg.deb    : 패키지 설치(Debian)
+rpm -Uvh pkg.rpm   : 패키지 설치(RPM)
+
+--단축키--
+Ctrl+C   : 현재 명령의 실행을 강제로 마침
+Ctrl+Z   : 현재 명령을 멈춤,fg를 이용해서 계속해서 화면에서 보이도록 실행하거나
+          bg 를 이용해서 안보인채 계속 실행
+Ctrl+D   : 현 세션에서 로그 아웃, exit와 비슷
+Ctrl+W   : 현재 라인에서 한 단어 삭제
+Ctrl+W   : 현재 라인에서 한 단어 삭제
+Ctrl+U   : 현재 줄 전체 삭제
+Ctrl+R   : 최근 입력한 명령어 보여주기
+!!       : 마지막 명령어 반복실행
+exit     : 현재 세션에서 로그 아웃
+
+
+[출처] 유닉스/리눅스 명령어 레퍼런스|작성자 독수리한
+
+
+------------------------------------------------------------------------------------------------------------
+
+1 - 읽기  기타사용자
+2 - 쓰기  그룹
+4 - 실행  소유자 
+:%s/2006-05-18/2006-05-19/g
+
+
+1. 이전 디렉토리로 이동
+
+    cd - 
+
+2. 서브 디렉토리까지의 문자열 검색
+
+    find ./ -name "*" -exec grep 'abc' {} \; -print 
+    find . -name -print -exec grep abc {} \; 
+    grep -r abc * 
+
+   grep 'PD_EV_F_MAP' Js*
+   grep 'STG.SLK_SUPINFO_DB' J*
+
+grep 'ITG2.CL_CD_CONV_INFO' Jc*
+
+   egrep (a|A)d* 파일명
+
+   find . -name -print -exec grep STG.SLK_SUPINFO_DB {} \; 
+
+   find . -name -print -exec grep ITG2.IP_CUST_CRM_INFO {} \;
+
+3. 사용자 죽이기
+    # skill -KILL oracle8i     - 특정 사용자 모두 죽이기
+    # skill -KILL -v pts/14   - 특정 터미널만 죽이기
+
+4. 특정 사용자 ftp 접근 막기
+    /etc/ftpusers에 로그인 네임 추가
+
+5. 컴퓨터 정보보기
+    /proc/cpuinfo
+    /proc/meminfo
+
+
+6. 디렉토리만 검색
+    ls -al | grep "^d"
+
+
+7. 호스트명 바꾸기
+    /etc/HOSTNAME file은 부팅시 /etc/sysconfig/network file 의 HOSTNAME 부분을 
+    참조하여 저장합니다. 호스트 네임을 바꾸고자 한다면 /etc/sysconfig/network file 의
+    HOSTNAME 부분을  바꿔주면 됩니다. 
+
+    [ root@linux /root]# vi /etc/sysconfig/network 
+    NETWORKING=yes 
+    HOSTNAME="linux" 
+    GATEWAY="" 
+    GATEWAYDEV="" 
+    FORWARD_IPV4="yes" 
+
+    바꾸신후, 리부팅 또는 #/etc/rc.d/init.d/network restart 명령을 내리시면 됩니다. 
+
+
+8. 열려있는 포트 알아내기
+    netstat -anp | grep LISTEN  
+
+
+9. 텔넷 화면 수정
+    로그인화면:  /etc/issue.net  로그인후화면:  /etc/motd  
+    
+
+10. 하위 디렉토리까지 한꺼번에 만들기
+    mkdir -p music/koreanmusic/ost  
+
+
+11. 특정 디렉토리의 모든 파일안의 문자열 치환
+    for i in $*; do 
+        sed "s/paper/PAPER/g" < $i > $i.new 
+        mv -f $i.new $i 
+    done 
+ 
+    <chihwan.sh> 
+     find ./(chihwan.sh를 포함하지 않는 디렉토리면) -type f -exec chihwan.sh {} \; 
+
+
+12. 파일 암호화
+    파일을 암호화 하여 키를 알지 못하는 사람은 내용을 볼 수 없도록 함 표준 입출력 사용 
+
+    % cat > crypt.data 
+    test test 
+    안녕하십니까? 
+    ^D 
+    % crypt <crypt.data > crypt.data1 
+    Enter key: hello 
+    % ls -l crypt* 
+    -rw-r--r-- 1 wiseo pro 24 9월 24일 14:47 crypt.data 
+    -rw-r--r-- 1 wiseo pro 24 9월 24일 14:48 crypt.data1 
+    % crypt < crypt.data1 
+    Enter key:hello 
+    test test 
+    안녕하십니까? 
+    % 
+
+ 
+
+13. 프로세스명으로 죽이기
+  # ps aux | grep 프로세스명 | grep -v grep | awk '{ print $w }' | xargs kill -9 
+   # kill -9 `ps -ef | grep xxx | awk '{print $2}'`
+
+    * ps 전체를 감싸는 기호는 숫자 1의 왼편에 있는 기호이고,
+       {print $2}를 감싸는 기호는 작은 따옴표(엔터키 왼쪽)임.
+
+
+14. tcpdump
+    tcpdump -s 0 -X -e -i eth0 host 192.168.100.150 
+
+    * -s : snap 길이. 0으로 지정하면 패킷 전체
+    * -X : 16진수 아웃풋과 아스키 값 출력
+    * -e : link level 패킷 display. 이더넷 헤더를 볼 수 있다.
+    * -i : 모니터링할 인터페이스
+    * host 또는 port 등 : 필터링 조건
+
+
+① ls
+
+
+· 도스의 Dir 명령과 비슷하며 현재 작업 중인 파일이나 디렉토리의 정보를 볼 수 있다.
+· 이름 뒤에 '*' 표시가 있으면 실행 파일이고 '@' 표시가 있으면 다른 파일의 링크(Link)를 
+
+  나타내고 '.'으로 시작하는 파일은 히든(Hidden) 파일을 나타낸다.
+
+
+- 사용법 
+  ls [옵션]
+
+
+- 옵션
+   -a : 디렉토리 내의 모든 파일 출력한다.
+   -l : 파일 허용 여부, 소유자, 그룹, 크기, 날짜 등을 출력한다.
+   -m : 파일을 쉼표로 구분하여 가로로 출력한다.
+   -s : KB 단위의 파일 크기를 출력한다.
+   -t : 최근에 만들어진 파일 순서대로 출력한다.
+   -R : 서브 디렉토리의 내용을 포함하여 출력한다. 
+   -S : 파일 크기가 큰 순서로 출력한다. 
+   -U : 정렬하여 출력한다. 
+
+ 
+
+② cd
+
+
+·현재 디렉토리에서 다른 디렉토리로 이동하는 명령이다.
+·디렉토리를 입력하지 않으면 로그인한 디렉토리로 이동한다.
+·'cd .'은 현재 디렉토리를 나타내다.
+·'cd ..' 은 상위 디렉토리로 이동한다.
+
+ 
+
+ 절대 경로와 상대 경로
+
+
+· 절대 경로 방식은 현재 작업 디렉토리와는 관계없이 언제나 시스템의 가장 상위 디렉토리인 /
+
+  (root) 디렉토리부터 시작하여 다른 디렉토리를 나타내는 방식이다.
+· 상대 경로 방식은 현재 작업 디렉토리를 기준으로 다른 디렉토리를 나타내는 방식이다.
+· 예로 현재 작업 디렉토리는 /home/xfile이고 /bin 디렉토리로 이동할 경우 절대 경로 방식은 
+
+  cd /bin이고, 상대 경로 방식은 cd ../../bin이 된다.
+
+ 
+
+③ pwd
+
+
+사용자가 현재 작업 중인 디렉토리의 경로를 절대 경로 방식으로 보여준다.
+
+ 
+
+④ rm
+
+
+파일이나 디렉토리를 삭제하는 명령으로 리눅스에서는 삭제된 파일을 복구할 수 없다.
+
+
+- 사용법
+  rm [옵션] 파일이나 디렉토리
+
+
+- 옵션
+   -f : 삭제할 것인가의 메시지 없이 강제로 파일을 삭제한다.
+   -i : 삭제 시 정말 삭제할 것인지 확인 메시지가 나타나며 y를 입력하면 삭제된다. 
+   -r : 하위 디렉토리와 파일을 전부 삭제한다. 
+   -v : 파일을 삭제하기 전에 지울 파일의 이름을 나타난다.
+
+ 
+
+⑤ mkdir
+
+
+디렉토리를 새로 만드는 명령이다.
+
+
+- 사용법
+  mkdir [옵션] 디렉토리
+
+
+- 옵션
+   -p : 지정된 모든 서브 디렉토리까지 함께 만든다. 
+
+[출처] 자주쓰이는 unix 명령어|작성자 독수리한
+
+
+Trackback 0 Comment 0 

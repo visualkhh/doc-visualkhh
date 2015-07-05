@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>Developing Quantum</title>
+<link rel="stylesheet" href="../book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>Setting up Eclipse to develop Quantum</h1>
+<p>To follow this guide you need the Eclipse version 3 or higher.</p>
+<p>First you go to <span style="font-weight: bold;">Open a Perspective</span> 
+  and open the <span style="font-weight: bold;">CVS repository exploring perspective</span>. 
+  It can be in the <span style="font-weight: bold;">Others...</span>. You get 
+  a perspective. You right-click on the <span
+ style="font-weight: bold;">CVS Repositories</span> view and create a <span
+ style="font-weight: bold;">New -&gt; Repository Location...</span><br>
+  The data to access quantum is:<br>
+  <br>
+  Host: <b>quantum.cvs.sourceforge.net</b><br>
+  Repository Path: <span style="font-weight: bold;">/cvsroot/quantum</span><br>
+  User: <span style="font-weight: bold;">anonymous</span><br>
+  Password:<br>
+  <br>
+  There is no password for <span style="font-style: italic;">anonymous</span>. 
+  You can substitute the User and Password for you own, if you are registered 
+  in <a href="http://sourceforge.net">sourcefoge.net</a>. If you want developer 
+  access, remember to use <span
+ style="font-style: italic;">extssh</span> as the connexion type, so as to be 
+  able to update the cvs repository with your changes (that need a ssh connection 
+  in <a href="http://sourceforge.net">sourceforge</a>). Of course to modify you 
+  also need to be in the list of Quantum developers in sourceforge.<br>
+  <br>
+  After that, if you are connected to the Net, you will be able to get the project 
+  files. You will see a <span style="font-weight: bold;">HEAD</span> sub-item, 
+  a <span style="font-weight: bold;">Branches</span>, and a <span
+ style="font-weight: bold;">Versions</span>. You select the <span
+ style="font-weight: bold;">HEAD</span>, and then right-click onto <span
+ style="font-weight: bold;">quantum-plugin</span>. Then select <span
+ style="font-weight: bold;">Check Out</span>. After downloading from CVS all the 
+  files of the Quantum project, Eclipse will create a new project in your workspace 
+  called <b>quantum-plugin</b>. The other plugins that are active are <b>com.quantum.dbunit</b>, 
+  and <b>com.quantum.flatfiles</b>. They are mostly concerned with exporting of 
+  data and metadata. If you want to add to the Quantum help, you need the <b>com.quantum.help</b> 
+  plugin.</p>
+<p>After checking out the projects, you can go to the Plug-in Development perspective 
+  to see the projects.</p>
+<p>If you don't have the GEF plugin installed, you'll get a lot of errors. Download 
+  and install the GEF plugin from the Eclipse web site. After that, you should 
+  be free of errors.</p>
+<p>Mylar is an Eclipse plugin that helps you with tasks. If you want to intall 
+  Mylar and connect it to the bugs and feature requests lists on the Quantum sourceforge 
+  project, do as follows:</p>
+<p>Install Mylar. Search for instructions on installing Mylar on the Mylar-Eclipse 
+  website.</p>
+<p>Then show the View <b>Task Repositories</b>, where you'll add a new repository 
+  for connecting with the sourceforge web site. In the <b>Server</b> box, select 
+  the &quot;Azureus (SourceForge)&quot; option. That's a <i>template</i>. It'll 
+  connect you to the sourceforge site, but using the azureus project data. As 
+  that's not what you want, you change the <b>Label</b> box to be something more 
+  Quantum related, then introduce your username and password in sourceforge.net 
+  and hit Finish. I'm not sure if you need to modify the parameters there, as 
+  you'll provide them later in the Query, but I did it, so you can too. The <b>group_id</b> 
+  of Quantum is 7746 and the <b>atid</b> is 107746 (for the bug tracker).</p>
+<p>Now go to the <b>Task List</b> view and choose <b>New -&gt; Query</b>. Select 
+  the just created sourceforge repository and hit <b>Next</b>. Then introduce 
+  the needed parameters, the <b>group_id</b> of Quantum is 7746 and the <b>atid</b> 
+  is 107746 (for the bug tracker), and 357746 (for the features request tracker). 
+  Now you should see the tasks. If you want to know how to work with tasks in 
+  Mylar, go to the Mylar website and see a webinar or read a tutorial or something 
+  like that.</p>
+<p>&nbsp;</p>
+<p><br>
+</p>
+<p>&nbsp;</p>
+</body>
+
+</html>

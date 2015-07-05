@@ -1,0 +1,142 @@
+Oracle - VIEW ( 뷰 ) db.oracle by 훌륭공자 2008/10/06 15:09 charmpa.egloos.com/2074631 덧글수 : 0 
+[출처]
+
+================================================ 
+  * 오라클 정보공유 커뮤니티 oracleclub.com 
+  * http://www.oracleclub.com 
+  * http://www.oramaster.net 
+  * 강좌 작성자 : 김정식 (oramaster _at_ naver.com)
+================================================ 
+  
+
+Oracle - VIEW
+
+ ◈ 뷰는하나의 가상 테이블이라 생각 하시면 됩니다. 
+ ◈ 뷰는 실제 데이터가 저장 되는 것은 아니지만 뷰를 통해 데이터를 관리 할수 
+    있습니다. 
+ ◈ 뷰는 복잡한query를 통해 얻을 수 있는 결과를 간단한 query를 써서 구할 수 있게
+    합니다. 
+ ◈ 한개의 뷰로 여러 테이블에 대한 데이터를 검색할 수 있습니다. 
+ ◈ 특정 평가기준에 따른 사용자 별로 다른 데이터를 액세스할 수 있도록 합니다
+
+ 뷰의 제한 조건.
+
+ ◈ 테이블에 NOT NULL로만든 컬럼들이. 뷰에 다 포함이 되 있어야 됩니다. 
+     ( 오라클9i 이상에서는 적용되지 않는것으로 알려짐, 확인요망 )
+ ◈ 그리고 ROWID, ROWNUM, NEXTVAL, CURRVAL등과 같은 가상컬럼에 대한 참조를 
+     포함하고 있는 뷰에는 어떤 데이터도 Insert할 수 없습니다. 
+ ◈ WITH READ ONLY 옵션을 설정한 뷰도 데이터를 갱신할수 없습니다.
+ ◈ WITH CHECK OPTION을 설정한 뷰는 뷰의 조건에 해당되는 데이터만 삽입, 삭제, 
+    수정을 할수 있습니다. 
+    
+Syntax
+
+CREATE [OR REPLACE] [FORCE|NOFORCE] VIEW view_name AS subquery
+[WITH CHECK OPTION [CONSTRAINT 제약조건]]
+[WITH READ ONLY]
+
+  - FORCE : 기본 테이블 유무에 관계없이 VIEW를 생성
+  - WITH CHECK OPTION : VIEW에 의해 엑세스될 수 있는 행만이 입력되거나 변경될 
+    수 있음을 지정 합니다.
+  - WITH READ ONLY : SELECT만 가능한 VIEW의 생성
+  - VIEW를 정의하는 질의어에는 ORDER BY절을 사용 할 수 없습니다.
+     ( 오라클8i 이상에서는 적용되지 않음 )
+  - 함수를 사용한 컬럼은 반드시 ALIAS를 지정해야 합니다.
+  
+
+SQL> CREATE OR REPLACE VIEW Name_Query
+     AS
+         SELECT a.ename, b.dname
+         FROM  emp a, dept b
+         WHERE a.deptno = b.deptno
+         AND b.deptno = 20
+
+view created. 
+
+이렇게 뷰를 생성해 놓고 뷰를 통해 검색을 하면 됩니다. 
+
+SQL>SELECT * FROM Name_Query; 
+
+ENAME                DNAME
+-------------------- ----------
+SMITH                RESEARCH
+JONES                RESEARCH
+SCOTT               RESEARCH
+ADAMS               RESEARCH
+FORD                 RESEARCH
+
+
+** WITH CHECK OPTION 
+view 의 조건식을 만족하는 데이터만 INSERT 또는 UPDATE가 가능하도록 하는 옵션입니다
+
+SQL> CREATE OR REPLACE VIEW Check_Option
+     AS
+         SELECT empno, ename, deptno
+         FROM  emp
+         WHERE deptno = 10
+     WITH CHECK OPTION
+
+view created. 
+
+SQL> INSERT INTO Check_Option(empno, ename, deptno) 
+        VALUES (10005, ’jain’, 30);
+
+INSERT INTO Check_Option(empno, ename, deptno)
+            *
+1행에 오류:
+ORA-01402: 뷰의 WITH CHECK OPTION의 조건에 위배 됩니다
+부서 번호가 10인 사원만 INSERT, UPDATE할 수 있습니다.
+
+** WITH READ ONLY 
+SELECT만 가능한 VIEW를 생성합니다.
+ 
+SQL> CREATE OR REPLACE VIEW Read_Only
+        AS
+           SELECT empno, ename, deptno
+           FROM  emp
+           WHERE deptno = 10
+       WITH READ ONLY
+
+view created. 
+
+단순히 읽기 만 할수 있고 데이터는 입력하지 못합니다.
+ 
+
+VIEW에 대한 DML문 사용 규칙
+
+ ★ VIEW가 다음 사항을 포함하는 경우 행의 삭제 불가
+   - JOIN조건, 그룹함수, GROUP BY절, DISTINCT명령
+
+ ★ VIEW가 다음 사항을 포함하는 경우 데이터 수정 불가
+   - JOIN조건, 그룹함수, GROUP BY절, DISTINCT명령, 식으로 정의된 컬럼
+     (EX SAL * 0.1)
+
+ ★ VIEW가 다음 사항을 포함하는 경우 데이터 추가 불가
+   - JOIN조건, 그룹함수, GROUP BY절, DISTINCT명령, 식으로 정의된 컬럼, 
+     VIEW에 선택되지 않는 NOT NULL컬럼
+
+뷰의 정보 조회
+
+USER_VIEWS 데이터 사전을 통해서 뷰에 대한 정보를 조회 할 수 있습니다. 
+
+SQL>SELECT view_name , text
+       FROM  USER_VIEWS;
+
+
+뷰의 삭제 
+
+SQL>DROP VIEW Read_Only; 
+
+      view dropped. 
+
+  포스트 메타 정보
+키워드 검색글?About Undo Data from 은하수를 여행하는 히치하이커
+a.m., regardless of update or insert operations performed by other users after the queryTable, which enable you to view or recover data to a previous point into ensure the success of Oracle Flashback features and for read consistency for
+?DML with NOLOGGING from 은하수를 여행하는 히치하이커
+하지 않음.) contents from : https://docs.googlecom/View?id=dhg2wncg_30mpkpd5ccNOLOGGING : Oracle will generate a minimal number of redo log entries inredo this includes direct load insert on the table which the index belongs to.All the
+?오라클(ORACLE) 쿼리, 함수 from 좋은하루님의 이글루
+원문 url : http://www.dbguide.net/dbqa/dbqa120001.jsp?mode=viewidx=5991. SQL관련 예약어 조회○ ORACLE DB에는 예약어가 존재하여모든컬럼에 값을 넣을때는 바로 insert values ( ) 로 하고 into 생략가능12. Join
+?..LYZE TABLE TNAME VALIDATE STRUCTURE 명 ... from 정확도가 떨어지는 잡학다식 : The 2nd Stage
+중에는 해당 object에 대한 select, insert, update, delete 작업을 수행할 수 없으므로, 해당INDEX_STATS view에 생성된 정보는 oracle7 optimizer에 의해 사용되지 않으며, compute / estimate option으로 수집된
+?[Oracle] 오라클 DB의 백업및 복원 from Enjoy 프로그래밍
+18 11:36:26 2001(c) Copyright 1998 Oracle Corporation. All rights reserved.Username: leona/leona ( 사용자 어카운트 및exp1.dmp (exp1.dmp 파일명을 지정한 경우)Enter insert buffer size (minimum is 4096) 30720> ( 사이즈가

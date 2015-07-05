@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>SQL Editor</title>
+<link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>The SQL Editor</h1>
+<p>The editor is the Quantum plugin feature for editing SQL files. It is configured to handle 
+files with extensions of .sql and .ddl. In time the editor may replace the Query View, if only
+for being able to save the queries you enter. The editor has the following features:
+<ul>
+	<li>Multiple statements if separated by ; (both Data Manipulation and Data Definition)</li>
+<li>Syntax highlighting</li>
+<li>Content assist including templates</li> 
+<li>Syntax check</li>
+<li>Quick fixes</li>
+<li>Outline page</li>
+</ul>
+<p>If your script contains more than one statement, make sure the final character of each statement 
+	is a ; (semicolon). There are databases out there that do not require this, but Quantum does,
+	and it will make your code easier to move to other databases.
+<p>When you are working with the editor, having the "Quantum SQL Log" view visible will help to
+	inform you of errors. Errors can occur because of stupid programming, but also insufficient
+	privileges on the database objects, and a whole lot of other reasons. If you think is a bug please let us know.
+<h2>Invoking the editor</h2>
+<p>You can invoke the editor in various ways:</p>
+<ul>
+	<li>Create a new file with a .sql, .sql2, .ddl extension. This is useful for scripting.</li>
+	<li>Double click on a procedure name.</li>
+	<li>Right click on a procedure name and select "Edit body".</li>
+	<li>Create an erd diagram and click save.</li>
+</ul>
+<p>The latter two options are useful for editing procedures. Please note that Quantum aims to support
+	all kinds of coding related to databases. So, in the future expect support for triggers too.
+<p>There is a potential pitfall when you change bookmarks and expect the content of the editor to be
+	checked against the new bookmark. That will not happen (yet). You have to close and open the editor
+	window to assign it to the last bookmark used. If you do not do that, the old bookmark will
+	still be 'active' for that editor, even when the bookmark has been disconnected...
+<h2>Syntax highlighting</h2>
+<p>The colors can be configured using the menu option <B>Window|Preferences</B>; then select <B>Quantum DB</B> and finally 
+<B>SQL Editor</B>. You should get a dialog window resembling this:
+<p><img src="images/SQLEditorPreferences.jpg" /></p>
+<p>Not all syntactic elements are supported yet.
+<p>There are different modes when editing a piece of SQL. For some statements the syntax will pass the specification, for others
+it will not. Sometimes the previous contents will have passed the specs, but typing in new characters will destroy the syntactically
+sound nature of your statement. Quantum tries to assist you in all phases of query development. Sometimes the limited knowledge the
+application has about your statement, might seem stupid. So, check the code, and improve.
+<p>The main problem with parsing/checking/validating a SQL statement is to find out what is a real table, what is a real column 
+and what is a typo. Finding out is not really difficult, but finding out while you type and the server is on the other side of
+the world is.
+<p>If a statement has been successfully parsed once, the plugin will remember valid table and column names. In our opinion, this will 
+help you enter your queries more efficiently.
+<p>The preferences page allows you to deactivate Syntax highlighting. This was because one of our users was working with a query that was so long and so convoluted that coloring the 
+	elements took so long, the user assumed that Quantum/Eclipse hung.
+<h2>Content assist</h2>
+The results you get from the content assistant depend on these factors:
+<UL>
+<LI>What is known about the text in the editor</LI>
+<LI>The last time it had its syntax checked</LI>
+<LI>Where the editor caret is</LI>
+<LI>Your patience</LI>
+</UL>
+<p>For the next part of the documentation, I use a very simple (yet difficult enough) setup database that uses 3 tables:
+	<pre>
+-- Script created by Quantum DB on Jan 22, 2008 9:02:54 PM
+CREATE TABLE X (
+        Y INTEGER(10) NOT NULL 
+);
+CREATE TABLE Y (
+        X INTEGER(10) NOT NULL 
+);
+CREATE TABLE Z (
+        X INTEGER(10) NOT NULL ,
+        Y INTEGER(10)
+);
+</pre>
+<p>This poses enough problems for Content Assistant.</p>
+
+<h3>Knowledge</h3>
+<p>If you type <I>SELECT A FROM B</I>, the syntax checker will infer that A is a column and B is a table. If you do not perform a syntax 
+check A will be an identifier and B too. If the syntax coloring for tables and columns is different from the default color, you will
+be visually informed about what Quantum has detected as columns and tables. As you continue typing the query, information about the
+query will increase, such as columns belonging to tables, aliases used in the query and so on. The idea is that the further you are
+with your query, the better Quantum can support you. 
+<h3>Syntax check</h3>
+<p>A syntax check will be performed if:
+<UL>
+<LI>You request it through the context menu</LI>
+<LI>You request for content assistance</LI>
+<LI>The plugin offers content assistance</LI>
+</UL>
+<p>This syntax check will update the internal data structures within the plugin. As this might be a time-consuming process, you might want
+to prevent a syntax check from occurring. There is a delicate balance of course: without a syntax check, the chance that you will be
+offered good content assist is lower and the chance that your statement will be successfully executed against the database has not 
+increased.
+<p>Asking for content assist when not much information is present, will also take much time. Sometimes Quantum will not even honour your
+request: <I>SELECT {Ctrl-space}</I> will get no response. But <I>SELECT A{Ctrl-space}</I> will eventually :-( get you a list of all
+columns starting with an A (if the JDBC driver or someone on the Quantum team made this possible). This is not efficient. But since I wrote this, we have implemented a caching system that 
+improves performance.
+<p>A better way to enter your queries is to write <I>SELECT B FROM A</I> and then hit <I>Check syntax</I>. You will get the best
+results if B is a real column of A, and A exists. Quantum then has a basis for further assistance. 
+<h3>Caret position</h3>
+<p>Depending on where you are editing the statement, Quantum will act differently. In a statement such as 
+<pre>select x
+from x 
+where x.Y=10;
+</pre>
+</p>
+<p>it really depends where the cursor is:</p>
+<table border="1">
+	<tr><th>cursor behind</th><th align="center">what you type</th><th>result of content assist</th></tr>
+	<tr><td>select x</td><td align="center">.</td><td>Columns in the X table: Y</td></tr>
+	<tr><td>from </td><td align="center">a space/blank</td><td>The tables in the bookmark: X, Y, Z</td></tr>
+</table>
+<p>The editor is also aware of the relationships between tables. If you have:
+	<pre>
+	SELECT x
+	FROM Y
+	INNER JOIN
+	</pre>
+<p>And then with the cursor behind JOIN, you type a space, you will get the following assists:
+	<table border="1">
+		<tr><td>on</td><td>This is the keyword on, clearly an error :-(</td></tr>
+		<tr><td>Z:Z_X</td><td>Select this and the query becomes: <pre>SELECT x
+FROM Y
+INNER JOIN Z ON Y.X = Z.X</pre></td></tr>
+	</table>
+<p>Z_X is the name of the relation between tables X and Z. If you have a table that is related 
+	to a lot of other tables, it is certainly worth to give the Content Assistant some time to 
+	calculate the proposals. If you go on typing, you will not be assisted as good as if you wait
+	a bit after the space.
+<h3>Templates</h3>
+<p>Templates are pieces of content assist that allow quick entering of prepared statements:
+	<img src="images\templates.JPG">
+<p>In the picture you can see 4 templates: they are the ones that provide some insight into their function.
+	There is also one for the SELECT statement itself. You use the tab key to move from editable element
+	to editable element.
+<p>You can define your own templates for the SQL editor in the Preferences:
+	<img src="images\MakeYourOwnTemplates.JPG">
+		
+<h2>Check Syntax</h2>
+You can check the syntax of the query using the context menu in the editor and
+run <I>Check syntax</I>.
+<p><img src="images/CheckSyntax.jpg" alt="images/CheckSyntax.jpg"></p>
+<p>Syntax checking is a two-step process. The first step is to check the text against the grammar as defined in the antlr .g files. This will 
+find general errors of which the following is a simple example:
+<PRE>
+select
+*
+from X
+inner join Z
+where this = that
+</PRE>
+<p>This will produce an error: <B>unexpected token: where</B>, because there should be an ON keyword after Z.
+<p>These errors are reported in the general Problems view.
+<p>Once the syntactical errors are resolved, there are logical errors to be adressed.
+<p>The grammar check will pass stuff like:
+<PRE>
+select
+a
+from b
+inner join c on c.b = d.e
+</PRE>
+<p>But your database does not have tables called b and c and columns called a, b and e. That is when you need to connect to the database you
+want to run the query on. The syntax check will then produce errors:
+<UL>
+<LI>Column not found in any table used in the statement</LI>
+<LI>Unknown table</LI>
+</UL>
+<p>The errors Quantum detects are:
+<UL>
+<LI>Alias can only be used in select list. Use alias.column</LI>
+<LI>Column is referenced by table, but alias is defined: alias</LI>
+<LI>Column not found in any table</LI>
+<LI>Ambiguous column name: [table1|table2|table3]</LI>
+<LI>Unknown table</LI>
+<LI>Unknown table in from clause</LI>
+<LI>Mismatched data types in condition</LI>
+<LI>Mismatched data sizes in condition</LI>
+</UL>
+<h2>Quick Fixes</h2>
+<p>If Quantum has found a logical error it will provide a Quick Fix when it can.
+<p>Currently the following Quick Fixes are implemented:
+<UL>
+<LI>Column alias used in the join or where clause</LI>
+<LI>Ambiguous column name</LI>
+<LI>Column does not belong to table</LI>
+<LI>Column referenced by table when alias is present</LI>
+<LI>Unknown column</LI>
+<LI>Unknown table</LI>
+<LI>Unknown table in the from clause</LI>
+</UL>
+<p>You can access the Quick Fix from the Problems view, by right-clicking the Problem you
+	want to fix, and then select Quick Fix. Ctrl-1 does not work in 3.2 and 3.3. I would like
+	advice on this...
+
+<h2>The smart way to enter a query</h2>
+<P>The following is a small tutoral showing how to get the most out of the features in the editor. It is assumed you are connected to the bookmark of choice.</P>
+<h3>From Clause</h3>
+<ol>
+<li>You start by opening a file and naming it something.sql</li>
+<li>You enter [Enter] once.</li>
+<li>You type [s] and hit [ctrl-space] and it will insert elect. Then enter [ *]</li>
+<li>The type [f] or from and a [ ] (space). This will give you a list of tables in the bookbark. You can select by scrolling or continuing to type.</li>
+<li>Then enter [where ] and the editor will give you the columns of the table just selected. There are other possibilities listed too. From table names to schema names, but the editor tries to put the most relevant on top.</li>
+<li>You can then finish the condition.</li>
+<li>Finally use the context menu, to check your syntax. If tables and columns have other colors associated with them (in the preferences, see above), the tables and columns will now be recognized as what they are.</li>
+<li>Now would be a good time to go back to the select list and limit the columns you want to see.</li>
+</ol>
+<p>You should end up with something like this:</p>
+<p><img src="images/SimpleQuery.jpg"></p>
+<p>If your query is made up of more than one table or view, you can have Quantum join them for you. Note that relations between the tables need to be defined in the database for this to work.</p>
+<OL>
+<LI>Move the caret behind the first table of the query.</LI>
+<LI>Type [inner join] (Note there is something not quite right here, probably due to the fact that two keywords follow each other immediately), and then enter a space</LI>
+<LI>Select one of the joins Quantum suggests, these are of the form table_name: relationship_name</LI>
+</OL>
+<h3>Where clause</h3>
+<p>Quantum will also assist you in setting up the where clause. It will list the columns of the
+	tables in the statement on top, then the tables and then other options.
+<h2>Sample statements, errors and quick fixes</h2>
+<p>The following table list some statements with less obvious errors.</p>
+<table>
+	<tr><th>Statement</th><th>Error</th><th>Quick Fix</th></tr>
+	<tr><td><pre>SELECT FROM X</pre></td><td>Unexpected token: FROM</td><td>None</td></tr>
+	<tr><td><pre>select XAlias.Y, X.Y, XAlias2.Y
+from X Xalias, X, X XAlias2
+where XAlias.Y=42;</pre></td><td>No error<br>Note that column should be referenced by alias</td><td>None</td></tr>
+	<tr><td><PRE>select XAlias.Y, Y
+from X XAlias, X, X Xalias2
+where XALias.Y=42;</PRE>
+</td><td>Ambiguous column name: [XAlias|XAlias2|X].Y</td><td>Available</td></tr>
+	<tr><td><pre>select XAlias.Y, XAlias.Y
+from X XAlias, X XAlias
+where XAlias.Y = 42;</pre></td><td>XAlias interface is exposed more than once</td><td>None</td></tr>
+	<tr><td><PRE>SELECT X FROM Y
+INNER JOIN Z ON Y.X = Z.X;</PRE></td><td>Ambiguous column: X belongs to [Y|Z]</td><td>Available</td></tr>
+</table>
+<h2>Outline page</h2>
+<p>The outline page gives you various ways to look at the script in your editor.</p>
+<p><img src="images/ContentOutline.JPG"></p>
+<p>The image above shows a typical outline. When you select an item in the outline, all matching 
+	elements in the query will be highlighted. For this the search highlight is used. 
+	This can be configured in 
+Window|Preferences|General|Editors|Text Editors|Annontations and finally Search results.</p>
+<p>The Content Page will show columns with the same name as the one selected in the outline, 
+	but from other tables with a different annotation. 
+	The bookmark annotation is used for this. You might want to 
+configure an alternative display for this annotation. 
+See the same preference page as above for details.</P>
+
+<h2>Implementation details</h2>
+<p>In the SQL Editor the Quantum team has chosen to replace tabs by spaces. So do not be surprised if you paste in something with tabs and paste it back it will contain no tabs any more, but just spaces.</p>
+<p>The editor should do this automatically, but if you get unexpected results, you can invoke the Format query action from the context menu.</p>
+</body>
+</html>

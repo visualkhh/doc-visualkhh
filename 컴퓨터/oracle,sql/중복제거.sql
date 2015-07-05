@@ -1,0 +1,1 @@
+select distinct GRADE from NTT1100 ;

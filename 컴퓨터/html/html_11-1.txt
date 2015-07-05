@@ -1,0 +1,249 @@
+alert(form.info_memo.value)
+
+function showinfo(a)
+window.status=s
+
+
+asdasedtxt.type
+
+
+
+
+<input type="text" onFocus="showinfo('입력')">
+
+
+  <input type='image' src='../imgs/save/user/icon_search2.gif' name='submit' value='search' border=0 align=absmiddle>
+ onmousedown='menu_searchformab.gs_keyword.value="김현하a"
+-----------------------------------------
+크게 입력하는 텍스트박스
+<textarea name="aa" rows=1 cols=2>aaaa</textarea>
+
+blur(),
+focus(),
+select();
+\n\
+onClick();
+------------------------
+[SELECT]
+<SELECT NAME="mymenu" SIZE=5 MULTIPLE >
+<OPTION> 뮤지컬 캣츠
+<OPTION> 해리포터와 마법사의 돌 
+<OPTION> 대부(God Father)
+<OPTION> 반지의 제왕
+<OPTION> 그 남자 그 여자의 사정
+</SELECT>
+
+//////
+ obj.options[i].selected   // T.F 를 반환
+/////
+
+function setDefault(obj) {
+  for (var i = 0; i < obj.options.length; ++i) {
+    obj.options[i].selected = obj.options[i].defaultSelected
+  }
+}
+<INPUT TYPE="button" VALUE="다시 선택" onClick="setDefault(this.form.mymenu)">
+--------
+
+[PASSWORD]
+
+<input tupe="password name"b6" vlue="암호"maxlength="8"  size="8">
+
+
+
+[hidden]
+<input tupe="hidden" name="name1" value="문서숨기는방법">
+
+
+
+
+
+
+
+
+
+
+
+[SUBMIT]  전송 객체
+<input type="submit" name="infor" value="전송">
+<input type="reset" name="infor" value="지워">
+
+
+[form]
+<form name="aa" action="aa.asp"method="post">
+
+
+
+[checkbox]
+
+<input tupe="checkbox" value="a">
+
+checked // 체크,됐는지 확인.  T, F
+
+
+
+
+[Radio]
+<input type=radio value=1 name=pro_option1>컴퓨터정보
+<input type=radio value=2 name=pro_option2>컴퓨터정보
+name 값이 똑같으면 하나만 체크가 된다!  그러면  
+
+
+[select]  콤보박스 처럼
+<select name="menu_name" size=5>...</select>
+<option name=a value=a> a</option>
+
+selectedIndex = 객체의타입 구분
+multiple  =여러개 선택할수있음
+
+
+
+[fileupload]
+
+<input tupe=file name=filename size=크기>
+
+
+
+
+[hiddn]
+<input type="hidden" name="aa" value="문서숨기기">
+
+<input type="button"value="gg">
+
+
+
+[imgage]
+  replacing=new Image();
+ function mouse_over() {
+    document.pic1.src="show_str.gif"
+    document.show_desc.src=show_str.src;
+  }
+<img name="pic1" src="showing.gif" width="100" height="50" border="2">
+
+
+
+
+[fream]
+<frameset cols="30,*,20">
+<frameset rows="30,*,20">
+
+
+
+<frameset cols=20%,30%>
+<frame src="aa"name="L">
+<frame src="aa"name="C">
+</freamset>
+
+parent  // 부모 프레임을   self  //자신
+length 프레임수를 나타냄
+noresize //  프레임 고정
+scrolling  // 스크롤바 설정
+marginheight //여백
+margin        //여백
+
+form name=xx    =  forms[0]
+배열 어로도가능 
+
+
+[prompt]
+prompt("ttt")
+
+
+
+
+
+---------------
+프레임 넘나드는  제어
+
+-<frame src="aa" name=s5>
+
+-  parent.s5.show_text()
+-  parent.fream[0].show_text()
+
+
+
+-------------------
+
+
+<style type="text/css",href="ㅁㅁㅁ.css" >  // 파일 불러 적용
+<link rel="stylesheet",tyep="text/scc",href="cssstyle.css">
+
+<style type="text/css">
+스타일정의
+</style>
+
+<style type="text/css">
+p{color:red ; font-style:italic}   
+	// P만쓰면 한줄뛰어쓰지만  상속받기때문에 RED색 italic 체로 바꿔줌
+h4{ text-align:center  ;  font-style: italic ; margin-left:10pt ;  font-weight:bold }
+
+</style>
+
+<style type="text/css">
+p.ccc{color:blue}    //클래스    같은 테그안에서도 다른 스타일을 적용하는경우 클래스 사용
+#ttt{color:white; background:rgb(10,20,30)}   //아이디   한번만 사용
+
+
+</style>
+
+//클래스, 아이디  적용예//
+<p class=ccc>이영역은 글씨색 blue</p>
+<p id=ttt>이영역은 white 색 글씨</p>
+
+
+<style type="textr/css">
+h4.ss1{color:blue}
+h4.ss2{color:red}
+h4.ss3{color:yello}
+</style>
+
+<h4 class=sss1>이영역은 글씨색 blue</p>
+
+H1,H2{background:url(그림.jpg)}
+
+p em{font-weight:bold}  
+// P 테크 안에  em 테그를 썼을 경우 적용  
+즉 <p><em>반듯이 em앞에 P테크가 있어야 된다 </em></p>
+
+
+
+
+-------
+
+[숫자가 아니면 T]  비교
+isNaN(값)
+
+--------
+
+[레이어 구성]
+<style>
+#layer00{position:absolute; top :35px;left:50px;
+color:pink}
+</style>  
+position: 레이어 위치 지정  absolute  //절대 위치
+             		    relative//상대
+
+source-include //레이어에 들어가는 html문서
+
+z-index//  레이어 인덱스
+
+
+
+
+
+시험범위
+
+6~9장까지
+
+자바스크립트 간단하게  3개 물어보는거ㅏ  (단답형)
+
+실습한거 위주 3개(수업시간)
+
+우리책에서는 예제하고 (실습)다루긴 했지만 해보긴해봤지만
+9장에있는 뒤에있는 9.5   5.1  5.2 실습   <- 책에있는 예제는 이것만 포함 !! +
+수업시간에 했던 실습 문제. 빈칸을 채워넣튼  만드는거 
+
+(단답형3개 + 코드완성 3개)
+
+11-5-1 예제
+

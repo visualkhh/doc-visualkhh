@@ -1,0 +1,39 @@
+1. Collection Type  SPLIT_TBL 識情
+
+ 
+
+CREATE OR REPLACE
+type split_tbl as table of varchar2(32767);
+
+ 
+
+ 
+
+ 
+
+2. Function FN_SPLIT 識情
+
+ 
+
+CREATE OR REPLACE FUNCTION fn_split (p_list IN VARCHAR2, p_del IN VARCHAR2)
+   RETURN split_tbl PIPELINED
+IS
+   i_idx    PLS_INTEGER;
+   i_list   VARCHAR2 (32767) := p_list;
+BEGIN
+   LOOP
+      i_idx := INSTR (i_list, p_del);
+
+      IF i_idx > 0
+      THEN
+         PIPE ROW (SUBSTR (i_list, 1, i_idx - 1));
+         i_list := SUBSTR (i_list, i_idx + LENGTH (p_del));
+      ELSE
+         PIPE ROW (i_list);
+         EXIT;
+      END IF;
+   END LOOP;
+
+   RETURN;
+END;
+

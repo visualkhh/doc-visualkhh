@@ -1,0 +1,15 @@
+물리적은 메모리 확인
+
+AIX # /usr/sbin/lsattr -E -I -sys0 -a realmem
+HP-UX grep "Physical:" /var/adm/syslog/syslog.log
+Linux  grep MemTatal /proc/meminfo
+Solaris # /usr/sbin/prtconf | grep "Memory size"
+Tru64 Unix /binvmstat -P |grep "Total Physical Memory"
+
+
+스왑메모리
+AIX   /usr/sbin/lsps -a 
+HP-UX  /usr/sbin/swapinfo -a 
+Linux grep SwapTotal /proc/Mmeminfo
+Solaris  /usr/sbin/swap -s 
+Tru64 Unix /sbin/swapon -s 

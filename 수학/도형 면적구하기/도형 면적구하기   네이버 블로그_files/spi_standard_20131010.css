@@ -1,0 +1,181 @@
+@charset "utf-8";
+/* NHN Web Standard 1Team JJS 111026 */
+
+/* Common */
+.spi_default,.spi_default ul,.spi_default li,.spi_default form,.spi_default fieldset,.spi_default legend,.spi_default input{margin:0;padding:0;font-family:'돋움',dotum,Helvetica,sans-serif;font-size:12px;line-height:16px;color:#404040}
+.spi_default:after{display:block;clear:both;content:''}
+.spi_default fieldset{border:0}
+.spi_default ul{list-style:none}
+.spi_default em{font-style:normal}
+.spi_default a{color:#404040;text-decoration:none}
+.spi_default a:hover,.spi_default a:active,.spi_default a:focus,.spi_default a:visited{color:#404040}
+.spi_default legend{display:none}
+
+/* Social Plugin */
+.loading{position:absolute!important;top:5px;left:7px;width:16px;height:16px;border:none}
+.spi_default{position:relative;z-index:1000;margin:0 -6px}
+.spi_default .spi_default {margin:0}
+.spi_default .spi_lst a:hover{text-decoration:none}
+.spi_lst{display:inline-block;*display:inline;zoom:1;text-align:left;padding-right:6px!important}
+.spi_lst a,.spi_lst span,.spi_lst em,.spi_cnt_tooltip div{background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) no-repeat}
+.spi_default .spi_lst{_position:relative}
+.spi_lst:after{display:block;clear:both;content:''}
+.spi_lst li{display:inline;float:left;position:relative;height:28px;margin-left:6px}
+.spi_lst li .spi_dimmed,.spi_lst li .spi_dimmed:link,.spi_lst li .spi_dimmed:hover,.spi_lst li .active,.spi_lst li .spi_dimmed:focus,.spi_lst li .spi_dimmed:visited{color:#999 !important}
+.spi_lst a{display:inline-block;float:left;position:relative;height:22px;_height:28px;padding:6px 7px 0 31px;*padding-right:6px;background-position:0 0;font-size:12px;_line-height:15px;letter-spacing:-1px}
+.spi_lst span{overflow:hidden;display:block;position:absolute;background-position:0 -80px;cursor:pointer}
+.spi_lst .ls{display:inline;position:static;left:auto;top:auto;width:auto;height:auto;background:none;cursor:pointer;letter-spacing:0}
+.spi_lst em{overflow:hidden;display:inline-block;position:absolute;top:0;right:-1px;width:2px;height:27px;background-position:-198px 0}
+.spi_lst .me2day_me2box{width:auto;height:auto;background:none}
+.spi_btn_band a{padding-left:25px}
+.spi_btn_band span{top:6px;left:8px;width:15px;height:15px;background-position:-130px -150px}
+.spi_btn_me a{padding-left:25px}
+.spi_btn_me span{top:6px;left:8px;width:15px;height:15px;background-position:0 -80px}
+.spi_btn_bookmark a{padding-left:24px}
+.spi_btn_bookmark span{top:5px;left:7px;width:16px;height:16px;background-position:-160px -60px}
+.spi_btn_me2day a{padding:6px 8px 0 24px;_padding:6px 7px 0 24px}
+.spi_btn_me2day span{top:5px;left:8px;width:15px;height:16px;background-position:-60px -80px}
+.spi_lst .spi_cnt_tooltip{float:left;position:relative;display:block;margin-left:2px}
+.spi_cnt_tooltip li{margin-left:0;background-image:none}
+.spi_cnt_tooltip div,.spi_cnt_tooltip a{width:auto;height:21px;_height:27px;padding:5px 4px 1px 8px;background-position:0 -30px;font-family:tahoma;font-size:11px;color:#705bb6;letter-spacing:0}
+.spi_cnt_tooltip .spi_cnt{margin-right:3px;padding-right:4px}
+.spi_cnt_tooltip em{right:1px;background-position:-198px -30px}
+.spi_cnt_tooltip a:hover,.spi_cnt_tooltip a:link,.spi_cnt_tooltip a:active,.spi_cnt_tooltip a:focus,.spi_cnt_tooltip a:visited{color:#705bb6 !important}
+.spi_lst .spi_btn_release{margin-left:4px}
+.spi_btn_release .spi_lst_release a{display:block;float:none;width:auto;background:none}
+.spi_btn_release a{padding:6px 14px 0 25px;*padding:6px 13px 0 25px}
+.spi_btn_release .spi_bg_release{top:6px;left:8px;width:16px;height:15px;background-position:-100px -80px}
+.spi_btn_release .spi_bu_arr{top:12px;right:7px;left:auto;width:5px;height:3px;background-position:-30px -60px}
+.spi_lst .spi_lst_release{position:absolute;top:31px;right:-1px;width:267px;_width:272px;padding:9px 0 9px 3px!important;border:1px solid #b1b1b1;background-color:#fff;text-align:left}
+.spi_lst_release li{width:89px;height:auto;margin:0;padding:0;background:none;line-height:16px}
+.spi_lst_release a{_width:auto!important;height:auto;padding:5px 0 4px 31px}
+.spi_lst_release a:hover{color:#390;text-decoration:underline!important}
+.spi_lnk_url span{top:5px;left:11px;width:16px;height:14px;background-position:-214px -60px}
+.spi_lnk_mail span{top:5px;left:12px;width:15px;height:14px;background-position:-100px -60px}
+.spi_lnk_navertalk span{top:5px;left:12px;width:15px;height:15px;background-position:-120px -60px}
+.spi_lnk_blog span{top:4px;left:11px;width:16px;height:17px;background-position:-40px -60px}
+.spi_lnk_cafe span{top:4px;left:11px;width:18px;height:16px;background-position:-60px -60px}
+.spi_lnk_facebook span{top:5px;left:12px;width:15px;height:16px;background-position:-80px -60px}
+.spi_lnk_twitter span{top:4px;left:12px;width:15px;height:16px;background-position:-140px -60px}
+.spi_lnk_yozm span{top:4px;left:11px;width:14px;height:18px;background-position:-40px -80px}
+.spi_lnk_me2 span{top:5px;left:12px;width:15px;height:15px;background-position:-20px -120px}
+.spi_lnk_calendar span{top:4px;left:12px;width:15px;height:17px;background-position:-71px -149px}
+.spi_lnk_memo span{top:5px;left:12px;width:15px;height:15px;background-position:-50px -149px}
+.spi_lnk_sms span{top:5px;left:12px;width:15px;height:15px;background-position:-110px -149px}
+
+/* Social Plugin Variation */
+.spi_default_v1 .loading{top:0;left:7px}
+.spi_default_v1 .spi_btn_band,.spi_default_v1 .spi_btn_me,.spi_default_v1 .spi_btn_bookmark,.spi_default_v1 .spi_btn_me2day,.spi_default_v1 .spi_btn_release{height:15px;padding-right:2px}
+.spi_default_v1 .spi_btn_band a,.spi_default_v1 .spi_btn_me a,.spi_default_v1 .spi_btn_bookmark a,.spi_default_v1 .spi_btn_me2day a,.spi_default_v1 .spi_btn_release a{width:auto;height:auto;padding-top:0}
+.spi_default_v1 .spi_btn_band a em,.spi_default_v1 .spi_btn_me a em,.spi_default_v1 .spi_btn_bookmark a em,.spi_default_v1 .spi_btn_me2day a em,.spi_default_v1 .spi_btn_release a em{top:1px;left:0;width:1px;height:13px;background-position:0 -199px}
+.spi_default_v1 .spi_txt .spi_btn_band a em,.spi_default_v1 .spi_txt .spi_btn_me a em,.spi_default_v1 .spi_txt .spi_btn_bookmark a em,.spi_default_v1 .spi_txt .spi_btn_me2day a em,.spi_default_v1 .spi_txt .spi_btn_release a em{background-position:-10px -199px}
+.spi_default_v1 .spi_btn_me a em{background:none}
+.spi_default_v1 .spi_btn_band a,.spi_default_v1 .spi_btn_me a,.spi_default_v1 .spi_btn_bookmark a,.spi_default_v1 .spi_btn_me2day a,.spi_default_v1 .spi_btn_release a{background:none}
+.spi_default_v1 .spi_lst{padding-right:4px!important}
+.spi_default_v1 .spi_lst a{padding-right:0}
+.spi_default_v1 .spi_txt a,.spi_default_v1 .spi_txt a:link,.spi_default_v1 .spi_txt a:hover,.spi_default_v1 .spi_txt a:active,.spi_default_v1 .spi_txt a:focus,.spi_default_v1 .spi_txt a:visited{color:#ccc}
+.spi_default_v1 .spi_txt .spi_default_v1 .spi_txt .spi_dimmed{color:#999}
+.spi_default_v1 .spi_txt .spi_cnt_tooltip a{color:#705bb6}
+.spi_default_v1 .spi_cnt_tooltip{margin-right:1px}
+.spi_default_v1 .spi_cnt_tooltip div,.spi_default_v1 .spi_cnt_tooltip a{float:none;position:static;height:14px;_height:15px;padding:1px 3px 0 7px!important;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) 0 -100px no-repeat;font-size:9px;line-height:13px;letter-spacing:0}
+.spi_default_v1 .spi_cnt_tooltip li{height:auto;margin:0 1px 0 0;_margin:0 1px 0 0}
+.spi_default_v1 .spi_lst .spi_cnt{overflow:hidden}
+*+html .spi_default_v1 .spi_lst .spi_cnt{margin-top:-1px}
+.spi_default_v1 .spi_lst .spi_cnt_tooltip em{top:0;left:auto;width:2px;height:15px;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) -198px -100px}
+.spi_default_v1 .spi_btn_me a {padding-left:16px}
+.spi_default_v1 .spi_btn_me span{top:0;left:0;width:14px;height:14px;background-position:-20px -80px}
+.spi_default_v1 .spi_btn_band a{padding:0 0 0 24px}
+.spi_default_v1 .spi_btn_band span{top:0;left:8px;width:14px;height:14px;background-position:-150px -150px}
+.spi_default_v1 .spi_btn_bookmark span{top:0;left:8px;width:16px;height:16px;background-position:-180px -60px}
+.spi_default_v1 .spi_btn_me2day span{top:0;left:9px;width:13px;height:14px;background-position:-80px -80px}
+.spi_default_v1 .spi_btn_me2day .me2day_me2box{width:auto;height:auto}
+.spi_default_v1 .spi_btn_me2day .bar{top:1px;left:0;width:1px;height:13px;background-position:0 -199px}
+.spi_default_v1 .spi_bg_release{top:0;left:9px;width:15px;height:14px;background-position:-120px -80px}
+.spi_default_v1 .spi_btn_release{margin-left:7px}
+.spi_default_v1 .spi_btn_release a{width:50px;_width:76px;padding:0 0 0 26px}
+.spi_default_v1 .spi_btn_release a:hover{text-decoration:underline}
+.spi_default_v1 .spi_lst_release a{width:auto;padding:5px 0 4px 32px;color:#404040 !important}
+.spi_default_v1 .spi_bu_arr{position:absolute;top:1px;right:0;width:13px;height:13px;background-position:0 -60px}
+.spi_default_v1 .spi_lst_release{top:19px;right:2px}
+.spi_default_v1 .spi_lst_release a:hover{color:#390!important}
+.spi_default_v1 .spi_lst a:hover{text-decoration:underline}
+.spi_default_v1 .spi_btn_release a:hover,.spi_default_v1 .spi_lst_release a:hover,.spi_default_v1 .spi_cnt_tooltip a:hover{text-decoration:none}
+.spi_icon .spi_lst .spi_btn_bookmark{margin-left:5px}
+.spi_icon .spi_lst .spi_btn_me2day,.spi_icon .spi_lst .spi_btn_release{margin-left:3px}
+.spi_icon .spi_lst .spi_cnt_tooltip a{font-size:9px}
+.spi_icon .spi_lst a{width:16px;_width:22px;text-indent:-10000px}
+.spi_icon .spi_lst .spi_ly_msg a{width:auto;text-indent:0}
+.spi_icon .spi_lst .spi_btn_me a,.spi_icon .spi_lst .spi_cnt_tooltip a,.spi_icon .spi_lst_release a{width:auto;text-indent:0}
+.spi_icon .spi_lst_release{right:2px}
+.spi_icon .spi_lst .spi_btn_release a{_width:42px}
+.spi_icon .spi_lst .spi_btn_bookmark a{padding-left:6px}
+.spi_icon .spi_lst .spi_btn_band a{padding-left:6px}
+.spi_icon .spi_lst .spi_btn_me2day{margin-left:4px}
+.spi_icon .spi_lst .spi_btn_me2day a{padding-left:6px}
+
+/* Layer Popup */
+.spi_default .spi_ly_pop{display:none;position:absolute;z-index:1000;_margin-left:6px;padding:17px 0;border:1px solid #b1b1b1;background:#fff}
+.spi_default .spi_ly_pop .spi_dsc{margin:0;line-height:19px;color:#333;text-align:center}
+.spi_default .spi_ly_pop .spi_dsc em{color:#390}
+.spi_default .spi_ly_pop .spi_dsc .spi_impact{color:#390;text-decoration:underline}
+.spi_default .spi_ly_pop .spi_dsc .spi_impact:hover,.spi_default .spi_ly_pop .spi_dsc .spi_impact:active,.spi_default .spi_ly_pop .spi_dsc .spi_impact:focus,.spi_default .spi_ly_pop .spi_dsc .spi_impact:visited{color:#390}
+.spi_default .spi_ly_pop .spi_btn{clear:both;position:relative;width:158px;margin:15px auto 0;padding:10px 0 5px;border-top:1px solid #e5e5e5;text-align:center}
+.spi_default .spi_ly_pop .spi_btn a{cursor:pointer}
+.spi_default .spi_ly_pop .spi_btn .spi_y{display:inline-block;float:none;position:relative;top:0;width:41px;height:26px;padding:0;background:none}
+.spi_default .spi_ly_pop .spi_btn .spi_y span{display:inline-block;position:absolute;top:0;left:0;z-index:20;width:41px;height:26px;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) 0 -220px no-repeat}
+.spi_default .spi_ly_pop .spi_btn .spi_n{display:inline-block;float:none;position:relative;top:0;width:49px;height:26px;padding:0;background:none}
+.spi_default .spi_ly_pop .spi_btn .spi_n span{display:inline-block;position:absolute;top:0;left:0;z-index:20;width:49px;height:26px;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) -50px -220px no-repeat}
+.spi_default .spi_ly_pop .spi_close{overflow:visible;position:absolute;top:2px;right:2px;width:auto;padding:0;border:none;background:none;font-size:10px;color:#b5b5b5;cursor:pointer}
+.spi_default .spi_ly_pop .spi_close span{display:block;position:relative;top:0;left:0;z-index:20;width:14px;height:12px;margin:0;padding:3px;border:none;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) -100px -120px no-repeat;font-size:0}
+.spi_default .spi_ly_pop .spi_close em{position:absolute;top:3px;left:6px}
+.spi_default .spi_ly_pop .spi_spi_btn_v1{margin-left:-20px}
+.spi_default .spi_ly_pop .spi_spi_btn_v1 .spi_upld{display:inline-block;float:none;position:relative;top:0;width:55px;height:25px;padding:0;background:none}
+.spi_default .spi_ly_pop .spi_spi_btn_v1 .spi_upld span{display:inline-block;position:absolute;top:0;left:0;z-index:20;width:55px;height:25px;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) -130px -120px no-repeat}
+.spi_default .spi_ly_pop .spi_spi_btn_v1 .spi_cncl{display:inline-block;float:none;position:relative;top:0;width:55px;height:25px;padding:0;background:none}
+.spi_default .spi_ly_pop .spi_spi_btn_v1 .spi_cncl span{display:inline-block;position:absolute;top:0;left:0;z-index:20;width:55px;height:25px;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) 0 -170px no-repeat}
+.spi_default .spi_ly_pop .spi_lst_type{margin:1px 0 0 20px}
+.spi_default .spi_ly_pop .spi_lst_type dt:after{display:block;clear:both;content:''}
+.spi_default .spi_ly_pop .spi_lst_type dt{width:298px;margin-bottom:2px}
+.spi_default .spi_ly_pop .spi_lst_type dt span{float:left;font-weight:bold;color:#404040;letter-spacing:-1px}
+.spi_default .spi_ly_pop .spi_lst_type dt em{float:right;margin-top:3px;font-family:tahoma;font-size:11px;font-weight:normal;color:#818181;letter-spacing:0}
+.spi_default .spi_ly_pop .spi_lst_type dd{margin:0}
+.spi_default .spi_ly_pop .spi_lst_type textarea{display:block;overflow-y:auto;width:292px;padding:6px 0 0 6px;border:1px solid #c9c9c9;font-family:'돋움',dotum,Helvetica,sans-serif;font-size:12px;letter-spacing:-1px;resize:none}
+.spi_default .spi_ly_pop .spi_lst_type textarea::-webkit-input-placeholder{color:#ccc}
+.spi_default .spi_ly_pop .spi_lst_type textarea:-moz-placeholder{color:#ccc}
+.spi_default .spi_ly_pop .spi_lst_type .spi_txt_box{height:62px;margin-bottom:8px}
+.spi_default .spi_ly_pop .spi_lst_type .spi_txt_box2{height:17px}
+.spi_default .spi_ly_pop .spi_ico_arr{position:absolute;left:22px;bottom:-6px;width:9px;height:6px;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) -200px -60px no-repeat;font-size:0;line-height:0}
+.spi_default .spi_ly_pop_v1{padding:12px 0 11px}
+.spi_default .spi_ly_pop_v1 .spi_dsc{padding-left:14px;line-height:18px;text-align:left}
+.spi_default .spi_ly_pop_v2{padding-bottom:5px}
+.spi_default .spi_ly_style{position:absolute;top:30px;left:-126px;z-index:1000;width:271px;_width:302px;padding:22px 10px 20px 19px;border:1px solid #888;background:#fff;word-break:break-word}
+.spi_default_v1 .spi_ly_style{top:18px;left:-126px;_left:-123px;width:271px;_width:300px}
+.spi_default .spi_ly_style .spi_ly_msg{width:244px;margin:0;padding:2px 0;font-size:12px;line-height:1.3em;color:#666}
+.spi_default .spi_ly_style .spi_ly_msg.spi_icon1{_width:265px;padding-left:21px !important;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) no-repeat -210px -184px}
+.spi_default .spi_ly_style .spi_ly_msg.spi_icon2{_width:265px;padding-left:21px !important;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) no-repeat -210px 2px}
+.spi_default .spi_ly_style .spi_ly_msg strong{display:block;padding-bottom:8px;font-weight:normal;color:#333;letter-spacing:-1px}
+.spi_default .spi_ly_style .spi_ly_msg a,.spi_default .spi_ly_style .spi_ly_cfm a{display:inline;float:none;height:auto;_height:0;padding:0;background:none;line-height:16px}
+.spi_default .spi_ly_style .spi_ly_msg a,.spi_default .spi_ly_style .spi_ly_msg a:link,.spi_default .spi_ly_style .spi_ly_msg a:hover,.spi_default .spi_ly_style .spi_ly_msg a:active,.spi_default .spi_ly_style .spi_ly_msg a:visited{color:#e65802;text-decoration:none}
+.spi_default .spi_ly_style .spi_ly_cfm{width:180px;_width:226px;margin:4px 0 -2px;padding:8px 28px 8px 18px;background-color:#f0f0f2;font-size:11px}
+.spi_default .spi_ly_style .spi_ly_cfm a{display:inline}
+.spi_default .spi_ly_style .spi_ly_cfm a:hover{text-decoration:none}
+.spi_default .spi_ly_style .spi_ly_cfm .spi_myme2_lnk a:link,.spi_default .spi_ly_style .spi_ly_cfm .spi_myme2_lnk a:visited,.spi_default .spi_ly_style .spi_ly_cfm .spi_myme2_lnk{display:inline;position:static;width:auto;background:none;color:#999}
+.spi_default .spi_ly_style .spi_ly_cfm .spi_myme2_lnk{_height:auto;zoom:1}
+.spi_default .spi_ly_style .spi_ly_cfm .spi_myme2_lnk a {_display:inline}
+.spi_default .spi_ly_style .spi_ly_cfm .spi_myme2_lnk a:hover{text-decoration:underline}
+.spi_default .spi_ly_style .spi_ly_cfm .spi_me2_post{color:#e65802}
+.spi_default .spi_ly_style .spi_lnk_myme2{color:#000;text-decoration:underline}
+.spi_default .spi_ly_style .spi_other_lnk{display:block;position:static;width:auto;_height:26px;padding:9px 0 1px;background:none;line-height:1}
+.spi_default .spi_ly_style .spi_other_lnk a,.spi_default .spi_ly_style .spi_other_lnk a:link,.spi_default .spi_ly_style .spi_other_lnk a:hover,.spi_default .spi_ly_style .spi_other_lnk a:active,.spi_default .spi_ly_style .spi_other_lnk a:visited{font-size:11px;color:#999}
+.spi_default .spi_ly_style .spi_me2btn_close{overflow:visible;position:absolute;top:6px;right:2px;width:auto;padding:3px;border:none;background:none;font-size:10px;color:#b5b5b5;cursor:pointer}
+.spi_default .spi_ly_style .spi_me2btn_close span{display:block;position:relative;top:0;left:0;z-index:20;width:16px;height:16px;margin:0;border:none;background:#fff url(http://static.naver.net/common/spi/sp_social_plugin26.png) no-repeat -190px -120px;font-size:0}
+.spi_default .spi_ly_style .spi_me2btn_close em{position:absolute;top:3px;left:6px;height:auto;background:none}
+
+/* event */
+.spi_lst_release li.event{display:block;float:none;position:relative;width:auto;margin:0 11px 8px 8px;padding-bottom:8px;border-bottom:1px solid #ebebeb}
+.spi_lst_release .event a{padding:0!important;background:none;color:#333}
+.spi_lst_release .event a:hover{text-decoration:none!important;color:inherit!important}
+.spi_lst_release .event strong {display:inline-block;padding-left:35px;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) 0 -284px no-repeat}
+.spi_lst_release .event em{position:static;overflow:inherit;display:inline-block;width:auto!important;height:auto!important;top:auto;padding-left:16px;color:#0d9e0a;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) -217px -284px no-repeat!important}
+.spi_lst_release .event em b{letter-spacing:0}
+.spi_lst_release .event .ico_arr{display:inline-block;width:3px;height:5px;margin:5px 0 0 3px;background:url(http://static.naver.net/common/spi/sp_social_plugin26.png) -209px -286px no-repeat; vertical-align:top}

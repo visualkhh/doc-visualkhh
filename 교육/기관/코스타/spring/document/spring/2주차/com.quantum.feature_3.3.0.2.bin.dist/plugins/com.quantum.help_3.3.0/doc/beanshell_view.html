@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>Title</title>
+<link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>The Beanshell Script View</h1>
+<p>This view adds scripting capabilities to the Quantum plugin. It's basically 
+  a quick wrapup of the Beanshell facility. I cite from <a href="http://www.beanshell.org/">its 
+  website</a>:</p>
+<p><i>BeanShell is a small, free, embeddable Java source interpreter with object 
+  scripting language features, written in Java. BeanShell dynamically executes 
+  standard Java syntax and extends it with common scripting conveniences such 
+  as loose types, commands, and method closures like those in Perl and JavaScript.</i></p>
+<p>For a complete information on Beanshell, syntax and capabilities, please go 
+  to its website (http://www.beanshell.org).</p>
+<p>The view is opened in Quantum just like any other view, in <b>Window-&gt;Show 
+  View-&gt;Other... Quantum DB-&gt;Beanshell View</b>. This view, from Quantum 
+  3.3 onwards, is an <i>optional</i> plugin, so if you don't see that view appear 
+  in the list, it might be that you haven't installed it.</p>
+<p>Then something like this should appear:</p>
+<p><img src="images/quantum_beanshell_view.jpg" width="486" height="130"></p>
+<p>Of course with no text at first. Then you can write the script, </p>
+<pre><code>for (int i = 0; i &lt; 6; i++) {
+	print(&quot;test(&quot; + i + &quot;)&quot;);
+</code><code>}</code></pre>
+<p>and hit the green arrow (execute). That should generate :</p>
+<p><img src="images/quantum_beanshell_view_result.jpg" width="483" height="198"></p>
+<p>As you see, the results will be highlighted with a grey background. </p>
+<p>That's not very interesting, of course. But it gets more interesting as you 
+  can access the Quatum data, and manipulate it, as shown in the next example. 
+  If you write:</p>
+<pre><code>import com.quantum.ExternalInterface;
+
+String[][] data = ExternalInterface.getDataFromResultSet(0);
+for (int i = 0; i &lt; data.length; i++) {
+	print(&quot;newObject = newDate(\&quot;&quot; + data[i][4] + &quot;\&quot;);&quot;);
+	print(&quot;arrayObject.add(newObject);&quot;);
+}</code></pre>
+<p><img src="images/quantum_beanshell_view_data_example.jpg" width="378" height="614"></p>
+<p>As you can see, we have to import the Quantum <b><a href="ExternalInterface.html">ExternalInterface</a></b> 
+  class (or fully qualify it when used). This class is used to give easy access 
+  to data from Quantum to external code. Its functions are to be rather stable, 
+  or at least we'll try to keep them that way :)</p>
+<p>As can be seen in the image, we use the <code>getDataFromResultSet()</code> 
+  function, that returms an array of data from a recordset opened in the Table 
+  View. Then we use the data to generate some &quot;code&quot; that can then be 
+  pasted or saved. For the shell to work, the fifth column data[4] of the first 
+  opened table in the Table View (getDataFromResultSet(0)) has to be a date value.</p>
+<p>As I said previously, this is a quick wrapup of the Beanshell library, so the 
+  facilities are minimal. Nothing is customizable (not even the font), there is 
+  no syntax highlighting, or undo, or find/replace (just like in the Query View, 
+  you'll feel right at home :). All your written code will be executed as a unit 
+  (however, the interpreter will remember the state from one execution to another, 
+  so if you set a variable, it'll remain set till you close the view). The view 
+  will differentiate between code written and generated output, so you can save 
+  both independent. Hitting the <b>Clear</b> button (the one with the eraser) 
+  will clear only the output. If you want to clear it all, there is an option 
+  in the toolbar menu. That menu runs as : </p>
+<p><img src="images/quantum_beanshell_view_menu.jpg" width="158" height="131"></p>
+<p>The options are self-explanatory. You can export an script. That option will 
+  export only the unmarked lines (the lines with no grey background). You can 
+  later import that script. You can export the output, that is the lines with 
+  grey background. And you can clear the whole window.</p>
+<p>That's more or less all. Using the ExternalInterface and the Beanshell will 
+  take some trials, but the Beanshell syntax is more or less java, and probably 
+  you won't need that many methods of the ExternalInterface.</p>
+</body>
+
+</html>

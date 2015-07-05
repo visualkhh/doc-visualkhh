@@ -1,0 +1,24 @@
+  
+최정내 님의 말 :
+basekw=data(:,5)
+curkw=data(:,12);
+count=2;
+temp=curkw(1:count);
+for i=1:23
+    tild(i)=basekw(i+1)-basekw(i)
+end
+plot(tild);
+for i=count-1:23
+tild(i)=tild(i)/basekw(count)*curkw(count);
+end
+hold on
+plot(tild,'r');
+figure
+for i=count+1:24
+    curkw(i)=curkw(i-1) + tild(i-1)
+end
+
+area(basekw);
+hold on
+area(curkw,'facecolor','r');
+area(temp,'facecolor','m');

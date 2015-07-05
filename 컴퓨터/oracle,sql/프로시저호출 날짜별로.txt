@@ -1,0 +1,31 @@
+CREATE OR REPLACE PROCEDURE "GENPROC1A_WHILE"( start_ymd IN VARCHAR2,end_ymd IN VARCHAR2) IS
+  start_date    date;		  /* 전일날짜 */
+  end_date 		date;
+  date_num		number;
+
+BEGIN
+
+start_date := to_date(start_ymd,'yyyymmdd');
+end_date := to_date(end_ymd,'yyyymmdd');
+date_num  := end_date - start_date;
+--max_loops integer :=100;
+
+
+DBMS_OUTPUT.DISABLE;  --끄는 것
+--DBMS_OUTPUT.ENABLE(999999999999);
+
+FOR I in 0..date_num  LOOP
+	--exec GENPROC1A(to_char(start_date+I,'yyyymmdd'));
+	GENPROC1A(to_char(start_date+I,'yyyymmdd'));
+ 	--DBMS_OUTPUT.PUT_LINE(to_char(start_date+I,'yyyymmdd'));
+END LOOP;
+
+
+
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('ERR CODE : ' || TO_CHAR(SQLCODE));
+    DBMS_OUTPUT.PUT_LINE('ERR MESSAGE : ' || SQLERRM);
+
+END;
+/

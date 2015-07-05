@@ -1,0 +1,30 @@
+ ㄹ
+네이버블로그 Toad 테이블 복사하기★ DB
+2008/09/08 11:20
+http://naver.kinjsp.pe.kr/140055468847 
+
+ 
+
+
+
+
+먼저 테이블들을 선택하여
+
+  오른쪽 버튼 클릭 - > Create in another schema를 하여 
+
+
+DB스키마를 골라 테이블을 똑같이 생성한다.
+
+ 
+
+테이블들을 선택하여
+
+  오른쪽 버튼 클릭 - > Copy data to another schema로 데이터를 복사한다. 
+
+
+
+
+ 
+ 
+ 
+   

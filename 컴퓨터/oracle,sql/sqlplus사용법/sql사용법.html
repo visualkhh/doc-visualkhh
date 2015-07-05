@@ -1,0 +1,942 @@
+<DIV id=content-area>
+<DIV id=post-area>
+<SCRIPT type=text/javascript src="/nversioning/common/js/global/RemoveSubDomain-121185.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+
+
+
+
+
+
+var isAutoPlayYN = false;
+
+
+var tagOpenModeType = '2';
+var tagMarkDisplayIfPostTagEmpty = false;
+
+var categoryNo = '8';
+var parentCategoryNo = '0';
+var categoryParentCategoryNo = '65';
+var currentCategoryNo;
+if(categoryNo=="" && parentCategoryNo == ""){ 
+	currentCategoryNo = 0;
+}else if((categoryNo=="" || categoryNo=="0") && parentCategoryNo != ""){  
+	currentCategoryNo = parentCategoryNo;
+}else if(categoryNo!=""){  
+	currentCategoryNo = categoryNo;
+}
+
+var viewDate = '' || ''; 
+
+
+var isFromSearch = false;	
+var isFromSection = false;	
+var isFromRelay = false;	
+var isFromOutside = isFromSearch || isFromSection || isFromRelay;	
+
+var isFirstPage = false;	
+var from = '';	
+var search_logNo = "120046344870";
+
+var postListTopCurrentPage = '1';
+var categoryName = "ORA+PL%2FSQL";
+
+
+var thumbnailListCurrentPage = '';
+var thumbnailListHasNextPage = '';
+var thumbnailListHasPreviousPage = '';
+
+
+var userTopListCurrentPage = "";
+var userTopListCount = "";
+var userTopListOpen = false; 
+var userTopListManageOpen = false; 
+var isTopListOpen = false; 
+var topListPostCount = "5"; 
+
+var isTopListCategoryEmpty = false;
+if (!isTopListCategoryEmpty) {
+	isTopListOpen = false; 
+	topListPostCount = "5"; 
+}
+
+var isThumbnailList = false;
+var isThumbnailView = false;
+
+var aPostSendInfo = [];
+var aPostBaseInfo = [];
+var aPostFiles = [];
+var aPostImageFileSizeInfo = [];
+var aPostAutoSourcingHtmlView = [];
+var aScrapFormValues = []; 
+var aQueuePost = []; 
+
+
+var skinId = '';
+var skinType = '';
+var paramLogNo = '120046344870';
+var isAfterWrite = false;
+var gdidTag = [];
+var nsc = "blog.post";
+var nFirstLogNo = "";
+var pagePerPostCount = 1;
+
+
+var sFocusingCommentNo = '';	
+var isCommentAreaOpen = false;
+var postBottomOptionalAreaType = '0';
+var commentAreaOpenType = '1';
+var isRelayAreaOpen = false;
+var isSympathyAreaOpen = false;
+var relayAreaOpenType = '2';
+var firstPostLogNo = "120046344870";
+
+var sClpboardFlashUrl = '/nversioning/common/swf/Clipboard/clipboard_jindo2-86499.swf';
+var searchImg = '';
+var searchVid = '';
+
+
+var currentPage = '1';
+var tagParam = '' || '&logNo=120046344870&oldFirstPost=true';
+
+
+var imageWidth = '' || '743';
+
+
+var maxNoticePostCount = '5';
+
+
+
+
+
+
+
+	
+		nFirstLogNo = "120046344870";		//addpost에서 사용함.
+	
+	
+	gdidTag[1] = "90000003_000000000000001BF351DAA6";
+	aPostAutoSourcingHtmlView[1] = "<p style='margin:11px 0 7px 0;padding:0;font-size:12px;font-family:Dotum;font-style:normal;font-weight: normal;'><strong style='padding:0 7px 0 0;'>[출처]</strong> <a href='http://blog.naver.com/chansury/120046344870' target='_blank'>oracle - sqlplus 사용법 </a><span style='padding:0 7px 0 5px;'>|</span><strong style='padding:0 7px 0 0;'>작성자</strong> <a href='http://blog.naver.com/chansury' target='_blank'>코바코바</a></p>";
+	aPostFiles[1] = [];
+	
+	aPostImageFileSizeInfo[1] = [];
+	aPostSendInfo[1] = [];
+	aPostBaseInfo[1] = "120046344870|0|1|1|8|0|false";
+	aScrapFormValues[1] = {'hasVideo':'', 'hasLayoutPhoto':'', 'hasSlidePhoto':'', 'hasStoryPhoto':'', 'hasNaverMap':'','hasCalendar':'', 'source_clubid':'719910', 'source_type':'1','source_type_real':'1', 'source_form':'2', 'source_categoryno':'8', 'source_no':'120046344870', 'source_memberid':'chansury', 'source_nickname':'%EC%BD%94%EB%B0%94%EC%BD%94%EB%B0%94', 'source_paperno':'719910', 'source_openYn':'2', 'source_url':'chansury', 'source_title':'chansury+DEV+REF', 'title':'oracle+-+sqlplus+%EC%82%AC%EC%9A%A9%EB%B2%95+', 'blogId':'chansury', 'logNo':'120046344870', 'source_blogId':'chansury', 'source_sumyn':'false', 'source_sumtext':'%3CP+align%3D%3E%3C%2FP%3E', 'attach':'', 'domainUrl':'http://blog.naver.com/chansury/120046344870', 'sourceSmartEditorVersion':'1'};
+	aQueuePost.push({logNo : '120046344870',tagNames : ''}); 	
+
+
+</SCRIPT>
+
+<SCRIPT type=text/javascript src="/nversioning/PostTopCommon-284295.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>$Ajax.SWFRequest.write(sAjaxFlashUrl);</SCRIPT>
+
+<DIV style="POSITION: absolute; TOP: -1000px; LEFT: -1000px">
+<OBJECT id=tmpSwf62695917 codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" classid=clsid:d27cdb6e-ae6d-11cf-96b8-444553540000 width=1 height=1><PARAM NAME="_cx" VALUE="26"><PARAM NAME="_cy" VALUE="26"><PARAM NAME="FlashVars" VALUE="activeCallback=jindo.$Ajax.SWFRequest.loaded"><PARAM NAME="Movie" VALUE="/nversioning/common/lib/ajax.flash/ajax_1.5.0-109473.swf"><PARAM NAME="Src" VALUE="/nversioning/common/lib/ajax.flash/ajax_1.5.0-109473.swf"><PARAM NAME="WMode" VALUE="Window"><PARAM NAME="Play" VALUE="0"><PARAM NAME="Loop" VALUE="-1"><PARAM NAME="Quality" VALUE="High"><PARAM NAME="SAlign" VALUE=""><PARAM NAME="Menu" VALUE="-1"><PARAM NAME="Base" VALUE=""><PARAM NAME="AllowScriptAccess" VALUE="always"><PARAM NAME="Scale" VALUE="ShowAll"><PARAM NAME="DeviceFont" VALUE="0"><PARAM NAME="EmbedMovie" VALUE="0"><PARAM NAME="BGColor" VALUE=""><PARAM NAME="SWRemote" VALUE=""><PARAM NAME="MovieData" VALUE=""><PARAM NAME="SeamlessTabbing" VALUE="1"><PARAM NAME="Profile" VALUE="0"><PARAM NAME="ProfileAddress" VALUE=""><PARAM NAME="ProfilePort" VALUE="0"><PARAM NAME="AllowNetworking" VALUE="all"><PARAM NAME="AllowFullScreen" VALUE="false">
+<embed name="tmpSwf62695917" src="/nversioning/common/lib/ajax.flash/ajax_1.5.0-109473.swf" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" width="1" height="1" allowScriptAccess="always" swLiveConnect="true" FlashVars="activeCallback=jindo.$Ajax.SWFRequest.loaded"></embed></OBJECT></DIV>
+<DIV style="DISPLAY: none" id=quickPostTopLine class=division-line-x></DIV>
+<DIV style="DISPLAY: none" id=quickPostBanner class=qk_wrap>
+<DIV class=qk_post>
+<P style="FONT-SIZE: 12px" class="msg _qpMessage _postSize _rosRestrictAll">오늘 있었던 일을 퀵에디터로 기록해보세요.</P><BUTTON class="qkb_post _postSize _rosRestrictAll" type=button><SPAN>포스트쓰기</SPAN></BUTTON> </DIV></DIV>
+<DIV style="DISPLAY: none" id=quickPostPromotion class=qk_layer2>
+<DIV class=qk_layer2_inner><SPAN class=blind>가벼운 글쓰기툴 퀵에디터가 오픈했어요!</SPAN> <A style="TOP: 8px; LEFT: 187px" href="http://admin.blog.naver.com//config/quickposting" target=_top><IMG alt=사용설정하기 src="http://blogimgs.naver.net/nblog/quickeditor/btn_qk_set.gif" width=65 height=14></A> <A style="TOP: 8px; RIGHT: 32px" href="http://section.blog.naver.com/sub/Notice.nhn?board=/read/1000003326/10000000000020964978" target=_blank><IMG alt=퀵에디터란? src="http://blogimgs.naver.net/nblog/quickeditor/btn_what2.gif" width=57 height=14></A> <A class="clse _returnFalse _closeQuickPostPromotion" href="#"><IMG alt="설정 닫기" src="http://blogimgs.naver.net/nblog/quickeditor/btn_clse_ly2.gif" width=15 height=15></A> </DIV></DIV>
+<DIV style="DISPLAY: none" id=quickPostBottomLine class=division-line-x></DIV>
+<DIV class=post>
+<DIV class=post-back>
+<TABLE class=post-head cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=htl noWrap></TD>
+<TD class=htc></TD>
+<TD class=htr noWrap></TD></TR></TBODY></TABLE>
+<TABLE class=post-body cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=bcl noWrap></TD>
+<TD class=bcc>
+<DIV class=postlisttitle><SPAN style="DISPLAY: block" class="fr pcol2 hand"><SPAN id=toplistBtn class="_toggleTopList itemfont">목록열기</SPAN> <IMG id=topListBtnImg class="ico2 _toggleTopList" src="http://blogimgs.naver.net/imgs/nblog/spc.gif" width=13 height=13> </SPAN><SPAN style="DISPLAY: none" id=toplistmenu><INPUT class="pcol2 p12 itemfont" value=엮인글 readOnly type=text> <INPUT class="pcol2 p12 itemfont" value=스크랩 readOnly type=text> </SPAN><SPAN class="plist pcol2 hand _toggleTopList itemSubjectBoldfont">ORA PL/SQL </SPAN><SPAN class="pcol2 p11">(<STRONG class=itemSubjectBoldfont>20</STRONG>)</SPAN> </DIV>
+<DIV style="DISPLAY: none" id=toplist></DIV></TD>
+<TD class=bcr noWrap></TD></TR></TBODY></TABLE>
+<TABLE class=post-footer cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=ftl noWrap></TD>
+<TD class=ftc></TD>
+<TD class=ftr noWrap></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV class="division-line-x plile"></DIV>
+<DIV id=postListBody>
+<DIV id=post_1 class=post>
+<DIV class=post-back>
+<TABLE class=post-head cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=htl noWrap></TD>
+<TD class=htc></TD>
+<TD class=htr noWrap></TD></TR></TBODY></TABLE>
+<TABLE id=printPost1 class=post-body cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=bcl noWrap></TD>
+<TD class=bcc>
+<TABLE class=post-top>
+<TBODY>
+<TR>
+<TD class=p12 vAlign=bottom>
+<DIV id=title_1 class=htitle><SPAN class="pcol1 itemSubjectBoldfont">oracle - sqlplus 사용법 </SPAN><SPAN class="cate pcol2"><IMG class="pcol2b fil3" src="http://blogimgs.naver.net/imgs/nblog/spc.gif" width=1 height=11> <A class=pcol2 href="/PostList.nhn?blogId=chansury&amp;categoryNo=8">ORA PL/SQL</A> / <A class=pcol2 href="/PostList.nhn?blogId=chansury&amp;categoryNo=65&amp;parentCategoryNo=65">Database</A> <IMG src="http://blogimgs.naver.net/imgs/nblog/spc.gif" width=105 height=1> </SPAN></DIV>
+<P class="date fil5 pcol2">2008/01/02 15:06</P>
+<P class="fil3 dline"></P>
+<P style="FLOAT: right" id=url class=url><IMG id=copyBtn class="btn_urlcopy _setClipboard" title=http://blog.naver.com/chansury/120046344870 alt=복사 src="http://blogimgs.naver.net/nblog/btn_urlcopy.gif" width=21 height=13> <A class="fil5 pcol2" href="http://blog.naver.com/chansury/120046344870" target=_top>http://blog.naver.com/chansury/120046344870</A> </P>
+<DIV class="clear blank5"></DIV>
+<P class=post_option></P>
+<DIV style="DISPLAY: none" id=sendPost_from_service_120046344870 class="post-sub ptr">
+<P><SPAN id=sendPost_from_service_H_120046344870 class=pcol2></SPAN></P></DIV></TD></TR></TBODY></TABLE>
+<DIV id=post-view120046344870 class="post-view pcol2 _param(1)">
+<DIV style="FONT-FAMILY: 돋움; FONT-SIZE: 9pt" class=view>
+<P>describe<BR>des<BR>run<BR>r</P>
+<P>edit<BR>ed</P>
+<P>change/emp/tab/<BR>c/emp/tab</P>
+<P>append<BR>a where tanem='emp';</P>
+<P>clear buffer;</P>
+<P>get c:\test\sample.sql</P>
+<P>start <BR>sta<BR>@c:\test\sample.sql</P>
+<P>spool c:\work.txt --&gt; 모든 작업 기록</P>
+<P>spool off</P>
+<P>exit</P>
+<P><BR>desc[ribe] - 테이블 구조를 보여준다.</P>
+<P>r[un] sql를 실행한다.</P>
+<P>ed[it] - 버퍼(혹은 파일)의 sql 문장을 편집한다.</P>
+<P>c[hange] - sql 문장의 텍스트를 변경한다.</P>
+<P>a[ppend] - 현재라인의 끝에 텍스트를 추가한다.</P>
+<P>cl[ear] buff[er] sql 버퍼의 내용을 삭제한다.</P>
+<P>sav[e] - sql 버퍼의 내용을 파일에 기록한다. rep[lace] 또는 app[end]를 추가할 수 있다.</P>
+<P>get - 파일에 저장된 내용을 sql buffer로 올린다.</P>
+<P>st[art] - 파일에 저장된 내용을 실행한다. @filename과 등일하다</P>
+<P>spo[ol] - 작업 내용을 파일에 기록한다. spool을 종려하려면 spool off 명령을 실행한다.</P>
+<P>exit&nbsp; - sql*plus 종료</P>
+<P>&nbsp;</P>
+<P><A id=temp_hw7130 class=con_link target=_blank></A>&nbsp; </P>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+<TBODY>
+<TR>
+<TD height=36></TD></TR></TBODY></TABLE>&lt;BASE target="_son"&gt; 
+<P></P>
+<DIV id=PostContent>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+<TBODY>
+<TR>
+<TD class=pt_text name="hl">
+<DIV>1. DB를 사용하기위해 ORACLE로 LOGIN 방법 <BR>가. SQLPLUS [Enter] <BR>User ID : xxxxxx <BR>password : xxxxxxxx <BR>나. SQLPLUS user_id [Enter] <BR>password : xxxxxxxx <BR>다. SQLPLUS user_id/password [Enter] <BR>※ 다. 와 같은 방법으로 Login 하게 되면 사용자명과 암호가 노출된다 <BR>그러므로 가장좋은 방법은 가, 그리고 나. 이다 <BR><BR>2. SQLPLUS 상에서는 Auto Commit이 안된다. 그러므로 중간 중간 " COMMIT "를 <BR>수행한다. <BR><BR>3. SQL 문장의 Terminate 는 ==&gt; “ ; ” <BR><BR>4. 한 화면씩 보여주는 기능 <BR>==&gt; set pause on; (설정) <BR>set pause off; (해제) <BR>※ 설정을 하고나서 SQL 명령을 수행하면 커서가 그 다음 LINE에서 대기하고 <BR>있으므로 [Enter] Key를 친다. 그 다음부터는 Enter키로 한화면씩 보면 됨 <BR><BR>5. SQL 명령어를 모를 경우 ? <BR>==&gt; help [명령어] <BR><BR>6. Unix 명령어를 사용하기 위해서는 ? <BR>==&gt; “ ! ” 를 붙여 사용한다. <BR><BR>7. 바로전에 실행한 SQL문을 FILE로 저장하려면 ? <BR>==&gt; “ save ” <BR><BR>8. 파일의 내용을 메모리로 불러오려면 ? <BR>==&gt; “ get ” 를 붙여 사용한다. <BR><BR>9. 메모리로 불러온 SQL문이나 메모리에 있는 명령을 실행 하려면 ? <BR>==&gt; “ / ” 를 붙여 사용한다. <BR><BR>10. 바로 전에 수행한 명령어를 편집하려면 ? <BR>==&gt; “ ed ” 를 붙여 사용한다. <BR><BR>11. 바로 전에 수행한 명령어 보려면 ? <BR>==&gt; “ l ” 를 붙여 사용한다. <BR><BR>12. SQL문이 있는 FIle을 바로 실행하려면 ? <BR>==&gt; “ @ ” 또는 " Start " 를 붙여 사용한다. <BR><BR>13. set heading off / on <BR>==&gt; Columns 명을 나타내지 않는다. <BR><BR>14. set arraysize line_number(숫자); <BR>==&gt; 한번에 DATA를 가져오는 단위 <BR><BR>15. set timing on / off <BR>==&gt; sql문을 수행하는데 소요되는 시간을 나타내어 준다. </DIV>
+<DIV>=======================================================================================================================</DIV>
+<DIV>=======================================================================================================================</DIV>
+<DIV><FONT size=2><FONT face=굴림>-. DB에 접속 <SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>: CONN<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /><o:p></o:p></FONT></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt" lang=EN-US><FONT size=2><SPAN style="mso-tab-count: 1">&nbsp;</SPAN>-. 파일 편집 및 실행&nbsp;&nbsp; <SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>: EDIT, START<o:p></o:p></FONT></SPAN></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt" lang=EN-US><FONT size=2><SPAN style="mso-tab-count: 1">&nbsp;</SPAN>-. 환경 설정 <SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </SPAN>: SET<o:p></o:p></FONT></SPAN></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt" lang=EN-US><FONT size=2><SPAN style="mso-tab-count: 1">&nbsp;</SPAN>-. 표시 형식<SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </SPAN>: COLUMN<o:p></o:p></FONT></SPAN></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt" lang=EN-US><FONT size=2><SPAN style="mso-tab-count: 1">&nbsp;</SPAN>-. 변수 사용<SPAN style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </SPAN>: &amp;, ACCEPT</FONT></SPAN></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt" lang=EN-US>&nbsp;-.</SPAN><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>&nbsp;기타<SPAN style="mso-tab-count: 3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; </SPAN>: DESC, HELP</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US></SPAN></FONT>&nbsp;</DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>*버퍼에 있는 명령어 편집</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>A&nbsp;: 라인끝에 텍스트를 </SPAN></FONT><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>추가함</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>C/old/new : old 를 new로 바꿈</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>I&nbsp;text : 다음 line 에 text를 추가함</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>L : 전체 문자을 보여줌</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>n text : n라인 전체를 text로 바꿈</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>R : buffer에 있는 문장 실행</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>edit : buffer에 있는 문장을 file로 부름</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US></SPAN></FONT>&nbsp;</DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>*SQL문장을 파일로 저장, 저장된 명령어를 실행할수 있는 sqlplus명령어</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>save a : 버퍼에있는 문장을 a.sql 파일에 저장</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>get a : a.sql 파일에 있는 문장을 버퍼로 불러옴</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>start a : a를 실행</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>host shell : 호스트 쉘로 나감</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>!vi a.sql : unix인경우에 a.sql.을 vi 로 편집</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US></SPAN></FONT>&nbsp;</DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>*set (환경설정)</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>colsep (text) : 칼럼이 표시될때 칼럼의 구별문자 기본값 공백</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>feedback (off | on) : 선택된 행이 몇 행인지 표시함 기본값은 6행이상일때 on</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>heading (off | on) : 컬럼에 대한 heading을 표시함 기본값은 on</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>linesize (n) : 한줄에 표시될 텍스트숫자 기본값80</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>pages (n) : 한페이지당 표시되는 라인수 기본값 24</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>paues (on | off | text) : 엔터키를 누를때마다 화면이 지나감 기본값은 off</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>timing (on | off) : sql문장이 처리되는 시간을 표시 기본값은 off</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>verify (on | off) : &amp; 변수로 값을 받을 경우 화면에 확인하기 위해 old,new를 표시할 것인지 기본값은&nbsp; on</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>show all : 환경이 어떻게 설정 되었는가 확인</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>* 항상 로그인시 같은 환경을 유지하고 싶을경우 <SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>glogin.sql파일에 </SPAN>set 으로 설정</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>desc 테이블 구조</SPAN></FONT></DIV>
+<DIV style="MARGIN: 0cm 0cm 0pt" class=MsoNormal><FONT size=2><SPAN style="FONT-FAMILY: 굴림; mso-bidi-font-size: 10.0pt; mso-bidi-font-weight: bold" lang=EN-US>help topic 도움말</SPAN></FONT></DIV></TD></TR>
+<TR>
+<TD height=55>
+<DIV>라인의 가로사이즈는&nbsp;linesize를 늘려서 조정하시면 되고</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>조회된 로우수가 20행정도인데... 10개정도씩 컬럼명이 반복된다면</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>pagesize를 늘려주시면 됩니다. Default값을 알고 계시다면</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>SQL&gt;&nbsp;set linesize 180</DIV>
+<DIV>&nbsp;</DIV>
+<DIV>SQL&gt;&nbsp;set pagesize 30</DIV>
+<DIV>sql &gt; column 컬럼명 format a10</DIV>
+<DIV>이렇게 하면 표시되는 컬럼에 대한 사이즈를 조절 할 수 있습니다.</DIV>
+<DIV>현재 TITEMID의 내용은 짧은데 자리를 많이 차지하고 있죠?</DIV>
+<DIV>이럴경우</DIV>
+<DIV>sql&gt; column TITEMID format a10</DIV>
+<DIV>이렇게 하면 10자리만큼만 차지하게 됩니다.</DIV>
+<DIV>varchar type이면 <FONT color=#0021b0>col 컬럼명 format a20</FONT> --&gt; 20으로 열너비조정</DIV>
+<DIV>number라면 <FONT color=#0021b0>col 컬럼명 format 999,999</FONT> --&gt; 9하나가 한자리</DIV>
+<DIV>set heading off -&gt; 컬럼의 heading..그러니깐 name, value..이런게 계속 나오지 않게..하려면 이걸 쓰죠..<BR>spool on 또는 spool path+파일명<BR>-&gt;이렇게 하면 쿼리 결과를 파일로 저장할 수 있죠.</DIV>
+<DIV>SQL&gt; spool on<BR>SQL&gt; select * from product_component_version;</DIV>
+<DIV>NLSRTL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.4.1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Production<BR>Oracle8i Enterprise Edition&nbsp;&nbsp;&nbsp; 8.1.7.4.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Production<BR>PL/SQL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.1.7.4.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Production<BR>TNS for HPUX:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.1.7.4.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Production</DIV>
+<DIV>SQL&gt; spool off<BR>SQL&gt; !ls<BR>LOCK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TOOL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; app&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; jre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nohup.out&nbsp;&nbsp;&nbsp;&nbsp; oui&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tempwork<BR>STC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; admin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; doc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; led.sh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; on.lst&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; script&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; test.sql<BR>Script&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; afiedt.buf&nbsp;&nbsp;&nbsp; hiraScript&nbsp;&nbsp;&nbsp; led_test.sql&nbsp; oraInventory&nbsp; temp.sql</DIV>
+<DIV>SQL&gt; !vi on.lst<BR>"on.lst" 8 lines, 387 characters <BR>SQL&gt; select * from product_component_version;</DIV>
+<DIV>NLSRTL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.4.1.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Production<BR>Oracle8i Enterprise Edition&nbsp;&nbsp;&nbsp; 8.1.7.4.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Production<BR>PL/SQL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.1.7.4.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Production<BR>TNS for HPUX:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.1.7.4.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Production</DIV>
+<DIV>SQL&gt; spool off<BR><BR>set pause on 하면 한 페이지씩 볼 수 있죠.<BR></DIV>
+<DIV>&nbsp;</DIV>
+<DIV>SQL&gt; help index</DIV>
+<DIV>&nbsp;ACCEPT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DBA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PAUSE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /<BR>&nbsp;APPEND&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEFINE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SPOOL<BR>&nbsp;@&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PROMPT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SQLPLUS<BR>&nbsp;@@&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DESCRIBE&nbsp;&nbsp;&nbsp;&nbsp; QUIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; START<BR>&nbsp;ARCHIVE LOG&nbsp;&nbsp; DISCONNECT&nbsp;&nbsp; RECOVER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STARTUP<BR>&nbsp;ATTRIBUTE&nbsp;&nbsp;&nbsp;&nbsp; EDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REMARK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STORE<BR>&nbsp;BREAK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXECUTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REPFOOTER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIMING<BR>&nbsp;BTITLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; EXIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; REPHEADER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TTITLE<BR>&nbsp;CHANGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RESERVED WORDS&nbsp;&nbsp; UNDEFINE<BR>&nbsp;CLEAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HELP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RUN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VARIABLE<BR>&nbsp;COLUMN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HOST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SAVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHENEVER OSERROR<BR>&nbsp;COMPUTE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INPUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHENEVER SQLERROR<BR>&nbsp;CONNECT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LIST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SHOW<BR>&nbsp;COPY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PASSWORD&nbsp;&nbsp;&nbsp;&nbsp; SHUTDOWN</DIV>
+<DIV><BR>SQL&gt; help column</DIV>
+<DIV>&nbsp;COLUMN<BR>&nbsp;------</DIV>
+<DIV>&nbsp;Specifies display attributes for a given column, such as:</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp; text for the column heading<BR>&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp; alignment of the column heading<BR>&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp; format for NUMBER data<BR>&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp; wrapping of column data</DIV>
+<DIV>&nbsp;Also lists the current display attributes for a single column<BR>&nbsp;or all columns.</DIV>
+<DIV>&nbsp;COL[UMN] [{column | expr} [option...] ]</DIV>
+<DIV>&nbsp;where option represents one of the following clauses:</DIV>
+<DIV>&nbsp;&nbsp;&nbsp;&nbsp; ALI[AS] alias<BR>&nbsp;&nbsp;&nbsp;&nbsp; CLE[AR]<BR>&nbsp;&nbsp;&nbsp;&nbsp; FOLD_A[FTER]<BR>&nbsp;&nbsp;&nbsp;&nbsp; FOLD_B[EFORE]<BR>&nbsp;&nbsp;&nbsp;&nbsp; FOR[MAT] format<BR>&nbsp;&nbsp;&nbsp;&nbsp; HEA[DING] text<BR>&nbsp;&nbsp;&nbsp;&nbsp; JUS[TIFY] {L[EFT] | C[ENTER] | C[ENTRE] | R[IGHT]}<BR>&nbsp;&nbsp;&nbsp;&nbsp; LIKE {expr | alias}<BR>&nbsp;&nbsp;&nbsp;&nbsp; NEWL[INE]<BR>&nbsp;&nbsp;&nbsp;&nbsp; NEW_V[ALUE] variable<BR>&nbsp;&nbsp;&nbsp;&nbsp; NOPRI[NT] | PRI[NT]<BR>&nbsp;&nbsp;&nbsp;&nbsp; NUL[L] text<BR>&nbsp;&nbsp;&nbsp;&nbsp; OLD_V[ALUE] variable<BR>&nbsp;&nbsp;&nbsp;&nbsp; ON|OFF<BR>&nbsp;&nbsp;&nbsp;&nbsp; WRA[PPED] | WOR[D_WRAPPED] | TRU[NCATED]</DIV>
+<DIV>&nbsp;For detailed information on this command, see the SQL*Plus User's<BR>&nbsp;Guide and Reference.</DIV>
+<DIV><BR>SQL&gt; show all<BR>appinfo is ON and set to "SQL*Plus"<BR>arraysize 15</DIV></TD></TR></TBODY></TABLE></DIV></DIV>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P style="LINE-HEIGHT: 120%" align=center><FONT color=#0000a0 face=굴림><B>오라클 사용</B></FONT></P>
+<P style="LINE-HEIGHT: 120%" align=center>
+<UL style="LINE-HEIGHT: 120%" type=disc>
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림><B>SQL*PLUS란? </B></FONT>
+<UL style="LINE-HEIGHT: 120%" type=disc>
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>SQL언어를 구현하여 오라클 RDBMS를 관리할 수 있는 오라클사의 CLIENT TOOL 제품명 &nbsp;</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>데이터베이스에 테이블을 작성</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>테이블에 정보를 입력한다.</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>테이블에 있는 정보를 수정한다.</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>테이블에 있는 정보를 추출하고, 그 정보에 기초하는 계산을 수행하고, 그 정보의 결합을 변화시킨다.<BR>&nbsp;</FONT> </LI></UL>
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림><B>사용법</B></FONT> 
+<UL style="LINE-HEIGHT: 120%" type=disc>
+<LI style="LINE-HEIGHT: 120%">
+<DIV align=left><FONT size=2 face=굴림>서버에 login 한 후에</FONT><FONT size=2 face=굴림><B> </B></FONT><FONT color=#800040 size=2 face=Arial><B>sqlplus userid/passwd</B></FONT><FONT size=2 face=굴림>를 입력한 것은 sqlplus를 이용하여 오라클을 사용하겠다는 뜻입니다.<BR>사용자 아이디와 비밀번호가 맞는 경우는 </FONT><FONT color=#800040 size=2 face=굴림><B>SQL&gt; </B></FONT><FONT size=2 face=굴림>가 보일 것입니다.<BR>오라클의 경우는 서버 사용자 아이디와 데이터베이스 사용자 아이디가 다릅니다.<BR>따라서 서버에 로그인은 했지만 오라클 사용자로 등록되지 않은 경우는 오라클을 사용할 수가 없습니다.&nbsp;<BR><BR>
+<HR align=left width="80%">
+</FONT><FONT size=2 face=Arial>cs:/ &gt;</FONT><FONT face=Arial><B> </B></FONT><FONT color=#800040 face=Arial><B>sqlplus &nbsp;userid/passwd</B></FONT><BR><FONT size=2 face=굴림><BR></FONT><FONT size=2 face=Arial>SQL*Plus: Release 3.3.3.0.0 - Production on Thu Nov &nbsp;9 10:32:09 2000<BR>&nbsp;<BR>Copyright (c) Oracle Corporation 1979, 1996. &nbsp;All rights reserved.<BR>&nbsp;<BR>&nbsp;<BR>Connected to:<BR>Oracle7 Server Release 7.3.3.0.0 - Production Release<BR>With the distributed and parallel query options<BR>PL/SQL Release 2.3.3.0.0 - Production<BR>&nbsp;<BR></FONT><FONT color=#800040 face=Arial><B>SQL&gt; </B></FONT><FONT face=Arial>&nbsp;&nbsp;&nbsp;</FONT><BR><FONT size=2 face=굴림>
+<HR align=left width="80%">
+</FONT><BR></DIV>
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>sqlplus로 로그인 한 후에 필요한 SQL 문을 작성해서 실행해 볼 수가 있습니다.</FONT> 
+<UL style="LINE-HEIGHT: 120%" type=disc>
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>SQL 문은 ; 으로 끝나야 합니다.</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>여러줄에 입력할 수 있습니다</FONT>. 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>sqlplus를 종료하고자 할 때는 </FONT><FONT color=#0000a0 face=굴림><B>exit </B></FONT><FONT size=2 face=굴림>혹은</FONT><FONT color=#0000a0 face=굴림><B> quit </B></FONT><FONT size=2 face=굴림>명령을 사용합니다.</FONT><BR><BR><FONT size=2 face=Arial>SQL&gt;</FONT><FONT color=#0000a0 face=Arial><B> exit</B></FONT><FONT size=2 face=Arial><BR>Disconnected from Oracle7 Server Release 7.3.3.0.0 - Production Release<BR>With the distributed and parallel query options<BR>PL/SQL Release 2.3.3.0.0 - Production<BR>cs:/user4/grad/srkim/sql 20 &gt; &nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=Arial>insert나 update 등의 DML 문장을 실행한 후에는</FONT><FONT color=#0000a0 face=Arial><B> commit; </B></FONT><FONT size=2 face=Arial>명령을 실행합니다.<BR>이 명령을 실행하지 않고 sqlplus를 종료한 경우에는 insert된 데이터가 혹은 update된 데이터가 반영이 안되는 경우가 있습니다.<BR>&nbsp;</FONT> </LI></UL></LI></UL>
+<UL style="LINE-HEIGHT: 120%" type=disc>
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>몇가지 SQL 문을 소개하겠습니다.</FONT> 
+<UL style="LINE-HEIGHT: 120%" type=disc>
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>로그인한 user가 만든 테이블들을 볼 수 있는 SQL 입니다.<BR></FONT><FONT color=navy face=Arial><B>tabs</B></FONT><FONT color=navy size=2 face=굴림><B> </B></FONT><FONT size=2 face=굴림>은 데이터베이스에 있는 테이블에 대한 정보를 갖고 있는 시스템 테이블입니다.<BR>만약 사용자 아이디가 처음 생성되고, 로그인 했을 때는 select * from tabs; 를 실행해도 결과는</FONT><FONT color=#0000a0 size=2 face=Arial><B> 0 rows selected</B></FONT><FONT size=2 face=굴림> 라는 메시지를 보여줄 것입니다. 이는 에러가 발생했다는 것이 아니라 아직 사용자가 만든 테이블이 없다는 뜻입니다.<BR><BR>
+<HR align=left width="80%">
+</FONT><FONT size=2 face=Arial>SQL&gt; </FONT><FONT color=#0000a0 face=Arial><B>select table_name from tabs;</B></FONT><FONT size=2 face=Arial><BR>&nbsp;<BR>TABLE_NAME<BR>------------------------------<BR>ACCIDENT<BR>ACCOUNT<BR>BORROWER<BR>BRANCH<BR>CAR<BR>CITY<BR>&nbsp;<BR>6 rows selected.</FONT><BR><FONT size=2 face=굴림>
+<HR align=left width="80%">
+</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>테이블의 스키마를 볼 수 있는 명령어입니다.<BR></FONT><FONT color=#0000a0 face=굴림><B>desc 테이블이름;</B></FONT><FONT size=2 face=굴림> 을 실행하면 해당 테이블의 어트리뷰트와 데이터 타입등의 스키마 정보를 알 수 있습니다.<BR>다음 예는 accident &nbsp;테이블의 스키마를 보기 위한 것입니다.</FONT><BR>
+<HR align=left width="80%">
+<FONT size=2 face=Arial>SQL&gt;</FONT><FONT color=#0000a0 face=Arial><B> desc accident;</B></FONT><FONT size=2 face=Arial><BR>&nbsp;Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Null? &nbsp;&nbsp;&nbsp;Type<BR>&nbsp;------------------------------- -------- ----<BR>&nbsp;A_DATE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE<BR>&nbsp;DRIVER &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VARCHAR2(20)<BR>&nbsp;DAMAGE_AMOUNT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NUMBER &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR></FONT><BR>
+<HR align=left width="80%">
+&nbsp; 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>SQL 문을 직접 입력해서 그 결과를 볼 수도 있지만 외부에서 파일(ASCII)을 만들어 그 파일을 실행하는 방법도 있습니다.<BR>여러개의 테이블을 한꺼번에 만드는 경우나 많은 데이터를 insert해야 하는 경우 파일로 작성해서 실행하는 것이 유용할 것 입니다.<BR>파일을 만드는 방법은 vi 에디터를 이용하거나 PC에서 메모장같은 프로그램을 사용해서 서버에 올리면 됩니다.<BR>예를 통해 이를 설명하겠습니다.&nbsp;</FONT> 
+<UL style="LINE-HEIGHT: 120%" type=disc>
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림><B>단계1 ) 메모장에서 SQL 작성</B></FONT><FONT size=2 face=굴림> (friend.sql 로 저장)<BR></FONT><FONT size=2 face=Arial>create table friend<BR>( name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char(30) &nbsp;not null,<BR>&nbsp;&nbsp;birth_of_date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date,<BR>&nbsp;&nbsp;home_phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char(20),<BR>&nbsp;&nbsp;cell_phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char(20)<BR>);<BR>&nbsp;</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=Arial><B>단계 2) ftp 로 서버에 옮김</B></FONT><FONT size=2 face=Arial> (~srkim/sql/ )<BR>&nbsp;</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=Arial><B>단계 3) !pwd 명령으로 현재 디렉토리의 구조를 살펴봅니다.</B></FONT><FONT size=2 face=Arial><BR>SQL&gt;</FONT><FONT color=#0000a0 face=Arial><B> !pwd</B></FONT><FONT size=2 face=Arial><BR>/user4/grad/srkim &nbsp;&nbsp;<BR>사용자가 작성한 파일이 현재 디렉토리에 있어야 합니다. 위와 같이 그렇지 않은 경우는 (sql/friend.sql) sqlplus를 빠져나가(exit 명령 이용) 디렉토리를 파일이 있는 디렉토리로 바꿉니다.&nbsp;<BR>&nbsp;</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=Arial><B>단계 4-1) </B></FONT><FONT color=#0000a0 face=Arial><B>@파일명</B></FONT><FONT size=2 face=Arial><B>을 입력하여 파일에 있는 SQL 문을 실행합니다.</B></FONT><FONT size=2 face=Arial><BR><BR>SQL&gt; </FONT><FONT color=#0000a0 face=Arial><B>@friend.sql &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</B></FONT><FONT face=굴림>&nbsp;</FONT><FONT size=2 face=굴림>또는 (현재 디렉토리에 파일이 있는 경우)</FONT><FONT color=#0000a0 face=Arial><B><BR><BR></B></FONT><FONT size=2 face=Arial>SQL&gt; </FONT><FONT color=#0000a0 face=Arial><B>@/user4/grad/srkim/sql/friend.sql &nbsp;</B></FONT><FONT size=2 face=Arial>&nbsp;(파일이 있는 디렉토리의 경로를 써준다.)<BR><BR>Table created. &nbsp;&nbsp;&nbsp;&nbsp;<BR>&nbsp;</FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=Arial><B>단계 4-2) 만약 파일이름이 잘못되었거나 했을 경우에는 에러 메시지를 보여줍니다.</B></FONT><FONT size=2 face=Arial><BR>SQL&gt; @fried.sql<BR></FONT><FONT color=#0000a0 size=2 face=Arial><B>unable to open file "fried.sql" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR><BR>&nbsp;</B></FONT> 
+<LI style="LINE-HEIGHT: 120%"><FONT size=2 face=굴림>help 사용법 :</FONT><FONT color=#0000a0 face=Arial><B> help select;</B></FONT><FONT size=2 face=굴림> 처럼 도움말을 보고자 하는 내용을 help 명령어와 함께 사용한다.</FONT><BR></LI></UL></LI></UL></LI></UL></LI></UL>
+<P style="LINE-HEIGHT: 120%">&nbsp;</P>
+<P style="LINE-HEIGHT: 120%">&nbsp;</P>
+<P style="LINE-HEIGHT: 120%">&nbsp;</P>
+<P style="LINE-HEIGHT: 120%">&nbsp;</P>
+<P style="LINE-HEIGHT: 120%">&nbsp;</P>
+<DIV class=title>
+<H1><A class=con_link name=top target=_blank>SQL*PLUS 명령어 모음 (Oracle8i 기준)</A></H1></DIV>
+<DIV class=navbar><!--<h2>보는 방법</h2>
+<ul>
+<li>이 제목은 본문을 분류하는 밑줄이 있는 큰 제목으로 링크됩니다.</a>
+	<ul>
+	<li>이 제목은 분류된 명령어로 직접 링크됩니다.</a>
+		<ul>
+		<li>시작하기</li>
+		<li>종료하기</li>
+		</ul>
+	</li>
+	<li><a target="_blank" class="con_link" href="#">시작 후 몇 가지 실행</a></li>
+	<li><a target="_blank" class="con_link" href="#">종료</a></li>
+	</ul>
+</li>
+</ul>
+<p>
+<font class="ptitle">단계별로 시작하기</font>
+<br>
+SQL&gt; STARTUP NOMOUNT; <font class="exp">//NOMOUNT 단계</font>
+<br>
+SQL&gt; ALTER DATABASE MOUNT; <font class="exp">//MOUNT 단계</font>
+<br>
+SQL&gt; ALTER DATABASE OPEN; <font class="exp">//OPEN 단계</font>
+</p>
+-->
+<H2>목차</H2>
+<UL>
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c1_1" target=_blank><FONT color=#666666>데이터베이스 시작과 종료</FONT></A> 
+<UL>
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c1_1" target=_blank><FONT color=#666666>시작</FONT></A> 
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c1_2" target=_blank><FONT color=#666666>시작 후 몇 가지 실행</FONT></A> 
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c1_3" target=_blank><FONT color=#666666>종료</FONT></A> </LI></UL>
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c2_1" target=_blank><FONT color=#666666>SQL*PLUS 명령어</FONT></A> 
+<UL>
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c2_1" target=_blank><FONT color=#666666>SQL*PLUS 실행 명령어</FONT></A> 
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c2_2" target=_blank><FONT color=#666666>SQL*PLUS 편집 명령어</FONT></A> 
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c2_3" target=_blank><FONT color=#666666>SQL*PLUS 사용 시 주의 사항</FONT></A> </LI></UL>
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c3_1" target=_blank><FONT color=#666666>사용자 관리</FONT></A> 
+<UL>
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c3_1" target=_blank><FONT color=#666666>사용자 생성, 변경, 삭제하기</FONT></A> 
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c3_2" target=_blank><FONT color=#666666>프로파일 생성하기</FONT></A> 
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c3_3" target=_blank><FONT color=#666666>패스워드 함수 사용하기</FONT></A> 
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c3_4" target=_blank><FONT color=#666666>권한 관리: 시스템 권한</FONT></A> 
+<LI><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#c3_4" target=_blank><FONT color=#666666>권한 관리: 객체 권한</FONT></A> </LI></UL></LI></UL></DIV>
+<DIV class=box>
+<H2><A class=con_link name=c1_1 target=_blank>도스 프롬프트에서 SQL*PLUS 시작하기</A></H2>
+<P>C:&gt; sqlplus internal </P></DIV>
+<DIV class=box>
+<DIV class=toplink><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#top" target=_blank><FONT color=#666666>top</FONT></A> </DIV>
+<H2>시작</H2>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>데이터베이스 시작하기</FONT><BR></FONT></STRONG>SQL&gt; STARTUP </P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>단계별로 시작하기</FONT><BR></FONT></STRONG>SQL&gt; STARTUP NOMOUNT; <FONT color=#ff3300><FONT class=exp>//NOMOUNT 단계</FONT><BR></FONT>SQL&gt; ALTER DATABASE MOUNT; <FONT color=#ff3300><FONT class=exp>//MOUNT 단계</FONT><BR></FONT>SQL&gt; ALTER DATABASE OPEN; <FONT class=exp color=#ff3300>//OPEN 단계</FONT> </P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>옵션 사용하여 시작하기</FONT><BR></FONT></STRONG>SQL&gt; STARTUP RESTRICT; <FONT color=#ff3300><FONT class=exp>//OPEN 단계까지 구동. 일반 사용자 사용 금지</FONT><BR></FONT>SQL&gt; STARTUP FORCE; <FONT color=#ff3300><FONT class=exp>//자동 종료 후 다시 시작</FONT><BR></FONT>SQL&gt; STARTUP PFILE; <FONT color=#ff3300><FONT class=exp>//파라미터 파일을 별도로 설정</FONT><BR></FONT>SQL&gt; STARTUP EXCLUSIVE MOUNT; <FONT class=exp color=#ff3300>//마운트 상태로 시작. 일반 사용자 접속 금지</FONT> </P>
+<H2><A class=con_link name=c1_2 target=_blank>시작 후 몇 가지 실행</A></H2>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>RESTRICT 사용하여 시작하였을 때 모든 사용자가 접근할 수 있게 변경하기</FONT><BR></FONT></STRONG>SQL&gt; ALTER SYSTEM DISABLE RESTRICTED SESSION; </P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>메모리 영역 확인으로 정상 구동 여부 확인하기</FONT><BR></FONT></STRONG>SQL&gt; show sga </P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>생성되어 있는 사용자 확인하기</FONT><BR></FONT></STRONG>SQL&gt; SELECT * FROM ALL_USERS; </P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>자료사전 테이블 조회하기</FONT><BR></FONT></STRONG>SQL&gt; SELECT * FROM V$SGA; <FONT color=#ff3300><FONT class=exp>//메모리 영역 정보 참조</FONT><BR></FONT>SQL&gt; SHOW SGA; <FONT color=#ff3300><FONT class=exp>//메모리 영역 정보 참조</FONT><BR></FONT>SQL&gt; SELECT * FORM V$PARAMETER; <FONT color=#ff3300><FONT class=exp>//DB 환경 정보 참조</FONT><BR></FONT>SQL&gt; SHOW PARAMETER; <FONT color=#ff3300><FONT class=exp>//DB 환경 정보 참조</FONT><BR></FONT>SQL&gt; SELECT * FROM DBA_USERS; <FONT class=exp color=#ff3300>//일반적인 자료 사전. 오픈 단계가 되어야 사용 가능</FONT> </P>
+<P class=addexp>※ SYS 사용자와 SYSTEM 사용자가 만든 테이블을 자료사전(Data Dictionary)라고 한다. </P>
+<H2><A class=con_link name=c1_3 target=_blank>종료</A></H2>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>종료하기</FONT><BR></FONT></STRONG>SQL&gt; shutdown normal <FONT color=#ff3300><FONT class=exp>//CLOSE단계-&gt;DISMOUNT단계-&gt;DISCONNECT단계. 사용자 접속 해제(disconnect)까지 기다렸다가 종료</FONT><BR></FONT>SQL&gt; shutdown <FONT class=exp color=#ff3300>//normal 옵션 사용과 동일</FONT> </P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>옵션과 함께 종료하기</FONT><BR></FONT></STRONG>SQL&gt; SHUTDOWN TRANSACTINAL <FONT color=#ff3300><FONT class=exp>//사용자가 트랜잭션 종료까지 기다렸다가 종료</FONT><BR></FONT>SQL&gt; SHUTDOWN IMMEDIATE <FONT color=#ff3300><FONT class=exp>//즉시 종료. 사용자 존재 시 모든 트랜잭션은 롤백된다</FONT><BR></FONT>SQL&gt; SHUTDOWN ABORT <FONT class=exp color=#ff3300>//트랜잭션 롤백하지 않고 즉시 강제 종료. 정전 발생 시와 같다. 백업과 복구 작업 시에나 사용</FONT> </P></DIV>
+<DIV class=box>
+<DIV class=toplink><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#top" target=_blank><FONT color=#666666>top</FONT></A> </DIV>
+<H2><A class=con_link name=c2_1 target=_blank>SQL*PLUS 명령어</A></H2>
+<P><FONT class=ptitle color=#2e6078><A class=con_link name=c2_1 target=_blank><STRONG>SQL*PLUS 실행 명령어</STRONG></A></FONT><BR>SQL&gt; / <FONT color=#ff3300><FONT class=exp>//SQL문 또는 PL/SQL 블록을 실행한다</FONT><BR></FONT>SQL&gt; RUN <FONT color=#ff3300><FONT class=exp>//SQL문 또는 PL/SQL 블록을 실행한다</FONT><BR></FONT>SQL&gt; HELP <FONT color=#ff3300><FONT class=exp>//SQL, PL/SQL, SQL/PLUS 명령어 온라인 도움말</FONT><BR></FONT>SQL&gt; HOST <FONT color=#ff3300><FONT class=exp>//EXIT로 정상 종료하지 않고 호스트 운영체제로 빠져나갔다가 다시 복귀할 수 있다</FONT><BR></FONT>SQL&gt; TIMING <FONT class=exp color=#ff3300>//시스템의 CPU 사용 시간을 보여준다</FONT> </P>
+<P><FONT class=ptitle color=#2e6078><A class=con_link name=c2_2 target=_blank><STRONG>SQL*PLUS 편집 명령어</STRONG></A></FONT> <FONT color=#ff3300><FONT class=exp>(입력되는 모든 정보가 버퍼 영역에서 작업될 때 버퍼 영역을 편집할 수 있다)</FONT><BR></FONT>SQL&gt; APPEND <FONT color=blue>text</FONT><BR>SQL&gt; CHANGE <FONT color=blue>/old/new</FONT><BR>SQL&gt; CLEAR BUFFER<BR>SQL&gt; DEL<BR>SQL&gt; DEL <FONT color=blue>x</FONT><BR>SQL&gt; DEL <FONT color=blue>y z</FONT><BR>SQL&gt; DEL *<BR>SQL&gt; DEL LAST<BR>SQL&gt; GET <FONT color=blue>/경로/파일명</FONT><BR>SQL&gt; INPUT<BR>SQL&gt; INPUT <FONT color=blue>text</FONT><BR>SQL&gt; LIST <FONT color=blue>no</FONT><BR>SQL&gt; LIST <FONT color=blue>y z</FONT><BR>SQL&gt; LIST LAST<BR>SQL&gt; SAVE <FONT color=blue>/경로명/파일명</FONT><BR>SQL&gt; START </P>
+<P class=addexpt><B><A class=con_link name=c2_3 target=_blank>※ SQL*PLUS 사용 시 주의 사항</A></B><BR>
+<DIV class=addexpl>- CREATE TYPE 또는 CREATE LIBRARY 사용하여 실행할 때는 마지막 라인에 반드시 /를 사용한다.<BR>- 공백 라인을 삽입하지 않는다.<BR>- 주석 라인을 사용할 때 #을 사용하지 않는다.<BR>- 아주 긴 SQL 명령문을 사용하여 다음 라인으로 연속적으로 사용 시 -를 사용하지 않는다. </DIV>
+<P></P></DIV>
+<DIV class=box>
+<DIV class=toplink><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#top" target=_blank><FONT color=#666666>top</FONT></A> </DIV>
+<H2><A class=con_link name=c3_1 target=_blank>사용자 생성, 변경, 삭제</A></H2>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>사용자 생성하기</FONT><BR></FONT></STRONG>SQL&gt; CREATE USER <FONT color=blue>[사용자명]</FONT><BR>SQL&gt; IDENTIFIED BY <FONT color=blue>[암호]</FONT><BR>SQL&gt; DEFAULT TABLESPACE <FONT color=blue>[테이블스페이스명]</FONT><BR>SQL&gt; TEMPORARY TABLESPACE <FONT color=blue>[임시 테이블스페이스명]</FONT><BR>SQL&gt; QUOTA <FONT color=blue>[숫자]</FONT>M ON <FONT color=blue>[사용자명]</FONT><BR>SQL&gt; PFILE <FONT color=blue>[프로파일명]</FONT>; </P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>사용자 변경하기</FONT><BR></FONT></STRONG>SQL&gt; ALTER USER <FONT color=blue>[사용자명]</FONT><BR>SQL&gt; IDENTIFIED BY <FONT color=blue>[암호]</FONT><BR>SQL&gt; DEFAULT TABLESPACE <FONT color=blue>[테이블스페이스명]</FONT><BR>SQL&gt; TEMPORARY TABLESPACE <FONT color=blue>[임시 테이블스페이스명]</FONT><BR>SQL&gt; QUOTA <FONT color=blue>[숫자]</FONT>M ON <FONT color=blue>[사용자명]</FONT><BR>SQL&gt; PFILE <FONT color=blue>[프로파일명]</FONT>; </P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>사용자 삭제하기</FONT><BR></FONT></STRONG>SQL&gt; DROP USER <FONT color=blue>[사용자명]</FONT> CASCADE; <FONT class=exp color=#ff3300>//사용자가 가지고 있던 테이블, 인덱스 등의 객체를 함께 삭제하는 옵션. 사용 객체가 있는데 CASCADE 옵션을 사용하지 않으면 에러가 날 수 있다</FONT> </P>
+<H2><A class=con_link name=c3_2 target=_blank>프로파일 생성하기</A></H2>
+<DIV class=toplink><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#top" target=_blank><FONT color=#666666>top</FONT></A> </DIV>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>프로파일 생성하기</FONT><BR></FONT></STRONG>-프로파일을 사용할 때는 init&lt;DB명&gt;.ora파일에 RESOURCE_LIMIT=TRUE로 설정해야 한다. 패스워드 기능은 FALSE 상태에서도 실행 가능하다.<BR>P.62 </P>
+<H2><A class=con_link name=c3_3 target=_blank>패스워드 함수 사용하기</A></H2>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>함수를 이용하여 패스워드를 확인하기</FONT><BR></FONT></STRONG>SQL&gt; CREATE PROFILE <FONT color=blue>[프로파일명]</FONT> LIMIT PASSWORD_VERIFY_FUNCTION <FONT color=blue>[함수명]</FONT>; 
+<DIV class=addexpl>- {우선 해야할 일} 오라클이 제공하는 검증 함수를 사용하기 위해서는 <EM>C:\oracle\ora92\rdbms\admin\utlpwdmg.sql</EM>을 실행한다. <EM>VERYFY_FUNCTION</EM>이라는 함수가 생성된다.<BR>- <EM>CREATE OR REPLACE FUNCTION <FONT color=blue>[함수이름] [이하 함수 프로그래밍]</FONT></EM> 으로 사용자가 함수를 생성할 수도 있다.<BR>- 프로파일을 생성 또는 변경할 때 함수를 설정한다.<BR></DIV>
+<P></P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>패스워드실행과 관련된 옵션절(CREATE USER 혹은 ALTER USER와 함께 사용되는 절)</FONT><BR></FONT></STRONG>SQL&gt; PASSWORD EXPIRE<BR>SQL&gt; ACCOUNT UNLOCK<BR>SQL&gt; ACCOUNT LOCK<BR></P>
+<H2><A class=con_link name=c3_4 target=_blank>권한 관리: 시스템 권한</A></H2>
+<DIV class=toplink><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#top" target=_blank><FONT color=#666666>top</FONT></A> </DIV>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>시스템 권한 부여하기</FONT><BR></FONT></STRONG>SQL&gt; GRANT <FONT color=blue>[시스템권한]</FONT> TO <FONT color=blue>[사용자명 혹은 PUBLIC]</FONT>; <FONT color=#ff3300><FONT class=exp>//PUBLIC은 모든 사용자에게 권한을 부여한다.</FONT><BR></FONT>SQL&gt; GRANT <FONT color=blue>[시스템권한]</FONT> TO <FONT color=blue>[사용자명 혹은 PUBLIC]</FONT> WITH ADMIN OPTION; <FONT color=#ff3300><FONT class=exp>//부여받은 시스템 권한을 다른 사용자에게 양도할 수 있다.</FONT><BR></FONT></P>
+<P class=addexpt><FONT color=#ff3300></FONT>
+<DIV class=addexpl><B>※ 시스템 권한 종류</B><BR>CREATE | DROP | ALTER SESSION<BR>CREATE | DROP | ALTER TABLE<BR>CREATE | DROP | ALTER INDEX<BR>CREATE | DROP | ALTER VIEW<BR>CREATE | DROP | ALTER SEQUENCE<BR>CREATE | DROP | ALTER CLUSTER...등등등 </DIV>
+<P></P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>시스템 권한 부여 취소하기</FONT><BR></FONT></STRONG>SQL&gt; REVOKE <FONT color=blue>[시스템권한,시스템권한..]</FONT> FROM <FONT color=blue>[사용자명 혹은 PUBLIC]</FONT>; </P>
+<H2><A class=con_link name=c3_5 target=_blank>권한 관리: 객체 권한</A></H2>
+<DIV class=toplink><A class=con_link href="http://alcoholism.cafe24.com/bank_study/sqlplus_01.html#top" target=_blank><FONT color=#666666>top</FONT></A> </DIV>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>객체 권한 부여하기</FONT><BR></FONT></STRONG>SQL&gt; GRANT <FONT color=blue>[객체권한]</FONT>(<FONT color=blue>컬럼명,컬럼명,..</FONT>) ON <FONT color=blue>[객체명]</FONT> TO <FONT color=blue>[사용자명 혹은 PUBLIC]</FONT> WITH GRANT OPTION; </P>
+<P class=addexpt>
+<DIV class=addexpl><B>※ 객체 권한 종류</B><BR>SELECT<BR>UPDATE<BR>INSERT<BR>ALTER<BR>DELETE<BR>EXECUTE<BR>INDEX <FONT color=#ff3300><FONT class=exp>//CREATE INDEX ON [테이블명] 문장을 사용할 수 있는 권한</FONT><BR></FONT>REFERENCES <FONT color=#ff3300><FONT class=exp>//객체에 대해 외부 키를 정의할 수 있는 권한</FONT><BR></FONT></DIV>
+<P><FONT color=#ff3300></FONT></P>
+<P><STRONG><FONT color=#2e6078><FONT class=ptitle>객체 권한 부여 취소하기</FONT><BR></FONT></STRONG>SQL&gt; REVOKE <FONT color=blue>[객체권한]</FONT> ON <FONT color=blue>[객체명]</FONT> FROM <FONT color=blue>[사용자명 혹은 PUBLIC]</FONT> CASCADE CONSTRAINTS; <FONT color=#ff3300><FONT class=exp>//CASCADE CONSTRAINTS는 REFERENCES 권한으로 정의된 제약 조건을 함께 삭제하여 준다.</FONT><BR></FONT></P>SQL&gt; <BR>SQL&gt; <BR>SQL&gt; </DIV></DIV>
+<DIV class=post_footer_contents><!--
+						[2]
+						[]
+						-->
+<DIV style="DISPLAY: none; CURSOR: default" id=tagList_120046344870 class="post-tag pcol2 _param(false|false)"></DIV>
+<DIV style="DISPLAY: none" class="post-tag pcol2"><INPUT class=tag_inp title="태그를 입력해 주세요" type=text> <A class="pcol2 _saveTag _rosRestrict _returnFalse _param(120046344870)" href="#">태그저장</A> <IMG class="fil3 pcol2b" src="http://blogimgs.naver.net/imgs/nblog/spc.gif" width=1 height=11> <A class="pcol2 _cancelTag _returnFalse _param(120046344870)" href="#">취소</A> <SPAN style="DISPLAY: none"></SPAN></DIV></DIV>
+<DIV class=post-btn>
+<DIV class=postedit>
+<DIV class=naverme>
+<DIV id=doSubscribeBtn class=naverme_sub><SPAN class="pcol2 objt">이 블로그를</SPAN> <A class="_rosRestrictAll _doSubscribeBtn _param(chansury|120046344870|)" title=구독하기 onclick="clickcr(this,'pbt.mesubscribe','','',event)" href="#"><SPAN>구독하기</SPAN></A> </DIV></DIV><SPAN id=post-scrap-text_120046344870 class=move><IMG class="fil3 pcol2b" src="http://blogimgs.naver.net/imgs/nblog/spc.gif" width=1 height=11> <A class="pcol2 _returnFalse _scrap _rosRestrictAll _param(1|120046344870|2|true|||false|true)" href="#">보내기</A> </SPAN></DIV>
+<P class=postre><IMG style="VERTICAL-ALIGN: middle" id=Com1 class=ico2 src="http://blogimgs.naver.net/imgs/nblog/spc.gif" width=13 height=13> <SPAN id=Comi120046344870 class="pcol2 _cmtList _param(1|1|120046344870|0)">덧글 17</SPAN> <IMG class="fil3 pcol2b" src="http://blogimgs.naver.net/imgs/nblog/spc.gif" width=1 height=11> <SPAN id=Rew120046344870 class="pcol2 _repList _param(2|1|120046344870|0) _activeId">엮인글</SPAN> </P></DIV><IFRAME style="DISPLAY: none" id=RewFrm120046344870 height=0 src="" frameBorder=0 width="100%" allowTransparency scrolling=no></IFRAME><IFRAME style="DISPLAY: none" id=CommentFrm120046344870 height=0 src="" frameBorder=0 width="100%" allowTransparency scrolling=no></IFRAME><IFRAME style="DISPLAY: none" id=sympathyFrm120046344870 height=0 src="" frameBorder=0 width="100%" allowTransparency scrolling=no></IFRAME><SPAN id=adPostInjectArea_120046344870></SPAN></TD>
+<TD class=bcr noWrap></TD></TR></TBODY></TABLE>
+<TABLE class=post-footer cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=ftl noWrap></TD>
+<TD class=ftc></TD>
+<TD class=ftr noWrap></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV class="division-line-x plile"></DIV></DIV>
+<DIV class="post paging1">
+<DIV class=post-back>
+<TABLE class=post-head cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=htl></TD>
+<TD class=htc></TD>
+<TD class=htr></TD></TR></TBODY></TABLE>
+<TABLE class=post-body cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=bcl></TD>
+<TD class=bcc>
+<DIV class=ialist><A class="pcol2 _setTop" href="/PostList.nhn?blogId=chansury">전체 포스트 보기</A> </DIV>
+<DIV class=illist>
+<P class=pcol2><SPAN>▲</SPAN> 이전글 - <A class="pcol2 _setTop _setTopListUrl" href="/PostView.nhn?blogId=chansury&amp;logNo=120048391389&amp;categoryNo=8&amp;viewDate=&amp;currentPage=1&amp;listtype=0">PL/SQL Datatypes</A> </P>
+<P class=blank10></P>
+<P class=pcol2><SPAN>▼</SPAN> 다음글 - <A class="pcol2 _setTop _setTopListUrl" href="/PostView.nhn?blogId=chansury&amp;logNo=120045283408&amp;categoryNo=8&amp;viewDate=&amp;currentPage=1&amp;listtype=0">Introduction to Pro*C Embedded SQL - DEMO</A> &nbsp; </P><A class="pcol2 top" href="#"><SPAN>▲</SPAN> top</A> </DIV></TD>
+<TD class=bcr></TD></TR></TBODY></TABLE>
+<TABLE class=post-footer cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TD class=ftl></TD>
+<TD class=ftc></TD>
+<TD class=ftr></TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV id=multime2Layer class="layer_style display_none"></DIV>
+<SCRIPT type=text/javascript src="/nversioning/PostBottomCommon-2540802.js"></SCRIPT>
+
+<SCRIPT type=text/javascript>
+
+var adPostObject = new AdPostObject();
+adPostObject.sBlogId = blogId;
+adPostObject.sAdPostSecurityParam = "RCX1+s46rmDJvzPWLP2MSgSPwCH9mFfBOGR2o+mUxXE=";
+adPostObject.oContentShareObject = g_ContentShareObject || {};
+adPostObject.bExistAdPost = false;
+adPostObject.bUseAdPostInSide = false;
+adPostObject.nCategoryDirectorySeq = "30";
+adPostObject.nFirstLogNo = nFirstLogNo;
+
+var adPostInject = new AdPostInject(adPostObject);
+adPostInject.injectAdPost();
+</SCRIPT>
+</DIV></DIV>
+<HR>
+
+<DIV id=left-area class="side-width side-width-1">
+<DIV class=side-border>
+<DIV class=side-head></DIV>
+<DIV class=side-body>
+<DIV id=blog-profile class=widget>
+<DIV class=border>
+<DIV class=bg-head></DIV>
+<DIV class=bg-body>
+<DIV class=con>
+<P class=image><A class="_zoomIn _param(http://blogpfthumb.phinf.naver.net/20101215_82/chansury_1292395701956_3JVsZ0_jpg/1283141805439.jpg|true|false) _returnFalse" href="#"><IMG alt="프로필 이미지" src="http://blogpfthumb.phinf.naver.net/20101215_82/chansury_1292395701956_3JVsZ0_jpg/1283141805439.jpg?type=w161"></A> </P>
+<DIV style="Z-INDEX: 2; POSITION: absolute; DISPLAY: none; MARGIN-LEFT: 15px; TOP: 0px" id=idMenuDiv>
+<TABLE border=0 cellSpacing=1 cellPadding=0 width=100 bgColor=#b6b6b6>
+<TBODY>
+<TR>
+<TD>
+<TABLE border=0 cellSpacing=1 cellPadding=0 width="100%" bgColor=#ffffff>
+<TBODY>
+<TR>
+<TD style="PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; PADDING-TOP: 3px" class="_profileValidate _param(EVENT1)" height=23><SPAN class="n_id _profileValidate _param(EVENT1)">블로그보기</SPAN></TD></TR>
+<TR>
+<TD height=1 background=http://blogimgs.naver.net/imgs/bg_dot.gif></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; PADDING-TOP: 3px" class="_profileValidate _param(EVENT5)" height=23><SPAN class="n_id _profileValidate _param(EVENT5)">선물하기</SPAN></TD></TR>
+<TR>
+<TD height=1 background=http://blogimgs.naver.net/imgs/bg_dot.gif></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" class="_profileValidate _param(EVENT2)" height=22><SPAN class="n_id _profileValidate _param(EVENT2)">쪽지보내기</SPAN></TD></TR>
+<TR>
+<TD height=1 background=http://blogimgs.naver.net/imgs/bg_dot.gif></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" class="_profileValidate _param(EVENT3)" height=22><SPAN class="n_id _profileValidate _param(EVENT3)">카페초대</SPAN></TD></TR>
+<TR>
+<TD style="PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; PADDING-TOP: 2px" class="_profileValidate _param(EVENT4)" height=22><SPAN class="n_id _rosRestrictAll _profileValidate _param(EVENT4)">이웃맺기</SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV>
+<DIV class="name align">
+<DIV class=emo><IMG class=pers alt="" src="http://itemimgs.naver.com/personacon/73/61/966173.gif" width=19 height=19> </DIV>
+<DIV class=nick><A id=nickNameArea class="itemfont col _popMenu _param(2|false|) _returnFalse" href="#">코바코바</A> <SPAN class="itemfont col">(chansury)</SPAN> </DIV></DIV>
+<P class="caption align"><SPAN class="itemfont col">자기소개를&nbsp;입력하세요.</SPAN> </P>
+<P class="more align"><SPAN class=m1><A class="col sub" href="http://blog.naver.com/profile/intro.nhn?blogId=chansury" target=mainFrame>프로필</A><IMG class=icon alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=6 height=7></SPAN> <SPAN class=m2><A class="col sub" href="http://nid.naver.com/nidlogin.login?mode=form&amp;url=http://blog.naver.com/chansury" target=_top>쪽지</A><IMG class=icon alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=6 height=7></SPAN> <SPAN class=m3><A class="_rosRestrictAll col sub" href="http://nid.naver.com/nidlogin.login?mode=form&amp;url=http://blog.naver.com/chansury" target=_top>이웃추가</A><IMG class=icon alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=6 height=7></SPAN> </P></DIV></DIV>
+<DIV class=bg-footer></DIV></DIV></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-search class=widget>
+<FORM id=searchfrm method=get name=searchfrm action=http://blog.naver.com/PostSearchList.nhn>
+<H3><SPAN>검색</SPAN></H3><INPUT style="IME-MODE: active" class=inp type=text name=SearchText><INPUT value=chansury type=hidden name=blogId><INPUT class=btn alt=검색 src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1 type=image> </FORM></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-category class=widget>
+<DIV style="DISPLAY: none" id=category_block_layer class=appr_rst_ly>
+<P>이 카테고리는 방문객의 접근이<BR>제한되었습니다.</P><A class=_returnFalse href="#"><IMG class=_categoryHideBlockLayer alt=닫기 src="http://blogimgs.naver.net/nblog/mylog/block/btn_rst_clse.gif" width=13 height=13></A> </DIV>
+<DIV class=cm-border>
+<DIV class=cm-head>
+<H3 class=component><SPAN class="cm-icol _viewMore">category</SPAN></H3>
+<P class=cmore><SPAN><INPUT id=category-list-i class="cm-icol listup _viewMore" value=^ readOnly type=text></SPAN></P></DIV>
+<DIV id=category-list class=cm-body>
+<DIV class=cm-con>
+<UL>
+<LI class=allview><IMG class=listimage alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> <A id=category0 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|0)" href="/PostList.nhn?blogId=chansury&amp;categoryNo=0 ">전체보기 </A><SPAN class="num cm-col1">(1131)</SPAN> </LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category57 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|57) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=57 ">Private</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_57)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_57"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category12 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|12) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=12 ">자료실+사진</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_57"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category94 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|94) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=94 ">부동산</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_57"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category100 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|100) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=100 ">Study English</A> </DIV></LI>
+<LI class="dilind parentcategoryno_-1"><INPUT class="cm-col1 fil3" value=----------------------- readOnly type=text></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category58 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|58) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=58 ">UNIX-LINUX</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_58)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_58"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category2 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|2) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=2 ">UNIX C/C++</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_58"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category43 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|43) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=43 ">UNIX Shell/ENV</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_58"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category15 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|15) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=15 ">UNIX SUN</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_58"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category42 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|42) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=42 ">UNIX AIX/HP</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_58"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category44 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|44) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=44 ">UNIX Kernel </A></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_58"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category41 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|41) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=41 ">LINUX-GNU </A></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_58"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category46 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|46) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=46 ">LINUX Kernel</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_58"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category16 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|16) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=16 ">XWin-UI Prog</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category59 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|59) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=59 ">JAVA</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_59)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_59"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category7 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|7) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=7 ">JAVA PROG</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_59"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category25 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|25) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=25 ">WAS-EJB-JSP</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_59"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category47 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|47) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=47 ">JAVA Tech-Tip</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_59"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category50 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|50) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=50 ">JAVA Framework</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_59"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category92 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|92) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=92 ">JavaFX</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_59"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category69 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|69) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=69 ">UI-SWT/JFACE</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category79 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|79) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=79 ">Mobile+SmartPh</A> </DIV>
+<DIV class=f_open><IMG class="f_icoclosed _folderToggle _returnFalse _param(parentcategoryno_79)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI class="depth2 parentcategoryno_79"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category80 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|80) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=80 ">android</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_79"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category81 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|81) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=81 ">iPhone</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_79"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category82 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|82) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=82 ">Object-C</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_79"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category83 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|83) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=83 ">Windows Mobile</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category60 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|60) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=60 ">Eclipse+Netbeans</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_60)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_60"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category30 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|30) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=30 ">Eclipse </A></DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category61 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|61) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=61 ">Windows +.NET</A> </DIV>
+<DIV class=f_open><IMG class="f_icoclosed _folderToggle _returnFalse _param(parentcategoryno_61)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category36 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|36) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=36 ">MS VC++</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category38 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|38) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=38 ">MS VS.NET</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category48 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|48) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=48 ">MS WEB</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category45 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|45) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=45 ">MS WinDriver</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category52 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|52) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=52 ">ATL/COM</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category95 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|95) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=95 ">Virtual</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category97 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|97) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=97 ">Sharepoint-MOSS</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category98 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|98) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=98 ">azure</A> </DIV></LI>
+<LI class="depth2 parentcategoryno_61"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category99 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|99) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=99 ">Web App.</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category62 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|62) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=62 ">WebService+XML</A> </DIV>
+<DIV class=f_open><IMG class="f_icoclosed _folderToggle _returnFalse _param(parentcategoryno_62)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI class="depth2 parentcategoryno_62"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category17 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|17) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=17 ">XML </A></DIV></LI>
+<LI class="depth2 parentcategoryno_62"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category54 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|54) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=54 ">WCF-WPF-WSE </A></DIV></LI>
+<LI class="depth2 parentcategoryno_62"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category32 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|32) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=32 ">WSDL_SOA</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category63 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|63) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=63 ">UML-project</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_63)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_63"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category53 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|53) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=53 ">Project Man.</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_63"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category64 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|64) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=64 ">UML2</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category65 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|65) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=65 ">Database</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_65)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_65"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category1 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|1) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=1 ">ORACLE</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_65"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category8 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|8)  on" href="/PostList.nhn?blogId=chansury&amp;categoryNo=8 ">ORA PL/SQL</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_65"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category39 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|39) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=39 ">DB 일반</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_65"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category11 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|11) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=11 ">MSSQL</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category66 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|66) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=66 ">Security</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_66)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_66"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category14 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|14) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=14 ">ENC-PKI-SEC</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_66"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category96 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|96) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=96 ">RMS-DRM</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category67 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|67) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=67 ">Concern-Prog.</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_67)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_67"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category35 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|35) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=35 ">FLEX/AS/FLAS</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_67"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category31 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|31) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=31 ">PE</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_67"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category40 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|40) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=40 ">OpenGL</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_67"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category10 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|10) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=10 ">CORBA-OMG</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_67"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category29 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|29) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=29 ">Apache OPEN </A></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_67"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category49 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|49) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=49 ">UNICODE</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_67"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category51 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|51) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=51 ">Ruby N D</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category68 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|68) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=68 ">ETC.-Prog.</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_68)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_68"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category13 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|13) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=13 ">Web/Script</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_68"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category93 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|93) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=93 ">AJAX</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_68"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category9 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|9) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=9 ">컴퓨터일반</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=albumimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category70 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|70) " href="/PostThumbnailList.nhn?blogId=chansury&amp;parentCategoryNo=70 ">photolog</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_70)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_70"><IMG class=albumimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category71 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|71) " href="/PostThumbnailList.nhn?blogId=chansury&amp;categoryNo=71 ">나의 포토이야기</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_70"><IMG class=albumimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category72 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|72) " href="/PostThumbnailList.nhn?blogId=chansury&amp;categoryNo=72 ">친구들과 한컷</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_70"><IMG class=albumimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category73 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|73) " href="/PostThumbnailList.nhn?blogId=chansury&amp;categoryNo=73 ">여행 스케치</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_70"><IMG class=albumimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category74 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|74) " href="/PostThumbnailList.nhn?blogId=chansury&amp;categoryNo=74 ">당신을 사랑합니다</A> </DIV></LI>
+<LI class=" parentcategoryno_-1"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category75 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|75) " href="/PostList.nhn?blogId=chansury&amp;parentCategoryNo=75 ">reviewlog</A> </DIV>
+<DIV class=f_open><IMG class="f_icoopen _folderToggle _returnFalse _param(parentcategoryno_75)" alt=폴더 src="http://blogimgs.naver.net/nblog/widget/ico_f_blank.gif"></DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_75"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category76 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|76) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=76 ">[책]기타</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_75"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category77 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|77) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=77 ">[책]컴퓨터/인터넷</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_75"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category91 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|91) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=91 ">[책]자기계발</A> </DIV></LI>
+<LI style="DISPLAY: none" class="depth2 parentcategoryno_75"><IMG class=listimage src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> 
+<DIV class=tlink><A id=category78 class="itemfont cm-col1 _selectCurrentCategory _param(1000013777|13317|widget_category|78) " href="/PostList.nhn?blogId=chansury&amp;categoryNo=78 ">[음악]가요</A> </DIV></LI></UL></DIV></DIV>
+<DIV class=cm-footer></DIV></DIV></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=widget-watch class=widget>
+<OBJECT id=widget_watch_swf codeBase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" classid=clsid:d27cdb6e-ae6d-11cf-96b8-444553540000 width=171 align=middle height=64><PARAM NAME="_cx" VALUE="4524"><PARAM NAME="_cy" VALUE="1693"><PARAM NAME="FlashVars" VALUE="req_url=%2FNWatch4Ajax.nhn%3FblogId%3Dchansury%26skinType%3D%26skinId%3D&amp;fontData=4&amp;fontColor=B2B2B2&amp;bgColor=000000"><PARAM NAME="Movie" VALUE="/common/ui/swf/watch/digital_064_06.swf"><PARAM NAME="Src" VALUE="/common/ui/swf/watch/digital_064_06.swf"><PARAM NAME="WMode" VALUE="Transparent"><PARAM NAME="Play" VALUE="0"><PARAM NAME="Loop" VALUE="-1"><PARAM NAME="Quality" VALUE="High"><PARAM NAME="SAlign" VALUE="LT"><PARAM NAME="Menu" VALUE="0"><PARAM NAME="Base" VALUE=""><PARAM NAME="AllowScriptAccess" VALUE="always"><PARAM NAME="Scale" VALUE="NoScale"><PARAM NAME="DeviceFont" VALUE="0"><PARAM NAME="EmbedMovie" VALUE="0"><PARAM NAME="BGColor" VALUE=""><PARAM NAME="SWRemote" VALUE=""><PARAM NAME="MovieData" VALUE=""><PARAM NAME="SeamlessTabbing" VALUE="1"><PARAM NAME="Profile" VALUE="0"><PARAM NAME="ProfileAddress" VALUE=""><PARAM NAME="ProfilePort" VALUE="0"><PARAM NAME="AllowNetworking" VALUE="all"><PARAM NAME="AllowFullScreen" VALUE="false">
+<embed swLiveConnect="true" quality="high" wmode="transparent" src="/common/ui/swf/watch/digital_064_06.swf" flashvars="req_url=%2FNWatch4Ajax.nhn%3FblogId%3Dchansury%26skinType%3D%26skinId%3D&fontData=4&fontColor=B2B2B2&bgColor=000000" width="171" height="64" name="widget_watch_swf" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></OBJECT></DIV>
+<DIV id=division-line-x class=division-line-x></DIV>
+<DIV id=widget-visitorgp class=widget>
+<OBJECT id=widget_visitorgp_swf codeBase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" classid=clsid:d27cdb6e-ae6d-11cf-96b8-444553540000 width=171 align=middle height=121><PARAM NAME="_cx" VALUE="4524"><PARAM NAME="_cy" VALUE="3201"><PARAM NAME="FlashVars" VALUE="req_url=/NVisitorgp4Ajax.nhn?blogId=chansury&amp;prop_url=/nversioning/common/swf/Widget/visitorGP/VisitorGP-51839.xml&amp;graphType=32"><PARAM NAME="Movie" VALUE="/nversioning/common/swf/Widget/visitorGP/VisitorGP-51839.swf"><PARAM NAME="Src" VALUE="/nversioning/common/swf/Widget/visitorGP/VisitorGP-51839.swf"><PARAM NAME="WMode" VALUE="Transparent"><PARAM NAME="Play" VALUE="0"><PARAM NAME="Loop" VALUE="-1"><PARAM NAME="Quality" VALUE="High"><PARAM NAME="SAlign" VALUE=""><PARAM NAME="Menu" VALUE="-1"><PARAM NAME="Base" VALUE=""><PARAM NAME="AllowScriptAccess" VALUE="always"><PARAM NAME="Scale" VALUE="ShowAll"><PARAM NAME="DeviceFont" VALUE="0"><PARAM NAME="EmbedMovie" VALUE="0"><PARAM NAME="BGColor" VALUE=""><PARAM NAME="SWRemote" VALUE=""><PARAM NAME="MovieData" VALUE=""><PARAM NAME="SeamlessTabbing" VALUE="1"><PARAM NAME="Profile" VALUE="0"><PARAM NAME="ProfileAddress" VALUE=""><PARAM NAME="ProfilePort" VALUE="0"><PARAM NAME="AllowNetworking" VALUE="all"><PARAM NAME="AllowFullScreen" VALUE="false">
+<embed swLiveConnect="true" quality="high" wmode="transparent" src="/nversioning/common/swf/Widget/visitorGP/VisitorGP-51839.swf" flashvars="req_url=/NVisitorgp4Ajax.nhn?blogId=chansury&prop_url=/nversioning/common/swf/Widget/visitorGP/VisitorGP-51839.xml&graphType=32" width="171" height="121" name="widget_visitorgp_swf" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></OBJECT></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-counter class=widget>
+<H3><SPAN>카운터</SPAN></H3>
+<P class=today><SPAN class=txt>Today</SPAN> <SPAN class=cnt1>19</SPAN></P>
+<P class=total><SPAN class=txt>Total</SPAN> <SPAN class=cnt2>189,896</SPAN></P></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-calendar class=widget><INPUT id=calType value=1 type=hidden name=calType> 
+<DIV class=border>
+<H3><SPAN>달력</SPAN></H3>
+<DIV style="DISPLAY: block" id=CalFrame>
+<DIV class=bg-head>
+<DIV class=mlv>
+<P class=location><SPAN class="back col3 _reload _param(chansury|201111|1)">◀ </SPAN><SPAN class="date col2">2011.12</SPAN> <SPAN class="next col3 _reload _param(chansury|201201|1)">▶ </SPAN></P>
+<P class=mview><SPAN class="col1 _viewMonthly">월별보기</SPAN></P></DIV></DIV>
+<DIV class=bg-body>
+<TABLE class="calendar col1" cellSpacing=0 cellPadding=0>
+<TBODY>
+<TR>
+<TH vAlign=top colSpan=7 align=middle>
+<DIV class=dis1><SPAN class=col3>일</SPAN><SPAN>월</SPAN><SPAN>화</SPAN><SPAN>수</SPAN><SPAN>목</SPAN><SPAN>금</SPAN><SPAN>토</SPAN></DIV>
+<DIV class=dis2><SPAN class=col3>Sun</SPAN><SPAN>Mon</SPAN><SPAN>Tue</SPAN><SPAN>Wed</SPAN><SPAN>Thu</SPAN><SPAN>Fri</SPAN><SPAN>Sat</SPAN></DIV>
+<DIV class=dis3><IMG class=li1 alt=일 src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><IMG class=li2 alt=월 src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><IMG class=li2 alt=화 src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><IMG class=li2 alt=수 src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><IMG class=li2 alt=목 src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><IMG class=li2 alt=금 src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><IMG class=li2 alt=토 src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1></DIV></TH></TR>
+<TR>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD>1</TD>
+<TD>2</TD>
+<TD>3</TD></TR>
+<TR>
+<TD class=col3>4</TD>
+<TD>5</TD>
+<TD>6</TD>
+<TD>7</TD>
+<TD>8</TD>
+<TD>9</TD>
+<TD>10</TD></TR>
+<TR>
+<TD class=col3>11</TD>
+<TD>12</TD>
+<TD>13</TD>
+<TD>14</TD>
+<TD>15</TD>
+<TD>16</TD>
+<TD>17</TD></TR>
+<TR>
+<TD class=col3>18</TD>
+<TD>19</TD>
+<TD class=today>20</TD>
+<TD>21</TD>
+<TD>22</TD>
+<TD>23</TD>
+<TD>24</TD></TR>
+<TR>
+<TD class=col3>25</TD>
+<TD>26</TD>
+<TD>27</TD>
+<TD>28</TD>
+<TD>29</TD>
+<TD>30</TD>
+<TD>31</TD></TR></TBODY></TABLE></DIV></DIV>
+<DIV style="DISPLAY: none" id=Postinfo>
+<DIV class=bg-head>
+<DIV class=mlv>
+<P class=mview><SPAN class="col1 _viewCalendar">달력보기</SPAN></P></DIV></DIV>
+<DIV class=bg-body>
+<UL class=monthview></UL></DIV></DIV>
+<DIV class=bg-footer></DIV></DIV></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog_buddyconnect class=widget><IFRAME style="WIDTH: 171px; HEIGHT: 485px" src="http://section.blog.naver.com/connect/WidgetView.nhn?blogId=chansury&amp;widgetSeq=20070&amp;authCode=3001aa882b5e4d51ae5116aaa0060fcf" frameBorder=0 allowTransparency name=BuddyConnectIframe scrolling=no></IFRAME></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-stat class=widget>
+<DIV class=cm-border>
+<DIV class=cm-head>
+<H3 class=component><SPAN class=cm-icol>activity</SPAN></H3></DIV>
+<DIV id=widget-stat class=cm-body>
+<DIV class=cm-con>
+<UL class=info>
+<LI class=cm-col1><SPAN class=itemfont>블로그 이웃</SPAN> <EM>98 </EM><SPAN class=itemfont>명</SPAN> </LI>
+<LI class="cm-col1 itemfont"><SPAN class=itemfont>글 보내기</SPAN> <EM>2</EM> <SPAN class=itemfont>회</SPAN></LI>
+<LI class="cm-col1 itemfont"><SPAN class=itemfont>포스트 스크랩</SPAN> <EM>1,994</EM> <SPAN class=itemfont>회</SPAN></LI></UL>
+<DIV class=line></DIV>
+<UL class=item>
+<LI class=cm-col1><A class="cm-col1 itemfont" href="http://item2.naver.com/ItembagMain.nhn?blogId=chansury" target=papermain>사용중인 아이템 보기</A></LI></UL></DIV></DIV>
+<DIV class=cm-footer></DIV></DIV></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-tag class=widget>
+<DIV class=cm-border>
+<DIV class=cm-head></DIV>
+<DIV class=cm-title>
+<H3 class=component><SPAN class=cm-icol>tags</SPAN> </H3>
+<DIV class=cmore><A id=recent class="cm-icol _viewSmallTagCloud _returnFalse _param(chansury|2)" href="#">최근</A> <SPAN class=cm-icol>|</SPAN> <A id=popular class="cm-icol _viewSmallTagCloud _returnFalse _param(chansury|1) on" href="#">인기</A> </DIV></DIV>
+<DIV id=widget-tag class=cm-body>
+<DIV class=cm-con>
+<DIV class="taglist cm-col1"><A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=IT%A1%A4%C4%C4%C7%BB%C5%CD"><B>IT·컴퓨터</B></A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=nmon">nmon</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=oracle">oracle</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=procedure">procedure</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=sata">sata</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=smartd">smartd</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=unicode">unicode</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=VALIDATE">VALIDATE</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=wincvs">wincvs</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=XML">XML</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=%B1%B9%B3%BB%BF%A9%C7%E0">국내여행</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=%BE%EE%C7%D0%A1%A4%BF%DC%B1%B9%BE%EE">어학·외국어</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=%BF%E4%B8%AE%A1%A4%B7%B9%BD%C3%C7%C7">요리·레시피</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=%BF%F9%C8%AD%BC%F6%B8%F1%B1%DD%C5%E4%C0%CD">월화수목금토익</A> , <A class="itemfont cm-col1 _param(1000013779|10097|hot_tag)" href="/PostListByTagName.nhn?blogId=chansury&amp;logType=mylog&amp;tagName=%C0%CE%BB%E7%B5%BF">인사동</A> </DIV>
+<DIV class=allview><SPAN class=cm-col1>▶</SPAN><A class="cm-col1 _redirectTagPage _param(chansury|mylog) _returnFalse" href="#">모두보기</A></DIV></DIV></DIV>
+<DIV class=cm-footer></DIV></DIV></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-recent-comment class=widget>
+<DIV class=cm-border>
+<DIV class=cm-head></DIV>
+<DIV class=cm-title>
+<H3 class=component><SPAN class="cm-icol _viewMore">recent comment</SPAN></H3>
+<P class=cmore><SPAN><INPUT id=comment-list-i class="cm-icol listdown _viewMore" value=^ readOnly type=text></SPAN></P></DIV>
+<DIV style="DISPLAY: none" id=comment-list class=cm-body>
+<DIV class=cm-con>
+<UL>
+<LI><IMG class=cm-arw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> <A class="itemfont cm-col1 _param(1000013774|40381|widget_recent_reply)" href="http://blog.naver.com/PostView.nhn?blogId=chansury&amp;logNo=120034547568"><SPAN class="_ellipsis _param(136)">[AIX] 명령어 모음</SPAN></A> </LI>
+<LI><IMG class=cm-arw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> <A class="itemfont cm-col1 _param(1000013774|40381|widget_recent_reply)" href="http://blog.naver.com/PostView.nhn?blogId=chansury&amp;logNo=120132743410"><SPAN class="_ellipsis _param(136)">제대로 맘 다잡고 열심히 해볼라고 ^^</SPAN></A> </LI>
+<LI><IMG class=cm-arw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> <A class="itemfont cm-col1 _param(1000013774|40381|widget_recent_reply)" href="http://blog.naver.com/PostView.nhn?blogId=chansury&amp;logNo=120054487612"><SPAN class="_ellipsis _param(136)">A File Checksum Shell Menu Extension Dll</SPAN></A> </LI>
+<LI><IMG class=cm-arw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> <A class="itemfont cm-col1 _param(1000013774|40381|widget_recent_reply)" href="http://blog.naver.com/PostView.nhn?blogId=chansury&amp;logNo=120062307145"><SPAN class="_ellipsis _param(136)">WebtoB vs JEUS 및 서블릿 컴파일</SPAN></A> </LI>
+<LI><IMG class=cm-arw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1> <A class="itemfont cm-col1 _param(1000013774|40381|widget_recent_reply)" href="http://blog.naver.com/PostView.nhn?blogId=chansury&amp;logNo=120046344870"><SPAN class="_ellipsis _param(136)">oracle - sqlplus 사용법 </SPAN></A></LI></UL></DIV></DIV>
+<DIV class=cm-footer></DIV></DIV></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-visitor class=widget>
+<DIV style="WIDTH: 326px; DISPLAY: none; BACKGROUND: #fff; LEFT: 0px" id=visitor_block class=layerpop2>
+<DIV class=border_type>
+<DIV class=content1>
+<H6>다녀간 블로거를 삭제하시겠습니까?</H6><INPUT id=visited-blog-del class=check type=checkbox> <LABEL for=visited-blog-del>선택한 블로거를 스팸차단 ID로 등록합니다.</LABEL> 
+<P class=subtext>스팸차단 ID로 등록시 방문흔적이 남지 않으며, 내 블로그 <BR>내에서 모든 활동이 제한됩니다.</P></DIV>
+<P style="PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px" id=delete_btn class=btn1><A href="#"><IMG alt=확인 src="http://blogimgs.naver.net/imgs/btn_confirm.gif" width=55 height=27></A><A class="_deleteFormClose _returnFalse" href="#"><IMG alt=취소 src="http://blogimgs.naver.net/imgs/btn_cancel.gif" width=55 height=27></A> </P><A class="close _deleteFormClose _returnFalse" href="#"><IMG alt=닫기 src="http://blogimgs.naver.net/static/ws/btn_close.gif" width=15 height=14></A> </DIV></DIV>
+<DIV class=cm-border>
+<DIV class=cm-head></DIV>
+<DIV class=cm-title>
+<H3 class=component><SPAN class="cm-icol _viewMore">visited blogger</SPAN></H3>
+<P class=cmore><SPAN><INPUT id=visitor-list-i class="cm-icol listdown _viewMore" value=^ readOnly type=text></SPAN></P></DIV>
+<DIV style="DISPLAY: none" id=visitor-list class=cm-body></DIV>
+<DIV class=cm-footer></DIV></DIV></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-buddy class=widget>
+<DIV id=blog-buddy-event-area class=cm-border>
+<DIV class=cm-head></DIV>
+<DIV class=cm-title>
+<H3 class=component><SPAN class="cm-icol _viewMore">neighbor</SPAN></H3>
+<P class=cmore><SPAN><INPUT id=buddy-list-i class="cm-icol listup _viewMore listdown" value=^ readOnly type=text></SPAN></P></DIV>
+<DIV style="DISPLAY: none" id=buddy-list class=cm-body>
+<DIV class=cm-con>
+<UL>
+<LI><IMG id=buddyIcon6 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|6)" href="#">programming Lang.</A> 
+<DIV style="DISPLAY: none" id=buddy6></DIV></LI>
+<LI><IMG id=buddyIcon9 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|9)" href="#">UML&amp;Modeling</A> 
+<DIV style="DISPLAY: none" id=buddy9></DIV></LI>
+<LI><IMG id=buddyIcon8 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|8)" href="#">ADV. ProgREF</A> 
+<DIV style="DISPLAY: none" id=buddy8></DIV></LI>
+<LI><IMG id=buddyIcon10 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|10)" href="#">LINUX-UNIX</A> 
+<DIV style="DISPLAY: none" id=buddy10></DIV></LI>
+<LI><IMG id=buddyIcon11 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|11)" href="#">Windows ProgREF</A> 
+<DIV style="DISPLAY: none" id=buddy11></DIV></LI>
+<LI><IMG id=buddyIcon18 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|18)" href="#">.NET </A>
+<DIV style="DISPLAY: none" id=buddy18></DIV></LI>
+<LI><IMG id=buddyIcon5 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|5)" href="#">ORACLE</A> 
+<DIV style="DISPLAY: none" id=buddy5></DIV></LI>
+<LI><IMG id=buddyIcon2 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|2)" href="#">찬수 친구들</A> 
+<DIV style="DISPLAY: none" id=buddy2></DIV></LI>
+<LI><IMG id=buddyIcon1 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|1)" href="#">얼짱</A> 
+<DIV style="DISPLAY: none" id=buddy1></DIV></LI>
+<LI><IMG id=buddyIcon4 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|4)" href="#">주점부리</A> 
+<DIV style="DISPLAY: none" id=buddy4></DIV></LI>
+<LI><IMG id=buddyIcon12 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|12)" href="#">DESIGN</A> 
+<DIV style="DISPLAY: none" id=buddy12></DIV></LI>
+<LI><IMG id=buddyIcon13 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|13)" href="#">windows 일반</A> 
+<DIV style="DISPLAY: none" id=buddy13></DIV></LI>
+<LI><IMG id=buddyIcon14 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|14)" href="#">Java-Eclipse</A> 
+<DIV style="DISPLAY: none" id=buddy14></DIV></LI>
+<LI><IMG id=buddyIcon15 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|15)" href="#">WEB prog.</A> 
+<DIV style="DISPLAY: none" id=buddy15></DIV></LI>
+<LI><IMG id=buddyIcon16 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|16)" href="#">Side Job</A> 
+<DIV style="DISPLAY: none" id=buddy16></DIV></LI>
+<LI><IMG id=buddyIcon17 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|17)" href="#">Markany</A> 
+<DIV style="DISPLAY: none" id=buddy17></DIV></LI>
+<LI><IMG id=buddyIcon19 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|19)" href="#">가상화-Virtualization</A> 
+<DIV style="DISPLAY: none" id=buddy19></DIV></LI>
+<LI><IMG id=buddyIcon20 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|20)" href="#">부동산</A> 
+<DIV style="DISPLAY: none" id=buddy20></DIV></LI>
+<LI><IMG id=buddyIcon21 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|21)" href="#">android</A> 
+<DIV style="DISPLAY: none" id=buddy21></DIV></LI>
+<LI><IMG id=buddyIcon22 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|22)" href="#">새 그룹</A> 
+<DIV style="DISPLAY: none" id=buddy22></DIV></LI>
+<LI><IMG id=buddyIcon23 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|23)" href="#">요리</A> 
+<DIV style="DISPLAY: none" id=buddy23></DIV></LI>
+<LI><IMG id=buddyIcon24 class=buddydw alt="" src="http://blogimgs.naver.net/nblog/spc.gif" width=1 height=1><A class="itemfont cm-col1 _viewBuddyListByGroup _returnFalse _param(chansury|24)" href="#">쇼핑</A> 
+<DIV style="DISPLAY: none" id=buddy24></DIV></LI></UL></DIV></DIV>
+<DIV class=cm-footer></DIV></DIV></DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-rss class=widget><A class=rss1 href="http://blog.rss.naver.com/chansury.xml" target=_blank><SPAN class=no>RSS 2.0</SPAN></A> <A class=rss2 href="http://blog.rss.naver.com/chansury.xml?rss=1.0" target=_blank><SPAN class=no>RSS 1.0</SPAN></A> <A class=rss3 href="http://blog.rss.naver.com/chansury.xml?atom=0.3" target=_blank><SPAN class=no>ATOM 0.3</SPAN></A> </DIV>
+<DIV class=division-line-x></DIV>
+<DIV id=blog-powered class=widget><SPAN>POWERED BY</SPAN> <A class=naver href="http://www.naver.com/" target=_blank><SPAN>NAVER</SPAN></A> <A class=blog href="http://section.blog.naver.com" target=_blank><SPAN>BLOG</SPAN></A> </DIV>
+<DIV class=division-line-x></DIV></DIV>
+<DIV class=side-footer></DIV></DIV></DIV>

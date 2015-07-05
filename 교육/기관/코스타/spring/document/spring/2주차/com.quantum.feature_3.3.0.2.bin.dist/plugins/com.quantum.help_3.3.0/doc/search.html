@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>Search</title>
+<link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>Quantum Search</h1>
+<p>Sometimes you know there is someone called Josephine in one of your database tables, but you may not know which one. Search will come to rescue.</p>
+<p>The way search works is as follows:
+<ul>
+<li>Select the nodes in the tree you want to search (one table/view/procedure, more tables/views/procedures, all tables/views/procedures)</li>
+<li>Select Search from the context menu, main menu or type Ctrl-h.</li>
+<li>Enter your search criteria</li>
+<li>Click search</li>
+<li>Browse and analyse the search results</li> 
+</ul>
+<p>You have to select either text, number or date search. Quantum will check the metadata of the columns searched to see whether the column
+matches your search type. This way Quantum will not look for numbers in text columns (unless you enter the number in the text search field, of
+course).</p>
+<p>Check the <A HREF='sql_log_view.html'>Quantum log</A> if the function does not work as expected.</p>
+<h2>Search criteria</h2>
+<h2><img src="images/quantum_search_dialog.jpg" width="494" height="372"></h2>
+<h3>Text</h3>
+<p>This is where you enter a search term. Quantum will match the whole column against this entry. Depending on the Match case setting the text will have to match capitalization or not.</p>
+<h3>Match case</h3>
+<p>Use this check box to decide on the case of the search. 
+Note that even when your database matches string queries without case, Quantum will still compare the query 
+results for case. Suppose that 'quantum' is your case sensitive search term. 
+If your database matches Quantum to quantum, the search facility will remove 
+this result from the list.</p>
+<h3>LIKE regexp %_</h3>
+<p>This is where you can enter advanced searches based on regular expressions. You have to include your 
+database specific 'wild cards'. The search honours the Match case setting. So %x% will look for columns containing a lower case x, if the Match case checkbox is checked.</p>
+<h3>Number</h3>
+<p>Enter a number to look for here. Quantum will look in numeric fields for this number. Might not work for floats...</p>
+<h3>Date</h3>
+<p>Searching for dates is difficult to support across databases. Quantum uses a three step process. First it compares your entry to a timestamp, using
+the escape function {ts yyyy-mm-dd hh:mm:ss[.fff]}. If this fails a date escape is tried: {d yyyy-mm-dd} and if that fails
+a time is assumed: {t hh:mm:ss}. You can enter an exact time to look for by leaving the end date field blank. If
+both are entered the resulting query will check >= begin date and <= end date.</p>
+<h2>Search results</h2>
+<p>Quantum displays the results in it's own view, because the standard search result view cannot be used, because the results are not file based.
+The results are presented in a tree hierarchy. Each search starts its own branch.</p>
+<img src="images/SearchResults.JPG" alt="search results">
+<p>Double clicking an item in the results tree will get the following done:</p>
+<table>
+<tr><th>Item</th><th>Where</th><th>Description</th></tr>
+<tr><td>Table</td><td>Table view</td><td>SELECT * FROM Table</td></tr>
+<tr><td>Column</td><td>Table view</td><td>SELECT Column FROM Table</td></tr>
+<tr><td>Primary Key</td><td>Table view</td><td>SELECT * FROM Table WHERE (primary key = Primary Key)</td></tr>
+<tr><td>Procedure</td><td>SQL Editor</td><td>Opens it in editor and highlights the search term</td></tr>
+</table>
+</body>
+</html>

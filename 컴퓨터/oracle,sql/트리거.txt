@@ -1,0 +1,157 @@
+DECLARE
+
+BEGIN
+    /************************************************************************************************************************************************/
+    /* 모바일연계 SMARTUSER001 */ 
+    IF (INSERTING) OR (UPDATING) THEN
+    
+    
+        INSERT INTO SMARTUSER001.YKT9060 
+        (
+           RESID_NO    
+          ,MESH_CD     
+          ,MESH_YMD    
+          ,MESH_SEQNO     
+          ,OFFICECD    
+          ,BUL_SCORE   
+          ,HANDLE      
+          ,HITCH       
+          ,PS_SAFETY   
+          ,UPDATE_YMD  
+          ,INID        
+          ,SAFETY_MESH                 
+          ,ISATTACH    
+          ,PROC_SIGN   
+          ,IMS_SIGN    
+          ,QUAL_CD     
+          ,MESH_TXT    
+          ,FLAG        
+          ,UPDATE_YMD2 
+
+     )VALUES(
+       :NEW.RESID_NO               
+      ,:NEW.MESH_CD                
+      ,:NEW.MESH_YMD               
+      ,:NEW.MESH_SEQNO                
+      ,:NEW.OFFICECD               
+      ,:NEW.BUL_SCORE              
+      ,:NEW.HANDLE                 
+      ,:NEW.HITCH                  
+      ,:NEW.PS_SAFETY              
+      ,:NEW.UPDATE_YMD             
+      ,:NEW.INID                   
+      ,:NEW.SAFETY_MESH            
+      ,:NEW.ISATTACH               
+      ,:NEW.PROC_SIGN              
+      ,:NEW.IMS_SIGN               
+      ,:NEW.QUAL_CD                
+      ,:NEW.MESH_TXT               
+      ,:NEW.FLAG                   
+      ,TO_CHAR(SYSDATE,'YYYYMMDD') 
+     );
+        
+/*        
+        MERGE INTO SMARTUSER001.YKT9060
+        USING (SELECT :NEW.RESID_NO AS RESID_NO, :NEW.MESH_CD AS MESH_CD,:NEW.MESH_YMD AS MESH_YMD,:NEW.MESH_SEQNO AS MESH_SEQNO FROM DUAL) A
+           ON (RESID_NO = A.RESID_NO AND MESH_CD = A.MESH_CD AND MESH_YMD = A.MESH_YMD AND MESH_SEQNO = A.MESH_SEQNO)
+         WHEN MATCHED THEN
+                UPDATE SET   MESH_SEQNO     = :NEW.MESH_SEQNO     
+                            ,OFFICECD    = :NEW.OFFICECD    
+                            ,BUL_SCORE   = :NEW.BUL_SCORE   
+                            ,HANDLE      = :NEW.HANDLE      
+                            ,HITCH       = :NEW.HITCH       
+                            ,PS_SAFETY   = :NEW.PS_SAFETY   
+                            ,UPDATE_YMD  = :NEW.UPDATE_YMD  
+                            ,INID        = :NEW.INID        
+                            ,SAFETY_MESH = :NEW.SAFETY_MESH 
+                            ,ISATTACH    = :NEW.ISATTACH    
+                            ,PROC_SIGN   = :NEW.PROC_SIGN   
+                            ,IMS_SIGN    = :NEW.IMS_SIGN    
+                            ,QUAL_CD     = :NEW.QUAL_CD     
+                            ,MESH_TXT    = :NEW.MESH_TXT    
+                            ,FLAG        = :NEW.FLAG        
+                            ,UPDATE_YMD2 = TO_CHAR(SYSDATE,'YYYYMMDD')
+         WHEN NOT MATCHED THEN
+                        INSERT (
+                             RESID_NO    
+                            ,MESH_CD     
+                            ,MESH_YMD    
+                            ,MESH_SEQNO     
+                            ,OFFICECD    
+                            ,BUL_SCORE   
+                            ,HANDLE      
+                            ,HITCH       
+                            ,PS_SAFETY   
+                            ,UPDATE_YMD  
+                            ,INID        
+                            ,SAFETY_MESH 
+                            ,ISATTACH    
+                            ,PROC_SIGN   
+                            ,IMS_SIGN    
+                            ,QUAL_CD     
+                            ,MESH_TXT    
+                            ,FLAG        
+                            ,UPDATE_YMD2 
+
+                       )VALUES(
+                         :NEW.RESID_NO               
+                        ,:NEW.MESH_CD                
+                        ,:NEW.MESH_YMD               
+                        ,:NEW.MESH_SEQNO                
+                        ,:NEW.OFFICECD               
+                        ,:NEW.BUL_SCORE              
+                        ,:NEW.HANDLE                 
+                        ,:NEW.HITCH                  
+                        ,:NEW.PS_SAFETY              
+                        ,:NEW.UPDATE_YMD             
+                        ,:NEW.INID                   
+                        ,:NEW.SAFETY_MESH            
+                        ,:NEW.ISATTACH               
+                        ,:NEW.PROC_SIGN              
+                        ,:NEW.IMS_SIGN               
+                        ,:NEW.QUAL_CD                
+                        ,:NEW.MESH_TXT               
+                        ,:NEW.FLAG                   
+                        ,TO_CHAR(SYSDATE,'YYYYMMDD') 
+                       )
+        ;    
+*/ 
+    ELSIF (UPDATING) THEN
+        UPDATE SMARTUSER001.YKT9060 SET
+                     MESH_SEQNO     = :NEW.MESH_SEQNO     
+                    ,OFFICECD    = :NEW.OFFICECD    
+                    ,BUL_SCORE   = :NEW.BUL_SCORE   
+                    ,HANDLE      = :NEW.HANDLE      
+                    ,HITCH       = :NEW.HITCH       
+                    ,PS_SAFETY   = :NEW.PS_SAFETY   
+                    ,UPDATE_YMD  = :NEW.UPDATE_YMD  
+                    ,INID        = :NEW.INID        
+                    ,SAFETY_MESH = :NEW.SAFETY_MESH 
+                    ,ISATTACH    = :NEW.ISATTACH    
+                    ,PROC_SIGN   = :NEW.PROC_SIGN   
+                    ,IMS_SIGN    = :NEW.IMS_SIGN    
+                    ,QUAL_CD     = :NEW.QUAL_CD     
+                    ,MESH_TXT    = :NEW.MESH_TXT    
+                    ,FLAG        = :NEW.FLAG        
+                    ,UPDATE_YMD2 = TO_CHAR(SYSDATE,'YYYYMMDD')
+         WHERE RESID_NO   = :new.RESID_NO
+           AND MESH_CD    = :new.MESH_CD
+           AND MESH_YMD   = :new.MESH_YMD
+           AND MESH_SEQNO = :new.MESH_SEQNO  
+           ;                              
+                                                  
+    ELSIF (DELETING) THEN
+        DELETE SMARTUSER001.YKT9060 
+         WHERE RESID_NO   = :new.RESID_NO
+           AND MESH_CD    = :new.MESH_CD
+           AND MESH_YMD   = :new.MESH_YMD
+           AND MESH_SEQNO = :new.MESH_SEQNO                      
+        ;
+    END IF;
+    /****************************************************************************************************************************/
+
+   EXCEPTION
+     WHEN OTHERS THEN
+         ROLLBACK;
+       RAISE;
+END TRY_YKT9060;

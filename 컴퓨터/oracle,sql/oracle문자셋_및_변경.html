@@ -1,0 +1,307 @@
+<div class="mainContents">
+					
+		
+			<form name="myhompy_board_frmList" id="myhompy_board_frmList" method="post">
+			<input id="__input_1887067352" type="hidden" name="home_id" value="a3177717">
+			<input id="__input_1620420362" type="hidden" name="lmenuSeq" value="499037">
+			<input id="__input_1298204849" type="hidden" name="smenuSeq" value="834741">
+			<input id="__input_1489807848" type="hidden" name="postSeq" value="6965727">
+			<input id="__input_270385256" type="hidden" name="pageNo" value="">
+			<input id="__input_380449299" type="hidden" name="total" value="0">
+			<input id="__input_1005660186" type="hidden" name="totalType" value="summary">
+			<input id="__input_1023433071" type="hidden" name="hdnSort" value="post_seq">
+			<input id="__input_1573464720" type="hidden" name="hdnSortType" value="desc">
+			<input id="__input_220110768" type="hidden" name="hdnSearchType" value="">
+			<input id="__input_2034412681" type="hidden" name="hdnSearchValue" value="">
+			<input id="__input_1161777" type="hidden" name="hdnSearchDate" value="2012-01-02">
+
+			<input id="__input_1068984902" type="hidden" name="menu" value="smenu">
+			<input id="__input_2088195306" type="hidden" name="blogMain" value="">
+			<input id="__input_1336645875" type="hidden" name="view" value="summary">		
+
+				        	<!-- tpl_myhompy_board_module_blogItem {{{ --><div class="blogFunc">
+	<!-- 제목 -->
+	<div class="subjectFunc f_clear">
+		<h2 style="word-wrap:break-word">
+									오라클 DB 문자셋과 언어셋 변경			 
+						
+					</h2>
+		
+		<div class="blogInfo">
+			<!-- tpl_myhompy_board_retrieveNameUI {{{ -->    <span class="name_link"><a id="22360816" href="javascript:nameUIOpen('22360816');">Hare</a></span>
+<!-- tpl_myhompy_board_retrieveNameUI }}} -->			<span class="date">2012-01-02 21:27:15</span>
+			<a href="#" class="copyaddr" id="myhompy_board_linkAddressCopy01" swaf:posturl="http://www.cyworld.com/BC83/6965727">주소복사</a>			<span id="showPostSeq"></span>			
+		</div>
+		<div class="cntInfo">
+			조회 604&nbsp; 스크랩 1		</div>
+	</div>
+
+	<!-- 첨부 -->
+		
+
+
+	<!-- 내용 -->
+	<div class="contentFunc" id="myhompy_board_retrieveBoard_contents">
+	
+			
+	
+		<!--espresso editor content start--><div id="espresso_editor_view" style="font-size:9pt;"><p><strong><span style="FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff" color="#737373">1. 오라클 데이터베이스 문자셋과 언어셋 변경</font></span></strong></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><strong><span style="FONT-FAMILY: 굴림"></span></strong></font><font color="#737373">&nbsp;</font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><font color="#737373"><strong><span style="FONT-FAMILY: 굴림">■ 문자셋(CHARACTER SET) 변경</span><br></strong><span style="FONT-FAMILY: 굴림">관리자로 접속하여 NLS_CHARACTERSET, NCHAR의 CHARACTERSET에 한국어를 지원하도록 파라미터의 속성값을 KO16MSWIN949로 변경. </span><br></font></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><span style="FONT-FAMILY: 굴림"><span style="FONT-FAMILY: 굴림"><strong></strong></span></span></font><font color="#737373">&nbsp;</font></p>
+<p><span style="FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff" color="#737373">&nbsp;</font></span><font style="BACKGROUND-COLOR: #ffffff"><font color="#737373"><strong><span style="FONT-FAMILY: 굴림">[문자셋 변경]</span><br></strong><span style="FONT-FAMILY: 굴림">SQL&gt;update sys.props$ set value$='KO16MSWIN949'&nbsp;</span></font></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff" color="#737373"><span style="FONT-FAMILY: 굴림">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where name='NLS_CHARACTERSET';&nbsp;&nbsp;</span></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><font color="#737373"><span style="FONT-FAMILY: 굴림">1 row updated.</span><br><br><span style="FONT-FAMILY: 굴림">SQL&gt;update sys.props$ set value$='KO16MSWIN949'&nbsp;</span></font></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff" color="#737373"><span style="FONT-FAMILY: 굴림">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where name='NLS_NCHAR_CHARACTERSET';</span></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff" color="#737373"><span style="FONT-FAMILY: 굴림">1 row updated.&nbsp; </span></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><span style="FONT-FAMILY: 굴림"></span><br><font color="#737373">&nbsp;</font></font></p><font style="BACKGROUND-COLOR: #ffffff"><span style="FONT-FAMILY: 굴림">
+<p><font style="BACKGROUND-COLOR: #ffffff"><strong><span style="FONT-FAMILY: 굴림"><span style="FONT-FAMILY: 굴림"></span></span></strong></font><font color="#737373">&nbsp;</font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><font color="#737373"><strong><span style="FONT-FAMILY: 굴림"><span style="FONT-FAMILY: 굴림">■ </span>언어셋(LANGUAGE SET) 변경</span><br></strong><span style="FONT-FAMILY: 굴림">문자셋과 마찬가지로 오라클 데이터베이스 관리자로 접속하여 NLS_LANGUAGE 파라미터의 속성값을 AMERICAN_AMERICA.KO16MSWIN949로 변경. </span></font></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><span style="FONT-FAMILY: 굴림"></span></font><font color="#737373">&nbsp;</font></p></span></font>
+<p><font style="BACKGROUND-COLOR: #ffffff"><font color="#737373"><strong><span style="FONT-FAMILY: 굴림">[언어셋 변경]</span><br></strong><span style="FONT-FAMILY: 굴림">SQL&gt; update sys.props$ set value$='AMERICAN_AMERICA.KO16MSWIN949' </span></font></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff" color="#737373"><span style="FONT-FAMILY: 굴림">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where name='NLS_LANGUAGE';&nbsp;&nbsp;&nbsp; </span></font><font style="BACKGROUND-COLOR: #ffffff"><br><font color="#737373"><span style="FONT-FAMILY: 굴림">1 row updated.</span><br></font></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><strong><span style="FONT-FAMILY: 굴림"></span></strong></font><font color="#737373">&nbsp;</font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><strong><font color="#737373"><span style="FONT-FAMILY: 굴림">[변경사항 저장 및 데이터베이스 재연동]</span><br></font></strong></font></p>
+<p><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff" color="#737373">SQL&gt; commit;<br>Commit complete. </font></span></p>
+<p><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff"></font></span><font color="#737373">&nbsp;</font></p>
+<p><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff" color="#737373">SQL&gt; shutdown<br>Database closed. <br>Database dismounted. <br>Oracle instance shut down. </font></span></p>
+<p><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff"></font></span><font color="#737373">&nbsp;</font></p>
+<p><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff" color="#737373">SQL&gt;startup <br>ORACLE instance started. </font></span></p>
+<p><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff"></font></span><font color="#737373">&nbsp;</font></p>
+<p><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff" color="#737373">[변경사항 확인]</font></span></p>
+<p><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"><font style="BACKGROUND-COLOR: #ffffff" color="#737373">SQL&gt; select * from v$nls_parameters;<br></font></span></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><strong><span style="BACKGROUND-COLOR: rgb(236,255,255); FONT-FAMILY: 굴림"></span></strong></font><font color="#737373">&nbsp;</font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><font color="#737373"><strong><span style="FONT-FAMILY: 굴림">2. 오라클 언어 환경변수 변경</span></strong><br><span style="FONT-FAMILY: 굴림">오라클을 설치할 때 지정해 주었던 .bash_profile 파일에서 Oracle 언어 환경변수 설정</span></font></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff" color="#737373"><span style="FONT-FAMILY: 굴림">export NLS_LANG=AMERICAN_AMERICA.KO16MSWIN949</span></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff"><span style="FONT-FAMILY: 굴림"></span></font><font color="#737373">&nbsp;</font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff" color="#737373"><span style="FONT-FAMILY: 굴림">이렇게 해도 언어가 변경이 안되거나 물음표가 뜨는 경우는&nbsp;dbca를 실행해서 DB를 밀고 다시 생성해서 언어셋을 설정하자.</span></font></p>
+<p><font style="BACKGROUND-COLOR: #ffffff" color="#1c1717"><span style="FONT-FAMILY: 굴림"><font color="#737373">또 혹시 이것도 안되면 오라클를 다시 설치해서 해야 할듯보인다. </font></span></font></p><font style="BACKGROUND-COLOR: #ffffff" color="#1c1717">
+<p><br></p></font><div class="flash_daum_view"><embed src="http://api.v.daum.net/static/recombox1.swf?nurl=http://www.cyworld.com/BC83/6965727" quality="high" bgcolor="#ffffff" width="401" height="80" type="application/x-shockwave-flash" wmode="transparent"></div>
+</div><!--espresso editor content end-->		
+			
+		 
+	</div>
+
+	<div class="originFunc f_clear">
+    	<!-- tpl_myhompy_board_retrieveScrapSourceDisplay {{{ --><!-- tpl_myhompy_board_retrieveScrapSourceDisplay }}} -->    </div>
+
+	<!-- 사용글꼴 -->
+        <br>
+	<!-- 설정정보 -->
+    <div class="infoFunc f_clear">
+        <div class="openInfo">
+            지식,&nbsp;교육        </div>
+	</div>
+	<div class="infoFunc f_clear">
+	    <!-- tpl_myhompy_board_retrieveBoardCCLView {{{ -->
+<div id="divBoardCclView_6965727" class="cclInfo" onmouseover="javascript:showBoardCclInfoLayer('6965727');" onmouseout="javascript:hideBoardCclInfoLayer('6965727');" onclick="javascript:goCclKorea('0', '0');">
+	<img src="http://c2img.cyworld.co.kr/img/ko/board/skin/type2/icon_ccl01.gif" alt="저작권표시">
+	<img src="http://c2img.cyworld.co.kr/img/ko/board/skin/type2/icon_ccl02.gif" alt="비영리">
+        
+    		<img src="http://c2img.cyworld.co.kr/img/ko/board/skin/type2/icon_ccl03.gif" alt="변경금지">
+    
+    <div id="divBoardCclInfo_6965727" class="cclLayer" style="display: none;">
+                이 게시물은 아래 조건을 만족시<br> 사용 가능합니다.<br>
+        <strong>저작자 표시</strong> : <span>필수</span><br>
+        <strong>영리적 사용</strong> : <span>허용안함</span><br>
+        <strong>내용변경</strong> : <span>허용안함</span>
+    </div>
+</div>		<!-- tpl_myhompy_board_retrieveBoardCCLView }}} -->
+		<!-- 공개 정보 -->		
+            </div>
+
+	<!-- 추천태그 -->
+	<!-- tpl_myhompy_board_module_tag {{{ --><div id="myhompy_board_divTagList01" swaf:postseq="6965727" class="tagFunc f_clear">
+		<dl>
+		<dt>태그</dt>
+		<dd>
+	        			<ul id="tag_post">
+		        		        <li>
+										오라클 DB 문자셋과 언어셋 변경															</li>
+		        			</ul>
+		</dd>
+	</dl>
+	</div>
+<!-- tpl_myhompy_board_module_tag }}} -->    <!-- tag : E -->
+	
+	<!-- 싸이추천글 -->
+			<!-- tpl_myhompy_board_retrieveRecommendPostView {{{ --><!-- tpl_myhompy_board_retrieveRecommendPostView }}} -->		
+	<!-- 포토N 추천박스 ---->
+		
+	    <!-- tpl_myhompy_board_retrieveBoardPhotoNInfo {{{ -->
+<!-- tpl_myhompy_board_retrieveBoardPhotoNInfo }}} -->		
+	<!-- 공감 버튼 ---->
+                <!-- 전체보기 시에 소메뉴 정보가 없어서 arrSmenuInfo 를 급히 넣었음. 
+        앞으로 처리할 사람들한테는 죄송ㅠㅠ
+        blog.tpl
+        list.tpl
+        retrieveBoardList.php 를 확인하면 좋을것임 
+        -->
+    	<!-- tpl_myhompy_board_module_empathyButton {{{ -->
+            <div class="social_plugin_wrapper" style="height:17px;">
+        
+                <div class="social_mod_snstxt">
+                    <script type="text/javascript">
+                    //<![CDATA[
+                    SPLoader.buttonRegister({
+                        sptype:'social_mod_snstxt',
+                        spkey:'36546397ff3663d65fd4a674d27b1c4e',
+                        mkey:'',
+                        spsvccode:'8',
+                        spownertid:'22360816',
+                        spownerbid:'a3177717',
+                        spfolderno:'',
+                        spitemseq:'6965727',
+                        spurl:'http://www.cyworld.com/BC83/6965727',
+                        sptitle:'오라클 DB 문자셋과 언어셋 변경',
+                        spthumbnail:'',
+                        spsummary:'1. 오라클 데이터베이스 문자셋과 언어셋 변경■ 문자셋(CHARACTER SET) 변경관리자로 접속하여 NLS_CHARACTERSET, NCHAR의 CHARACTERSET에 한국어를 지원하도록 파라미터의 속성값을 KO16MSWIN949로 변경. [문자셋 변경]SQL&gt;update sys.props$ set value$=&#039;KO16MSWIN949&#039;where name=&#039;NLS_CHARACTERSET&#039;;1 row updated.SQL&gt;update sys.props$ set value$=&#039;KO16MSWIN949&#039;where name=...',
+                        spismobile:'0',
+                        spwritertid:'22360816',
+                        spwriterbid:'a3177717',
+                        spwriternm:'Hare',
+                        spcategory:'',
+                        sprecommendee_id:'',
+                        sprecommendee_nm:'',
+                        spcorpid:'',
+                        sptag1:'',
+                        sptag2:'',
+                        sptag3:'',
+                        sptag4:'',
+                            splayer:'n',
+                            sphidecmt:'none'
+                    });
+                    //]]>
+                    </script>
+                <a title="싸이월드 공감하기" href="javascript:;" class="off">공감</a><p class="count"></p></div>        </div>
+      
+
+<!-- tpl_myhompy_board_module_empathyButton }}} -->    
+			
+</div>
+<!-- -->
+
+<div class="bodyLinkFunc f_clear">
+	<!-- tpl_myhompy_board_module_viewLink {{{ --><div class="fleft">
+<a class="on" id="myhompy_board_linkCommentList01" swaf:lmenuseq="499037" swaf:postseq="6965727" swaf:smenuseq="834741" swaf:postwriterid="22360816" swaf:strindex="01">댓글 0</a> 
+|
+<a class="off" id="myhompy_board_linkTrackbackList01" swaf:lmenuseq="499037" swaf:postseq="6965727" swaf:smenuseq="834741" swaf:strindex="01">관련글 0</a>
+</div>
+
+<div class="fright">
+        		
+    <!-- tpl_myhompy_board_retrieveScrapActionLink {{{ -->
+
+
+                    <a href="javascript:;" onclick="document.getElementById('myhompy_board_layerSend').style.display='none';" style="cursor:pointer;" id="myhompy_board_linkScrap01" swaf:postseq="6965727" swaf:smenuseq="834741" swaf:open="4">스크랩</a> <span class="line2">|</span>
+        
+            
+
+
+
+<!-- tpl_myhompy_board_retrieveScrapActionLink }}} -->    	
+    <a href="javascript:;" onclick="document.getElementById('myhompy_board_layerSend').style.display='none';" style="cursor:pointer;" id="myhompy_board_linkPrint01" swaf:lmenuseq="499037" swaf:postseq="6965727" swaf:smenuseq="834741" swaf:width="979">인쇄</a></div><!-- tpl_myhompy_board_module_viewLink }}} -->	
+</div>
+
+<div class="commentFunc">
+	<div class="comment" id="myhompy_board_divCommentContainer01" style="display: block; ">
+		<div class="pin f_clear" id="myhompy_board_divCommentList01"><div id="myhompy_board_retrieveBoardCommentList_totCommentCnt_6965727" swaf:totalcount="0" style="display: none"></div>
+<div id="myhompy_board_retrieveBoardCommentList_totCommentWebFont_6965727" swaf:totalwebfont="" style="display: none"></div>
+
+
+
+<!-- write : S -->
+<dl class="cmt_guest">
+    <dd>
+        <input id="txtAnonyName_6965727" swaf:maxlength="10" maxlength="10" onfocus="c2.inputText.onFocus(event||window.event, this);" onblur="c2.inputText.onBlur(event||window.event, this);" type="text" class="nickname" name="txtAnonyName_6965727" value="이름" size="10" swaf:encoding="euc-kr" tabindex="2490">
+        <input id="txtAnonyPasswd_6965727" swaf:maxlength="8" maxlength="8" onfocus="c2.inputText.onFocus(event||window.event, this);" onblur="c2.inputText.onBlur(event||window.event, this);" type="password" class="pwd" name="txtAnonyPasswd_6965727" value="비밀번호" size="10" swaf:encoding="euc-kr" tabindex="2491">
+        <input id="txtAnonyHomepage_6965727" swaf:maxlength="255" maxlength="255" onfocus="c2.inputText.onFocus(event||window.event, this);" onblur="c2.inputText.onBlur(event||window.event, this);" type="text" class="hompy" name="txtAnonyHomepage_6965727" value="http://" size="28" swaf:encoding="euc-kr" tabindex="2492">
+    </dd>
+</dl><input id="chkCommentInput_6965727" type="hidden" name="chkCommentInput" value="0">
+<dl class="cmt_write">
+    <dt><strong><span id="divCommentNickName_6965727">댓글</span></strong></dt>
+    <dd>
+        <textarea id="txtComment_6965727" swaf:maxlength="1000" onfocus="try{document.getElementById('myhompy_board_layerSend').style.display='none';}catch(e){}" onclick="window.parent.resizeMainFrame();" swaf:postseq="6965727" swaf:smenuseq="834741" swaf:loginid="" swaf:nickname="" swaf:postwriterid="22360816" rows="" cols="" class="cmtsizeOff" style="width:100%;color:#aaaaaa;" swaf:encoding="euc-kr" tabindex="2590">잠깐만요! 그냥 가지마시고, 따뜻한 댓글로 블로그를 빛내주세요.
+트위터로 보내기를 선택하시면 트위터로 댓글을 보낼 수 있습니다.</textarea><script>c2.inputText.setListener($('txtComment_6965727'));</script>    </dd>
+    <dd class="button"><a style="cursor: pointer;" id="btnSubmitComment_6965727" swaf:postseq="6965727" swaf:smenuseq="834741" swaf:loginid="" swaf:postwriterid="22360816" tabindex="2591">
+            <img src="http://c2img.cyworld.co.kr/img/ko/button/btn_ok.gif" alt="ok" border="0" id="btnSubmitCommentImg_6965727" style="display:view" class="btn_ok_b"></a>
+    </dd>
+    <dd class="option">
+        <label class=""><input id="chkTwitter_6965727" type="checkbox" name="chkTwitter" value="1" swaf:loginid="" swaf:twitter="" open="">트위터로 보내기</label>
+        <label><input id="chkTexticon_6965727" type="checkbox" value="1">텍스티콘</label>
+        <a href="javascript:;" id="btnCommentTexticon_6965727" style=""><img src="http://c2img.cyworld.co.kr/img/ko/button/ico_help.gif" alt="텍스티콘" border="0" class="help"></a>
+        <label><input id="chkSecret_6965727" type="checkbox" value="1">비밀로 하기</label>
+    </dd>
+</dl>
+<!-- write : E -->	
+<div id="layerRemove" style="display:none;">
+        <table border="0" cellpadding="0" cellspacing="0" class="layer1_type1">
+    	<tbody><tr>
+    		<td class="layer1_01"></td>
+    		<td class="layer1_02"></td>
+    		<td class="layer1_03"></td>
+    	</tr>
+    	<tr>
+    		<td class="layer1_04"></td>
+    		<td class="layer1_bg">
+    			<div class="layer_top">
+    				<div class="layer_tit">댓글 삭제</div>
+    				<div class="layer_close"><a href="javascript:;" id="closeDelete01"><img src="http://c2img.cyworld.co.kr/img/ko/mybase/popup/ico_x.gif" border="0" class=""></a></div>
+    			</div>
+
+    			<div class="layer_contents">
+    				<div class="layer_box1_01"></div>
+    				<div class="layer_box1_02"></div>
+    				<div class="layer_box1_03"></div>
+    				
+    				<div class="layer_box1">
+        				<div class="al_ce li_17" style="width:100%; padding:5px 0 3px 0; text-align:center;">
+        					댓글을 삭제하시겠습니까?<br>
+        				</div>
+    				</div>
+    				
+    				<div class="layer_box1_04"></div>
+    				<div class="layer_box1_05"></div>
+    				<div class="layer_box1_06"></div>
+    			</div>
+
+    			<div class="layer_btn">
+    				<a href="javascript:;" id="deleteOK"><img src="http://c2img.cyworld.co.kr/img/ko/button/btn_confirm.gif" border="0" class=""></a>
+    				<a href="javascript:;" id="closeDelete02"><img src="http://c2img.cyworld.co.kr/img/ko/button/btn_cancel.gif" border="0" class=""></a>
+    			</div>
+    		</td>
+    		<td class="layer1_05"></td>
+    	</tr>
+    	<tr>
+    		<td class="layer1_06"></td>
+    		<td class="layer1_07"></td>
+    		<td class="layer1_08"></td>
+    	</tr>
+        </tbody></table>
+    </div>
+</div>
+	</div>	
+	<div class="trackback" id="myhompy_board_divTrackbackContainer01" style="display: none; ">
+		<div class="pin f_clear" id="myhompy_board_divTrackbackList01">
+		Loading...
+		</div>
+	</div>
+</div>
+<!-- list : E --><!-- tpl_myhompy_board_module_blogItem }}} -->						</form>
+
+			<div class="LinkFunc f_clear">
+				
+				<!-- tpl_myhompy_board_module_buttonsView {{{ --><div class="fright">
+	<a class="list" href="#" id="myhompy_board_linkList">목록</a>
+</div>
+<!-- tpl_myhompy_board_module_buttonsView }}} -->
+								
+			</div>			
+							
+
+            <!-- list S -->
+        					<div class="BotIframe">
+					<iframe class="bbsIframe" frameborder="0" width="100%" scrolling="no" border="0" src="/myhompy/board/retrieveBottomList.php?home_id=a3177717&amp;lmenuSeq=499037&amp;smenuSeq=834741&amp;postSeq=6965727&amp;pageNo=1&amp;menu=smenu" style="height: 349px;"></iframe>
+				</div>
+            			
+		</div>

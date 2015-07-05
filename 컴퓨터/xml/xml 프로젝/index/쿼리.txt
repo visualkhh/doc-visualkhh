@@ -1,0 +1,3 @@
+mysql> insert into lcd values( 'LG',22,'1680*1050','NO','Yes','W2252TQ-PF',curdate(),'100000','visualhhk');  
+insert into lcd values( 'SAMSUNG',28,'1680*1050','NO','Yes','SA21GQ-HA',curdate(),'200000','visualhhk');  
+insert into lcd values( 'DEWOO',21,'1680*1050','NO','Yes','GDM2GQ-A6',curdate(),'20000','visualhhk');  

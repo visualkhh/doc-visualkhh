@@ -1,0 +1,8 @@
+Partial solution to the feature request #996602, allowing escaping of semicolons so as to let them be part of procedure definitions and so.
+Fixed bug #1012125, about broke bookmarks file after sql statements having umlaut characters. The XML file is now written as UTF-8.
+Fixed problem with mixed case schemas in PostgreSQL, tables with no OID.
+Added URLs, default values for Oracle drivers.
+Fixed bug #1034050, in fact a feature request ;) for displaying of Oracle synonyms in the tables and views lists.
+Fixed bug #1035956, a numeric overflow when asking for data types supported for the database
+Patch to allow execution of only the selected part of the query, in the Query Editor.
+New, very primitive, feature allows exporting of data into CSV (Comma Separated Values) files.

@@ -1,0 +1,191 @@
+<div class="article_post">
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tbody><tr><td width="50%">
+<script type="text/javascript"><!--
+google_ad_client = "pub-5604224655774045";
+/* 300x250, 작성됨 09. 10. 21 */
+google_ad_slot = "6090487863";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</td><td width="50%">
+<script type="text/javascript"><!--
+google_ad_client = "pub-5604224655774045";
+/* 300x250, 작성됨 09. 10. 21 */
+google_ad_slot = "6090487863";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</td></tr></tbody></table>
+									<p><strong>mget에 대해</strong></p><br>
+<p><a class="key1" onclick="openKeyword('/keylog/%EC%9C%A0%EB%8B%89%EC%8A%A4')">유닉스</a> 콘솔에서 ftp 명령어 mput 사용시 파일 하나 전송할때마나 y/n를 물어 보는것을</p>
+<p>없애는 방법은. prompt 키워드로 대화식 모드를 off 로 해야 함.</p><br>
+<p>ftp&gt; prompt</p>
+<p>하면됨. 한번 더하면 원래 대로 돌아옴.</p><br>
+<p>ftp&gt; binary</p>
+<p>바이너리 모드로 전송됨. </p>
+<p> </p>
+<p>ftp&gt; mput *</p>
+<p>모든 파일이 전송됨.&nbsp; 간혹 mput *.* 하면 전송안되는 파일이 있음. ㅋㅋ</p>
+<p>확장자가 없는 파일이 있기 때문에....</p><br>
+<p>PS.</p>
+<p>-------------------------------------------------------------------------------</p>
+<p>*파일 보내기(mput), 가져오기(mget)<br>mget *&nbsp; :&nbsp; 디렉토리를 제외한 나머지파일을 모두 가져온다.<br>mget -R BACKUP&nbsp; : BACKUP이란 폴더 안에 존재하는 모든내용을 가져온다.<br>mget -R * : 역시 하위폴더까지 모두 가져온다.</p>
+<p>mget *.html : 하위의 모든.html을 가지고 올경우<br>get -R *.html : 하위 디렉토리 하위의 것까지 가지고 올경우</p>
+<p>&nbsp; - mget(multiple get) , mput(multiple put)<br>&nbsp;<br>&nbsp; </p>
+<p>#&gt; mget &nbsp; * &nbsp; -&gt; 여러파일 받을때<br>#&gt; by &nbsp; or&nbsp; bye&nbsp; or quit&nbsp; -&gt;나갈때</p>
+<p><br>&nbsp;</p><br>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333"><strong>FTP 명령어</strong> </font></p>
+<p style="FONT-SIZE: 8.25pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1">
+</p><p style="MARGIN: 0in; mso-outline-level: 1"><a class="con_link" href="http://kin.naver.com/knowhow/dir_list.php?dir_id=8" target="_blank"></a></p><font color="#333333"><a class="key1" onclick="openKeyword('/keylog/%EB%A6%AC%EB%88%85%EC%8A%A4')">리눅스</a>에서 기본지원되는 FTP 명령에 대한것을 정리해보았습니다.</font> 
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">1.원격서버 열기</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; [chchu@linux]$ftp 210.xxx.xxx.xxx</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">Connected to 210.xxx.xxx.xxx.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">220 web17 FTP server (Version 5.60) ready.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">Name (210.xxx.xxx.xxx:chchu):아이디입력</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">331 Password required for w3invest.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">Password:패스워드입력</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">230 User chchu logged in.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">Remote system type is UNIX.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">Using binary mode to transfer files.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">ftp&gt;</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">2.디렉토리이동(원격서버)</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;cd /html/upload</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">3.현재 디렉토리 확인</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;pwd</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">4.Local 디렉토리이동</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;lcd /bin</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; Local directory now /bin</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">5.파일 전송 타입 설정(바이너리,아스키)</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;ascii</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 200 Type set to A.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;binary</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 200 Type set to I.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">6.파일 Download</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;binary</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;ls</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;get thinkinjava.pdf</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; local: R387.PDF remote: R387.PDF</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 200 PORT command successful.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 150 Opening BINARY mode data connection for R387.PDF (19041 bytes).</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 226 Transfer complete.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 19041 bytes received in 3.99 secs (4.7 Kbytes/sec)</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">7.파일 다운로드(다중파일)</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;mget *.PDF</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">8.파일 전송상태 표시하기(Hash Mark)</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;hash</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; Hash mark printing on (1024 bytes/hash mark).</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;get R389.PDF</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; local: R389.PDF remote: R389.PDF</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 200 PORT command successful.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 150 Opening BINARY mode data connection for R389.PDF (44028 bytes).</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ##########################################</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 226 Transfer complete.</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; 44028 bytes received in 12.1 secs (3.5 Kbytes/sec)</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">9.종료 하기</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;bye</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;exit</font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">10.도움말 </font></p>
+<p style="FONT-SIZE: 9pt; MARGIN: 0in; COLOR: #444444; FONT-FAMILY: 돋움; mso-outline-level: 1"><font color="#333333">=&gt; ftp&gt;help</font></p>
+<br><span id="callbacknestlinuxholictistorycom652232" style="width:1px; height:1px; float:right"><embed allowscriptaccess="always" id="bootstrapperlinuxholictistorycom652232" src="http://linuxholic.tistory.com/plugin/CallBack_bootstrapperSrc?nil_profile=tistory&amp;nil_type=copied_post" width="1" height="1" wmode="transparent" type="application/x-shockwave-flash" enablecontextmenu="false" flashvars="&amp;callbackId=linuxholictistorycom652232&amp;host=http://linuxholic.tistory.com&amp;embedCodeSrc=http%3A%2F%2Flinuxholic.tistory.com%2Fplugin%2FCallBack_bootstrapper%3F%26src%3Dhttp%3A%2F%2Fs1.daumcdn.net%2Fcfs.tistory%2Fv%2F0%2Fblog%2Fplugins%2FCallBack%2Fcallback%26id%3D65%26callbackId%3Dlinuxholictistorycom652232%26destDocId%3Dcallbacknestlinuxholictistorycom652232%26host%3Dhttp%3A%2F%2Flinuxholic.tistory.com%26float%3Dleft" swliveconnect="true"></span>
+<p style="FONT-SIZE: 8pt; MARGIN: 0in; COLOR: #666666; FONT-FAMILY: 굴림; mso-outline-level: 1"><font color="#333333">원본 위치 &lt;</font><a class="con_link" href="http://kin.naver.com/knowhow/entry.php?eid=p61ggS5YtvnN4BVyiIUmw3peLCTsHceS" target="_blank"><font color="#333333">http://kin.naver.com/knowhow/entry.php?eid=p61ggS5YtvnN4BVyiIUmw3peLCTsHceS</font></a><font color="#333333">&gt; </font></p><br><br><br>
+<p><strong>기타 다른 것</strong></p>
+<p>1. 유저가 루트로 FTP 로그인할 수 있게 하는 방법<br><br>&nbsp;&nbsp; # 텔넷의 <a class="key1" onclick="openKeyword('/keylog/root')">root</a> 로그인 방법이 설정 되고 난 이후<br>&nbsp;&nbsp; $ vi /etc/ftpusers<br>&nbsp; &nbsp;&nbsp; #<a class="key1" onclick="openKeyword('/keylog/root')">root</a><br><br>2. FTP 포트번호 변경하기<br><br>&nbsp;&nbsp; # 디폴트 21번을 6번으로 변경한 예<br>&nbsp;&nbsp; $ vi /etc/services<br>&nbsp; &nbsp;&nbsp; ftp &nbsp; &nbsp; &nbsp; &nbsp;6/tcp <br><br>3. FTP 사용법<br>&nbsp;&nbsp; <br>&nbsp;&nbsp; # ftp '접속지 주소' '포트번호'<br>&nbsp;&nbsp; $ ftp &nbsp;192.168.1.39 6<br>&nbsp; &nbsp;&nbsp; Name:<br>&nbsp; &nbsp;&nbsp; Password:<br>&nbsp; &nbsp;&nbsp; ftp&gt; help/?<br>&nbsp; &nbsp;&nbsp; ftp&gt; user &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 로그인 실패시 재 로그인<br>&nbsp; &nbsp;&nbsp; ftp&gt; ls/!dir &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 서버명령/클라이언트명령 수행<br>&nbsp; &nbsp;&nbsp; ftp&gt; cd/lcd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 서버/클라이언트 디렉토리 이동. <br>&nbsp; &nbsp;&nbsp; ftp&gt; delete/rename &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 파일 지우기/이름바꾸기<br>&nbsp; &nbsp;&nbsp; ftp&gt; mkdir/rmdir &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 디렉토리 생성/삭제<br>&nbsp; &nbsp;&nbsp; ftp&gt; get/put &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 파일 전송<br>&nbsp; &nbsp;&nbsp; ftp&gt; mget/mput &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 여러개 파일 가져올 때<br>&nbsp; &nbsp;&nbsp; ftp&gt; binary/ascii &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # 전송파일타입을 이진/아스키 파일로 지정한다. <br>&nbsp; &nbsp;&nbsp; ftp&gt; type binary/ascii &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # 전송파일타입을 이진/아스키 파일로 지정한다. <br>&nbsp; &nbsp;&nbsp; ftp&gt; hash &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 받는 파일의 양을 화면에 표시 합니다. <br>&nbsp; &nbsp;&nbsp; ftp&gt; prompt &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# mget/mput 할 때 y/n 질문을 하지 않게 한다. <br>&nbsp; &nbsp;&nbsp; ftp&gt; bye/quit &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 끝내기<br>&nbsp; &nbsp;&nbsp; ftp&gt; open/close hostname &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 원격 호스트에 접속/단절 한다.<br>&nbsp; &nbsp;&nbsp; ftp&gt; status &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # ascii/binary, glob on/off 등 현재 ftp 세션의 접속 파라미터를 출력한다. <br>&nbsp; &nbsp;&nbsp; ftp&gt; pwd &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 현재의 절대 경로<br>&nbsp; &nbsp;&nbsp; ftp&gt; verbose on &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# 전송중에 발생하는 정보를 화면에 보여준다.<br><br>&nbsp;&nbsp; 주위: 윈도우 DOS 창에서의 FTP 사용 - 포트번호 지정이 않되고, 파일이 잘 전송이 않된다.<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; WS-FTP 프로그램 - 포트번호 변경이 안된다.<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 권장 FTP 편집기 - 울트라에디트<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 권장 FTP 프로그램 - Cute FTP, Leech FTP<br><br>4. 활용팁<br><br>- mget mput명령시에 파일 하나마다 y를 누르는 불편 없애기.<br>&nbsp; ftp&gt; prompt 하고<br>&nbsp; ftp&gt; mget 하면 된다.<br>&nbsp; 또는, 접속시에 ftp -i xxx.xxx.xxx.xxx 하면 된다. </p><br>
+<p><strong>------------FTP 명령어-------</strong></p>
+<p><font face="가을체" size="2"><b><font face="돋움">ascii</font></b><font face="돋움"> : 전송모드를 ASCII모드로 설정한다.(ascii또는 as)</font></font><font face="돋움" size="2"> </font>
+</p><p><font face="돋움" size="2"><b>binary</b> : 전송모드를 BINARY모드로 설정한다.( binary또는 bi) </font>
+</p><p><font face="돋움" size="2"><b>bell</b> : 명령어 완료시에 벨소리를 나게한다.(bell) </font>
+</p><p><font face="돋움" size="2"><b>bye</b> : ftp접속을 종료하고 빠져나간다.(bye) </font>
+</p><p><font face="돋움" size="2"><b>cd</b> : remote시스템의 디렉토리를 변경한다.(cd 디렉토리명) </font>
+</p><p><font face="돋움" size="2"><b>cdup</b> : remote시스템에서 한단계 상위디렉토리로 이동한다.(cdup) </font>
+</p><p><font face="돋움" size="2"><b>chmod</b> : remote시스템의 파일퍼미션을 변경한다.(chmod 755 index.html) </font>
+</p><p><font face="돋움" size="2"><b>close</b> : ftp접속을 종료한다. (close) </font>
+</p><p><font face="돋움" size="2"><b>delete</b> : remote시스템의 파일을 삭제한다.(delete index.old) </font>
+</p><p><font face="돋움" size="2"><b>dir</b> : remote시스템의 디렉토리 내용을 디스플레이한다.(dir) </font>
+</p><p><font face="돋움" size="2"><b>disconnect</b> : ftp접속을 종료한다.(disconnect) </font>
+</p><p><font face="돋움" size="2"><b>exit</b> : ftp접속을 종료하고 빠져나간다.(exit) </font>
+</p><p><font face="돋움" size="2"><b>get</b> : 지정된 파일하나를 가져온다.(get index.html) </font>
+</p><p><font face="돋움" size="2"><b>hash</b> : 파일전송 도중에 "#"표시를 하여 전송중임을 나타낸다.(hash) </font>
+</p><p><font face="돋움" size="2"><b>help</b> : ftp명령어 도움말을 볼 수 있다.(help또는 help 명령어) </font>
+</p><p><font face="돋움" size="2"><b>lcd</b> : local시스템의 디렉토리를 변경한다.(lcd 디렉토리명) </font>
+</p><p><font face="돋움" size="2"><b>ls</b> : remote시스템의 디렉토리 내용을 디스플레이한다. (ls 또는 ls -l) </font>
+</p><p><font face="돋움" size="2"><b>mdelete</b> : 여러개의 파일을 한꺼번에 지울 때 사용한다.( mdelete *.old) </font>
+</p><p><font face="돋움" size="2"><b>mget</b> : 여러개의 파일을 한꺼번에 가져오려할 때 사용한다. ( mget *.gz) </font>
+</p><p><font face="돋움" size="2"><b>mput</b> : 한꺼번에 여러개의 파일을 remote시스템에 올린다.(mput *.html) </font>
+</p><p><font face="돋움" size="2"><b>open</b> : ftp접속을 시도한다.(open 168.126.72.51또는 open ftp.kornet.net) </font>
+</p><p><font face="돋움" size="2"><b>prompt</b> : 파일전송시에 확인과정을 거친다. on/off 토글 (prompt) </font>
+</p><p><font face="돋움" size="2"><b>put</b> : 하나의 파일을 remote시스템에 올린다.(put index.html) </font>
+</p><p><font face="돋움" size="2"><b>pwd</b> : remote시스템의 현재 작업디렉토리를 표시한다.(pwd) </font>
+</p><p><font face="돋움" size="2"><b>quit</b> : ftp접속을 종료하고 빠져나간다.(quit) </font>
+</p><p><font face="돋움" size="2"><b>rstatus</b> : remote시스템의 상황(version, 어디서, 접속ID등)을 표시한다.(rstatus) </font>
+</p><p><font face="돋움" size="2"><b>rename</b> : remote시스템의 파일명을 바꾼다.(remote 현재파일명 바꿀파일명) </font>
+</p><p><font face="돋움" size="2"><b>rmdir</b> : remote시스템의 디렉토리을 삭제한다.(rmdir 디렉토리명) </font>
+</p><p><font face="돋움" size="2"><b>size</b> :remote시스템에 있는 파일의 크기를 byte단위로 표시한다.(size index.html) </font>
+</p><p><font face="돋움" size="2"><b>status</b> : 현재 연결된 ftp세션모드에 대한 설정을 보여준다.(status) </font>
+</p><p><font face="돋움" size="2"><b>type</b> : 전송모드를 설정한다.(type 또는 type ascii 또는 type binary)</font></p><!-- //포스팅 --><div style="text-align: center; margin: 10px auto; height: 91px; overflow: hidden; clear: both;"><iframe title="mixUP 위젯" src="http://mixsh.com/widget/new_mixup/loader_plugin.html?domain=linuxholic.tistory.com&amp;media_type=10&amp;guid=linuxholic.tistory.com%2F65&amp;regts=1175433642&amp;showhitcnt=1&amp;platform=10" frameborder="0" scrolling="no" allowtransparency="true" width="402" height="130"></iframe></div><div class="another_category another_category_color_blue">
+<h4>'<a href="/category/리눅스의%20모든것">리눅스의 모든것</a>' 카테고리의 다른 글</h4>
+<table>
+<tbody><tr>
+<th>
+<a href="http://linuxholic.tistory.com/50">리눅스 명령어 - ab</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2007/04/01</td>
+</tr>
+<tr>
+<th>
+<a href="http://linuxholic.tistory.com/49">우분투 서버 버전 설치</a>&nbsp;&nbsp;<span>(1)</span>
+</th>
+<td>
+2007/04/01</td>
+</tr>
+<tr>
+<th>
+<a href="http://linuxholic.tistory.com/65" class="current">FTP 명령어 사용법</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2007/04/01</td>
+</tr>
+<tr>
+<th>
+<a href="http://linuxholic.tistory.com/48">ubuntu 글꼴 설정하기</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2007/04/01</td>
+</tr>
+<tr>
+<th>
+<a href="http://linuxholic.tistory.com/46">ubuntu 베릴(Beryl) 설치하기 2</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2007/04/01</td>
+</tr>
+<tr>
+<th>
+<a href="http://linuxholic.tistory.com/45">ubuntu 베릴(Beryl) 설치하기 1</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2007/04/01</td>
+</tr>
+</tbody></table></div>
+<br>
+<center>
+<script type="text/javascript"><!--
+google_ad_client = "pub-5604224655774045";
+/* 468x60, 작성됨 09. 10. 21 */
+google_ad_slot = "7150361867";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><iframe width="468" height="60" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</center>
+<p>
+							</p></div>

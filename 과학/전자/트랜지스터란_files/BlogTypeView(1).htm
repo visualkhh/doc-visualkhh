@@ -1,0 +1,2206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0081)http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin= -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=IE7">
+
+<meta http-equiv="imagetoolbar" content="no">
+ 
+
+
+<title>트랜지스터란</title>
+<meta name="title" content="트랜지스터란">
+<meta name="author" content="프론토">
+<meta name="keywords" content="트랜지스터,벨연구소">
+<meta name="description" content="">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.daum.net/xml/rss/yongsanct">
+<link rel="alternate" type="application/atom+xml" title="ATOM" href="http://blog.daum.net/xml/atom/yongsanct">
+<link rel="stylesheet" type="text/css" href="blog_basicEx.css">
+<link id="fontStyle" rel="stylesheet" type="text/css" href="038.css">
+<style type="text/css" id="userStyle">
+/**
+	본 파일을 수정할 경우엔 designAllCss.jst 도 수정 부탁드립니다.!! 
+*/
+/** Title Background *******************************************************/
+#mainTitleEditor {
+			height:184px;
+	}
+
+#mainTitle {
+			height:184px;
+	}
+
+/* border height */
+
+.titleLink {
+			height: 184px;
+	}
+
+#titleBackground {
+			height: 184px;
+				background-color: transparent;
+							background-image:url("http://cfile216.uf.daum.net/image/263AB53751B8099E24D7BA");
+				background-repeat: no-repeat;
+			opacity: 1.0; 
+			
+			border-style: none;
+				border-width: 0px;
+				border-color: #000000;
+			background-position: right top;
+				border: none !important;
+	}
+
+* html #titleBackground {
+				}
+
+.containerforWrite #titleBackground { 
+	}
+
+* html .containerforWrite #titleBackground {
+				}
+
+/* Blog Name */
+#titleBlogName { filter: alpha(opacity=0); opacity: 0; }
+#titleBlogName object { width: 1px !important; height: 1px !important; }
+#titleBlogName { top: 42px; left: 423px; }
+#titleBlogName img { 
+	width: 103px; height: 30px;
+			background-image: url("http://cfile293.uf.daum.net/original/26199B4851B918282A0D9B");
+		_background-image: none;
+		_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cfile293.uf.daum.net/original/26199B4851B918282A0D9B', sizingMethod='crop')
+	}
+
+/* Blog Desc */
+#titleBlogDesc { filter: alpha(opacity=0); opacity: 0; }
+#titleBlogDesc object { width: 1px !important; height: 1px !important; }
+#titleBlogDesc { top: 87px; left: 350px; }
+#titleBlogDesc img { 
+	width: 276px; height: 35px;
+			background-image: url("http://cfile248.uf.daum.net/original/2715A2395288649436EA5B");
+		_background-image: none;
+		_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cfile248.uf.daum.net/original/2715A2395288649436EA5B', sizingMethod='crop')
+	}
+
+/** Title Menu *******************************************************/
+#titleMenu { filter: alpha(opacity=0); opacity: 0; }
+#titleMenu object { width: 1px !important; height: 1px !important; }
+#titleMenu { top: 140px; left: 14px; }
+
+ /* btn type */
+		
+			#titleMenu { width: auto; height: auto; }
+	#titleMenuBg { width: auto; height: 34px; background: url("http://cfile294.uf.daum.net/original/01199B4851B918282C2358") no-repeat; }
+	* html #titleMenuBg { background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://cfile294.uf.daum.net/original/01199B4851B918282C2358', sizingMethod='crop'); }
+	#titleMenu ul { margin: 0; height:34px; }
+	#titleMenu li.mbar { display: none; }
+	#titleMenu li a { position: relative; height: 34px; margin: 0; font-size: 0; font-size: 0; text-indent: -1000em; }
+	
+	       	#titleMenu a.menu1 { width: 38px; height: 34px; }
+	       	#titleMenu a.menu2 { width: 50px; height: 34px; }
+	       	#titleMenu a.menu3 { width: 61px; height: 34px; }
+	       	#titleMenu a.menu4 { width: 50px; height: 34px; }
+	       	#titleMenu a.menu5 { width: 61px; height: 34px; }
+	       	#titleMenu a.menu6 { width: 61px; height: 34px; }
+	
+/** Background Color *******************************************************/
+	body {
+														background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/bg/a136_bg_pt.jpg");
+								background-repeat: repeat;
+										background-color: transparent;
+			} 
+
+/** Background Image *******************************************************/
+#wrap, #wrap2 {
+										background-image: none;
+										background-repeat: no-repeat;
+							background-position: center top;
+			}
+
+/** Frame Color *******************************************************/
+.container {
+			background-color:transparent;
+		padding: 7px 7px;
+							background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/container/t003/W_bg.gif");
+			padding: 0 7px;
+							border-style: none;
+				border-width: 1px;
+		
+				border-color: #00FF00;
+		
+			padding: 0 7px;
+		
+			border: none !important;
+	}
+
+.containerforWrite {
+			background-color: transparent;
+		padding: 7px 7px;
+							background-image:url("http://i1.daumcdn.net/pimg/blog4/skin/container/t003/W_bg.gif");
+			padding: 0 7px;
+			
+			border-style: none;
+				border-width: 1;
+					border-color: #00FF00;
+		
+			padding: 0 7px;
+		
+			border: none !important;
+	}
+
+/** Frame Image *******************************************************/
+.containerTop {  
+						background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/container/t003/W_top.png");
+						height: 10px;
+	}
+.containerTopforWrite {  
+						background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/container/t003/W_top.png");
+						height: 10px;
+	}
+
+.containerBot {  
+						background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/container/t003/W_bottom.png");
+						height: 10px;
+	}
+
+.containerBotforWrite {  
+						background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/container/t003/W_bottom.png");
+						height: 10px;
+	}
+
+/** Article *******************************************************/
+.contBgColor { 
+			background-color:transparent;
+	}
+
+#cContentWriteArea { background-color:#fff; }
+#cContentWriteArea span.g_999 { color:#999; }
+
+
+	.contentBoxT .roundTL { background: transparent; }
+	.contentBoxT .roundTC { background: transparent; }
+	.contentBoxT .roundTR { background: transparent; }
+	.contentBoxB .roundBL { background: transparent; }
+	.contentBoxB .roundBC { background: transparent; }
+	.contentBoxB .roundBR { background: transparent; }
+	.cContentOuter { background: transparent; }
+	.cContentinner { background: transparent; }
+	.cContentBox {
+			border-style: none;
+				border-width: 0px;
+				border-color: #000000;
+				border: none !important;
+		}
+	.tableSelectedList .btn_cateMove, .tableSelectedList .btn_modify, .tableSelectedList .btn_del, .tableSelectedList .btn_selAll {
+		background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/bbs/p024/bt_gbn.gif?v=0.2");
+	}
+	#cContent .btn_mart_register { 
+		background: url("http://i1.daumcdn.net/pimg/blog4/skin/bbs/p024/b_g_write.png") no-repeat;
+		_background-image: none; 
+		_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/skin/bbs/p024/b_g_write.png', sizingMethod='crop');
+	}
+
+/* text title */
+#cContent .cB_Title, #cContent .cB_Title a, #cContent .cB_Title a:hover, #cContent .cB_Title a:link, #cContent .cB_Title a:visited { 
+			color: #332e15;
+	}
+
+#cContent .titleColor, #cContent .titleColor a, #cContent .titleColor a:hover, #cContent .titleColor a:link, #cContent .titleColor a:visited { 
+			color: #332e15;
+	}
+
+#contentArea .BasicA .cB_Title, #contentArea .WebDView .cB_Title, #contentArea .GalC .cB_Title {
+				font-size: 16px;
+	}
+
+.cB_Amp, .cB_Amp a, .cB_Amp a:hover, a.cB_Amp, a.cB_Amp:hover, #cContent .cB_Amp, #cContent span.cB_Amp, #cContent .cB_Amp a, #cContent .cB_Amp a:hover, #cContent a.cB_Amp, #cContent a.cB_Amp:hover, #contentArea span.cB_Amp, #contentArea a.cB_Amp, #contentArea a.cB_Amp:hover {
+			color:#b61a3f;
+	}
+
+.contColor, a.contColor:link, a.contColor:visited, a.contColor:hover, a.contColor:active,
+#cS_mainTitle h2, #contentArea, #contentArea a, #contentArea a:hover, #contentArea span, #contentArea div, #contentArea th, #contentArea td, #contentArea li,
+#wrapSideMenu, #wrapSideMenu a, #wrapSideMenu a:hover, #wrapSideMenu span, #wrapSideMenu div, #wrapSideMenu th, #wrapSideMenu td, #wrapSideMenu li,
+#cNumbering *, #preNextBox * {
+			color: #4d4938;
+	}
+
+.headLine, .tdLine, .LasttdLine, .postBorder, .cCont_lineBasicClr, .cCont_line, .cContTitleLine, .cContBotLine, .cBlogBoxbg {
+			border-color:#4d4938;
+	}
+
+#cContent div.ampLine {
+			border-color:#b61a3f;
+	}
+
+#cNumbering a.Select, #cRNumbering a.Select {
+			color: #b61a3f;
+	}
+
+#rssContent .wrapFeedBorder {
+			border-color: #b61a3f;
+	}
+
+/* 방명록 */
+div.opinionList div.cCont_line { 
+			border-bottom-color: #4d4938;
+	}
+
+div.opinionListBox, div.trackbackSend , div.trackList, div.opinionList div.contReArea, div.opinionList div.contReReArea, div.opinionList div.contModArea, div.opinionList div.contReModArea, div.fileList { 
+			background-color: #f5f5f5;
+	}
+.WebDsumList li, .GalleryList li, .GallerySumList li .imgWrap {
+			border: 1px solid #f5f5f5;
+	}
+
+div.writefrm, .writeTable .contReArea .box { 
+			background-color: #f5f5f5;
+	}
+
+.contPostColorBg {
+			background-color: #4d4938;
+	}
+
+#cContent .dTitle .titleColor {
+			color:#b61a3f;
+	}
+
+/** Sidebar *******************************************************/
+/* menuTitle */
+.menuBox .menuTitle {
+ 			background-color: transparent;
+							background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/top.png"); 
+			background-repeat: no-repeat;
+			_background-image: none; 
+			_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/top.png', sizingMethod='crop');
+						height: 37px;
+	}
+
+.menuBox .menuTitle h3 { 
+			color: #ffffff;
+				margin-top: 17px;
+	}
+
+.menuTitle input, .menuTitle h3 a, .menuTitle h3 a:link, .menuTitle h3 a:visited, .menuTitle h3 a:hover, .menuTitle h3 a:active { 
+			color: #ffffff;
+	}
+
+/* menuBody */
+.menuBox .menuBody {
+ 			background-color: transparent;
+							background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/bg.gif");
+				background-repeat: repeat-y; 
+	}
+
+/* menuBody fontcolor */
+.menuBody {
+			color: #464646;
+	}
+
+.sideListClr, a.sideListClr:link, a.sideListClr:visited, a.sideListClr:hover, a.sideListClr:active { 
+			color: #464646; 
+	} 
+a.sideListClr:hover { text-decoration:underline; } 
+
+a.d_12_4F4E4A:link, a.d_12_4F4E4A:visited, a.d_12_4F4E4A:hover, a.d_12_4F4E4A:active { /*Only Alarmy*/
+			color: #464646; 
+	} 
+
+#Category div.menuBody li.categoryLine { 
+			border-color: #464646; 
+	}
+
+#Blogzone .line, #Blogzone .menuBody .bar, .alimi .no_noti .noti_line {
+			background-color: #464646; 
+	}
+/* 알리미 */
+.alimi .point, #alimiArticleList .cont .point, #alimiArticleList .cont .point:link, #alimiArticleList .cont .point:hover, #alimiArticleList .cont .point:active  {
+			color:#b61a3f;
+	}
+/* menuBody Align */
+.menuBody {
+			text-align: left ;
+	}
+
+/* menuBot */
+.menuBox .menuBot {
+ 			background-color: transparent;
+							background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/bottom.png"); 
+			background-repeat: no-repeat;
+			_background-image: none; 
+			_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/bottom.png', sizingMethod='crop');
+						height: 5px;
+	}
+
+/* border */
+.menuBox .menuWraper {
+			border-style: none;
+				border-width: 0px;
+					border-color: #000000;
+				border: none !important;
+	} 
+
+/* group */
+.sideBox .menuGroupBg {
+		background-color: transparent;
+	}
+
+.sideBox .menuGroupTop {
+						background-image: none;
+						height: 0px;
+	}
+
+.sideBox .menuGroupBg {
+						background-image: none;
+				background-repeat: repeat-y;
+	}
+
+.sideBox .menuGroupBot {
+						background-image: none;
+						height: 0px;
+	}
+
+/* group border */
+
+
+.menuGroupBox  {
+			width: 171px;
+				border-style: none;
+				border-width: 0px;
+				border-color: #000000;
+				border: none !important;
+	}
+
+.menuGroupBg {
+}
+
+/* category icon */
+#Category .menuBody .listType1 { background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/side_icon.gif?v=1.1"); }
+#Category .menuBody .lockedList { background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/side_icon.gif?v=1.1"); }
+
+/* arrow icon */
+.menuBox .menuTitle img.arrowup { 
+	background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/side_icon.gif?v=1.1");
+			margin-top: 17px;
+	}
+.menuBox .menuTitle img.arrowdown { 
+	background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/side_icon.gif?v=1.1");
+			margin-top: 17px;
+	}
+
+/* fold icon */
+.menuBody .alimListPlus { background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/side_icon.gif?v=1.1"); }
+.menuBody .alimListMinus { background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/sidebar/p021/side_icon.gif?v=1.1"); }
+
+/* favorite - sidebar */
+.favoTitleColor {
+			color: #332e15;
+	}
+.favoPostColor {
+			color: #4d4938;
+	}
+
+/* calYearList, calMonthList */
+div#Archive div#calYearList { 
+			background-color: transparent;
+				background-color: transparent;
+	}
+div#Archive div#calMonthList { 
+			background-color: transparent;
+				background-color: transparent;
+	}
+
+/** Profile *******************************************************/
+/* profile bgcolor */
+#Profile .menuEtcWraper {
+			background-color: transparent; 
+	}
+.profile_edit_inner, .profile_edit_inner .box {
+			background-color: #f5f5f5;
+	}
+
+/* profile top */
+#Profile .menuMain {
+						background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/profile/a011_top.png");
+			background-repeat: no-repeat;
+			_background-image: none; 
+			_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/skin/profile/a011_top.png', sizingMethod='crop');
+			}
+
+/* profile body */
+#Profile .profileMenuBody {
+						background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/profile/a011_bg.gif");
+						margin-top: 16px; 
+	}
+
+/* profile bottom */
+#Profile .profileMenuBot {
+						background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/profile/a011_bottom.png");
+			background-repeat: no-repeat;
+			_background-image: none; 
+			_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://i1.daumcdn.net/pimg/blog4/skin/profile/a011_bottom.png', sizingMethod='crop'); 
+						height: 10px; 
+	}
+
+/* profile fontcolor */
+.profileColor, a.profileColor:link, a.profileColor:visited, a.profileColor:hover, a.profileColor:active { 
+			color: #555555; 
+	}
+
+.bestBlogLine {
+			 border-top: 1px solid #555555;
+	}
+
+#Profile {
+			text-align: left ; 
+	}
+.profile_edit_inner .box {
+			color: #4d4938;
+	}
+
+/* profile border */ 
+#Profile .menuEtcWraper {
+			border-style: none;
+				border-width: 0px;
+				border-color: #000000;
+				border: none !important;
+	} 
+
+/** Daum menu *******************************************************/
+#bgmBtn img, .btn_bgmList, .ic_bgmControl, .sideBgm_volumeBg, .sideBgm_volume, .miniArrUp, .miniArrDown, .btn_login, .btn_logout {
+						background-image: url("http://i1.daumcdn.net/pimg/blog4/skin/daummenu/p021_daummenu.gif");
+				background-repeat: no-repeat;
+}
+#top_Rmenu li, #top_Rmenu li *, .new_bgm_marquee { color: #464646; }
+
+/** 스킨에 따른 버튼 skin buttons *******************************************************/
+.profileButton { background:url("http://i1.daumcdn.net/pimg/blog4/skin/bbs/p024/bt_profile.gif") no-repeat; display:block; }
+.gbButton { background:url("http://i1.daumcdn.net/pimg/blog4/skin/bbs/p024/bt_gbn.gif?v=0.2") no-repeat; display:block; text-indent:-1000em; overflow:hidden; }
+.rssButton { background:url("http://i1.daumcdn.net/pimg/blog4/skin/bbs/p024/bt_rss.gif") no-repeat; display:block; text-indent:-1000em; overflow:hidden; }
+
+#daumSearch { background:url("http://i1.daumcdn.net/pimg/blog4/skin/bbs/p024/bt_cs.gif") no-repeat 0px 0px; }	html img {-webkit-touch-callout:none;}
+	html img {-webkit-user-select:none;}
+</style>
+<script type="text/javascript" language="javascript">window.__TiaraObj = { startTime:new Date() };window.isAjax=false;//Tiara</script><style type="text/css"></style><style type="text/css"></style>
+ <script type="text/javascript" language="javascript" src="jigu.min.js"></script>
+<script type="text/javascript" src="engine.js"></script>
+<script type="text/javascript" src="blog_noti_manager.js"></script>
+<script type="text/javascript" language="javascript" src="ux_mainEx.js"></script></head><body onload="historyInitailize();onloadExecute();this.focus();"><iframe style="border: 0px; width: 0px; height: 0px; position: absolute; bottom: 0px; right: 0px; visibility: visible;" name="PVGenFrame" id="PVGenFrame" src=""></iframe>
+<script type="text/javascript" language="javascript" src="common_view.js"></script>
+<script type="text/javascript" language="javascript" src="swfobject2.js"></script>
+<script type="text/javascript" language="javascript" id="dynamicContent"></script>
+<script type="text/javascript" language="javascript">
+<!--
+
+var formtags=["input", "textarea", "select", "html" , "embed", "object"];
+var blurtags=["input","textarea"];
+function disableselect(e){
+	if(typeof e == "undefined") return;
+	var oldTarget = document.activeElement || null;
+	var el = e.srcElement || e.target;
+	var tagName = el.tagName.toLowerCase();
+	for(var i=formtags.length;i>=0;i--){
+		if(formtags[i]==tagName) return true;
+	}
+	if (navigator.userAgent.toLowerCase().indexOf("gecko") != -1) {
+		document.body.style.MozUserSelect = 'none';
+	}
+	var oldTagName = oldTarget?oldTarget.tagName.toLowerCase():"";
+	if(blurtags.indexOf(oldTagName) != -1 && oldTarget.blur){
+		oldTarget.blur();
+	}
+	return false;
+}
+function reEnable(){
+	if (navigator.userAgent.toLowerCase().indexOf("gecko") != -1) {
+		document.body.style.MozUserSelect = '';
+	}
+	return true; 
+}
+
+	if (document.addEventListener){
+		document.addEventListener('selectstart', blockContent, false);
+		document.addEventListener('dragstart', blockContent, false);
+		document.addEventListener('contextmenu', blockContent, false);
+		document.addEventListener('keydown', blockContent, false);
+		//document.addEventListener('touchstart', blockContent, false);
+		//document.addEventListener('touchmove', blockContent, false);
+		//document.addEventListener('touchend', blockContent, false);
+		//document.addEventListener('touchcancel', blockContent, false);
+		document.onmousedown = disableselect;
+		document.onmouseup = reEnable;
+	} else if (document.attachEvent){
+		document.attachEvent('onselectstart', blockContent);
+		document.attachEvent('ondragstart', blockContent);
+		document.attachEvent('oncontextmenu', blockContent);
+	}
+
+function downlog(info){
+	var temp = new Image();
+	if(null != info){
+		if(info.split("|").length == 3){
+	temp.src="http://blog.daum.net/DOWNLOAD.jpg?"+info;
+}
+		else{
+			temp.src=info;
+		}
+	}
+	
+}
+function tiaraClick(section, item, referer) {
+	var tiaraParam = "&t__nil_" + section + "=" + item;
+	var d_url = document.location.href;
+	var dummy = getDummy();
+	var img = new Image(1,1);
+	var encodedReferer = "";
+	
+	if(d_url.indexOf("#ajax")>0){
+	   d_url = d_url.substring(0,d_url.indexOf("#ajax"));
+	}
+	
+	if(!!referer){
+		encodedReferer = "&referer=" + encodeURIComponent(referer);
+	}
+   
+	img.src = 'http://tiara.daum.net/tiara.front/front/click/?dummy=' + dummy + encodedReferer + '&url=' + d_url + tiaraParam;
+}
+function getDummy() {
+    return new Date().getTime() + Math.ceil(Math.random() * 2147483647);
+}
+function goPostNewEditor(isChange, nil){
+	var nilTag = (!nil) ? "" : "&" + nil;
+	var obj = document.getElementById("CATEGORYID");
+	if( isChange != 'undefined' && (isChange == true || isChange == 'new') ) {
+    	var nowUrl = document.location.href;
+		var forwardUrl="";
+    	if( nowUrl.indexOf("ArticleRegisterEnter.do") > -1 ) {
+    		nowUrl = nowUrl.replace("ArticleRegisterEnter.do" ,"ArticleRegisterEnter2.do");
+    		nowUrl = nowUrl.replace("&isneweditoruser=N" ,"");
+    		nowUrl = nowUrl.replace("#ajax_history_home" ,"");
+			forwardUrl = nowUrl;
+    	} else {
+    		var categoryid = obj ? obj.value : "";
+        	forwardUrl="/_blog/ArticleRegisterEnter2.do?blogid=" + BLOGID + "&cateID="+categoryid + "&navi=-1";
+		}
+		
+		if(isChange == 'new'){
+			forwardUrl = forwardUrl+"&isneweditoruser=Y"; 
+		}
+		document.location.href = forwardUrl + nilTag;
+	} else {
+    	var categoryid = obj ? obj.value : "";
+    	document.location.href="/_blog/ArticleRegisterEnter2.do?blogid=" + BLOGID + "&cateID="+categoryid + "&navi=-1" + nilTag;
+	}
+}
+document.domain = "daum.net";
+
+var BLOGID="065fc";
+var BLOGNAME="yongsanct";
+var HOST="http://blog.daum.net";
+
+
+//-->
+</script>
+<script type="text/javascript">
+<!--
+ 		try {
+		top.document.title = "트랜지스터란".unescapeHTML();
+	} catch(e) {}
+	function initHome() {
+		setMainTitleHeight();
+
+				
+		 		
+					 				BlogBgm.load('15764');
+				
+								
+		 		
+					 								
+		 		
+					 								
+		 		
+					 								
+		 		
+										
+		 		
+										
+		 		
+					 
+								
+		 		
+									setDefaultText();
+	KeyManager.attachEvent();
+}
+
+function drawTag(sMenuListColor, sMenuBgColor, sSideBgColor) {
+			if(sMenuListColor == "transparent") {
+		sMenuListColor = "";
+	} else {
+		sMenuListColor = sMenuListColor.substring(1);
+	}
+	if(sMenuBgColor == "transparent") {
+		sMenuBgColor = sSideBgColor;
+		if(sMenuBgColor == "transparent") {
+			sMenuBgColor = "";
+		} else {
+			sMenuBgColor = sMenuBgColor.substring(1);
+		}
+	} else {
+		sMenuBgColor = sMenuBgColor.substring(1);
+	}
+	daumFlash_general('http://i1.daumcdn.net/pimg/blog3/tag/blog_tagcloud18.swf?blogid='+BLOGID+'&kind=G&host=blog.daum.net&textcolor='+sMenuListColor+'&bgcolor='+sMenuBgColor,'160','160','tagCloud');
+}
+
+function drawPostingMap() {
+	window.callbackPostingMap = function() {
+		var flash = document.getElementById('myRouteViewer');
+			};
+	
+	var fWidth = "155";
+	if (navigator.userAgent.indexOf("MSIE 9.0") > 0 || navigator.userAgent.indexOf("Trident/5.0") > 0) {
+		fWidth = "156";	// IE9 플래시 버그
+	}
+	if (document.getElementById('myRouteFlashContainer')) {
+		swfobject.embedSWF(	"http://i1.daumcdn.net/pimg/UX-SWF/20111208/blogMapSidebar.swf", "myRouteFlashContainer", fWidth, "213", "9.0.0", false, 
+			{ callback:"callbackPostingMap" }, 
+			{ wmode:"transparent", bgcolor:"#ffffff", allowscriptaccess:"always", salign:"tl", scale:"noscale", quality:"high" }, 
+			{ id:"myRouteViewer", name:"myRouteViewer" }
+		);
+	}
+}
+
+ContentViewer.initViewer({
+	sBlogId : "065fc",
+	isBlock:  true ,	
+	sFontCss: "http://s1.daumcdn.net/pimg/blogcss/webfontcss/038.css?20111116",
+	sFontColor: "#4d4938",
+	sViewJs: "http://s1.daumcdn.net/pimg/UX-JS_2008/20120321/common_view.js"
+});
+
+
+
+//-->
+</script>
+<script type="text/javascript">
+var USERINFO = new Object();
+USERINFO.blogname="이름";
+USERINFO.blogPwd="****";
+USERINFO.blogCheck="블로그 또는 이메일 주소";
+USERINFO.isHidden="N";
+USERINFO.nickname="프론토";
+USERINFO.blogid="065fc";
+	USERINFO.islogin="N";
+
+function skipid(id) {
+	if(document.getElementById(id)){
+		document.getElementById(id).focus();
+	}
+}
+
+</script>
+		
+<script type="text/javascript">
+<!--
+var	sContentWidth = "764";
+
+function checkNewsOpenType(){
+	var isAlreadySendNews = false;
+	
+	//Daum view 기사송고 여부
+	if((document.dataInfo.mediadaum && document.dataInfo.mediadaum.checked) || isAlreadySendNews){
+		if(!checkArticleOpenType()){
+			return false;
+		}			
+	}
+	
+	return true;
+}
+
+function checkArticleOpenType(){
+						
+	frm = document.dataInfo;
+	for(var i=0;i<frm.articleOpen.length;i++){
+		if(frm.articleOpen[i].checked)
+			articleopen=frm.articleOpen[i].value;
+	}
+	
+	var oSelectObject = frm.categoryID;
+	var nSelectedIndex = oSelectObject.selectedIndex;
+	var oOption = oSelectObject.options[nSelectedIndex];
+	var oSelectObject2 = frm.categoryID2;
+	var type = "Y";
+	if( oSelectObject2.length > nSelectedIndex ) {
+		var oOption = oSelectObject2.options[nSelectedIndex];
+		type = oOption.value;
+	}		
+	
+	if(articleopen != "B0301" || oRegForm.blogOpenKind.value != "B0601" || type != "Y") {
+		return false;
+	}
+	
+	return true;
+	
+}
+
+function uncheckFeed(){
+		document.dataInfo.mediadaum.checked = false;
+	}
+
+function getAuthMovie() {
+
+	try {
+				
+		    	var	openBlogInfo = "1";
+    		
+		if( openBlogInfo != "1" ) {
+			return false;
+		}
+		if( !document.getElementById("publicText_a").checked ) {
+			return false;
+		}
+		var oSelectObject = document.getElementById("dataInfo").categoryID;
+		var oSelectObject2 = document.getElementById("dataInfo").categoryID2;
+		var nSelectedIndex = oSelectObject.selectedIndex;
+		var oOption = oSelectObject2.options[nSelectedIndex];
+		var type = oOption.value;
+		if( type != "Y" ) {
+			return false;
+		}
+		
+		return true;
+	}catch( e ) {
+		return false;
+	}
+}
+
+
+//-->
+</script>
+
+<fieldset id="quickLink" style="padding:10px; display: none;">
+	<legend>바로가기</legend>
+	<ul>
+		<li><a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#cContent" onclick="skipid(&#39;cContent&#39;)">메인 컨텐츠로</a></li>
+		<li><a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#naviBar" onclick="skipid(&#39;naviBar&#39;)">네비게이션 메뉴로</a></li>
+		<li><a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#sideBar" onclick="skipid(&#39;sideBar&#39;)">사이드 메뉴로</a></li>
+		<li><a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#mainBody" onclick="skipid(&#39;mainBody&#39;)">메인 메뉴로</a></li>
+		<li><a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#footer" onclick="skipid(&#39;footer&#39;)">copyright</a></li>
+	</ul>
+</fieldset>
+	 	 	 	 	 	 	 	 	 					 <form name="scrapform" method="post" action="">
+			<input type="hidden" name="goplanet" value="http://scrap.cafe.daum.net/_dss_/scrap_blog?target_location_code=3">
+			<input type="hidden" name="gocafe" value="http://scrap.cafe.daum.net/_dss_/scrap_blog?target_location_code=1">
+			<input type="hidden" name="goblog" value="http://scrap.cafe.daum.net/_dss_/scrap_blog?target_location_code=4">
+			<input type="hidden" name="gomail" value="http://scrap.cafe.daum.net/_dss_/scrap_blog?target_location_code=15">
+			<input type="hidden" name="goyozm" value="http://yozm.daum.net/api/popup/prePost?sourceid=22">
+			<input type="hidden" name="location_id" value="065fc">
+			<input type="hidden" name="folder_id">
+			<input type="hidden" name="data_id">
+			<input type="hidden" name="source_location_code" value="4">
+			<input type="hidden" name="source_etc" value="blog">
+			<input type="hidden" name="scrap_etc">
+		</form>
+		<form name="blackInfo" method="post" action="http://blog.daum.net/_blog/BlackListRegister.do">
+			<input type="hidden" name="blogid" value="065fc">
+			<input type="hidden" name="jobKind" value="">
+			<input type="hidden" name="blackConf" value="">
+			<input type="hidden" name="blackKind" value="">
+		</form>
+		<form name="trackform" method="post" action="http://blog.daum.net/_blog/TrackbackDelete.do">
+			<input type="hidden" name="blogid" value="065fc">
+			<input type="hidden" name="articleno" value="">
+			<input type="hidden" name="no" value="">
+			<input type="hidden" name="regdt" value="">
+		</form>
+		<form name="delFrm" method="post" action="http://blog.daum.net/_blog/CommentDelete.ajax">
+    		<input type="hidden" name="blogid" value="065fc">
+    		<input type="hidden" name="articleno" value="">
+    		<input type="hidden" name="cmmtno" value="">
+    		<input type="hidden" name="open" value="">
+    		<input type="hidden" name="mode" value="">
+    		<input type="hidden" name="regdt" value="">
+    		<input type="hidden" name="euserid" value="">
+    		<input type="hidden" name="password" value="">
+   		</form>
+		<form name="blackListRegFrm" method="post" action="http://blog.daum.net/_blog/blackListReg.ajax">
+    		<input type="hidden" name="blogid" value="065fc">
+    		<input type="hidden" name="new" value="y">
+    		<input type="hidden" name="jobKind" value="">
+    		<input type="hidden" name="blackKind" value="">    		
+    		<input type="hidden" name="blackConf" value="">
+    		<input type="hidden" name="comment" value="">
+   		</form>   		
+		<form name="filefilterForm" method="post">
+			<input type="hidden" name="filePath" value="">
+			<input type="hidden" name="fileUrl" value="">
+			<input type="hidden" name="fileKeyno" value="">
+			<input type="hidden" name="fileName" value="">
+		</form>				
+<div id="ajax_submit_layer"></div>
+<iframe id="ArticleBgmPlay" title="게시글 음악 플레이어" name="ArticleBgmPlay" frameborder="0" width="0" height="0" style="position: absolute; z-index: 1;" scrolling="no"></iframe>
+<form name="formBGM2">
+	<input type="hidden" name="vol" size="3" value="30" onchange="ArticleBgm.setVolume()">
+</form>
+<div id="ajax_layer_load"><object id="daumActiveXObject98" name="daumActiveXObject98" type="application/x-shockwave-flash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="110" height="21" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,23,0" onmouseover="test1()" onmouseout="test2()" undefined="undefined">
+<param name="movie" value="http://i1.daumcdn.net/pimg/blog/p_img2/loading.swf">
+<param name="src" value="http://i1.daumcdn.net/pimg/blog/p_img2/loading.swf">
+<param name="quality" value="high">
+<param name="wmode" value="transparent">
+<param name="allowScriptAccess" value="always">
+<param name="allowFullScreen" value="true">
+<param name="bgcolor" value="#FFFFFF">
+<param name="pluginspage" value="http://www.macromedia.com/go/getflashplayer">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<param name="undefined" value="undefined">
+<embed id="daumActiveXObject78" name="daumActiveXObject78" type="application/x-shockwave-flash" width="110" height="21" movie="http://i1.daumcdn.net/pimg/blog/p_img2/loading.swf" src="http://i1.daumcdn.net/pimg/blog/p_img2/loading.swf" quality="high" wmode="transparent" allowscriptaccess="always" allowfullscreen="true" bgcolor="#FFFFFF" pluginspage="http://www.macromedia.com/go/getflashplayer" undefined="undefined">
+</object>
+</div>
+<div id="dashboard">
+	<div id="resultBox" class="lefttop"><div id="resultTop"></div><div id="resultarea"></div><div id="resultBot"></div></div>
+</div>
+<div id="globalLayer">
+</div>
+<div id="footnoteBox"></div>
+<div id="wrap" class="wrapLayout2_L wrapAlignC wrapWidthW wrapSpec2_LW wrapLangKR">
+
+		<!-- 미니다음 -->
+<div id="minidaum">
+	<div id="top_minidaum">
+		<div id="top_Lmenu"><!-- div style="padding: 5px 0 0 0"><a target="_top" style="color:#828282">내 블로그의 특별한 순간들!</a></div --></div>
+		<div id="top_Rmenu">
+		<ul class="Y">
+							<li class="minidaum_menu" style="width:185px;">
+					<!-- 배경음악 -->
+					<div id="BGM" class="Bgm_box"></div>
+				</li>
+						<li class="login_btn minidaum_menu">
+											    <a href="http://login.daum.net/accounts/loginform.do?url=http://blog.daum.net/yongsanct&category=blog" target="_top"><img class="btn_login" src="img_blank.gif" alt="로그인"></a>
+					    				</li>
+						<li class="minidaum_menu"><a class="menu_link" href="http://www.daum.net/?t__nil_blognavi=daum" target="_top">Daum</a></li>
+			<li class="vBar">|</li>
+			<li class="minidaum_menu"><a class="menu_link" href="http://blog.daum.net/?t__nil_blognavi=blog" target="_top">블로그</a></li>
+			
+					        
+	        			<li class="vBar">|</li>
+			<li class="minidaum_menu">
+				<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#;" onclick="chg_class(this, &#39;&#39;, &#39;qMenu_service&#39;, &#39;serviceArr&#39;); return false;">바로가기&nbsp;<img id="serviceArr" class="miniArrDown" src="img_blank.gif"></a>
+				<div class="lay_quickmenu minidaum_lay lay_by_right" id="qMenu_service">
+					<ul class="list_quickmenu">
+						<li class="fst"><a href="http://cafe.daum.net/?t__nil_blognavi=link&nil_id=1" class="link" target="_top">카페</a></li>
+						<li><a href="http://mail.daum.net/hanmail/Goto.daum?error=login&t__nil_blognavi=link&nil_id=2" class="link" target="_top">메일</a></li>
+						<li><a href="https://mypeople.daum.net/mypeople/web/top.do" class="link" target="_top">마이피플</a></li>
+						<li><a href="http://media.daum.net/" class="link" target="_top">뉴스</a></li>
+						<li><a href="http://shopping.daum.net/main.daum" class="link" target="_top">쇼핑</a></li>
+						<li><a href="http://v.daum.net/?t__nil_blognavi=link&nil_id=5" class="link" target="_top">view</a></li>
+						<li><a href="http://widgetbank.daum.net/?t__nil_blognavi=link&nil_id=6" class="link" target="_top">위젯뱅크</a></li>
+					</ul>
+					<a class="btn_allview" href="http://www.daum.net/doc/sitemap/">전체보기</a>
+				</div>
+			</li>
+		</ul>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var articleTitleVer = '20100816';
+	</script>
+	<div id="containerTop" class="containerTop"></div>
+	<div id="container" class="container  containerWidth borderN">
+
+						<!-- 타이틀 -->
+		<div id="mainTitle">
+			<!-- 타이틀 배경 -->
+			<div id="titleBackground" class=""></div>
+			<div class="titleLink" onclick="document.location.href=&#39;/_blog/BlogTypeMain.do?blogid=065fc&#39;;"></div>
+						
+						</div><!-- end mainTitle -->
+									
+		<div id="mainBody" class="">	
+																	<div id="sideBar" class="sideBox">
+						<div class="menuGroupTop"></div>
+<div class="menuGroupBox ">
+	<div class="menuGroupBg">
+	<div id="sideBarCol1" class="sideColArea">
+																				
+																																
+ <div id="Profile" class="menuBox" style="position:relative; z-index: 2;">
+	<div class="menuEtcWraper ">
+		<div class="menuMain" id="ProfileMenuMain">
+			<div class="profileMenuBody">
+												
+									<img id="profileImg" src="1572241F4BD04D877D3683" width="141" alt="프로필 이미지">
+								        						<div class="title">
+            		<img src="download.blog" width="21" height="21" class="myicon" alt="">
+					<a href="javascript:;" onclick="chg_class_pos(this, &#39;this_user&#39;);" class="profileColor">프론토</a>		
+									</div> 
+				
+				<p id="profileIam" class="profileColor">
+									s<wbr>u<wbr>g<wbr>a<wbr>r<wbr>c<wbr>r<wbr>m<wbr>.h<wbr>o<wbr>s<wbr>t<wbr>i<wbr>n<wbr>g<wbr>.b<wbr>i<wbr>z<wbr>f<wbr>r<wbr>e<wbr>e<wbr>.k<wbr>r<wbr><br>
+
+								</p>
+				<div class="blogView profileColor">
+											<a href="http://v.daum.net/my/OIrgi4On6LM0" class="profileColor ic_reporter fl" target="_blank">view</a>
+						<span class="sVbar fl">|</span>
+										<a href="http://blog.daum.net/_blog/ProfileView.do?blogid=065fc" class="p11 profileColor profileView" onclick="viewAjaxArticle(&#39;/_blog/ProfileView.do?blogid=065fc&#39; , &#39;&#39;, &#39;-1&#39; ); return false;"><span class="kr">프로필</span><span class="en">Profile</span></a><span class="arrowright">▶</span>
+									</div> 
+							</div><!-- end menuBody -->
+			<img src="img_blank2.gif" width="0" height="0" alt="" class="profileMenuBot">
+		</div><!-- end menuMain -->
+	</div><!-- end menuWraper -->
+	<div style="position:relative">
+		<div id="this_user" class="top_sub_layer">
+		  <ul>				
+		  	<li class="out" onmouseover="chg_class(this, &#39;over&#39;)" onmouseout="chg_class(this, &#39;out&#39;)"><a href="javascript:;" onclick="addFriend(&#39;/_blog/FriendApp.do?blogid=&amp;friendBlogID=065fc&#39;); return false;">친구신청</a></li>
+		  	<li class="out" onmouseover="chg_class(this, &#39;over&#39;)" onmouseout="chg_class(this, &#39;out&#39;)"><a href="javascript:;" onclick="bookmark(&#39;yongsanct&#39;, &#39;Pronto&#39;); return false;">즐겨찾기</a></li>
+		  </ul>
+		</div>
+    </div>
+</div>
+																																
+ 	<div id="Statistic" class="menuBox">
+		<div class="menuWraper">
+			<div class="menuTitle">
+				<h3><span class="kr">방문통계</span><span class="en">Statistic</span></h3>
+				<img src="img_blank.gif" width="0" height="0" id="StatisticArrow" class="arrowup" onclick="foldMenuBox(this);">
+			</div>
+			<div class="menuBody" style="">
+												<span class="p11 sideListClr">
+						오늘 <b>7</b>
+						<span class="barredS">전체 <b>240100</b></span><br>
+						즐겨찾기 <b>6</b><br>													
+					</span>
+														<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" class="p11 sideListClr" onclick="window.open(&#39;newsletterPopup.do?blogid=065fc&#39;, &#39;newsletter&#39;, &#39;width=400, height=400&#39;); return false;">뉴스레터 구독/해지하기</a>
+						</div><!-- end menuBody -->
+			<img src="img_blank2.gif" width="0" height="0" alt="" class="menuBot">
+		</div><!-- end menuWraper -->
+	</div>
+																																
+ <div id="Category" class="menuBox">
+	<div class="menuWraper borderN">
+	<div class="menuTitle">
+		<h3>
+			<a href="javascript:;" onclick="foldMenuBoxTitle(&#39;CategoryArrow&#39;)"><span class="kr">카테고리</span><span class="en">Category</span></a>
+					</h3>
+		<img src="img_blank.gif" width="0" height="0" id="CategoryArrow" class="arrowup" onclick="foldMenuBox(this);">
+	</div>
+	<div class="menuBody" style="">
+		<ul>
+																																																																																							<li class="categoryTitle">
+							<a href="http://blog.daum.net/_blog/BlogTypeMain.do?blogid=065fc&alllist=Y" id="cateTitle" onclick="viewAjaxArticle(&#39;/_blog/BlogTypeMain.do?blogid=065fc&amp;alllist=Y&#39;, this  , &#39;-1&#39;  ); return false;" class="sideListClr listType1">전체보기</a>
+							<font class="p11 sideListClr pCnt">(<span id="totC">991</span>)</font>
+													</li>						
+																																																																																																		<li class="categoryList">
+																																																							<a href="http://blog.daum.net/_blog/ArticleCateList.do?blogid=065fc&CATEGORYID=664634&dispkind=B2201" onclick="viewAjaxCateArticle(&#39;/_blog/ArticleCateList.do?blogid=065fc&amp;CATEGORYID=664634&amp;dispkind=B2201&amp;navi=&#39;,&#39;664634&#39;  , &#39;-1&#39; ); return false;" id="linkCategory_664634" class="sideListClr  listType1 ">인터넷연구회</a>
+																																		<font class="p11 sideListClr pCnt">(<span id="totC664634">443</span>)</font>
+															</li>
+																																																																																																		<li class="categoryList">
+																																																							<a href="http://blog.daum.net/_blog/ArticleCateList.do?blogid=065fc&CATEGORYID=576149&dispkind=B2201" onclick="viewAjaxCateArticle(&#39;/_blog/ArticleCateList.do?blogid=065fc&amp;CATEGORYID=576149&amp;dispkind=B2201&amp;navi=&#39;,&#39;576149&#39;  , &#39;-1&#39; ); return false;" id="linkCategory_576149" class="sideListClr  listType1 ">통신전자전기</a>
+																																		<font class="p11 sideListClr pCnt">(<span id="totC576149">170</span>)</font>
+															</li>
+																																																																																																		<li class="categoryList">
+																																																							<a href="http://blog.daum.net/_blog/ArticleCateList.do?blogid=065fc&CATEGORYID=576150&dispkind=B2201" onclick="viewAjaxCateArticle(&#39;/_blog/ArticleCateList.do?blogid=065fc&amp;CATEGORYID=576150&amp;dispkind=B2201&amp;navi=&#39;,&#39;576150&#39;  , &#39;-1&#39; ); return false;" id="linkCategory_576150" class="sideListClr  listType1 ">추천명소</a>
+																																		<font class="p11 sideListClr pCnt">(<span id="totC576150">43</span>)</font>
+															</li>
+																																																																																																		<li class="categoryList">
+																																																							<a href="http://blog.daum.net/_blog/ArticleCateList.do?blogid=065fc&CATEGORYID=576147&dispkind=B2201" onclick="viewAjaxCateArticle(&#39;/_blog/ArticleCateList.do?blogid=065fc&amp;CATEGORYID=576147&amp;dispkind=B2201&amp;navi=&#39;,&#39;576147&#39;  , &#39;-1&#39; ); return false;" id="linkCategory_576147" class="sideListClr  listType1 ">U 방송국</a>
+																																		<font class="p11 sideListClr pCnt">(<span id="totC576147">195</span>)</font>
+															</li>
+																																																																																																		<li class="categoryList">
+																																																							<a href="http://blog.daum.net/_blog/ArticleCateList.do?blogid=065fc&CATEGORYID=150632&dispkind=B2201" onclick="viewAjaxCateArticle(&#39;/_blog/ArticleCateList.do?blogid=065fc&amp;CATEGORYID=150632&amp;dispkind=B2201&amp;navi=&#39;,&#39;150632&#39;  , &#39;-1&#39; ); return false;" id="linkCategory_150632" class="sideListClr  listType1 ">FFi</a>
+																																		<font class="p11 sideListClr pCnt">(<span id="totC150632">96</span>)</font>
+															</li>
+																																																																																																		<li class="categoryList">
+																																																							<a href="http://blog.daum.net/_blog/ArticleCateList.do?blogid=065fc&CATEGORYID=576146&dispkind=B2201" onclick="viewAjaxCateArticle(&#39;/_blog/ArticleCateList.do?blogid=065fc&amp;CATEGORYID=576146&amp;dispkind=B2201&amp;navi=&#39;,&#39;576146&#39;  , &#39;-1&#39; ); return false;" id="linkCategory_576146" class="sideListClr  listType1 ">Pharmanex</a>
+																																		<font class="p11 sideListClr pCnt">(<span id="totC576146">0</span>)</font>
+															</li>
+																						</ul>
+		<div class="menuFooter1" style=""></div>
+	</div><!-- end menuBody -->
+	<img src="img_blank2.gif" width="0" height="0" alt="" class="menuBot">
+</div><!-- end menuWraper --></div>
+																																
+ 	<div id="CafeBanner" class="menuBox">
+		<div class="menuEtcWraper">
+			<div class="menuEtcBody" style="padding-left: 10px;">
+																								<table border="0" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td width="166" height="40" style="background:url(http://i1.daumcdn.net/pimg/blog/admin2/man2_ad09.gif) no-repeat; padding:0 0 0 8px;">
+						
+						<b><a href="http://cafe.daum.net/cricri" target="new" style="color:#70891E;">인터넷정보컨설팅..</a></b>
+						</td>
+					</tr>
+					</tbody></table>
+							</div>
+		</div>
+	</div>
+																																
+																																
+ 	<div id="Search" class="menuBox">
+		<div class="menuEtcWraper">
+			<div class="menuEtcBody">
+				<form name="mysearchbox" method="get" action="http://blog.daum.net/_blog/search.do">
+					<input type="hidden" name="blogid" value="065fc">
+					<input type="text" name="query1" class="box">
+					<input type="image" src="btn_search.gif" width="37" height="21" alt="검색" class="vMid">
+				</form>
+			</div><!-- end menuEtcBody -->
+		</div>
+	</div>
+																																															<div id="wm654" class="widgetBox menuBox boxoff">
+									<div class="menuWraper borderN">
+										<div class="menuMain" style="margin: 4px auto 0 auto;">
+											<div class="menuBody" style="padding: 0px;background: none; text-align:center;" id="wm454"><iframe id="remote_iframe_0" name="remote_iframe_0" class="gadgets-gadget" src="ifr.htm" frameborder="no" scrolling="no" allowtransparency="true" height="103" width="166" style="height: 70px;"></iframe></div>
+																																							<script src="view" type="text/javascript"></script>
+																																			</div>
+									</div>
+									<div class="cl"></div>
+								</div>	
+																												</div>
+	<div id="sideBarCol2" class="sideColArea">
+																																																																																																			</div>
+	<div id="sideBarCol3" class="sideColArea">
+																																																																																																			</div>
+	<div id="sideBarCol4" class="sideColArea">
+																																																																																																			</div>
+	<div id="sideBarCol5" class="sideColArea">
+																																																																																																			</div>
+	<div class="clearDiv"></div>
+	</div><!-- end menuGroupBg -->
+</div><!-- end menuGroupBox -->
+<div class="menuGroupBot"></div>					</div>
+					<div id="contentArea">
+						<form name="articleTypeList" method="get" action="http://blog.daum.net/_blog/BlogTypeView.do">
+	<input type="hidden" name="blogid" value="065fc">
+	<input type="hidden" name="vblogid" value="">
+	<input type="hidden" name="beforePage" value="374">
+	<input type="hidden" name="maxarticleno" value="13376267">
+	<input type="hidden" name="minarticleno" value="13376267">
+	<input type="hidden" name="maxregdt" value="20071117100214">
+	<input type="hidden" name="minregdt" value="20071117100214">
+	<input type="hidden" name="currentPage" value="374">
+	<input type="hidden" name="listScale" value="20">
+	<input type="hidden" name="viewKind" value="">	
+	<input type="hidden" name="dispkind" value="B2201">
+	<input type="hidden" name="CATEGORYID" id="CATEGORYID" value="664634">
+	<input type="hidden" name="categoryId" id="categoryId" value="664634">
+	<input type="hidden" name="articleno" value="13376267">
+	<input type="hidden" name="regdt" value="20071117100214">
+	<input type="hidden" name="date" value="">
+	<input type="hidden" name="calv" value="">
+</form>
+<form name="cmmtform" method="post" action="http://blog.daum.net/_blog/CommentCreate.do">
+	<input type="hidden" name="blogid" value="065fc">
+	<input type="hidden" name="articleno" value="">
+	<input type="hidden" name="name" value="">
+	<input type="hidden" name="open" value="">
+	<input type="hidden" name="texticon" value="">
+	<input type="hidden" name="password" value="">
+	<input type="hidden" name="contents" value="">
+	<input type="hidden" name="cmmtblog" value="">
+	<input type="hidden" name="cmmtmail" value="">
+	<input type="hidden" name="isModify">
+	<input type="hidden" name="pcmmtno" value="">
+	<input type="hidden" name="cmmtloginyn" value="">
+	<input type="hidden" name="cmmtno" value="">
+	<input type="hidden" name="no" value="">
+	<input type="hidden" name="mode" value="">
+	<input type="hidden" name="regdt" value="">
+	<input type="hidden" name="euserid" value="">
+	<input type="hidden" name="returnURL" value="/_blog/goBlog.do?blogid=065fc&amp;currentPage=374&amp;beforePage=1&amp;maxarticleno=13376267&amp;minarticleno=13376267&amp;maxregdt=20071117100214&amp;minregdt=20071117100214">
+</form>
+<form name="verifyInfo" method="post" action="http://blog.daum.net/_blog/VerifyRegister.do">
+	<input type="hidden" name="blogid" value="065fc">
+	<input type="hidden" name="articleno" value="">
+	<input type="hidden" name="verifyID" value="">
+	<input type="hidden" name="verifyEmail" value="">
+	<input type="hidden" name="verifyBlog" value="">
+	<input type="hidden" name="returnURL" value="/_blog/goBlog.do?blogid=065fc&amp;currentPage=374&amp;beforePage=1&amp;maxarticleno=13376267&amp;minarticleno=13376267&amp;maxregdt=20071117100214&amp;minregdt=20071117100214">
+		<input type="hidden" name="parentVerifyNo" value="">
+	<input type="hidden" name="verifyNo" value="">
+</form>
+		
+<div class="cContentBox ">
+<div class="contentBoxT"><div class="roundTL"></div><div class="roundTC"></div><div class="roundTR"></div></div>
+<div class="cContentOuter"><div class="cContentinner"><div id="cS_mainTitle">
+	<div id="cS_mainTitle_header" class="listTypeT">
+					<h2> 인터넷연구회  <font style="font-size:12px; font-weight:normal;">(443)</font></h2>
+				<ul id="cR_etc">
+			<li><a href="javascript:goListTitle(0)" class="viewTypeBoard" title="목록보기">목록보기</a><span class="alpha50">|</span></li>
+			<li><a href="javascript:goListWebzine(0)" class="viewTypeWebzine" title="요약보기">요약보기</a><span class="alpha50">|</span></li>
+			<li><a href="javascript:goListBody(0) " class="viewTypeBlogSel" title="펼쳐보기">펼쳐보기</a></li>
+		</ul>
+	</div>
+</div>
+</div><!-- cContentinner --></div><!-- cContentOuter -->
+<div class="contentBoxB"><div class="roundBL"></div><div class="roundBC"></div><div class="roundBR"></div></div>
+</div><!-- cContentBox --><div class="clearDiv" style="height: 8px;"></div>
+
+		 	 	 	 	 
+
+<div id="cContent" class="BasicA">
+
+<div class="cContentBox ">
+<div class="contentBoxT"><div class="roundTL"></div><div class="roundTC"></div><div class="roundTR"></div></div>
+<div class="cContentOuter"><div class="cContentinner">
+		 
+			<!--==================[ Article Looping ]==================-->
+			<form name="loopform" method="post">
+			
+				<!-------- LOOP ------------>
+			 				 	
+				 						
+																															 
+
+
+
+<!-- 기존거 -->
+<script language="javascript">
+							</script>
+								<input id="tag_blogid" type="hidden" value="065fc">
+	<input id="tag_articleno" type="hidden" value="13376267">
+	<div id="tag_blogId" style="display:none">065fc</div>
+				<div id="articlePrint_13376267" class="articlePrint" style="width: px;">
+			<div id="title_13376267" style="display:none">트랜지스터란</div>
+			<div id="commentOpen_13376267" style="display:none">B0401</div>
+			<table class="cContentHeader">
+			<tbody><tr>
+				<td>
+										<div class="" style="">
+																						<div id="mainTitleText1" class="mainTitleText">
+							<strong class="cB_Title">
+																					트랜지스터란
+															<img id="div_news_article_image" src="img_blank.gif" width="10" height="11" class="writerIcon" alt="view 발행" title="view 발행">
+		    				</strong>
+		    											<span class="sVbar">|</span>
+							<span class="cB_Folder"><a class="p12" href="http://blog.daum.net/_blog/ArticleCateList.do?blogid=065fc&CATEGORYID=664634&dispkind=B2201" onclick="viewAjaxCateArticle(&#39;/_blog/ArticleCateList.do?blogid=065fc&amp;CATEGORYID=664634&amp;dispkind=B2201&#39;,&#39;664634&#39;); return false;">인터넷연구회</a></span>
+													</div>
+												<div id="mainTitleFlash1" style="display: none;"></div>
+												    																</div>
+				</td>
+			</tr>
+			</tbody></table>
+						<div class="cCont_line"></div>
+			<div id="cContentFunc" class="cContentFunc">
+				<div class="funcMenu_L">
+					<div class="funcMenu_LL">
+						<span class="cB_Name">프론토</span>
+						<span class="cB_Tdate">2007.11.17 10:02</span>
+					</div>
+							</div>
+				<div class="funcMenu_R">
+					<a href="트랜지스터란.htm" class="t11" target="_top">http://blog.daum.net/yongsanct/13376267</a>
+					<embed style="vertical-align:middle;" height="14" width="22" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" allowscriptaccess="always" wmode="transparent" id="TrackbackCopyButton13376267" flashvars="url=http://blog.daum.net/yongsanct/13376267&amp;urlName=글" src="http://i1.daumcdn.net/cafecj/flash/copyClipboard.swf">
+									</div>
+			</div>
+									
+			<div class="clearDiv"></div>
+			<div class="trackbackSend" style="display:none;" id="trackBackListLayer_13376267"></div>
+		
+				<div id="cContentBody" class="cContentBody">
+				
+						
+									
+			<input type="hidden" id="view_loop_13376267" value="0">
+			<input type="hidden" id="view_finish_13376267" value="true">
+						<input type="hidden" id="view_theme_13376267" value="false">
+			
+						<div id="div_13376267" oncontextmenu="return true;">
+									<iframe id="if_b_13376267" name="if_b_13376267" title="게시글 영역" width="100%" frameborder="0" height="350" allowtransparency="true" src="ArticleContentsView.htm" style="height: 16760px;"></iframe>
+							</div>
+				<script language="javascript">
+					//ContentViewer.drawContent("b_13376267", '0'); 
+					document.getElementById("view_finish_13376267").value = true;
+				</script>
+
+						</div> 		
+									<div id="div_news_article_guide" style="margin:26px 0 10px 0;display:block;">
+				<div id="viral_ad_comment_13376267" class="viral_ad_comment"></div>
+									<div style="margin:10px 0 10px 0; text-align: center">
+					<iframe id="recomWidget1" width="100%" height="90" src="widget1.htm" frameborder="no" scrolling="no" allowtransparency="true"></iframe>
+				</div>
+							</div>
+						<script language="javascript">
+				setViralAdComment('065fc','13376267');
+			</script>
+							
+				<div id="cContentInfo" class="cContentInfo">
+												<div class="tagListBox">
+				<div class="tagList fl" id="tagListLayer_13376267">
+					<ul>
+						
+																
+																														<li><a href="http://blog.daum.net/_blog/tagArticleList.do?blogid=065fc&tagName=%ED%8A%B8%EB%9E%9C%EC%A7%80%EC%8A%A4%ED%84%B0" onclick="viewAjaxArticle(&#39;/_blog/tagArticleList.do?blogid=065fc&amp;tagName=%ED%8A%B8%EB%9E%9C%EC%A7%80%EC%8A%A4%ED%84%B0&#39;); return false;" class="d_11_161615" rel="tag">트랜지스터,</a></li>
+																	
+																								<li><a href="http://blog.daum.net/_blog/tagArticleList.do?blogid=065fc&tagName=%EB%B2%A8%EC%97%B0%EA%B5%AC%EC%86%8C" onclick="viewAjaxArticle(&#39;/_blog/tagArticleList.do?blogid=065fc&amp;tagName=%EB%B2%A8%EC%97%B0%EA%B5%AC%EC%86%8C&#39;); return false;" class="d_11_161615" rel="tag">벨연구소</a></li>
+															 	</ul>
+				 </div>
+							
+						
+						</div>
+			
+																		
+					</div>
+	
+	</div><!--articlePrint_-->
+		<div id="cContentBottom" class="cContentBottom">
+			<div class="cContentBottomL">
+				<ul>
+										<li id="iO_13376267">
+						<a href="javascript:;" onclick="showContent(&#39;O&#39;, 13376267,&#39;065fc&#39;, true );return false" class=" bold ">
+						댓글 <span id="iOText13376267" class="cB_Amp"><label id="cmmtcnt13376267">13</label></span></a>
+						 <label id="newcmmt13376267"></label>					</li>
+															<li class="cCont_vBar">|</li>
+																<li id="iT_13376267" class="cCont_track"><a href="javascript:;" onclick="showContent(&#39;T&#39;, 13376267,&#39;065fc&#39;,false);return false">						엮인글 <span id="iTText13376267">0</span></a></li>
+														</ul>
+			</div><!-- cContentBottomL-->
+												
+									
+			<div class="cContentBottomR">
+				<div id="articleLayerDrop_13376267" class="menuLayerDropList" onmouseover="divDisplay(&#39;articleLayerDrop_13376267&#39;, &#39;block&#39;);" onmouseout="divDisplay(&#39;articleLayerDrop_13376267&#39;, &#39;none&#39;);">
+					<ul>
+																									     							        							            							<li>
+            								<a href="javascript://" onclick="clickDssArticle2(&#39;13376267&#39;, &#39;664634&#39;,&#39;&#39;); goDssCafe()">카페로 스크랩</a></li>
+            							<li>
+            								<a href="javascript://" onclick="clickDssArticle2(&#39;13376267&#39;, &#39;664634&#39;, &#39;&#39;); goDssBlog()">블로그로 스크랩</a></li>
+            							<li>
+            								<a href="javascript://" onclick="clickDssArticle2(&#39;13376267&#39;, &#39;664634&#39;, &#39;&#39;); goDssMail()">메일로 스크랩</a></li>
+										<li class="line"></li>
+																														    					    						<li><a href="javascript:;" onclick="addDaumBookmark(&#39;http://blog.daum.net/yongsanct/13376267&#39;, &#39;트랜지스터란&#39;, &#39;블로그,  트랜지스터, 벨연구소&#39;);">즐겨찾기</a></li>
+    										   					   						<li><a href="javascript:;" onclick="goPrintArticle(&#39;13376267&#39;);">인쇄</a></li>
+										
+																<li class="line"></li>
+						<li>
+							<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267&#39;, &#39;트랜지스터란&#39;, &#39;false&#39;); return false;">신고</a>
+						</li>
+										</ul>
+				</div><!--articleLayerDrop-->
+
+				<div style="text-align:right;">
+								<a href="javascript:;" onclick="divDisplay(&#39;articleLayerDrop_13376267&#39;, &#39;block&#39;, true);" id="articleLayerOpt13376267" class="thisPostToDo">이 글을...</a>
+				<a>(115)</a>								</div>
+			</div><!--cContentBottomR-->
+		</div><!--cContentBottm-->
+	        					
+												
+								<div id="iLT_13376267" style="display:none" class="trackList">
+					<div class="trackListHead">
+						<div class="fl">
+						<strong>엮인글 주소</strong> : <span class="t11"><a href="javascript:copyTrackback('http://blog.daum.net/yongsanct/tb/13376267')">http://blog.daum.net/yongsanct/tb/13376267</a></span>
+						<embed style="vertical-align:middle;" height="13" width="22" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" allowscriptaccess="always" wmode="transparent" id="TrackbackCopyButton13376267" flashvars="url=http://blog.daum.net/yongsanct/tb/13376267&amp;urlName=엮인글&amp;mode=alpha" src="http://i1.daumcdn.net/cafecj/flash/copyClipboard.swf">
+						</div>
+
+						<div class="fr">
+													<a href="javascript:this.location.href = 'http://login.daum.net/accounts/loginform.do?url=' + escape(this.location);"><img src="img_blank.gif" alt="이 글로 엮인글 보내기" class="rssButton sendTrack"></a>
+												</div>
+					</div>
+
+					<div id="trackbackListBlock_13376267" style="padding:0 5px;">
+					 					</div>
+				</div>
+																					<div id="iLO_13376267" style="display:block" class="opinionList">
+					<div id="commentListBlock_13376267" class="opinionListBox" style="display:block">
+																			
+
+
+		 		    		    		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+							    								
+				    						    		<ul class="opinionListMenu">
+	    			<li class="icon"><img src="basic_2.gif" class="myicon" alt=""></li>
+	    		
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/yabi00" target="_blank" class="bold">☜야간비행☞</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2388652" style="display:none;">☜야간비행☞</span>
+	        <span id="pwd2388652" style="display:none;"></span>
+	        <span id="emailblog2388652" style="display:none;" name="http://blog.daum.net/yabi00"></span>
+	        <span id="open2388652" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.12 20:42</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        	 						        								        				<a href="javascript:board_reply('2388652', '2388652','Y','13376267','Y')" class="p11">답글</a>
+	        				                	        		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    			<span class="vBar">|</span>					<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2388652&#39;, &#39;좋은 자료 담아감니다.^^&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="cont" id="Text2388652">좋은 자료 담아감니다.^^</div>
+	            											
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2388652" class="contReArea" style="display:none;"></div>
+		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+															
+				    		        	<ul class="opinionListMenuRe" id="parent_2388652">
+	       			<li class="reIcon">┗</li>
+	        		<li class="icon"><img src="download(1).blog" class="myicon" alt=""></li>
+	        	
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/yongsanct" target="_blank" class="bold">프론토</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2405353" style="display:none;">프론토</span>
+	        <span id="pwd2405353" style="display:none;"></span>
+	        <span id="emailblog2405353" style="display:none;" name="http://blog.daum.net/yongsanct"></span>
+	        <span id="open2405353" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.22 15:40</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    								<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2405353&#39;, &#39;감사합니다.&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="contRe" id="Text2405353">감사합니다.</div>
+															
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2405353" class="contReReArea" style="display:none;"></div>
+			 		    		    		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+							    								
+				    										<div class="cCont_line"></div>
+	    			    		<ul class="opinionListMenu">
+	    			<li class="icon"><img src="basic_2.gif" class="myicon" alt=""></li>
+	    		
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/mechanic82" target="_blank" class="bold">한원기</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2388755" style="display:none;">한원기</span>
+	        <span id="pwd2388755" style="display:none;"></span>
+	        <span id="emailblog2388755" style="display:none;" name="http://blog.daum.net/mechanic82"></span>
+	        <span id="open2388755" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.12 21:47</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        	 						        								        				<a href="javascript:board_reply('2388755', '2388755','Y','13376267','Y')" class="p11">답글</a>
+	        				                	        		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    			<span class="vBar">|</span>					<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2388755&#39;, &#39;좋은 자료 감사합니다. 담아갈께요^^&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="cont" id="Text2388755">좋은 자료 감사합니다. 담아갈께요^^</div>
+	            											
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2388755" class="contReArea" style="display:none;"></div>
+		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+															
+				    		        	<ul class="opinionListMenuRe" id="parent_2388755">
+	       			<li class="reIcon">┗</li>
+	        		<li class="icon"><img src="download(1).blog" class="myicon" alt=""></li>
+	        	
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/yongsanct" target="_blank" class="bold">프론토</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2392482" style="display:none;">프론토</span>
+	        <span id="pwd2392482" style="display:none;"></span>
+	        <span id="emailblog2392482" style="display:none;" name="http://blog.daum.net/yongsanct"></span>
+	        <span id="open2392482" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.14 15:53</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    								<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2392482&#39;, &#39;정말 감사 ^&amp;^&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="contRe" id="Text2392482">정말 감사 ^&amp;^</div>
+															
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2392482" class="contReReArea" style="display:none;"></div>
+			 		    		    		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+							    								
+				    										<div class="cCont_line"></div>
+	    			    		<ul class="opinionListMenu">
+	    			<li class="icon"><img src="basic_2.gif" class="myicon" alt=""></li>
+	    		
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/mechanic82" target="_blank" class="bold">한원기</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2388756" style="display:none;">한원기</span>
+	        <span id="pwd2388756" style="display:none;"></span>
+	        <span id="emailblog2388756" style="display:none;" name="http://blog.daum.net/mechanic82"></span>
+	        <span id="open2388756" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.12 21:47</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        	 						        								        				<a href="javascript:board_reply('2388756', '2388756','Y','13376267','Y')" class="p11">답글</a>
+	        				                	        		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    			<span class="vBar">|</span>					<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2388756&#39;, &#39;좋은 자료 감사합니다. 담아갈께요^^&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="cont" id="Text2388756">좋은 자료 감사합니다. 담아갈께요^^</div>
+	            											
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2388756" class="contReArea" style="display:none;"></div>
+		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+															
+				    		        	<ul class="opinionListMenuRe" id="parent_2388756">
+	       			<li class="reIcon">┗</li>
+	        		<li class="icon"><img src="download(1).blog" class="myicon" alt=""></li>
+	        	
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/yongsanct" target="_blank" class="bold">프론토</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2392480" style="display:none;">프론토</span>
+	        <span id="pwd2392480" style="display:none;"></span>
+	        <span id="emailblog2392480" style="display:none;" name="http://blog.daum.net/yongsanct"></span>
+	        <span id="open2392480" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.14 15:53</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    								<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2392480&#39;, &#39;감사합니다&amp;nbsp;&amp;nbsp; ^&amp;^&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="contRe" id="Text2392480">감사합니다&nbsp;&nbsp; ^&amp;^</div>
+															
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2392480" class="contReReArea" style="display:none;"></div>
+			 		    		    		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+							    								
+				    										<div class="cCont_line"></div>
+	    			    		<ul class="opinionListMenu">
+	    			<li class="icon"><img src="basic_2.gif" class="myicon" alt=""></li>
+	    		
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/malyoung" target="_blank" class="bold">김용호</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2390617" style="display:none;">김용호</span>
+	        <span id="pwd2390617" style="display:none;"></span>
+	        <span id="emailblog2390617" style="display:none;" name="http://blog.daum.net/malyoung"></span>
+	        <span id="open2390617" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.13 22:36</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        	 						        								        				<a href="javascript:board_reply('2390617', '2390617','Y','13376267','Y')" class="p11">답글</a>
+	        				                	        		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    			<span class="vBar">|</span>					<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2390617&#39;, &#39;gfgf&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="cont" id="Text2390617">gfgf</div>
+	            											
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2390617" class="contReArea" style="display:none;"></div>
+			 		    		    		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+							    								
+				    										<div class="cCont_line"></div>
+	    			    		<ul class="opinionListMenu">
+	    			<li class="icon"><img src="basic_2.gif" class="myicon" alt=""></li>
+	    		
+	        				         		         					
+			<li class="fl">
+		    									<span class="bold">이상우</span>
+												
+		    						
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2393277" style="display:none;">이상우</span>
+	        <span id="pwd2393277" style="display:none;"></span>
+	        <span id="emailblog2393277" style="display:none;" name="dltkddn1357@nate.com"></span>
+	        <span id="open2393277" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.14 23:27</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	    		    		    		    		<a href="javascript://" onclick="goCmmtModi(&#39;065fc&#39;,&#39;13376267&#39;,&#39;2393277&#39;,&#39;2393277&#39;,&#39;Y&#39;,&#39;20071214&#39;,&#39;Y&#39;,this);" class="p11">수정</a>
+	    						
+	    		        	        	 						        								<span class="vBar">|</span>        				<a href="javascript:board_reply('2393277', '2393277','Y','13376267','N')" class="p11">답글</a>
+	        				                	        		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    			<span class="vBar">|</span>		   			<a href="javascript:;" onclick="goCmmtDel(&#39;065fc&#39;,&#39;13376267&#39;,&#39;2393277&#39;,&#39;/_blog/CommentDelete.do&#39;,&#39;Y&#39;,this,&#39;20071214&#39;); return false;" class="p11">삭제</a>
+	    				    			    					    			    			<span class="vBar">|</span>					<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2393277&#39;, &#39;좋은자료 감사합니다. 담아갈께요^^&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="cont" id="Text2393277">좋은자료 감사합니다. 담아갈께요^^</div>
+	            											
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2393277" class="contReArea" style="display:none;"></div>
+		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+															
+				    		        	<ul class="opinionListMenuRe" id="parent_2393277">
+	       			<li class="reIcon">┗</li>
+	        		<li class="icon"><img src="download(1).blog" class="myicon" alt=""></li>
+	        	
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/yongsanct" target="_blank" class="bold">프론토</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2405354" style="display:none;">프론토</span>
+	        <span id="pwd2405354" style="display:none;"></span>
+	        <span id="emailblog2405354" style="display:none;" name="http://blog.daum.net/yongsanct"></span>
+	        <span id="open2405354" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.22 15:41</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    								<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2405354&#39;, &#39;고맙습니다&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="contRe" id="Text2405354">고맙습니다</div>
+															
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2405354" class="contReReArea" style="display:none;"></div>
+			 		    		    		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+							    								
+				    										<div class="cCont_line"></div>
+	    			    		<ul class="opinionListMenu">
+	    			<li class="icon"><img src="basic_2.gif" class="myicon" alt=""></li>
+	    		
+	        				         		         					
+			<li class="fl">
+		    									<span class="bold">깊고 푸른바다</span>
+												
+		    						
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2404879" style="display:none;">깊고 푸른바다</span>
+	        <span id="pwd2404879" style="display:none;"></span>
+	        <span id="emailblog2404879" style="display:none;" name="dos-win@hanmail.net"></span>
+	        <span id="open2404879" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.22 07:52</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        	 						        								        				<a href="javascript:board_reply('2404879', '2404879','Y','13376267','Y')" class="p11">답글</a>
+	        				                	        		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    			<span class="vBar">|</span>					<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2404879&#39;, &#39;좋은 자료 감사합니다. 담아갈께요^^&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="cont" id="Text2404879">좋은 자료 감사합니다. 담아갈께요^^</div>
+	            											
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2404879" class="contReArea" style="display:none;"></div>
+		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+															
+				    		        	<ul class="opinionListMenuRe" id="parent_2404879">
+	       			<li class="reIcon">┗</li>
+	        		<li class="icon"><img src="download(1).blog" class="myicon" alt=""></li>
+	        	
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/yongsanct" target="_blank" class="bold">프론토</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname2405355" style="display:none;">프론토</span>
+	        <span id="pwd2405355" style="display:none;"></span>
+	        <span id="emailblog2405355" style="display:none;" name="http://blog.daum.net/yongsanct"></span>
+	        <span id="open2405355" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2007.12.22 15:41</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    								<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/2405355&#39;, &#39;감사합니다.&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="contRe" id="Text2405355">감사합니다.</div>
+															
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite2405355" class="contReReArea" style="display:none;"></div>
+			 		    		    		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+							    								
+				    										<div class="cCont_line"></div>
+	    			    		<ul class="opinionListMenu">
+	    			<li class="icon"><img src="basic_2.gif" class="myicon" alt=""></li>
+	    		
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/ihavecherish" target="_blank" class="bold">04차상두</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname3107606" style="display:none;">04차상두</span>
+	        <span id="pwd3107606" style="display:none;"></span>
+	        <span id="emailblog3107606" style="display:none;" name="http://blog.daum.net/ihavecherish"></span>
+	        <span id="open3107606" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2008.11.05 18:47</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        	 						        								        				<a href="javascript:board_reply('3107606', '3107606','Y','13376267','Y')" class="p11">답글</a>
+	        				                	        		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    			<span class="vBar">|</span>					<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/3107606&#39;, &#39;ddd&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="cont" id="Text3107606">ddd</div>
+	            											
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite3107606" class="contReArea" style="display:none;"></div>
+			 		    		    		
+	    
+		
+		
+				
+
+	     	
+	
+	     	
+							
+							    								
+				    										<div class="cCont_line"></div>
+	    			    		<ul class="opinionListMenu">
+	    			<li class="icon"><img src="basic_2.gif" class="myicon" alt=""></li>
+	    		
+	        				         		         					
+			<li class="fl">
+		    									<a href="http://blog.daum.net/lho12" target="_blank" class="bold">하이옥스</a>
+												
+		    			
+						<div style="width: 1px; height: 1px; overflow: hidden; visibility: hidden; border:1px solid red">
+	    	<span id="uname3107618" style="display:none;">하이옥스</span>
+	        <span id="pwd3107618" style="display:none;"></span>
+	        <span id="emailblog3107618" style="display:none;" name="http://blog.daum.net/lho12"></span>
+	        <span id="open3107618" style="display:none">Y</span>
+	        </div>
+	        			</li>
+										<li class="sDateTime">2010.02.04 18:10</li>
+				
+				
+				        	    	<li class="opinionBtn">
+				        	
+	    		        	        	 						        								        				<a href="javascript:board_reply('3107618', '3107618','Y','13376267','Y')" class="p11">답글</a>
+	        				                	        		        	        
+	    		    				        
+	    		    					<!-- 다른 블로그에 내 글이 있을 때  -->
+	    			    					    			    			<span class="vBar">|</span>					<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#" onclick="goArticleReport(&#39;http://blog.daum.net/yongsanct/13376267/3107618&#39;, &#39;좋은자료 감사합니다&#39;, &#39;true&#39;, &#39;cmt&#39;); return false;" class="p11">신고</a>
+														</li></ul>
+			 									    				    				<div class="cont" id="Text3107618">좋은자료 감사합니다</div>
+	            											
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			<div id="inWrite3107618" class="contReArea" style="display:none;"></div>
+	<input type="hidden" id="cmtMaxParentno" value="0">
+<input type="hidden" id="cmtMinParentno" value="0">
+<input type="hidden" id="cmtPrevPage" value="1">
+<input type="hidden" id="cmtCurrentPage" value="1">
+
+<input type="hidden" name="cmtCount13376267" value="13">
+
+											</div>
+																					<script type="text/javascript">
+							oldTarget = 'O';
+													</script>
+										<div id="commentScriptParse13376267" style="display:none"></div>
+															<div id="writeForm" class="writefrm">
+																		 							 							 								 								 		            						<input type="text" size="15" name="cmmtname" maxlength="10" id="cmmtname13376267" value="이름" class="box" onfocus=" if(this.value==&#39;이름&#39;)this.value=&#39;&#39;">
+                    				<input type="password" size="12" maxlength="10" name="cmmtpwd" id="cmmtpwd13376267" value="" class="box passbg" onclick="this.style.background=&#39;#FFFFFF&#39;">
+                    				<input type="text" name="cmmtcheck" id="cmmtcheck13376267" size="27" value="블로그 또는 이메일 주소" onfocus=" if(this.value==&#39;블로그 또는 이메일 주소&#39;)this.value=&#39;&#39;" class="box"><br>
+                    				<!--BLOGSCRIPT-->
+									<script type="text/javascript" language="javascript">
+                    					textMapping["cmmtname13376267"] = "이름";
+                    					textMapping["cmmtpwd13376267"] = "";
+                    					textMapping["cmmtcheck13376267"] = "블로그 또는 이메일 주소";
+                    				</script>
+									<!--BLOGSCRIPT-->
+															 												<!-- B0402 : 다음회원만 LOG OFF -->
+														<!-- 여기는 다음회원(B0402)만 아니면  로그인 -->
+							<table style="width:100%">
+							<colgroup>
+								<col>
+								<col width="85">
+							</colgroup>
+							<tbody><tr>
+								<td>
+								<textarea rows="3" cols="57" name="cmmttext" id="cmmttext13376267" class="box" onkeyup="resizeArea(this, &#39;34&#39;, &#39;1000&#39;)" onfocus="readyToWrite(this, &#39;13376267&#39;);" style="color:#BEBEBE"> 인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요.</textarea>
+								<input type="hidden" id="readytowrite13376267" name="readytowrite13376267" value="N">
+								</td>
+								<td class="register_confirm">
+								<a href="javascript:;" onclick="regComment(document.cmmtform, &#39;13376267&#39;, &#39;13376267&#39;, &#39;13376267&#39;);"><img src="img_blank.gif" class="btn_mart_register" width="77" height="40" alt="등록"></a>
+								</td>
+							</tr>
+							</tbody></table>
+								<!--BLOGSCRIPT-->
+								<script type="text/javascript" language="javascript">
+		        					//textMapping["cmmttext13376267"] = "내용";
+    							</script>
+								<input type="hidden" name="cmmtloginyn" id="cmmtloginyn13376267" value="Y">
+								<input type="hidden" name="articleno" value="13376267">
+								<!--BLOGSCRIPT-->
+								<div style="height:25px; padding: 3px 3px 0 0;">
+																	<div class="fl p11"><input type="hidden" name="cmmtopen" id="cmmtopen13376267" value="Y" class="checkbox" style="vertical-align: middle; margin-bottom: 2px">
+										<input type="checkbox" name="cmmtexticon" id="cmmtexticon13376267" value="Y" class="checkbox" style="vertical-align: middle; margin-bottom: 2px"> 텍스티콘 
+										<a href="javascript:popUp('/_help/popup_texticon.html', '520', '516')"><img src="btn_question02.gif" width="12" height="11" alt="텍스티콘" style="margin-bottom: 1px; vertical-align: middle;"></a>
+																			</div>
+																	<div id="stop13376267" class="fr"></div>
+								</div>
+								
+											</div><!--writefrm-->
+									</div>
+								<!-- 댓글 end -->
+
+								<!-- 첨부파일 end -->
+
+																
+												</form>
+
+		<div id="pagingBox">
+			<div class="fr"><span class="arrowFont">▲</span> <a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267&admin=#contentArea">top</a></div>
+			<div id="cNumbering"><a href="javascript:goPage(370);"><span class="arrowFont">◀</span> 이전</a> <a href="javascript:goPage(1);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">1</a>...<a href="javascript:goPage(371);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">371</a><a href="javascript:goPage(372);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">372</a><a href="javascript:goPage(373);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">373</a><a class="Select">374</a><a href="javascript:goPage(375);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">375</a><a href="javascript:goPage(376);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">376</a><a href="javascript:goPage(377);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">377</a><a href="javascript:goPage(378);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">378</a><a href="javascript:goPage(379);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">379</a><a href="javascript:goPage(380);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">380</a>...<a href="javascript:goPage(443);" class="Out" onmouseover="this.className=&#39;Over&#39;" onmouseout="this.className=&#39;Out&#39;">443</a> <a class="cB_Text" href="javascript:goPage(381);">다음 <span class="arrowFont">▶</span></a></div>
+		</div>
+		</div><!-- cContentinner --></div><!-- cContentOuter -->
+<div class="contentBoxB"><div class="roundBL"></div><div class="roundBC"></div><div class="roundBR"></div></div>
+</div><!-- cContentBox -->	</div><!-- cContent -->
+	<div class="clearDiv" style="height: 8px;"></div>
+					
+			<div id="cContentCateMore" class="cContentCateMore">
+		<div class="cContentBox ">
+<div class="contentBoxT"><div class="roundTL"></div><div class="roundTC"></div><div class="roundTR"></div></div>
+<div class="cContentOuter"><div class="cContentinner">		<div class="otherMore"><a href="javascript:goListTitle(0)" class="p11">목록보기</a></div>
+		<h4>
+		<span class="cB_Amp">'인터넷연구회'</span> 카테고리의 다른 글
+		</h4>
+		<div class="tdLine"></div>
+		<ul>
+														<li>
+								<span class="fr sNumber alpha50">2007-11-17 10:19:48</span>
+				<p style="background: url(http://i1.daumcdn.net/pimg/blog3/menu_icon13.gif) no-repeat 0 6px; padding: 0 0 0 8px;">
+											<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376391&categoryId=664634&regdt=20071117101948" title="◎제 1단원 - 1차세계대전">◎제 1단원 - 1차세계대전</a>
+										
+													</p>
+			</li>
+														<li>
+								<span class="fr sNumber alpha50">2007-11-17 10:08:56</span>
+				<p style="background: url(http://i1.daumcdn.net/pimg/blog3/menu_icon13.gif) no-repeat 0 6px; padding: 0 0 0 8px;">
+											<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376308&categoryId=664634&regdt=20071117100856" title="발명은 누구의 것인가?">발명은 누구의 것인가?</a>
+										
+													</p>
+			</li>
+														<li>
+								<span class="fr sNumber alpha50">2007-11-17 10:02:14</span>
+				<p style="background: url(http://i1.daumcdn.net/pimg/blog3/menu_icon13.gif) no-repeat 0 6px; padding: 0 0 0 8px;">
+											<a class="bold" title="트랜지스터란">트랜지스터란</a>
+										
+											<span class="cB_Amp">[<strong>13</strong>]</span>
+													</p>
+			</li>
+														<li>
+								<span class="fr sNumber alpha50">2007-11-17 00:43:54</span>
+				<p style="background: url(http://i1.daumcdn.net/pimg/blog3/menu_icon13.gif) no-repeat 0 6px; padding: 0 0 0 8px;">
+											<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13374701&categoryId=664634&regdt=20071117004354" title="Il Web Mobile">Il Web Mobile</a>
+										
+													</p>
+			</li>
+														<li>
+								<span class="fr sNumber alpha50">2007-11-10 17:11:45</span>
+				<p style="background: url(http://i1.daumcdn.net/pimg/blog3/menu_icon13.gif) no-repeat 0 6px; padding: 0 0 0 8px;">
+											<a href="http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13323234&categoryId=664634&regdt=20071110171145" title="이탈리아 산업 및 과일 지역별 보기">이탈리아 산업 및 과일 지역별 보기</a>
+										
+													</p>
+			</li>
+					</ul>
+		</div><!-- cContentinner --></div><!-- cContentOuter -->
+<div class="contentBoxB"><div class="roundBL"></div><div class="roundBC"></div><div class="roundBR"></div></div>
+</div><!-- cContentBox -->	</div>
+						
+
+<script type="text/javascript" charset="utf-8" src="tiara.min.js"></script>
+<script type="text/javascript">
+		
+		
+					if(window.isAjax){
+			try {
+				top.document.title = "트랜지스터란".unescapeHTML();
+			} catch(e) {}
+		}
+		var __pageTracker = {};
+
+	if (typeof __Tiara != "undefined" && typeof __Tiara.__getTracker != "undefined") {
+		__pageTracker = __Tiara.__getTracker();
+	} else {
+		__pageTracker.__trackPageview = function() {};
+		__pageTracker.__setTitle = function() {};
+		__pageTracker.__setReferer = function() {};
+		__pageTracker.__addParam = function() {};
+	}
+
+	try {
+
+		if (typeof __pageTracker != "undefined") {
+			__pageTracker.__setTitle("트랜지스터란");
+            
+    			    		try { __pageTracker.__setReferer(top.document.referrer); } catch(e) {}
+                __pageTracker.__addParam("category", "인터넷연구회");
+                __pageTracker.__addParam("articleno", "065fc/13376267");
+                __pageTracker.__addParam("date", "2007-11-17 10:02:14");
+                __pageTracker.__addParam("isauthor", "N");
+                __pageTracker.__addParam("ishidden", "1");
+                __pageTracker.__addParam("comments", "13");
+                __pageTracker.__addParam("param1", "115");
+    			__pageTracker.__addParam("author", "065fc");
+				    				__pageTracker.__addParam('plink','http://blog.daum.net/yongsanct/13376267');
+				    			try { __pageTracker.__trackPageview("http://blog.daum.net/_blog/BlogTypeView.do?blogid=065fc&articleno=13376267"); } catch(e) {}
+						
+		}
+	} catch(e) {}
+	
+	window.isArticleLoaded = true;
+</script>					</div>
+										<div id="sideBarPlus" class="sideBox">
+						<div class="menuGroupTop"></div>
+<div class="menuGroupBox ">
+	<div class="menuGroupBg">
+	<div id="sidePlusCol1" class="sideColArea">
+		</div>
+	<div id="sidePlusCol2" class="sideColArea">
+		</div>
+	<div id="sidePlusCol3" class="sideColArea">
+		</div>
+	<div id="sidePlusCol4" class="sideColArea">
+		</div>
+	<div id="sidePlusCol5" class="sideColArea">
+		</div>
+	<div class="clearDiv"></div>
+	</div><!-- end menuGroupBg -->
+</div><!-- end menuGroupBox -->
+<div class="menuGroupBot"></div>					</div>
+									</div>
+		<br style="clear:both;height:1px;font-size:1px;">
+	</div>
+	<div id="containerBot" class="containerBot"></div>
+<script type="text/javascript">var ftop = getAbsoluteTop(document.getElementById("contentArea"));</script>
+<div class="cl">&nbsp;</div>
+<div id="footer" class="footerAlignC footerWidthW">
+		<div class="copy contColor">프론토's blog is powered by <a href="http://www.daum.net/" target="_blank" class="contColor">Daum</a></div>
+</div>
+<!-- 페이지 마지막 -->
+<div><img src="auth.gif" width="0" height="0" alt=""></div>
+<script type="text/javascript" charset="utf-8" src="tiara.min.js"></script>
+<script type="text/javascript">
+	if (!window.isAjax && !window.isArticleLoaded) {
+		var __pageTracker = {};
+
+		if (typeof __Tiara != "undefined" && typeof __Tiara.__getTracker != "undefined") {
+			__pageTracker = __Tiara.__getTracker();
+		} else {
+			__pageTracker.__trackPageview = function() {};
+			__pageTracker.__setTitle = function() {};
+		}
+
+		try {
+			if (typeof __pageTracker != "undefined") {
+				__pageTracker.__setTitle("트랜지스터란");
+				try { __pageTracker.__trackPageview(); } catch(e) {}
+			}
+		} catch(e) {}
+	} else {
+		window.isAjax = false;
+	}
+</script>
+<iframe name="blog_koclick" id="blog_koclick" src="BlogTypeView.htm" width="0" height="0" frameborder="0"></iframe>
+<input type="hidden" id="blog_curURI" value="/_blog/BlogTypeView.do?blogid=065fc&amp;articleno=13376267&amp;admin=">
+<script type="text/javascript">
+(function(){
+	var url = document.location.href;
+	var index = url.indexOf("blog.daum.net/");
+	var curURIDOM = document.getElementById("blog_curURI");
+	var curLocation = url;	
+	if( index > -1 ) {
+		var uri = url.substring(index+14);
+		curLocation = "/" + uri;
+		var koclick_url = "/_action/"+uri;
+		window.frames["blog_koclick"].location.replace(koclick_url);
+	}
+	if(curURIDOM){
+		curURIDOM.value = curLocation;
+	}
+})();
+</script>
+</div>
+<script type="text/javascript" language="javascript">var ftop = getAbsoluteTop(document.getElementById("contentArea"));</script>
+<script type="text/javascript" language="javascript">
+<!--
+	initHome();
+
+if (typeof Blog !== 'undefined') {
+	Blog.Ready.trigger();
+}
+//-->
+</script>
+
+			</body></html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>Export and Import</title>
+<link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>Exporting and Importing </h1>
+<p>Quantum enables you to export the structure and the data from a database in 
+  different formats. That's a relatively new feature, and it may be considered 
+  work in progress. The export dialog looks like this:</p>
+<p><img src="images/quantum_export.jpg" width="474" height="550"></p>
+<p>The export options that Quantum adds are the ones that start with &quot;Export&quot;. 
+  We were slow to realize that it was <i>obvious</i> that it was an export, as 
+  they stand in the Export dialog, so now it'll probably remain like that forever. 
+  It adds a nice grouping, though.</p>
+<h2><a name="exportCSV"></a>Export to CSV file</h2>
+<p>This option allows you to export data from tables and/or views to a Comma Separated 
+  Values (CSV) file. The CSV format is not exactly a industry standard, as there 
+  are many variants of it, but is easy, usually readable, and can be imported 
+  by a wide variety of tools (that is, Excel). </p>
+<p>To export to CSV you select a number of tables and/or views, select <b>Export</b>, 
+  and then <b>Export to CSV file</b>. The following dialog should appear:</p>
+<p> <img src="images/quantum_export_csv.jpg" width="474" height="550"></p>
+<p>You have the option to select if the export will write a first row with the 
+  names of the columns, or not. Then select the file name and that's all. </p>
+<p>The export operation will write a single <b>.csv</b> file if you selected a 
+  single table or view. If you select several, as in the previous image, it'll 
+  write a <b>.zip</b> file with all the <b>.csv</b> files inside. The <b>.csv</b> 
+  files will have the name of the table or view as name, and the .csv extension. 
+  At the moment, the user interface will be frozen till the export operation is 
+  completed. That's a known drawback for extended operations. An example of the 
+  generated format is:</p>
+<p><code>DEPTNO,DNAME,LOC<br>
+  10,ACCOUNTING,NEW YORK<br>
+  20,&quot;MANUFACTURING,I+D&quot;,DALLAS<br>
+  30,SALE,CHICAGO<br>
+  33,,BOSTON<br>
+  34,,</code></p>
+<p>Please note that the CSV export is into a different plugin as the Quantum core. 
+  This plugin is called <b>com.quantum.flatfiles</b>. You don't need to install 
+  that plugin if you're not exporting to / importing from CSV files. </p>
+<h2><a name="exportDbUnit"></a>Export to DbUnit XML format</h2>
+<p>(From the DbUnit project page (<a href = http://dbunit.sourceforge.net/>http://dbunit.sourceforge.net/</a>)</p>
+<p><i>DbUnit is a JUnit extension (also usable with Ant) targeted for database-driven 
+  projects that, among other things, puts your database into a known state between 
+  test runs. This is an excellent way to avoid the myriad of problems that can 
+  occur when one test case corrupts the database and causes subsequent tests to 
+  fail or exacerbate the damage.</i></p>
+<p><i>DbUnit has the ability to export and import your database data to and from 
+  XML datasets. Since version 2.0, DbUnit can works with very large dataset when 
+  use in streaming mode. DbUnit can also helps you to verify that your database 
+  data match expected set of values. </i></p>
+<p>The Quantum exporter allows you to generate an XML file from selected tables 
+  and views, in the dbUnit format. Then tests can be run on the database. The 
+  exported XML file allows you to put the database back into a known state. Of 
+  course such tests are better done automatically, using the <b>dbunit</b> library, 
+  but for some applications, this GUI option can be useful.</p>
+<p>The working is similar to the CSV Export.</p>
+<p>&nbsp;</p>
+<p><img src="images/quantum_export_dbunit.jpg" ></p>
+<p>The <b>DbUnit Export</b> will only generate a single file, in XML format, with 
+  .xml extension, copying all the selected tables/views in that file, using different 
+  <b>&lt;dataset&gt;</b> tags. An example of the format (using only one table) 
+  is as follows:</p>
+<p><code>&lt;?xml version='1.0' encoding='UTF-8'?&gt;<br>
+  &lt;dataset&gt;<br>
+  &lt;DEPT DEPTNO=&quot;10&quot; DNAME=&quot;ACCOUNTING&quot; LOC=&quot;NEW YORK&quot;/&gt;<br>
+  &lt;DEPT DEPTNO=&quot;20&quot; DNAME=&quot;MANUFACTURING&quot; LOC=&quot;DALLAS&quot;/&gt;<br>
+  &lt;DEPT DEPTNO=&quot;30&quot; DNAME=&quot;SALE&quot; LOC=&quot;CHICAGO&quot;/&gt;<br>
+  &lt;DEPT DEPTNO=&quot;33&quot; DNAME=&quot;MANAG&quot; LOC=&quot;BOSTON&quot;/&gt;<br>
+  &lt;DEPT DEPTNO=&quot;34&quot;/&gt;<br>
+  &lt;/dataset&gt;<br>
+</code></p>
+<p>The only available option: <b>Write in less-dependence order</b>, changes the 
+  ordering of the exported tables in the XML file, so that when importing, there 
+  is less problems with the relationships, if any. For example, if the table EMPLOYEE 
+  depends on the table DEPT, the table DEPT will be exported first. In that way, 
+  when importing, the DEPT rows are already there and you get no errors from you 
+  database about missing rows in the DEPT table.</p>
+<p>The dbunit export resides in an independent plugin <b>com.quentum.dbunit</b>. 
+  It contains the library for dbunit in its <b>dbunit.jar</b> file. If you are 
+  not using dbunit export you can delete this plugin.</p>
+<h2><a name="exportBookmark"></a>Export to Quantum Bookmark File</h2>
+<p>This option allows you to export the bookmarks you want to an xml file, that 
+  can later be imported by Quantum, and the bookmarks added to your bookmark view. 
+  It's equivalent to the <b>Export Bookmarks</b> option in the<a href="working_bookmarks.html#toolbarMenu"> 
+  toolbar menu of the Bookmark view</a>. This export leads you to a dialog where 
+  you must select the bookmarks that you want to export. So you don't select them 
+  in the bookmark view, as in the previous Exports.</p>
+<h2><a name="exportTorque"></a>Export to Torque XML File</h2>
+<p>From the Torque project website (<a href="http://db.apache.org/torque/">http://db.apache.org/torque/</a>):</p>
+<p><i> Torque is a persistence layer. Torque includes a generator to generate 
+  all the database resources required by your application and includes a runtime 
+  environment to run the generated classes.</i></p>
+<p><font size="-2">&lt;More Export to Torque documentation pending&gt;</font></p>
+<p>The generated XML files looks like this:</p>
+<p><code>?xml version=&quot;1.0&quot; ?&gt;<br>
+  &lt;!DOCTYPE database SYSTEM &quot;http://db.apache.org/torque/dtd/database_3_1.dtd&quot;&gt;<br>
+  &lt;database name=&quot;TESTDB&quot; defaultIdMethod=&quot;idbroker&quot;&gt;<br>
+  &lt;table name=&quot;DEPT&quot; &gt;<br>
+  &lt;column name=&quot;DEPTNO&quot; primaryKey=&quot;true&quot; required=&quot;true&quot; 
+  type=&quot;DECIMAL&quot; size=&quot;2&quot; /&gt;<br>
+  &lt;column name=&quot;DNAME&quot; required=&quot;false&quot; type=&quot;VARCHAR&quot; 
+  size=&quot;14&quot; /&gt;<br>
+  &lt;column name=&quot;LOC&quot; required=&quot;false&quot; type=&quot;VARCHAR&quot; 
+  size=&quot;13&quot; /&gt;<br>
+  &lt;/table&gt;<br>
+  &lt;/table&gt;<br>
+  &lt;table name=&quot;EMP&quot; &gt;<br>
+  &lt;column name=&quot;EMPNO&quot; primaryKey=&quot;true&quot; required=&quot;true&quot; 
+  type=&quot;DECIMAL&quot; size=&quot;4&quot; /&gt;<br>
+  &lt;column name=&quot;ENAME&quot; required=&quot;false&quot; type=&quot;VARCHAR&quot; 
+  size=&quot;10&quot; /&gt;<br>
+  &lt;column name=&quot;JOB&quot; required=&quot;false&quot; type=&quot;VARCHAR&quot; 
+  size=&quot;9&quot; /&gt;<br>
+  &lt;column name=&quot;MGR&quot; required=&quot;false&quot; type=&quot;DECIMAL&quot; 
+  size=&quot;4&quot; /&gt;<br>
+  &lt;column name=&quot;HIREDATE&quot; required=&quot;false&quot; type=&quot;TIMESTAMP&quot; 
+  /&gt;<br>
+  &lt;column name=&quot;SAL&quot; required=&quot;false&quot; type=&quot;DECIMAL&quot; 
+  size=&quot;7,2&quot; /&gt;<br>
+  &lt;column name=&quot;COMM&quot; required=&quot;false&quot; type=&quot;DECIMAL&quot; 
+  size=&quot;7,2&quot; /&gt;<br>
+  &lt;column name=&quot;DEPTNO&quot; required=&quot;false&quot; type=&quot;DECIMAL&quot; 
+  size=&quot;2&quot; /&gt;<br>
+  &lt;foreign-key foreignTable=&quot;DEPT&quot;&gt;<br>
+  &lt;reference local=&quot;DEPTNO&quot; foreign=&quot;DEPTNO&quot; /&gt;<br>
+  &lt;/foreign-key&gt;<br>
+  &lt;/table&gt;<br>
+  &lt;/database&gt;</code></p>
+<p>&nbsp;</p>
+</body>
+
+</html>

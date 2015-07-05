@@ -1,0 +1,166 @@
+오라클 JOB 등록하기(문법,설명,예제) 
+http://blog.daum.net/tejateja/141
+
+1. 문법 - Oracle Job 등록 형식
+
+BEGIN
+   DBMS_JOB.submit
+①                  (   job번호,
+②                      'job내용;',
+③                       job초기실행시간,
+④                      'job다음실행시간',
+                      FALSE
+                  );
+END;
+/
+
+ 
+
+2. 각 인수 설명
+    ① job번호
+        실행시 파라미터를 입력해야하지만 아무 숫자나 입력하면 알아서 입력된다.
+
+    ② job내용('   ;'필수)
+        쿼리를 입력해도 되고 procedure명을 입력해도 된다.
+
+    ③ job초기실행시간
+        등록 후 처음으로 실행되는 시간이다.
+
+    ④ job다음실행시간('   '필수)
+        실행 후 다음 실행시간이다.(반복되는 시간이다)
+        'sysdate'                    --> 하루 한번
+        'sysdate + 1/24'          --> 한시간에 한번
+        'sysdate + 1/24/60'     --> 1분에 한번 ㅡㅡ+
+        'trunc(SYSDATE+(1/24),'HH24')'   --> 이 방법이 더 정확하다는 http://hopeland.kr/216
+
+ 
+
+3. 기타 
+
+* JOB 조회
+    SELECT * FROM USER_JOBS;
+
+* JOB 삭제
+    exec DBMS_JOB.REMOVE( job_number );  --등록된 JOB번호를 조회하여 삭제한다.
+
+* JOB 정지
+    exec DBMS_JOB.BROKEN( job_number, TRUE);
+
+ 
+
+4. 예제
+
+* 해당 테이블의 last_date(최종수정일)기준으로 2시간전(2/24) 데이터를 삭제한다.
+
+최초 실행은 등록 후 1분(sysdate + 1 / 24 / 60)후에 실행하고 2시간 간격(sysdate + 2/24)으로 실행한다.
+
+ 
+
+BEGIN
+   DBMS_JOB.submit
+                  (:jobno,
+                   'DELETE FROM table_name WHERE last_date < sysdate - 2/24;',
+                    sysdate + 1 / 24 / 60,
+                   'sysdate + 2/24',
+                   FALSE
+                  );
+END;
+/
+
+ 
+
+
+- write by 꼬마갱이 2010.01.08 -
+
+
+
+
+
+
+
+
+
+
+
+내용추가
+
+
+토드에서 잘안되는 경우
+
+
+ - 좌상단 Excute statement를 클릭하여 등록하자.
+
+
+토드에서 삭제, 정지가 안되는 경우
+
+
+ - 위에 있는 쿼리를 이용하여 정지와 삭제를 하자.
+
+
+잡등록후 실행이 안되거나 다른 사용자한테 보이지 않는다.
+
+
+ - commit을 안한 경우 이다.(이상하지만 해보라 ㅡㅡ;;)
+
+
+
+
+- write by 꼬마갱이 2010.03.02 -
+
+
+
+
+
+
+
+
+
+
+
+내용추가
+
+초기 실행 일시를 지정하고 간격(다음실행일시)를 sysdate + 1 와 같이 하면
+실행시간을 기준으로 하루에 한번 실행한다.
+
+예) 최초실행은 오후4시로 지정하고 간격을 sysdate + 1로 지정하였다.
+
+    --> 매일 오후 4시에 실행된다.
+
+그러나 처음실행은 오후4시로 지정하고, 다음 실행시간은 매일 자정(0시)로 하고 싶다.
+
+
+최초 실행 날짜와 시간 지정
+
+    TO_DATE ('20100303' || '160000', 'YYYYMMDD HH24:MI:SS')
+
+
+다음 실행 날짜와 시간 지정
+
+    'TO_DATE (''20100303'' || ''000001'', ''YYYYMMDD HH24:MI:SS'') + 1'
+
+
+- write by 꼬마갱이 2010.03.03 -
+
+
+
+
+
+
+
+DECLARE
+  X NUMBER;
+BEGIN
+  SYS.DBMS_JOB.SUBMIT
+    ( job       => X 
+     ,what      => 'insert  into  iit0850chk  (COMPUROOM_CD,BILL_YM,EXE_YMD)  values(to_char(sysdate,''MM''),to_char(sysdate,''YYYY''),to_char(sysdate,''ss''));'
+     ,next_date => to_date('27-06-2012 09:50:34','dd/mm/yyyy hh24:mi:ss')
+     ,interval  => 'SYSDATE+30/1440 '
+     ,no_parse  => TRUE
+    );
+  SYS.DBMS_OUTPUT.PUT_LINE('Job Number is: ' || to_char(x));
+END;
+/
+
+commit;
+
+

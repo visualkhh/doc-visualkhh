@@ -1,0 +1,4 @@
+select  TO_NUMBER (  TO_DATE ('20111231', 'yyyymmdd')                                        
+		                                             - TO_DATE ('20110101', 'yyyymmdd')                                     
+		                                             + 1                                                                        
+		                                            )             from dual;

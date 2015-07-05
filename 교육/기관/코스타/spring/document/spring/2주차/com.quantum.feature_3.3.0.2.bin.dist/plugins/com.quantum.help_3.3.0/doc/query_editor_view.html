@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>SQL Query View</title>
+<link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>The SQL Query Editor View</h1>
+<p>The <b>SQL Query Editor</b> is a view, not an editor in the Eclipse sense, 
+  so it won't appear mixed with the other editors in the editors zone of the workspace. 
+  However, you can use most of its functions in an editor, if you just edit a 
+  <b>.sql</b> or a <b>.ddl</b> file. More on that <a href="#asEditor">at the end 
+  of this page</a>. Its function is allow the user to introduce and to edit SQL 
+  sentences and to execute them against the databases defined in Quantum. It looks 
+  like this when you have written something on it:</p>
+<p><img src="images/quantum_sql_query_full.jpg" width="429" height="220"></p>
+<p>As you can see, the editor highlights some SQL syntax features. The colors 
+  of the highlighted text are selectable in the <a href="preferences_properties.html">Quantum 
+  preferences</a>.</p>
+<p>When you want to execute your SQL query, you select the bookmark against which 
+  to execute using the <img src="images/quantum_sql_query_execute_button.jpg" width="52" height="45"> 
+  little black button near the green button (the execute button). When you click 
+  on it, a list of bookmarks appear for you to select. The currently selected 
+  appears above, separated from the rest by a line.</p>
+<p>. <img src="images/quantum_sql_query_execute_button_open.jpg" width="173" height="443"></p>
+<p>If you simply hit the green execute button, the last selected bookmark will 
+  be used to execute against. That selected bookmark will also be shown as a window 
+  tip if you hover the mouse pointer over the execute button. This selected bookmark 
+  will change also if you double-click on a <b><a href="working_bookmarks.html#recentQueries">Recent 
+  Query</a> </b> on any bookmark (it will change to be the parent bookmark of 
+  the selected query). If the selected bookmark is not opened, Quantum will try 
+  to open it and execute the statement afterwards.</p>
+<p>If your SQL statement return some results, the results will be displayed in 
+  the <b><a href="table_view.html">Quantum Table View</a></b>.</p>
+<p>You can write several queries, separated by semicolons. Quantum will send then 
+  one after another to the database JDBC driver to be executed. If you want to 
+  execute only one query or a part of them, you have the option to select the 
+  text and hitting the execute button. If there is something selected in the Query 
+  view, when the execute button is hit, only the selected text will be executed. 
+  You can also double-click on a character in the view, and that will automatically 
+  select its corresponding statement, limited by semicolons. Then you can execute 
+  it. </p>
+<p>When you execute a query, the resulting status of the query and the time used, 
+  is displayed on the status bar of Eclipse. If the database reports any error, 
+  the message reported is displayed in a message box.</p>
+<p><img src="images/quantum_sql_query_status_bar.jpg" width="478" height="39"></p>
+<p>Next to the execute button, there is an &quot;erase&quot; button with an eraser 
+  icon on it <img src="images/quantum_sql_query_erase_button.jpg" width="27" height="31">. 
+  Pressing this button will clear the SQL Query view from all text.</p>
+<h2><a name="toolbarMenu"></a>The toolbar menu</h2>
+<p>At the right side of the toolbar, there is an expandable menu with some options.</p>
+<p><img src="images/quantum_sql_toolbar_menu.jpg" width="240" height="218" ></p>
+<p>You can Import a Query from an external file, and save (Export) one that you 
+  have written to a file. You can change your <b>AutoCommit</b> selection on the 
+  active bookmark, and execute a <b>Rollback</b> or a <b>Commit</b>, as convenience 
+  functions. Or course the rollback will do nothing if you have <b>AutoCommit</b> 
+  selected (the default). For more options on <b>AutoCommit</b>, see the <a href="preferences_properties.html">Preferences 
+  Help</a>. </p>
+<p>The <b>Copy As Java</b> option will copy the existing text in the Query View 
+  and format it ready to be inserted as java code for the creation of a String. 
+  For example:</p>
+<p><code>SELECT * <br>
+  FROM &quot;TEMP&quot;<br>
+  WHERE ID = 45</code></p>
+<p>will be copied to the clipboard as :</p>
+<p><code>&quot;SELECT * &quot; +<br>
+  &quot;FROM \&quot;TEMP\&quot; &quot; +<br>
+  &quot;WHERE ID = 45 &quot; ;</code></p>
+<p><code>The next option <b>Paste From Java</b> tries to do the inverse of that 
+  procedure. So if you have in the clipboard something like</code></p>
+<p><code>&quot;SELECT * &quot; +<br>
+  &quot;FROM \&quot;TEMP\&quot; &quot; +<br>
+  &quot;WHERE ID = 45 &quot; ;</code></p>
+<p>it'll paste into the Query View the string resulting from evaluating the java 
+  code (using the JavaBean interpreter). So it'll return </p>
+<p><code>SELECT * <br>
+  FROM &quot;TEMP&quot;<br>
+  WHERE ID = 45</code></p>
+<p><code>The option <b>Paste tableview query</b> will look at which tab is active 
+  (displayed) in the Table View and will paste into the Query View the SELECT 
+  used to generate that tab data.</code></p>
+<p><code>The <b>Use single tab for query editor results</b> option allows you 
+  to select if you want to reuse your tabs in the Table View (for repeated queries) 
+  or rather generate a new one for each. Default is true.</code></p>
+<p></p>
+<h2><a name="asEditor"></a>Using the Query View as an Editor</h2>
+<p>If you edit an <b>.SQL</b> or <b>.DDL</b> file after installing Quantum, those 
+  extensions should launch an Editor based on the Query View. If you don't get 
+  it, that's possibly because some other plugin has broken the link. You can remake 
+  the link (or apply to other extensions) in <b>Window-&gt;Preferences-&gt;General-&gt;FileAssociations</b>.</p>
+<p>Once you have open the file with the editor, the usual editor lifecycle applies, 
+  that is, your data is associated to a file, editors remain in place between 
+  Eclipse invocations, etc. Also, you'll be able to use many standard editor commands 
+  that you cannot use in the Query View, like <b>Undo</b>, or <b>Search/Replace</b>. 
+  You can execute your file by the context menu, selecting <b>Execute</b>, and 
+  then the bookmark.</p>
+<p><img src="images/quantum_query_editor_context_menu.jpg" width="180" height="174"></p>
+<p>The Editor does not allow you to change the <b>AutoCommit</b> property of the 
+  connection, so you have to remember which is it.</p>
+</body>
+
+</html>

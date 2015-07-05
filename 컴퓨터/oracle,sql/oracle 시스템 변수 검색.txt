@@ -1,0 +1,22 @@
+
+sqlplus "as sysdba"
+
+
+imp help=y
+
+
+
+
+
+select * from sys.props$ ;
+
+
+select * from v$parameter;
+
+select * from v$instance;
+
+
+
+
+select * from v$sql
+where sql_text like '%dba_users%';

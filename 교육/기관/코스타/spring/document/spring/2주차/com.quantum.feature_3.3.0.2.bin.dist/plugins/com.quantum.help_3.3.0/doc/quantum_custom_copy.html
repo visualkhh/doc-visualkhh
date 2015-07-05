@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>Custom Copy</title>
+<link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>Custom Copy </h1>
+<p></p>
+<p> The <b>Custom Copy </b>feature is meant to allow the user to customize the 
+  copy format of tables and columns.</p>
+<p><b>How to use </b>: You are in the Bookmarks View. You select the tables, views 
+  and columns that you want to copy. Be sure that only tables, views and columns 
+  are selected. Then you select "Custom Copy" in the context menu (Note that the 
+  <b>Custom Copy</b> menu item will only appear if you have defined at least one 
+  Custom Copy in the preferences.) By default, a blank sub-menu will appear. You 
+  have to customize it to do something. </p>
+<p><b>How to customize</b> : You go to the <b>Window > Preferences</b> , then 
+  <b>QuantumDB > Copy &gt; Custom Copy 1</b>. You can have up to three different 
+  templates, that will appear in the sub-menu with the names you give to them. 
+  So you start the Custom Copy 1 preferences page. </p>
+<p><img src="images/quantum_preferences_custom_copy.jpg" width="630" height="539"></p>
+<p>&nbsp;</p>
+<p>There you have some boxes to fill up. The idea is that you will have a list 
+  of tables (from now on, tables will mean "tables and views"). This list of tables 
+  is composed of the directly selected tables plus the implicitely selected (because 
+  a column of it is selected). You choose a general template format, and the formats 
+  of the lists and items. The possible variables you have to play are: </p>
+<blockquote> 
+  <p><b>${schema}</b> The schema of the table or column. Valid in all format specifiers 
+    except Template. </p>
+  <p><b>${table}</b> The table name, without schema. Valid in all format specifiers 
+    except Template. </p>
+  <p><b>${qualified}</b> Same as ${schema}.${table} Valid in all format specifiers 
+    except Template. </p>
+  <p><b>${column}</b> The column name. Only valid for Column specifiers. </p>
+  <p><b>${column_list}</b> The list of all columns. Only valid for Table specifiers. 
+  </p>
+  <p><b>${table_list}</b> The list of all tables. Only valid in Template. This 
+    is the only variable that can be used in Template. </p>
+  <p><b>\n</b> Inserts a new line </p>
+  <p><b>\t</b> Inserts a tab character</p>
+</blockquote>
+<p>It's faster to explain by example. Suppose I select the columns ENAME and JOB 
+  from the table BONUS in schema SCOTT, and also the entire table DEPT from same 
+  schema. </p>
+<blockquote> 
+  <p><img src="images/quantum_custom_copy_example1_select.jpg" width="222" height="160"></p>
+  <p>The selected tables and columns are:</p>
+  <table width="75%" border="1">
+    <tr> 
+      <td>BONUS<i> (implicit)</i></td>
+      <td>ENAME<i> (selected)</i></td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td>JOB<i> (selected)</i></td>
+    </tr>
+    <tr> 
+      <td>DEPT <i>(selected)</i></td>
+      <td>DEPTO <i>(implicit)</i></td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td>DNAME <i>(implicit)</i></td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td>LOC<i> (implicit)</i></td>
+    </tr>
+  </table>
+</blockquote>
+<p>Now we set in the Custom Copy 1 preferences page the values:</p>
+<ul>
+  <li><b>Name</b>: AnyName </li>
+  <li><b>Table Item</b>: Call_Func(${column_list}) </li>
+  <li><b>Table Separator</b>: \n </li>
+  <li><b>Column Item</b>:${column} </li>
+  <li><b>Column Separator</b>: , </li>
+  <li><b>Template</b>: //Generated code\n${table_list}\n//End of generated code 
+  </li>
+</ul>
+<p>And call the custom copy just defined:</p>
+<p><img src="images/quantum_custom_copy_example1_menu.jpg" width="427" height="277"></p>
+<p>&nbsp;</p>
+<p>The copied text in the clipboard will be: </p>
+<blockquote> 
+  <blockquote> 
+  <code>
+    <p><i>// Generated code</i></p>
+    <p><i> Call_Func(ENAME, JOB)</i></p>
+    <p><i> Call_Func(DEPTNO, DNAME, LOC)</i></p>
+    <p><i> //End of generated code</i></p>
+	</code>
+  </blockquote>
+</blockquote>
+<p> If I want only a list of columns, I can set: </p>
+<ul>
+  <li><b>Name</b>: AnyName </li>
+  <li><b>Table Item:</b> ${column_list} </li>
+  <li><b>Table Separator</b>:, </li>
+  <li><b>Column Item</b>:${qualified}.${column} </li>
+  <li><b>Column Separator</b>: , </li>
+  <li><b>Template</b>: (${table_list}) </li>
+</ul>
+<p>The result will be: </p>
+<blockquote>
+  <blockquote> 
+    <p><i>(SCOTT.BONUS.ENAME, SCOTT.BONUS.JOB, SCOTT.DEPT.DEPTNO, SCOTT.DEPT.DNAME, 
+      SCOTT.DEPT.LOC) </i></p>
+  </blockquote>
+</blockquote>
+
+
+</body>
+
+</html>

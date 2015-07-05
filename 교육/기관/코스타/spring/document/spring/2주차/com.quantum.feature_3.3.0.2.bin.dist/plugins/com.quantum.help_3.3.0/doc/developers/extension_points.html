@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+<title>QuantumDB Extension Points</title>
+<link rel="stylesheet" href="../book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>QuantumDB Extension Points </h1>
+<p></p>
+<p>Extension points are the standard way of extending plugins in Eclipse. There 
+  are three extension points defined in Quantum.</p>
+<blockquote> 
+  <p><code>com.quantum.Quantum.metadata<br>
+    com.quantum.Quantum.data<br>
+    com.quantum.Quantum.embedded </code></p>
+</blockquote>
+<p>The first one extends the Bookmark View context menu, allowing other plug-ins 
+  to get info on the metadata of the selected tables and/or views, and use it. 
+</p>
+<p>The second one extends the Table View context menu, allowing other plug-ins 
+  to get info on the data of the selected rows, and use it.</p>
+<p>The third one allows other plugins to define a database connection, so that 
+  Quantum can make a connection to that database. The database can be also provided 
+  in the same plugin, or not. The standard Quantum distribution <b>com.quantum.derby</b> 
+  plugin extends the <b>com.quantum.Quantum.embedded</b> extension point, allowing 
+  Quantum to automatically generate a connection (bookmark) to a Derby database 
+  that the plugin also defines.<br>
+</p>
+<p>In the two first cases, data is passed as an XML document, with an internal 
+  definition. This definition could change in the future, so if anybody is developing 
+  something using these extension points, let us know so we change with care. 
+  In any case, the two first extension points are redundant, and kept only for 
+  compatibility purposes, as the same results can be obtained by using standard 
+  extension points of the Eclipse menus, and directly calling Quantum methods 
+  for getting the info.<br>
+</p>
+<p>There is an example extender plugin to illustrate the use of these extension 
+  points. What the extender plugin does is simply getting the info as an XML document, 
+  convert it to text and copy it to the clipboard, but of course other plugins 
+  would do more interesting things. This extender plugin can be found on the doc 
+  directory of the Quantum plugin, with the name extender.zip. To test it, simply 
+  unpack in the Eclipse plugin directory, just like Quantum. A new menu item will 
+  appear both in the Bookmark View and the Table View. Using the menu item will 
+  copy the data passed to the extender function to the clipboard. The source code 
+  of that plugin should be used as an example to develop other extensions to Quantum.<br>
+</p>
+<p>If you want to extend Quantum from another plugin and have doubts, please contact 
+  me with your questions.<br>
+</p>
+<h2>Creating a plugin that extends Quantum.</h2>
+<p> We'll create a new plugin that extends Quantum. This tutorial assumes Eclipse 
+  version 3 or higher. Also, you should already have loaded into your workspace 
+  the Quantum project source code. So something like that should already be on 
+  your <b>Package Explorer</b> view of Eclipse.</p>
+<p><img src="images/quantum_extender_plugin/quantum_plugin_workspace.jpg" width="281" height="750"></p>
+<p>First we create a new plugin project using the new project wizard. Choose the 
+  name you want, I used <b>com.quantum.extender</b></p>
+<p><img src="images/quantum_extender_plugin/new_plugin_wizard_page1.jpg" width="507" height="538"></p>
+<p>Leave the second page as it is:</p>
+<p><img src="images/quantum_extender_plugin/new_plugin_wizard_page2.jpg" width="507" height="538"></p>
+<p>And directly hit <b>Finish.</b></p>
+<p>Eclipse will create a new plugin with no functionality, and automatically open 
+  the <b>plugin.xml</b> file in the editor (or MANIFEST.MF, depending on your 
+  version). </p>
+<p>&nbsp;</p>
+<p><img src="images/quantum_extender_plugin/plugin_xml_overview.jpg" width="547" height="411"></p>
+<p>You can customize here the name of the plugin, etc. Then move to the <b>Dependencies</b> 
+  tab.</p>
+<p><img src="images/quantum_extender_plugin/plugin_xml_dependencies.jpg" width="621" height="417"></p>
+<p>Your extender plugin must depend on the quantum plugin, both at run-time and 
+  at compile-time. We add the run-time dependency in this tab of the <b>plugin.xml</b> 
+  file. We click on the <b>Add...</b> button.</p>
+<p><img src="images/quantum_extender_plugin/plugin_xml_dependencies_selection.jpg" width="326" height="374"></p>
+<p>And select the <b>com.quantum.Quantum</b> plugin from the list of possible 
+  plugins. If the quantum plugin does not appear in the list, it's possibly that 
+  you have not the quantum plugin in your workspace. Download the sources from 
+  CVS.</p>
+<p>Afterwards, the quantum plugin appears in our list of dependencies.</p>
+<p>We navigate to the <b>Extension</b> tab. Here we define our extensions. If 
+  you aren't used to Eclipse terminology, basically an <i>extension point</i> 
+  is where you offer a point to be extended by other plugins (in this case is 
+  Quantum the one that has the extension points), and a <i>extension</i> is the 
+  code we write to take advantage of that extension point, and so, effectively, 
+  <i>extend</i> it. In this case it's our <b>com.quantum.extender</b> plugin the 
+  one that will extend the Quantum plugin extension points. For the moment, as 
+  it's a new plugin, it has no extensions defined.</p>
+<p><img src="images/quantum_extender_plugin/plugin_xml_extensions.jpg" width="581" height="416"></p>
+<p>The whole point of this plugin is to extend the quantum plug-in with new functionality, 
+  so we next define the extensions. We use the <b>Add...</b> button to select 
+  the extension points that we are going to use.</p>
+<p><img src="images/quantum_extender_plugin/plugin_xml_extensions_selection.jpg" width="358" height="502"></p>
+<p>We select the <b>com.quantum.Quantum.metadata</b> extension point so as to 
+  have access to the metadata (structure) of the tables and views of databases.</p>
+<p><img src="images/quantum_extender_plugin/plugin_xml_extensions_filled.jpg" width="576" height="415"></p>
+<p>We give an id to our extension as <b>com.quantum.extender.metadata</b>, that 
+  is, the id of our plugin, plus a more or less significative name. In the name 
+  we put a short description of the exension point. The extension point we had 
+  already selected in le left panel, and is automatically filled in the right 
+  one.</p>
+<p>So we have decided to extend this extension point of Quantum. Quantum has defined 
+  a <b>schema</b> for that extension point. To see this schema, we open the <i>Quantum</i> 
+  plugin.xml file (not the Extender plugin.xml that we have worked up to now).</p>
+<p><img src="images/quantum_extender_plugin/quantum_plugin_xml_extension_points.jpg" width="591" height="417"></p>
+<p>We notice the schema is saved in a subdirectory called <b>schema</b>, and is 
+  called metadata.exsd. We click on the underlined <b>Schema:</b> label of the 
+  right panel &quot;Extension Point Details&quot;, and the schema editor is opened 
+  for us, displaying a short description of the schema.</p>
+<p><img src="images/quantum_extender_plugin/quantum_plugin_schema_editor.jpg" width="587" height="449"></p>
+<p>Selecting the <b>extension</b> root of the tree, we see the structure that 
+  this extension point needs if we want to &quot;connect&quot; to it.</p>
+<p>&nbsp;</p>
+<p>. In this schema, Quantum explains what it needs from anybody extending the 
+  <b>metadata</b> extension point. Basically Quantum needs a string to use it 
+  as a label in its menu.<b> <img src="images/quantum_extender_plugin/quantum_plugin_schema_editor_extension.jpg" width="566" height="447"></b></p>
+<p>Now we try to understand the schema. The left <b>Extension Point Element</b> 
+  says that anybody extending this metadata extension point needs to give a &quot;point&quot;, 
+  and &quot;id&quot; and a &quot;name&quot;. Those are the attributes of <b>extension</b> 
+  in our schemna. That's more or less standard for all extension points. The little 
+  orange ball near the icon of the <b>point</b> attribute says that it's required, 
+  the other two not really. We have already provided in our extension that three 
+  items. We have just filled them up, if you remember, in our plugin.xml file 
+  for the com.quantum.extender plugin. </p>
+<p>But that's of course not enough information for Quantum to make an extension. 
+  At the very least we need a string to display in the Quantum menu, so that the 
+  user can use the extension. So there is anoter element, <b>metadataActor</b>.</p>
+<p>The right <b>Grammar</b> pannel says that the extension, aside from having 
+  those properties, has a <i>sequence<b> </b></i> of <b>metadataActor</b> elements. 
+  That is because we can define several menu items with several different functionalities. 
+  And each metadataActor has two attributes, the <b>label</b>, and the <b>class</b>. 
+  They are not defined as required, but nothing much is going to happen if you 
+  don't define them, so you better give them. The little pencil on the icon tells 
+  you that the attribute has an annotation that you can read and help you understand 
+  what's that attribute for. If you click on <b>label</b>:</p>
+<p><img src="images/quantum_extender_plugin/quantum_plugin_schema_editor_extension_label.jpg" width="563" height="448"></p>
+<p>A short description appears in the box labeled <b>Description</b>. This tells 
+  us that the <b>label</b> attribute is the string that we want to appear in the 
+  Quantum menu. If we click on <b>class</b>, it tells us that the class attribute 
+  is the name of the class that Quantum is going to call when the user selects 
+  the menu item. Of course that class is to be provided by us, when writing the 
+  extender plugin. </p>
+<p>So we go back to our <b>plugin.xml</b> file editor, and create a new metadataActor 
+  element in our extension. We select our just-defined extension and right-click 
+  on it, and select on the menu that we want to create a new metadataActor.</p>
+<p><img src="images/quantum_extender_plugin/plugin_xml_extensions_new_actor.jpg" width="563" height="452"></p>
+<p>A new <b>metadataActor</b> item appears on the left panel, and two empty boxes 
+  on the right panel, with the names of the attributes that Quantum defined for 
+  the metadataActor. We fill the <b>label</b> with the string that we want to 
+  appear on the Quantum menu. It has to be something significative to the user 
+  of the application. We decide to make our extension point generate a C++ class 
+  with the info from the database metadata. So we give an adequate label, and 
+  then an appropiate class name. The class does not exist yet. The editor offers 
+  us no helper to select an already-defined class simply because it has no idea 
+  that the value of the <b>class</b> attribute is to be a java class. Only the 
+  Quantum plugin, that defined the <b>metadataActor</b> element will know that. 
+  To the editor, they are all just attributes with strings in them, because that's 
+  the way they are defined. I think that you can define an attribute to be a java 
+  element, but you'll have to check that for yourself. After filling up the label 
+  and the class, the editor looks like that. </p>
+<p><img src="images/quantum_extender_plugin/plugin_xml_extensions_new_actor_filled.jpg" width="609" height="449"></p>
+<p>We save the changes to the <b>plugin.xml</b> file, and proceed to the next 
+  step.</p>
+<p>We have promised the extension point a class called <b>com.quantum.extender.GenerateCppClass</b>. 
+  It would be nice from us to provide one such class, because up to the moment 
+  it's just a figment of our imagination.</p>
+<p>So go to the <b>com.quantum.extender</b> package in the <b>Package Explorer</b> 
+  of Eclipse. This package will only have the <b>ExtenderPlugin</b> class, generated 
+  by the New Project wizard. Now we add another class using the add new class 
+  wizard.</p>
+<p> <img src="images/quantum_extender_plugin/new_class_generate.jpg" ></p>
+<p>Notice that we have added the interface <b>com.quantum.extensions.IMetadataExtension</b>. 
+  Quantum needs that interface to be sure that the function it's going to call 
+  exists. In this case the interface defines a single function <b>run(Document 
+  doc)</b>. This <b>Document</b> is a <b>org.w3c.dom.Document</b> object that 
+  Quantum will pass to the <b>run()</b> function when calling it. That document 
+  will have XML with the metadata of the selected element in the GUI of Quantum.</p>
+<p>The new class wizard generates an stub for function <b>run()</b> that does 
+  nothing, but that's enough for us. We can now test that the extension point 
+  works. We set a breakpoint in the <b>run()</b> function and execute Quantum 
+  in debug mode to see if our new menu item really appears in Quantum. </p>
+<p>Now, when we execute Quantum in a debug environment as an Eclipse Application, 
+  and open a bookmark, and right-click on a table to get the context menu, we 
+  get a new menu item, that did not appear previously.</p>
+<p><b>Before defining the extension: </b><img src="images/quantum_extender_plugin/context_menu_metadata_before.jpg" width="173" height="78"> 
+  <b>After:</b> <img src="images/quantum_extender_plugin/context_menu_metadata_after.jpg" width="173" height="88"></p>
+<p>The <b>Extensions</b> menu item is a generic Quantum item to group all extensions, 
+  in this case extensions of type <b>metadata</b>. If you open the <b>Extensions</b> 
+  menu item, your defined extension menu item will appear.</p>
+<p><img src="images/quantum_extender_plugin/context_menu_expanded.jpg" width="396" height="106"></p>
+<p>The used string is not exactly what you wrote, but adds at the beginning the 
+  name of the extender plugin, to have a bit of organization if several plugins 
+  extend that point. At some time in the future, even a second level of sub-menus 
+  based on the plugin name could be implemented.</p>
+<p>Well, then you select your just-generated menu item, and the <b>run()</b> function 
+  gets called. You know that because you put a breakpoint there, and it has just 
+  been hit. In your <b>run()</b> function, you receive a single parameter with 
+  the XML description of the selected items. You can make a first test of that 
+  by simply copying the received XML to the clipboard. To that end we write</p>
+<blockquote><pre> 
+ 		public void run(Document doc) {
+		QuantumPlugin.getDefault().getSysClip().setContents(
+			new Object[] { com.quantum.ExternalInterface.xmlToString(doc) },
+			new Transfer[] { TextTransfer.getInstance()});
+		}
+</pre></blockquote>
+<p>The <b>xmlToString()</b> is a function that gets an <b>org.w3c.dom.Node</b> 
+  and converts it to a String. It's part from the <b>com.quantum.ExternalInterface</b> 
+  class. This class is where Quantum groups some functions (from 2.4.5 version 
+  onwards) for use of extender plug-ins. More on that later. Anyway, we test and 
+  get this xml code into the clipboard.</p>
+
+<pre>&lt;?xml version=&quot;1.0&quot; ?&gt;<br>&lt;Metadata&gt;<br>	&lt;Author&gt;Quantum&lt;/Author&gt;<br>	&lt;Version&gt;0.4&lt;/Version&gt;<br>	&lt;table database=&quot;Oracle&quot; isSynonym=&quot;false&quot; name=&quot;BONUS&quot; schema=&quot;SCOTT&quot;&gt;<br>		&lt;column java.sql.Types=&quot;12&quot; name=&quot;ENAME&quot; nullable=&quot;true&quot; position=&quot;1&quot; primaryKey=&quot;false&quot; size=&quot;10&quot; type=&quot;VARCHAR2&quot; /&gt;<br>		&lt;column java.sql.Types=&quot;12&quot; name=&quot;JOB&quot; nullable=&quot;true&quot; position=&quot;2&quot; primaryKey=&quot;false&quot; size=&quot;9&quot; type=&quot;VARCHAR2&quot; /&gt;<br>		&lt;column java.sql.Types=&quot;3&quot; name=&quot;SAL&quot; nullable=&quot;true&quot; position=&quot;3&quot; primaryKey=&quot;false&quot; size=&quot;22&quot; type=&quot;NUMBER&quot; /&gt;<br>		&lt;column java.sql.Types=&quot;3&quot; name=&quot;COMM&quot; nullable=&quot;true&quot; position=&quot;4&quot; primaryKey=&quot;false&quot; size=&quot;22&quot; type=&quot;NUMBER&quot; /&gt;<br>	&lt;/table&gt;<br>&lt;/Metadata&gt;</pre>
+
+<p>Now we want to do something about it. We can of course use the supplied 
+  XML node directly to interrogate it about the different tags. The structure 
+  of the XML and the name of the tags and attributes are likely to remain constant 
+  over time, although new items will surely be added. As a better alternative 
+  is to use the Quantum <b>ExternalInterface</b> class to extract metadata information 
+  from this XML.</p>
+<h2>The com.quantum.ExternalInterface class</h2>
+<p>The com.quantum.ExternalInterface class is a class designed to be used by external 
+  plugin developers. The methods in this class are to be rather stable, and also 
+  easy to understand and use. The functions in this class try to use as far as 
+  possible regular java classes instead of more mutable Quantum classes. For example, 
+  the function <code>getBookmarkNames()</code>returns as string array with the 
+  names of the bookmarks defined in Quantum. The functions are commented and usually 
+  it's purpose is rather straightforward. The best way of knowing that class is 
+  by reading the source. When developing a Quantum extension, is better to go 
+  there first to see if your required functionality already exists, before delving 
+  deeper into Quantum code to get it. And if your funcionality is not there and 
+  it's general-purpose, please ask for a new function to be added to the interface 
+  to the Quantum developers (or better still, supply your own patch :)</p>
+<p>However, not always is practical to use only java classes. There are some functions 
+  of <b>ExternalInterface</b> that return internal Quantum types. We'll see one 
+  of them later.</p>
+<p>Now we want to iterate the XML and see how many tables and views has, because 
+  our code is only interested in tables and views. We could use the <b>NodeIterator</b> 
+  and <b>NodeFilter</b> from the org.w3c.dom specification, but Quantum defines 
+  an iterator of its own. It's still only partially developed, the use now would 
+  be:</p>
+<pre>	public void run(Document doc) {<br>		Iterator iter = new XMLMetadataIterator(doc, 0);<br>		int i = 1;<br>		while (iter.hasNext()) {<br>			Node node = (Node) iter.next();<br>			MessageDialog.openInformation(<br>				      ExtenderPlugin.getDefault().getWorkbench().getActiveWorkbenchWindow().getShell(),<br>				      &quot;Element &quot; + String.valueOf(i),com.quantum.ExternalInterface.xmlToString(node));<br>			i++;<br>		}<br>	}
+</pre>
+<p>The code I guess is clear enough. The <b>XMLMetadataIterator</b> receives a 
+  <b>Document</b> to iterate over, and an ugly flag, that up to now can be only 
+  0 or -1. -1 if all nodes are to be iterated, 0 if only tables and views. In 
+  the future, more options will probably be added. We select only tables and views, 
+  and make a simple iteration to display the resulting nodes. Note that <b>XMLMetadataIterator</b> 
+  is not part of the &quot;stable&quot; external interface of Quantum and so subject 
+  to more change. You can navigate the document using the normal DOM specifications.</p>
+<p>Following with our program, we want to do something more interesting than just 
+  displaying the items, so we extract the metadata from them. To do this, Quantum 
+  has a class called <b>XMLToModelConverter</b>. This class allows you to get 
+  metadata in a simple way from the XML. The use would be something like:</p>
+<pre> 	public void run(Document doc) {<br>		Iterator iter = new XMLMetadataIterator(doc, 0);<br>		int i = 1;<br>		while (iter.hasNext()) {<br>			Node node = (Node) iter.next();<br>			TableMetadata metadata = new XMLToModelConverter((Element)node);<br>			MessageDialog.openInformation(<br>				      ExtenderPlugin.getDefault().getWorkbench().getActiveWorkbenchWindow().getShell(),<br>				      &quot;Element &quot; + String.valueOf(i),<br>				      &quot;Name : &quot; + metadata.getName() + &quot;\n&quot; );<br>			i++;<br>		}<br>	}
+</pre>
+<p>From the <b>TableMetadata</b> object that we have got, we can get the columns 
+  and the metadata from them, using again, of course, another Quantum interface, 
+  the <b>Column</b>, that holds the metadata of a single column. The code to get 
+  the columns and its metadata could be like:
+<pre>			Column[] columns = null;<br>			try {<br>				columns = metadata.getColumns();<br>			} catch (NotConnectedException e) {<br>			} catch (SQLException e) {<br>			}<br>			if (columns != null) {<br>				for (int j = 0; j &lt; columns.length; j++) {<br>					Column column = columns[j];<br>					String name = column.getName();<br>					int type = column.getType();
+				}
+   			}
+</pre>
+<p> Now you have all the elements needed to make a Quantum extension plugin, or 
+  at least I hope you do. </p>
+<h2>The <i>data</i> extension point</h2>
+<p>Extending the other extension point should be straightforward from here. Just 
+  remember that your class should now extend the IDataExtension interface, to 
+  allow quantum to differentiate it.The only other difference is the location 
+  of the menu and the XML format. In this case, the <b>data</b> extension point, 
+  the menu extended is the context menu of the Table View. Normally it appears 
+  as :</p>
+<p><img src="../images/quantum_table_view_context_menu.jpg" width="135" height="188"></p>
+<p>If an extension is defined it appears as:</p>
+<p><img src="images/quantum_extender_plugin/quantum_table_view_context_menu_extended.jpg" width="424" height="243"></p>
+<p>The selected rows are copied to the clipboard using the following XML. The 
+  &lt;table&gt; tag is similar to what we have seen before, and only the two data 
+  rows are added, using the &lt;DataRow&gt; tag, that contains the actual data 
+  in tags named with the respective column names.</p>
+<pre>&lt;?xml version=&quot;1.0&quot; ?&gt;<br>&lt;Metadata&gt;<br>	&lt;Author&gt;Quantum&lt;/Author&gt;<br>	&lt;Version&gt;1.1&lt;/Version&gt;<br>	&lt;table bookmark=&quot;ScottDB&quot; database=&quot;Oracle&quot; isSynonym=&quot;false&quot; name=&quot;DEPT&quot; schema=&quot;SCOTT&quot;&gt;<br>		&lt;column java.sql.Types=&quot;3&quot; name=&quot;DEPTNO&quot; nullable=&quot;false&quot; position=&quot;1&quot; primaryKey=&quot;true&quot; size=&quot;2&quot; type=&quot;NUMBER&quot; /&gt;<br>		&lt;column java.sql.Types=&quot;12&quot; name=&quot;DNAME&quot; nullable=&quot;true&quot; position=&quot;2&quot; primaryKey=&quot;false&quot; size=&quot;14&quot; type=&quot;VARCHAR2&quot; /&gt;<br>		&lt;column java.sql.Types=&quot;12&quot; name=&quot;LOC&quot; nullable=&quot;true&quot; position=&quot;3&quot; primaryKey=&quot;false&quot; size=&quot;13&quot; type=&quot;VARCHAR2&quot; /&gt;<br>	&lt;/table&gt;<br>	&lt;DataRow&gt;<br>		&lt;DEPTNO&gt;20&lt;/DEPTNO&gt;<br>		&lt;DNAME&gt;RESEARCH&lt;/DNAME&gt;<br>		&lt;LOC&gt;DALLAS&lt;/LOC&gt;<br>	&lt;/DataRow&gt;<br>	&lt;DataRow&gt;<br>		&lt;DEPTNO&gt;40&lt;/DEPTNO&gt;<br>		&lt;DNAME&gt;OPERATIONS&lt;/DNAME&gt;<br>		&lt;LOC&gt;BOSTON&lt;/LOC&gt;<br>	&lt;/DataRow&gt;<br>&lt;/Metadata&gt;
+
+</pre>
+<p>There are no functions to help the user extract this data from the XML, but 
+  could be created if popular demand grants it;o)<br>
+</p>
+</body>
+
+</html>

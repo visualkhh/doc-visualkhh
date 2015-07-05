@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="euc-kr"?>
+
+<?xml:stylesheet type="text/css" href="css.css"?>
+
+<goods>
+	<good>
+		<company> 현하주식</company>
+		<name>김현하</name>
+		<price>15151</price>
+		<discount>15%</discount>
+	</good>
+
+</goods>

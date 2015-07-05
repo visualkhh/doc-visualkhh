@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+     <extension
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            icon="icons/dbunit.gif"
+            class="com.quantum.dbunit.wizard.ExportDbUnitWizard"
+            name="Export to DbUnit XML format"
+            id="com.quantum.dbunit.wizard.ExportDbUnitVWizard">
+         
+         <description>
+         	A wizard that exports database data to a flat XML DbUnit file.
+         </description>
+         <selection
+               class="com.quantum.model.IBookmarkHolder">
+         </selection>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.importWizards">
+      <wizard
+            icon="icons/dbunitImport.gif"
+            class="com.quantum.dbunit.wizard.ImportDbUnitWizard"
+            name="Import from DbUnit XML file"
+            id="com.quantum.dbunit.wizard.ImportDbUnitWizard"/>
+   </extension>
+
+</plugin>

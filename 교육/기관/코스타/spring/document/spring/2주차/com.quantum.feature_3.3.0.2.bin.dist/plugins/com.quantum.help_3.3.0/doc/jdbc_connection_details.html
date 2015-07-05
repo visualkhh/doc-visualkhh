@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Specifying JDBC Connection Details</title>
+  <link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>Specifying JDBC Connection Details</h1>
+<p>Once a JDBC Driver has been selected, provide the JDBC connection details such as 
+userid, password and JDBC connection URL.</p>
+ 
+<img src="images/quantum_new_bookmark/page2.gif" />
+
+<p>Please note that passwords are stored unsecurely in a QuantumDB configuration 
+  file, in plain text. A more secure option might be to select the "Prompt for 
+  Password" option. When this option is selected, QuantumDB will prompt the user 
+  for a password whenever it tries to connect to the database. 
+<p>QuantumDB provides extra JDBC URL assistance for some well-known drivers.  For example,
+if you're using the standard PostgreSQL driver, <code>org.postgresql.Driver</code>, you'll
+see the following screen:</p>
+
+<p><img src="images/quantum_new_bookmark/page2_postgresql.gif" /> </p>
+<p>When you write the database name in the text box, it'll be substituted instead 
+  of the {dbname} variable in the URL, simplifying the URL building task.</p>
+<p>Similarly, the standard IBM Informix driver provides the following screen:</p>
+
+<img src="images/quantum_new_bookmark/page2_informix.gif" />
+
+
+
+</body>
+</html>

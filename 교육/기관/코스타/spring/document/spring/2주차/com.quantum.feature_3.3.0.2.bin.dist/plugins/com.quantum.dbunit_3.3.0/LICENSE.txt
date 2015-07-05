@@ -1,0 +1,10 @@
+All of Quantum is release under the CPL (Common Public License) v 1.0
+
+The text of the license is to be had in the file CPLv1.0.htm, in this distribution.
+The source of Quantum is to be found in http://sourceforge.net/projects/quantum
+
+The files dbunit-2.1.jar and dbunit-2.1-src.zip are under the LGPL (Lesser General Public License).
+The text of that license is to be found in the file LGPL.txt, in this distribution.
+The source of the dbunit library is in the file dbunit-2.1-src.zip
+More info about the dbunit library is in http://sourceforge.net/projects/dbunit 
+

@@ -1,0 +1,42 @@
+select count(*) from IIT0850 a where NVL(a.UPPO_ISLAND_CD, a.ISLAND_CD) IN
+                              (					  
+							  SELECT DISTINCT NVL(t.island_cd_si, '-')
+                                 FROM YTSYST21 t
+                                WHERE t.island_cd_doseo = :dept_cd
+                                  AND t.office_cd_doseo = :officecd
+								  /*
+								  SELECT DISTINCT NVL(t.island_cd_si, '-')
+                                  from ytsyst21 t where t.uppo_island_cd=:island_cd_si or island_cd_si =:island_cd_si
+								  */
+                              ) AND a.bill_ym = :s_dateYM and a.doseo_use_yn = 'Y' and a.bill_yn = 'Y' AND a.cntr_knd_cd IN ('100')
+
+
+
+
+
+
+¶Ç´Â
+
+	select  
+	a.island_cd,
+	a.island_nm,
+	sum(nvl(a.whm_usekwh,0)) whm_usekwh,
+	case when sum(nvl(a.whm_usekwh,0))=0
+	then 0
+	else round(sum(nvl(a.bill,0))/sum(nvl(a.whm_usekwh,0)),1)
+	end danga
+	 from 
+	(
+	SELECT a.custno, a.bill_ym, a.island_cd, a.island_nm, a.whm_usekwh, a.bill,
+	       a.cntr_pwr
+	  FROM iit0850 a
+	UNION ALL
+	SELECT b.custno, b.bill_ym, c.island_cd_si island_cd , c.island_nm_doseo island_nm,
+	       b.whm_usekwh, b.bill, b.cntr_pwr
+	  FROM ytsyst21 a, iit0850 b, ytsyst21 c
+	 WHERE 
+	 a.island_cd_si = b.island_cd   AND 
+	 a.uppo_island_cd = c.island_cd_si
+	) a
+	where a.island_cd = '7002' and a.bill_ym BETWEEN '201108' AND '201111'
+	group by a.island_cd,a.island_nm

@@ -1,0 +1,114 @@
+CREATE OR REPLACE PROCEDURE "TEST_H"( server IN VARCHAR2,officecd IN VARCHAR2) IS
+  s_date_y    VARCHAR2(8);		  /* 전일날짜 */
+  testint    INTEGER;		  /* 전일날짜 */
+
+
+
+  CURSOR c_dgubun IS  --도서구분
+SELECT a.CONS_NO          ,
+a.ASSET_NO         ,
+a.DL_NO            ,
+a.MESH_NO          ,
+a.ASSET_CLCD       ,
+a.ASSET_YN         ,
+a.INST_YY          ,
+a.MATR_IDT_NO      ,
+a.REUSE_QTY        ,
+a.NEWCONS_QTY      ,
+a.RM_QTY           ,
+a.INST_QTY         ,
+a.REMAIN_DPST_QTY  ,
+a.DEL_DPST_QTY     ,
+a.OAS_DEL_QTY      ,
+a.OAS_REMAIN_QTY   ,
+a.N2_DEL_QTY       ,
+a.R1_DEL_QTY       ,
+a.R2_DEL_QTY       ,
+a.R3_DEL_QTY       ,
+a.S_DEL_QTY        ,
+a.N1_REMAIN_QTY    ,
+a.N2_REMAIN_QTY    ,
+a.S_REMAIN_QTY     ,
+a.ACT_END_QTY      ,
+a.ASSET_UNIT_NO
+  FROM kjt0500 A, klt0110dc B
+ WHERE A.CONS_NO  = B.CONS_NO
+   AND B.OFFICECD = '3510'
+MINUS
+SELECT a.CONS_NO          ,
+a.ASSET_NO         ,
+a.DL_NO            ,
+a.MESH_NO          ,
+a.ASSET_CLCD       ,
+a.ASSET_YN         ,
+a.INST_YY          ,
+a.MATR_IDT_NO      ,
+a.REUSE_QTY        ,
+a.NEWCONS_QTY      ,
+a.RM_QTY           ,
+a.INST_QTY         ,
+a.REMAIN_DPST_QTY  ,
+a.DEL_DPST_QTY     ,
+a.OAS_DEL_QTY      ,
+a.OAS_REMAIN_QTY   ,
+a.N2_DEL_QTY       ,
+a.R1_DEL_QTY       ,
+a.R2_DEL_QTY       ,
+a.R3_DEL_QTY       ,
+a.S_DEL_QTY        ,
+a.N1_REMAIN_QTY    ,
+a.N2_REMAIN_QTY    ,
+a.S_REMAIN_QTY     ,
+a.ACT_END_QTY      ,
+a.ASSET_UNIT_NO
+  FROM kjt0500@hiu2 A, klt0110||'server'
+ WHERE A.CONS_NO  = B.CONS_NO
+   AND B.OFFICECD = '3510';
+GN01_rec c_dgubun%ROWTYPE;
+
+
+
+
+
+BEGIN
+
+DBMS_OUTPUT.ENABLE;
+
+
+
+
+
+		OPEN c_dgubun;
+		LOOP
+				  FETCH  c_dgubun   INTO    GN01_rec;
+				  EXIT           WHEN    c_dgubun%NOTFOUND;
+
+				  DBMS_OUTPUT.PUT_LINE('code_name: ' || GN01_rec.CONS_NO);
+
+		END LOOP;
+		CLOSE c_dgubun;
+
+	/*
+		FOR I in c_dgubun loop
+			 DBMS_OUTPUT.PUT_LINE('code_name: ' || I.code_name);
+		End loop;
+
+
+*/
+
+
+
+
+
+--DBMS_OUTPUT.DISABLE;
+
+
+  COMMIT;
+
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.PUT_LINE('ERR CODE : ' || TO_CHAR(SQLCODE));
+    DBMS_OUTPUT.PUT_LINE('ERR MESSAGE : ' || SQLERRM);
+
+END;
+/

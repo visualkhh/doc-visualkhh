@@ -1,0 +1,134 @@
+오라클 기타 함수 (dump, greatest, least, ud,user,vsize, userenv ... )
+야기 2008/11/20 23:33 | DB
+댓글쓰기
+
+
+
+concat('1','1') 문자열합치기
+
+
+
+
+
+
+
+DUMP : DUMP는 바이트 크기와 해당 데이터 타입 코드를 반환합니다..
+SQL>SELECT ename, DUMP(ename, 16) "16진수" 
+        FROM emp 
+        WHERE ename = ’ALLEN’
+
+ename   16진수
+------  ------------------------------
+ALLEN   Typ=1 Len=5: 41,4c,4c,45,4e
+
+만약에 16대신 8을 넣으면 8진수로, 10를 넣으면 10진수로 변환이 됩니다..
+16, 10, 8, 17이 올수 있는데요 17은 단일 문자열을 리턴한데용..
+한번 테스트 해보세용
+Len은 ename의 해당 byte수고요..  
+Typ은 1만 나오던데..무엇을 의미하는지 잘 모르겠네용
+
+GREATEST : GREATEST함수는 검색값 중에서 가장 큰 값을 반환 합니당..
+SQL>SELECT GREATEST(10, 100, 5, -7) FROM DUAL;
+
+GREATEST(10,100,5,-7)
+---------------------
+                  100        --가장 큰 수는 100이겠죠..
+ 
+
+LEAST : LEAST함수는 GREATEST함수와 반대로 가장 작은 값을 반환합니다.  
+SQL>SELECT LEAST(10, 100, 5, -7) FROM DUAL;  
+
+LEAST(10,100,5,-7)
+------------------
+                -7
+ 
+
+UID : 현재 사용자의 유일한 ID번호를 리턴합니다.
+USER : 현재 오라클을 사용하는 사용자를 VARCHAR2형식으로 리턴합니다.
+SQL> SELECT USER, UID FROM DUAL;
+
+USER          UID
+------------- ------
+SCOTT         32
+ 
+
+USERENV : USERENV 함수는 현재 세션의 환경 정보를 반환합니다. 
+  - ENTRYID : 사용 가능한 Auditing entry Identifier를 반환합니다.
+  - LABEL : 현재 세션의 Label을 반환합니다. 
+  - LANGUAGE : 현재 세션에서 사용중인 언어와 테리토리 값을 반환합니다. 
+  - SESSIONID : Auditing(감사) Session ID를 반환 합니다. 
+  - TERMINAL : 현재 세션 터미널의 OS ID를 반환 합니다.  
+SQL> SELECT USERENV(’LANGUAGE’) FROM DUAL;
+
+USERENV(’LANGUAGE’)
+------------------------
+KOREAN_KOREA.KO16KSC5601
+ 
+
+VSIZE : 해당 문자의 BYTE수를 반환 합니다. 
+             해당 문자가 NULL이면 NULL값이 반환 됩니다.
+SQL> SELECT VSIZE(ename), ename 
+          FROM emp 
+          WHERE deptno = 30;
+
+VSIZE(ENAME) ENAME
+------------ ----------
+           5            ALLEN
+           4            WARD
+           6            MARTIN
+           5            BLAKE
+ 
+
+
+포맷팅
+,TO_CHAR(GN26_YEST   ,'999,999,999,999.00')GN26_YEST          
+
+Miscellaneous Single-Row Functions
+BFILENAME
+COALESCE
+DECODE
+DEPTH
+DUMP
+EMPTY_BLOB, EMPTY_CLOB
+EXISTSNODE
+EXTRACT (XML)
+EXTRACTVALUE
+GREATEST
+LEAST
+NLS_CHARSET_DECL_LEN
+NLS_CHARSET_ID
+NLS_CHARSET_NAME
+NULLIF
+NVL
+NVL2
+PATH
+SYS_CONNECT_BY_PATH
+SYS_CONTEXT
+SYS_DBURIGEN
+SYS_EXTRACT_UTC
+SYS_GUID
+SYS_TYPEID
+SYS_XMLAGG
+SYS_XMLGEN
+UID
+UPDATEXML
+USER
+USERENV
+VSIZE
+XMLAGG
+XMLCOLATTVAL
+XMLCONCAT
+XMLFOREST
+XMLSEQUENCE
+XMLTRANSFORM
+  ================================================ 
+    * 오라클 정보공유 커뮤니티 oracleclub.com 
+    * http://www.oracleclub.com 
+    * http://www.oramaster.net 
+    * 강좌 작성자 : 김정식 (oramaster _at_ naver.com)
+  ================================================
+요즘
+트위터
+페이스북
+미투데이
+댓글쓰기

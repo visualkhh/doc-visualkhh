@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Changes Since 2.4.4</title>
+  <link rel="stylesheet" href="../book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+
+<h1>Changes Since 2.4.4</h1>
+
+<ul>
+  <li> The Other Encodings Action on the ResultSet view (a.k.a. the table view) 
+    depended on classes only available in JDK 1.4. The action is excluded under 
+    JDK 1.3. </li>
+  <li> A Collapse All action has been added to the Bookmark View. 
+    <p><img src="images/collapse_all.gif" alt="Collapse All Button" /> 
+  </li>
+  <li>The JDBC Driver dialog of the New Bookmark wizard now allows deleting drivers. 
+    <p><img src="images/add_driver.jpg" alt="JDBC Add Driver"  /> 
+  </li>
+  <li>Some bug fixes about the display of BLOBS and very big columns in general.</li>
+  <li>Feature request 1100049 is implemented. It makes Quantum change the default 
+    execution bookmark in the SQL Query View when a query is pasted there from 
+    the Recent SQL Statements list.</li>
+  <li>To the Properties of the Views, a new page has been added &quot;SQL&quot; 
+    with the SELECT clause used to create the view (mind that it may not be exact, 
+    as clauses like WITH CHECK OPTION can be not included, check the SQL92 standard, 
+    and in any case, it'll depend on database, as IBM databases tend to include 
+    the CREATE clause, for example). Some databases are not implemented yet, so 
+    if you see a blank SQL, contact the Quantum developers with info about the 
+    right query for your database. 
+    <p><img src="images/quantum_properties_sql.jpg" > 
+  </li>
+  <li>Some changes to the quoting of table names. Tables with spaces in the name 
+    would not be quoted. Now you'll find much more quoting. If you note some problems 
+    now with the new system, let us know.</li>
+  <li>The Insert Wizard got a new column to select if you don't want to insert 
+    the column, and let it with its default value. If you select the column, it 
+    won't appear in the columns of the insert.<img src="images/quantum_insert_dialog_default.jpg" width="101" height="59"></li>
+  <li>Suggested by Cesar Miquel, added a new property for bookmarks, under the 
+    Options tab. It permits you to quote all schemas, tables and columns in the 
+    quantum generated SQL. The default is unchecked, that is, quote only the names 
+    that have spaces, signs, mixed case or are a reserved keyword (this last only 
+    from version 2.4.5).
+
+<p><img src="images/quantum_bookmark_properties_options.jpg" width="536" height="398"></p></li>
+
+<li>  A bug relating to DB2 on a z/OS mainframe and the IBM DRDA Driver has
+      been resolved.</li>
+
+<li>  At some point, it looks like some code was propagated that allows
+      "quoting" of table names.  Some databases, like Oracle, support
+      mixed-case table names, and the only way to explicitly refer to
+      the mixed case table name is to put quotation marks around it.  Recently,
+      it seems that the standard "double-click" on a table in a MySQL database
+      started invoking this quoting code, but MySQL doesn't appear to support
+      quoted table names.  I've explicitly turned this off for MySQL, but there
+      may be some other databases for which this is a problem.</li>
+
+<li>  An export facility has been added to the Result Set View (a.k.a. the
+      Table View).  At the moment, only Excel is supported, but soon other
+      export formats will be added.</li>
+
+  <li>Deleted the &quot;Subset&quot; view, as it was broken and nobody complained 
+    so logically nobody used it. I may re-implement it sometime.</li>
+</ul>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,1 @@
+select * from user_objects where object_name like '%KDT2190%'

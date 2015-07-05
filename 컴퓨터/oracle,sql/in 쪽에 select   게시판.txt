@@ -1,0 +1,18 @@
+SELECT * FROM
+        (SELECT
+                        CASE WHEN NO=PARENT_NO THEN NO ELSE NULL END AS SEQ_NO,
+                        ID,
+                        NO,
+                        PARENT_NO,
+                        REP_NO,
+                        REP_DEPTH,
+                        PASSWORD,
+                        DECODE(REP_DEPTH, 1,'->', 2,  '  ->', 3,'   ->', 0, '')||TITLE TITLE,
+                        WRITER,
+                        READCOUNT,
+                        TO_CHAR(CREATE_DT, 'YYYYMMDD') CREATE_DT
+FROM  ( SELECT * FROM NTT1070 WHERE
+ PARENT_NO IN (SELECT NO FROM NTT1070  WHERE  USER_ID='KD000010001'))
+WHERE ID = 'QNA'
+ ORDER BY PARENT_NO,REP_NO ASC)
+ ORDER BY PARENT_NO DESC;

@@ -1,0 +1,307 @@
+<html>
+<head>
+</head>
+<body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" rightmargin="0" bgcolor="#ffffff" onload="prepmenus(); done=true">
+<h4>5.1.6	 SQL Escape Syntax in Statements </h4>
+
+<code></a>Statement</code> objects may contain SQL statements that use </a>SQL escape syntax. Escape syntax signals the driver that the code within it should be handled differently. When escape processing is enabled (by calling <code>Statement.setEscapeProcessing(true) </code>or <code>RowSet.setEscapeProcessing(true)</code>), the driver will scan for any </a>escape syntax and translate it into code that the particular database understands. This makes escape syntax DBMS-independent and allows a programmer to use features that might not otherwise be available.
+</p><p><a name="999485"> </a>
+
+An escape clause is demarcated by curly braces and a key word, which indicates the kind of escape clause.
+</p><blockquote><pre>
+	{keyword . . . parameters . . . }
+</pre></blockquote><p><a name="1004778"> </a>
+The following keywords are used to identify escape clauses:
+</p><ul><a name="1001266"> </a>
+<li><strong>escape</strong>   for LIKE escape characters
+<a name="1005600"> </a>
+<p>The percent sign (<code>%</code>) and underscore (<code>_</code>) characters work like wild cards in SQL <code>LIKE</code> clauses (<code>%</code> matches zero or more characters, and <code>_</code> matches exactly one character). </a>In order to interpret them literally, they can be preceded by a backslash (<code>\</code>), which is a special escape character in strings. </a>One can specify which character to use as the escape character by including the following syntax at the end of a query:
+
+<blockquote><pre>
+<code>	{escape 'escape-character'}
+</code></pre></blockquote><a name="999505"> </a>
+<p>
+For example, the following query, using the backslash character as an escape character, finds identifier names that begin with an underbar.
+<blockquote><pre>
+	stmt.executeQuery("SELECT name FROM Identifiers 
+					 WHERE Id LIKE <code>'</code>\_%<code>'</code> {escape <code>'</code>\<code>'</code>}");
+
+
+</pre></blockquote>
+<li><strong>fn</strong>   for scalar functions
+<a name="999528"> </a>
+<p>Almost all DBMSs have numeric, string, time, date, system, and conversion functions on scalar values. One of these functions can be used by putting it in escape syntax with the keyword <code>fn</code> followed by the name of the desired function and its arguments. For example, the following code calls the function <code>concat</code> with two arguments to be concatenated:
+<blockquote><pre>
+	{fn concat("Hot", "Java")};
+</pre></blockquote><a name="999532"> </a>
+
+<p>The name of the current database user can be obtained with the following syntax:
+<blockquote><pre>
+	{fn user()};
+</pre></blockquote><a name="999534"> </a>
+<p>Scalar functions may be supported by different DBMSs with slightly different syntax, and they may not be supported by all drivers. Various <code>DatabaseMetaData</code> methods will list the functions that are supported. For example, the method <code>getNumericFunctions</code> returns a comma-separated list of the Open Group CLI names of numeric functions, the method <code>getStringFunctions</code> returns string functions, and so on.
+<a name="999537"> </a>
+
+<p>The driver will either map the escaped function call into the appropriate syntax or implement the function directly itself. However, a driver is required to implement only those scalar functions that the DBMS supports.
+<a name="999539"> </a>
+<li><strong>d</strong>, <strong>t</strong>, and <strong>ts</strong>   for date and time literals
+<a name="999541"> </a>
+<p>DBMSs differ in the syntax they use for date, time, and timestamp literals. The JDBC API supports ISO standard format for the syntax of these literals, using an escape clause that the driver must translate to the DBMS representation. For example, a date is specified in a JDBC SQL statement with the following syntax:
+<blockquote><pre>
+<code>	{d 'yyyy-mm-dd'}
+</code></pre></blockquote><a name="999550"> </a>
+
+<p>In this syntax, <code>yyyy</code> is the year, <code>mm</code> is the month, and <code>dd</code> is the day. The driver will replace the </a>escape clause with the equivalent DBMS-specific representation. For example, the driver might replace <code>{d 1999-02-28}</code> with <code>'28-FEB-99'</code> if that is the appropriate format for the underlying database.
+
+<a name="1005642"> </a>
+<p>There are analogous escape clauses for <code>TIME</code> and </a><code>TIMESTAMP</code>:
+<blockquote><pre>
+	{t <code>'</code>hh:mm:ss<code>'</code>}
+	{ts <code>'</code>yyyy-mm-dd hh:mm:ss.f . . .<code>'</code>}
+
+</pre></blockquote><a name="999565"> </a>
+<p>The fractional seconds (<code>.f . . .</code>) portion of the <code>TIMESTAMP</code> can be omitted.
+<li><strong>call </strong>or </strong>? = call</strong>   for stored procedures
+<a name="1001036"> </a>
+<p>If a database supports stored procedures, they can be invoked from JDBC with the syntax shown below. Note that the square brackets (<code>[ ]</code>) indicate that what is between them is optional, and they are not part of the syntax.
+
+<blockquote><pre>
+	{call procedure_name[(?, ?, . . .)]}
+</pre></blockquote><p><a name="999572"> </a>
+or, where a procedure returns a result parameter:
+</p><blockquote><pre>
+	{? = call procedure_name[(?, ?, . . .)]}
+</pre></blockquote><a name="999570"> </a>
+<p>Input arguments may be either literals or parameters.  See the section <a href="callablestatement.html#999937">"Numbering of Parameters" on page 103</a> for more information.
+<a name="999578"> </a>
+
+<p>One can call the method <code>DatabaseMetaData.supportsStoredProcedures</code> to see if the database supports stored procedures.
+<li><strong>oj</strong>  for outer joins
+<a name="999588"> </a>
+<p>The syntax for an outer join is:
+<blockquote><pre>
+	{oj outer-join}
+</pre></blockquote><a name="999590"> </a>
+<p>In this syntax, <code>outer-join</code> has the form
+
+<blockquote><pre>
+	table {LEFT|RIGHT|FULL} OUTER JOIN {table | outer-join} 
+										ON search-condition
+</pre></blockquote><a name="999592"> </a>
+<p>(Note that curly braces (<code>{}</code>) in the preceding line indicate that one of the items between them must be used; they are not part of the syntax.) The following <code>SELECT</code> statement uses the escape syntax for an outer join.
+          ;"'PARKER', 'DOROTHY', 'USA', keyColumn";
+<blockquote><pre>
+	Statement stmt = con.createStatement("SELECT * FROM {oj TABLE1 " +
+				LEFT OUTER JOIN TABLE2 ON DEPT_NO = 003420930}"); 
+</pre></blockquote><a name="1001261"> </a>
+<p> Outer joins are an advanced feature and are not supported by all DBMSs; consult the SQL grammar for an explanation of them. JDBC provides three <code>DatabaseMetaData</code> methods for determining the kinds of outer joins a driver supports: <code>supportsOuterJoins</code>, <code>supportsFullOuterJoins</code>, and <code>supportsLimitedOuterJoins</code>.
+
+<a name="1003665"> </a>
+</ul><p><a name="999571"> </a>
+The method </a><code>Statement.setEscapeProcessing</code> turns escape processing on or off, with the default being on. A programmer might turn it off to cut down on processing time when performance is paramount, but it would normally be turned on. It should be noted that the method <code>setEscapeProcessing</code> does not work for <code>PreparedStatement</code> objects because the statement may have already been sent to the database before it can be called. See <a href="preparedstatement.html#996870">page 89</a>, the overview of the <code>PreparedStatement</code> interface, regarding precompilation.
+
+</p><a name="1000712"> </a>
+
+Support for scalar functions needs some extra explanation. JDBC supports numeric, string, time, date, system, and conversion functions on scalar values. For those who want more detail, the Open Group CLI specification provides more information on the semantics of the scalar functions. The functions supported are listed below for reference.
+</p><p><a name="997649"> </a>
+If a DBMS supports a scalar function, the driver should also. Because scalar functions are supported by different DBMSs with slightly different syntax, it is the driver's job either to map them into the appropriate syntax or to implement the functions directly in the driver.
+</p><p><a name="997703"> </a>
+A user should be able to find out which functions are supported by calling metadata methods. For example, the method <code>DatabaseMetaData.getNumericFunctions</code> should return a comma separated list of the Open Group CLI names of the numeric functions supported. Similarly, the method <code>DatabaseMetaData.getStringFunctions</code> should return a list of string functions supported, and so on. 
+
+</p><p><a name="997707"> </a>
+The scalar functions are listed by category:
+</p>
+<p><a name="997618"> </a> To use a escaped function in a JDBC</p>
+<p><a name="997617"> </a>
+<strong></a>NUMERIC FUNCTIONS</strong> </a>&#32;</a>
+
+<strong></a>NUMERIC FUNCTIONS</strong> </a>&#32;</a>
+</p><blockquote>
+<!-- BEGIN VCD7 CODE SAMPLE COMPONENT  -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%" class="grey4">
+<tr><td><pre><strong>
+Function Name</strong>            <strong>Function Returns
+
+</strong>
+ABS(number)              Absolute value of number
+ACOS(float)              Arccosine, in radians, of float 
+ASIN(float)              Arcsine, in radians, of float
+ATAN(float)              Arctangent, in radians, of float 
+ATAN2(float1, float2)    Arctangent, in radians, of float2 / float1
+CEILING(number)	         Smallest integer &gt;= number
+COS(float)               Cosine of float radians
+COT(float)               Cotangent of float radians
+DEGREES(number)	         Degrees in number radians
+EXP(float)               Exponential function of float
+FLOOR(number)	         Largest integer &lt;= number
+LOG(float)               Base e logarithm of float
+LOG10(float)	         Base 10 logarithm of float
+MOD(integer1, integer2)	 Remainder for integer1 / integer2
+PI()	                 The constant pi
+POWER(number, power)	 number raised to (integer) power
+RADIANS(number)	         Radians in number degrees
+RAND(integer)	         Random floating point for seed integer
+ROUND(number, places)	 number rounded to places places
+SIGN(number)	         -1 to indicate number is &lt; 0; 
+                         0 to indicate number is = 0;
+                         1 to indicate number is &gt; 0
+SIN(float)               Sine of float radians
+SQRT(float)              Square root of float
+TAN(float)               Tangent of float radians
+TRUNCATE(number, places) number truncated to places places
+</pre></td></tr></table>
+<span class="sp20"> </span><br />
+<!-- END VCD7 CODE SAMPLE COMPONENT  -->
+</blockquote>
+<p><a name="997619"> </a>
+<strong>STRING FUNCTIONS</strong> </a>
+
+<blockquote>
+<!-- BEGIN VCD7 CODE SAMPLE COMPONENT  -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%" class="grey4">
+<tr><td><pre>
+</p><strong>
+Function Name</strong>                <strong>Function Returns
+</strong>
+ASCII(string)                Integer representing the ASCII code value of the 
+                             leftmost character in string
+CHAR(code)                   Character with ASCII code value code, where 
+                             code is between 0 and 255
+CONCAT(string1, string2)     Character string formed by appending string2 
+                             to string1; if a string is null, the result is 
+                             DBMS-dependent
+DIFFERENCE(string1, string2) Integer indicating the difference between the
+                             values returned by the function SOUNDEX for 
+                             string1 and string2
+INSERT(string1, start, 	     A character string formed by deleting length 
+length, string2)             characters from string1 beginning at start, 
+                             and inserting string2 into string1 at start
+LCASE(string)                Converts all uppercase characters in string to 
+                             lowercase 
+LEFT(string, count)          The count leftmost characters from string
+LENGTH(string)               Number of characters in string, excluding trailing
+                             blanks
+LOCATE(string1,              Position in string2 of the first occurrence of 
+string2[, start])            string1, searching from the beginning of 
+                             string2; if start is specified, the search begins 
+                             from position start. 0 is returned if string2 
+                             does not contain string1. Position 1 is the first 
+                             character in string2.
+LTRIM(string)                Characters of string with leading blank spaces 
+                             removed
+REPEAT(string, count)        A character string formed by repeating string 
+                             count times
+REPLACE(string1, string2,    Replaces all occurrences of string2 in string1 
+
+string3) 	                 with string3
+RIGHT(string, count)         The count rightmost characters in string 
+RTRIM(string)                The characters of string with no trailing blanks
+SOUNDEX(string)              A character string, which is data source-dependent,
+                             representing the sound of the words in 
+                             string; this could be a four-digit SOUNDEX 
+                             code, a phonetic representation of each word, 
+                             etc.
+SPACE(count)                 A character string consisting of count spaces
+SUBSTRING(string, start,     A character string formed by extracting length 
+length)                      characters from string beginning at start 
+UCASE(string)                Converts all lowercase characters in string to 
+                             uppercase 
+</pre></td></tr></table>
+<span class="sp20"> </span><br />
+<!-- END VCD7 CODE SAMPLE COMPONENT  -->
+</blockquote>
+<p><a name="997622"> </a>
+
+<strong></a>TIME and DATE FUNCTIONS</a></strong> 
+<blockquote>
+<!-- BEGIN VCD7 CODE SAMPLE COMPONENT  -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%" class="grey4">
+<tr><td><pre>
+</p><strong>
+Function Name</strong>            <strong>Function Returns
+</strong>
+CURDATE()                The current date as a date value
+CURTIME()                The current local time as a time value
+DAYNAME(date)            A character string representing the day component
+                         of date; the name for the day is specific to 
+                         the data source
+DAYOFMONTH(date)         An integer from 1 to 31 representing the day of 
+                         the month in date
+DAYOFWEEK(date)          An integer from 1 to 7 representing the day of 
+                         the week in date; 1 represents Sunday
+DAYOFYEAR(date)          An integer from 1 to 366 representing the day of 
+                         the year in date
+HOUR(time)               An integer from 0 to 23 representing the hour 
+                         component of time
+MINUTE(time)             An integer from 0 to 59 representing the minute 
+                         component of time
+MONTH(date)              An integer from 1 to 12 representing the month 
+                         component of date
+MONTHNAME(date)          A character string representing the month component
+                         of date; the name for the month is specific
+                         to the data source
+NOW()                    A timestamp value representing the current date 
+                         and time
+QUARTER(date)            An integer from 1 to 4 representing the quarter 
+                         in date; 1 represents January 1 through March 
+                         31
+SECOND(time)             An integer from 0 to 59 representing the second 
+                         component of time
+TIMESTAMPADD(interval,   A timestamp calculated by adding count num-
+count, timestamp)	     ber of interval(s) to timestamp; interval may 
+                         be one of the following: SQL_TSI_FRAC_SECOND, 
+                         SQL_TSI_SECOND, SQL_TSI_MINUTE, 
+                         SQL_TSI_HOUR, SQL_TSI_DAY, SQL_TSI_WEEK, 
+                         SQL_TSI_MONTH, SQL_TSI_QUARTER, or 
+                         SQL_TSI_YEAR
+TIMESTAMPDIFF(interval,  An integer representing the number of inter-
+timestamp1, timestamp2)	 val(s) by which timestamp2 is greater than 
+                         timestamp1; interval may be one of the following:
+                         SQL_TSI_FRAC_SECOND, SQL_TSI_SECOND, 
+                         SQL_TSI_MINUTE, SQL_TSI_HOUR, SQL_TSI_DAY, 
+                         SQL_TSI_WEEK, SQL_TSI_MONTH, 
+                         SQL_TSI_QUARTER, or SQL_TSI_YEAR
+WEEK(date)               An integer from 1 to 53 representing the week of 
+                         the year in date
+YEAR(date)               An integer representing the year component of 
+                         date
+</pre></td></tr></table>
+<span class="sp20"> </span><br />
+<!-- END VCD7 CODE SAMPLE COMPONENT  -->
+</blockquote> 
+
+<p><a name="997624"> </a>
+<strong>SYSTEM FUNCTIONS</strong> </a>
+<blockquote>
+<!-- BEGIN VCD7 CODE SAMPLE COMPONENT  -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%" class="grey4">
+<tr><td><pre>
+</p><strong>
+Function Name</strong>               <strong>Function Returns
+</strong>
+DATABASE()                  Name of the database
+IFNULL(expression, value)   value if expression is null;
+                            expression if expression is not null
+USER()                      User name in the DBMS
+</pre></td></tr></table>
+<span class="sp20"> </span><br />
+
+<!-- END VCD7 CODE SAMPLE COMPONENT  -->
+</blockquote>
+<p><a name="998109"> </a>
+<strong>CONVERSION FUNCTIONS</a></strong>
+<blockquote>
+<!-- BEGIN VCD7 CODE SAMPLE COMPONENT  -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%" class="grey4">
+<tr><td><pre>
+</p><strong>
+Function Name</strong>               <strong>Function Returns
+</strong>
+CONVERT(value, SQLtype)     value converted to SQLtype where SQLtype may 
+                            be one of the following SQL types:
+                            BIGINT, BINARY, BIT, CHAR, DATE, DECIMAL, DOUBLE,
+                            FLOAT, INTEGER, LONGVARBINARY, LONGVARCHAR,
+                            REAL, SMALLINT, TIME, TIMESTAMP, 
+                            TINYINT, VARBINARY, or VARCHAR
+</pre></td></tr></table>
+

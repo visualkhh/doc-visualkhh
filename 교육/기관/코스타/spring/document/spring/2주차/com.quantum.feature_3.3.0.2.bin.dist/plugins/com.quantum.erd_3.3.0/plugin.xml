@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.quantum.editors.graphical.EntityRelationEditor"
+            contributorClass="com.quantum.editors.graphical.actions.EntityRelationActionBarContributor"
+            default="false"
+            extensions="erd"
+            icon="icons/schema.gif"
+            id="com.quantum.editors.graphical.EntityRelationEditor"
+            name="Quantum Entity Relation Editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+            id="com.quantum.erd.viewerContribution2"
+            targetID="com.quantum.editors.SQL2Editor">
+         <action
+               class="com.quantum.editors.graphical.actions.CreateDiagramAction"
+               icon="icons/schema.gif"
+               id="com.quantum.erd.creatediagramaction"
+               label="Invoke the Quantum Query Builder"
+               menubarPath="QUANTUM_ADDITIONS">
+         </action>
+      </viewerContribution>
+   </extension>
+
+</plugin>

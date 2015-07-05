@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Changes Since 3.0.1</title>
+  <link rel="stylesheet" href="../book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+
+<h1>Changes Since 3.0.1</h1>
+<h1>&nbsp;</h1>
+<ul>
+  <li>The SQL Editor has been updated to enhance syntax highlighting, content 
+    assist, syntax checking and quick fixes.</li>
+  <li>The editor outline page has changed.</li>
+  <li>There is a new graphical Entity-Relationship editor, in experimental form. 
+    See the help page &quot;The Entity Relationship Editor&quot; for more info 
+    and use instructions.</li>
+  <li>There is a new option in &quot;Window-&gt;Preferences-&gt;Quantum DB&quot; 
+    called <b>Maximum chars in cell in Table View </b>. It allows you to change 
+    the 2048 default for the maximum cell buffer size in case you have cells holding 
+    more text that that.</li>
+  <li>Three new options in the preferences page of the Bookmark. : 
+    <ul>
+      <li><b>Strip new lines when sending to JDBC</b> is an option thought for 
+        some JDBC drivers for DB2, that seem to get confused by newlines. Don't 
+        check it if you have not that particular problem. The newlines are substituted 
+        by spaces. Default unchecked.</li>
+      <li><b>Send query text as-is to the JDBC</b> does exactly that. Normally 
+        Quantum will parse the queries text and divide it into queries and send 
+        those queries one by one to the JDBC driver. However, sometimes is better 
+        to forget about that and just send what you wrote exactly as it is to 
+        the JDBC driver (if <b>Strip new lines when sending to JDBC</b> is checked, 
+        it's still applied). Default unchecked.</li>
+      <li><b>Default encoding</b> defines a default encoding for all tables in 
+        that bookmark. Useful for not having to change the encoding every time. 
+        Leave blank (default) if the normal encoding applied by the java machine 
+        suits you fine.</li>
+    </ul>
+  </li>
+  <li>The DB2 adapter for AS400 has been updated by a nice user with an AS400 
+    (gudavallign in feature request 1510247). Now if you use that database, more 
+    data will appear in the </li>
+  <li>
+    <p> The Search utility is somewhat changed, I append the relevant portion 
+      of the help.</p>
+    <ul>
+      <li><b>Search</b> offers a search utility, to search for text, numbers or 
+        dates in the selected tables or views, or even procedures if methods for 
+        accessing procedures are available in the database. The search is integrated 
+        with the standard search dialog of Eclipse, so it'll appear alongide other 
+        search possibilities. The dialog will appear blank if you invoke search 
+        from the Eclipse menu, but haven't selected anything searchable in the 
+        bookmark view.</li>
+    </ul>
+    <p><img src="images/quantum_search_dialog.jpg" width="494" height="372"></p>
+    <p>You can for example introduce a string like &quot;JAPAN&quot; in the <b>String</b> 
+      box, and Quantum will search all selected database objects (tables, views...) 
+      for a exact match of the string. That is, a column that has the exact value 
+      &quot;JAPAN&quot;. If you uncheck the <b>Match case</b> option, the search 
+      will ignore the case of the string. However, that's not guaranteed to work, 
+      as it depends on the capabilities of the database.</p>
+    <p>If you want to search for all columns that contain the &quot;JAPAN&quot; 
+      string, just use the <b>LIKE regexp (%_)</b> text box, and write &quot;%JAPAN%&quot;. 
+      In this box you can insert regular expressions with LIKE syntax, that is, 
+      using the wildcard characters <b>%</b> and <b>_</b> , where % will substitute 
+      for any string, and _ will substitute for a single character. Please note 
+      that, even if your database supports LIKE searchs into numeric columns (Oracle, 
+      for example), Quantum will not attempt it, and search only textual columns, 
+      as long as they are defined searchable by the database.</p>
+    <p>If you want to search for a number, insert it into the <b>Number</b> text 
+      box and it'll attempt to find an exact match in numeric columns. Same goes 
+      for dates, where you can specify just one (<b>Start date</b>), or a range 
+      with a <b>Start date</b> and an <b>End date</b>.</p>
+    <p>The search results will appear in the <b>Quantum Search Results</b> view, 
+      where you can see the tables found, the column(s) where the result was found, 
+      and the needed key (in case it exists) needed to retrieve the matching rows. 
+      Double-click on the tables names will open the table in the Table View. 
+      If you want just the column where the search succeeded, double-click on 
+      the column. If you want just the row where the search succeeded, double-click 
+      on the &quot;key&quot; entry. </p>
+    <p><img src="images/quantum_search_results_view.jpg" width="392" height="213"></p>
+    <p>And that's all there is to the search. Many variables will affect the result 
+      of your search, including database capabilities and undiscovered bugs, so 
+      don't take the results as complete or definitive.</p>
+  </li>
+</ul>
+<p>Notes for developers:</p>
+<ul>
+  <li>The grammar depends on antlr. Developers should install the antlr plugin 
+    and toggle antlr nature using the context menu of the top level package</li>
+  <li>For forthcoming changes, Quantum already depends on GEF</li>
+  <li>All editor related data structures are part of SQLSyntaxModelImpl</li>
+</ul>
+</body>
+</html>

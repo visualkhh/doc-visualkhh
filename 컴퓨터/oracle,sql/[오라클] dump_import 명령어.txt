@@ -1,0 +1,48 @@
+[오라클] dump/import 명령어탱이82 2009/04/28 11:42 | Oracle댓글 (2) | 트랙백 (1) | 댓글쓰기
+
+1. 덤프 뜨기(Export)
+-기본
+명령어프롬프트 > exp 아이디/비번@서비스명(SID)
+
+-옵션(파일명 지정 또는 테이블 지정)
+명령어프롬프트 > exp 아이디/비번@서비스명(SID)  tables=테이블명1,테이블명2... file=파일명.dmp
+
+2. 덤프파일 임포트 하기
+-기본
+명령어프롬프트 > imp 아이디/비번 file=파일명.dmp
+
+-옵션 테이블지정
+명령어프롬프트 > imp 아이디/비번 file=파일명.dmp tables=테이블명1,테이블명2...
+
+
+덤프 넣을때 - import
+D:tmp>imp 아이디/비번
+(일부 테이블만)
+D:tmp>imp 아이디/비번 file=파일명
+tables=테이블명
+
+/예)
+
+exp usrtech/n7!dv!pdj!7i OWNER=usrtech FILE=2012_08_14_techdb.dmp LOG=2012_08_14_techdb.log
+
+exp test/testpw@test FILE=test.dmp LOG=test.log
+
+imp test/testpw FROMUSER=test TOUSER=test FILE=test.dmp LOG = test.log
+
+
+/oracle/app/oracle/product/920/bin/exp userid=usrtech/DPD*L!K87KSL file="gg_tech.dmp"
+
+imp usrtech/DPD*L!K87KSL FROMUSER=usrtech TOUSER=usrtech FILE="2012_08_14_techdb.dmp" LOG="2012_08_14_techdb.log" data=Y
+
+exp usrdas/!F94RO*EKJFK FILE=das_data.dmp LOG=das_data.log
+
+imp usrdas/usrdas FROMUSER=usrdas TOUSER=usrdas FILE="das_data.dmp" LOG="das_data.log"
+
+
+---- option
+
+ignore=y   //  기존데이터 덮어쒸울때 에러나면 페스!!
+
+constraints=n indexes=n   인덱스랑 제약조건 없엔다  즉  데이터만
+
+imp usrtech/DPD*L!K87KSL FROMUSER=usrtech TOUSER=usrtech FILE="2012_08_14_techdb.dmp" LOG="2012_08_14_techdb.log" constraints=n indexes=n

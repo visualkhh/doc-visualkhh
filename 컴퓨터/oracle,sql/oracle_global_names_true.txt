@@ -1,0 +1,149 @@
+Oracle 노하우 및 팁  목록보기   
+ SID, DB_NAME,GLOBAL_NAME
+[2009-02-25] - 타락천사 (10,566:Lv60) [타락천사] SID DB_NAME GLOBAL_NAME 3171
+조회수3 
+댓글수0
+추천수
+1. SID 란 
+
+A name that identifies a specific instance of a running pre-release 8.1 Oracle database. 
+For any database, there is at least one instance referencing the database.
+
+For pre-release 8.1 databases, SID is used to identify the database. 
+The SID is included in the connect descriptor of a tnsnames.ora file and 
+in the definition of the listener in the listener.ora file.  
+
+쉽게 이야기해서 SID 란 Oracle Instance 라고 생각하면 된다.
+  ( 3 NODE 일 경우 SID 와 DB 와의 관계 )
+  SID ---|
+  SID ------- DB
+  SID ---|
+
+2. SID 확인 방법 
+select THREAD#,INSTANCE,STATUS from v$thread;
+1    TG2010D    OPEN
+--> Single DB 일 경우 Return 되는 Row 가 하나
+1    TG2010D1    OPEN
+2    TG2010D2    OPEN
+--> RAC (2Node) 일 경우 Return 되는 Row 는 두개 이다.
+
+3. DB_NAME 이란 ?
+DB_NAME 은 8자리로 제한되는 Database 구분자이다.
+이 파라미터는 CREATE DATABASE 일때 지정된다.
+하나의 System 에 다수의 Database 가 운영되는 환경이라며,
+SID(Oracle Instance Identifier) 와 DB Name 을 Matching 시켜 줘야 한다.
+일반적으로 Single Database 일 경우 SID 와 DB Name 을 동일 하게 운영한다.
+SID 지정을 통해서 접속 하고자 하는 DB NAME 을 지정한다고 생각하면 된다.
+알파벳, _(Underscore), #(Number Signe), $(Dollar Singe) 만 가능하다.
+
+EX) A(A), B(B), C(C)  -- DB_NAME ( SID )순서 
+    상기와 같은 구성 이라면 C 에 접속 하고자 한다면
+    EXPORT ORACLE_SID=C [ UNIX, LINUX ]
+    SET $ORACLE_SID=C   [ NT ]
+    를 통해서 SID 지정 후 접속하면 원하는 DATABASE 에 접속이 가능하다.
+
+
+4. DB_NAME 확인 
+select NAME, DB_UNIQUE_NAME from v$database ;
+NAME      DB_UNIQUE_NAME
+--------- ------------------------------
+TG2010D   TG2010D
+
+5. RAC 일 경우 INIT 파라미터 예제 
+*.cluster_database_instances=2
+*.cluster_database=true
+*.db_domain=''
+*.db_name='TG2010D'
+TG2010D1.instance_number=1
+TG2010D2.instance_number=2
+
+6. 기타
+   일반적으로 SID 변경이란 SID 및 DB_NAME 을 변경 한다구 생각하면 된다.
+   SID(INSTACNE) 만 변경 할 일은 극히 드물다..
+   전 해본적이 없음 
+
+
+7. Global_Name
+ 네트워크 환경에서 데이타베이스 이름이 동일하여 구분하기 어려울 때,
+ 사용하는 전역 데이터베이스 이름을 사용할 것인지를 결정하는 파라미터이다.
+ DB_NAME.DB_DOMAIN 이름으로 구성된다.
+ INIT PARAMETER 화일 예제 )
+  *.db_domain=''
+  -- DB_DOMAIN 은 128 자 까지 가능, Default 값은 WORLD
+  *.db_name='TG2010T'
+  
+8. Global_Name 관련 파라미터
+8.1 GLOBAL_NAMES
+SYS>show parameters global_names
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+global_names                         boolean     FALSE
+==> Default 는 FALSE 값이다.
+    DB LINK 를 통해서 접속 시에 GLLBAL_NAME 과 일치해야 하는지, 
+    FALSE 이면 DB LINK 값과 GLOBAL_NAME 이 달라도 접속이 된다.
+    GLOBAL_NAME 의 효과(10번항목) 같이 생각하면
+    GLOBAL_NAME 을 TRUE 로 설정하고, 같은 DOMAIN NAME 을 사용한다면
+    같은 DOMAIN 내에서만 DB LINK 사용이 가능할것으로 예상된다.
+
+8.2 GLOBAL_NAMES 변경 
+  SYS> ALTER SESSION SET global_names = TRUE;
+  SYS> ALTER SYSTEM SET global_names = FALSE;
+
+8.3 DB_DOMAIN     
+SYS>show parameter domain
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+db_domain                            string
+==>  DB_DOMAIN 은 128 자 까지 가능, Default 값은 WORLD
+
+8.4 DB_NAME 
+SYS>show parameters db_name
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------
+db_name                              string      TG2010T
+==> GLOBAL_NAME = DB_NAME.DB_DOMAIN 이니 TG2010T 가 GLOBAL_NAME 이고
+    GLOBAL_NAME 의 설정은 FALSE 이다.
+
+
+9. Global_Name 확인 및 변경
+SYS>ALTER DATABASE RENAME GLOBAL_NAME TO TG2010Z ;
+Database altered.
+
+SYS>select * from global_name ;
+GLOBAL_NAME
+--------------------------------------------------------------------------------
+TG2010Z
+
+SYS>ALTER DATABASE RENAME GLOBAL_NAME TO TG2010T ;
+Database altered.
+
+SYS>select * from global_name ;
+
+GLOBAL_NAME
+--------------------------------------------------------------------------------
+TG2010T
+
+10. Global_Name의 효과  
+10. 1 Global_Name 효과
+ DB LINK 에 영향을 준다.
+ DB LINK 생성 시에 DB_DOMAIN 값이 아닌, GLOBAL_NAME 의 접미사 부분이
+ 자동으로 DBA_DB_LINKS.DB_LINK 에 붙는다.
+ 예제) 일반적으로 .WORLD 를 붙이지 않는다. 
+       테스트로 구별이 쉽게 하기 위해서 .WORLD 로 설정
+       
+ SYS> SELECT GLOBAL_NAME  FROM GLOBAL_NAME ; 
+ TG.WORLD 
+ SYS> CREATE DATABASE LINK JT USING 'JT' ;
+ SYS> SELECT OWNER,DB_LINK,HOST FROM DBA_DB_LINKS  ;
+ SYS    JT2010D.WORLD   JT010d
+ ==> 이런식으로 LOCAL DATABASE 의 아래의 값이 DB LINK 생성 시 자동으로 할당된다.
+     예제에선 .WORLD
+ ( SELECT GLOBAL_NAME  FROM GLOBAL_NAME ) - ( SELECT INSTANCE_NAME FROM V$INSTANCE )
+ 
+10.2  DB_DOMAIN 확인 방법
+ SYS> SELECT NAME, VALUE FROM V$PARAMETER WHERE NAME = 'db_domain'; 
+
+    
+
+ 

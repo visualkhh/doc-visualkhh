@@ -1,0 +1,1 @@
+alias  jsp='cd /Appl2/usrisl/web'

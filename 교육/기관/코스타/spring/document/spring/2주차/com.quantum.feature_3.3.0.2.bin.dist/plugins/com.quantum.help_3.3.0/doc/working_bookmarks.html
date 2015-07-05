@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Working with bookmarks</title>
+  <link rel="stylesheet" href="book.css" charset="ISO-8859-1" type="text/css"></head>
+
+<body>
+<h1>Working with bookmarks.</h1>
+<p>After creating the bookmark, it appears in the bookmark view.</p>
+<p><img src="images/quantum_new_bookmark.jpg" width="188" height="44"></p>
+<p>Then you'll probably want to open it. Double-click on the bookmark and it'll 
+  try to connect. If everything is all right, the sign will change to </p>
+<p><img src="images/quantum_open_bookmark.jpg" width="206" height="46"></p>
+<p>(In this case, I have in my bookmark view, selected the <code>Show Database 
+  Info</code> toggle switch in the <a href="#toolbarMenu">toolbar menu</a>. That 
+  shows the info between square brackets. )</p>
+<p>Note: You can have as many bookmarks as you want opened at the same time.</p>
+<p>You can then expand the tree, clicking on the &quot;+&quot; sign. You'll be 
+  able to get something like</p>
+<p><img src="images/quantum_expanded_bookmark.jpg" width="299" height="269"></p>
+<p>The most inmediate part is the tables and views structure, that shows the defined 
+  tables, views, and so on for the schemas that we wanted. In the image, only 
+  one schema (<code>public</code>) is shown. You can expand the a table or view 
+  to see the columns. The little key sign left of the column icon <img src="images/quantum_key_column_icon.jpg" width="23" height="23"> 
+  means that the column is a primary key column for that table. Double-clicking 
+  on a table or view opens that table or view in the <a href="table_view.html">Table 
+  View</a>.</p>
+<h2><a name="Uses_usedby"></a>Uses/Used by</h2>
+<p>From release 3.0.4, the tables and views have a couple of new tags that give 
+  info about the relationships between them. This tags are the <b>Uses/Used by</b> 
+  couple.</p>
+<p><img src="images/uses_usedby.jpg" width="297" height="223"></p>
+<p>Basically these two tags give info about what tables-views a view selects from 
+  and, more importantly, which views select from my table-view. That way, if you 
+  make a change to a table, you can know which views it's affecting. Opening the 
+  <b>Views</b> node in the &quot;Used by&quot; will scan all views in the schema, 
+  so it'll be a long operation, be warned. The functionality is very beta, and 
+  you cannot trust the results, even if they are tweaked into giving more false 
+  positives than negatives. The user interface is also subject to change, suggestions 
+  are welcome.</p>
+<h2><a name="quickList"></a>The Quick List</h2>
+<p>The Quick List is simply a quick reference for your most used tables and views. 
+  If you use frequently a table, you don't want to have to look it up, amongst 
+  perhaps tens of others, every time that you need it. To add a table or view 
+  to the Quick List, just right-click on the table or view, and select <code>Add 
+  to Quick List</code> from the Context Menu. </p>
+<h2><a name="recentQueries"></a>The Recent SQL Statements</h2>
+<p>The <code>Recent SQL Statements</code> folders saves the last SQL statements 
+  that you have issued in the <code><a href="query_editor_view.html">SQL Query 
+  Editor</a></code> view. You can double-click on a query, and that cleans the 
+  SQL Editor, and inserts your selected query in it. Also, the bookmark that you 
+  used gets selected as the current bookmark to execute against, so the next time 
+  you execute anything in the SQL Editor, that bookmark will be used.</p>
+<p>Note that only the queries you yourself execute in the SQL Editor will be stored 
+  as Recent SQL Statements, not implicit queries that Quantum may make to get 
+  data from tables or structure data. If you want to know all the queries that 
+  get sent to your database, you can activate the<a href="sql_log_view.html"> 
+  SQL Log View</a>. After activating (opening) the SQL Log View, all messages 
+  sent to the database will be logged there for you to check. Also errors from 
+  the database will be logged. To open the View, proceed like to open any Eclipse 
+  view, that is go to <code>Window &gt; Show View &gt; Others... &gt; QuantumDB &gt; 
+  Quantum SQL Log</code>.</p>
+<h2><a name="contextMenu"></a>The Context Menu</h2>
+<p>If you right-click on the different items, you'll get a context menu with different 
+  options depending on the type of item you selected. Right-clicking on a table, 
+  for example, gives the following context menu:</p>
+<p><img src="images/quantum_table_context_menu.jpg" ></p>
+<p>The <b>New Bookmark </b>is already known, allows you to create another bookmark.</p>
+<p><b>Copy </b>allows to copy the structure of the table, in XML format, to the 
+  clipboard. An example of the format :</p>
+<blockquote>
+  <p><code>&lt;?xml version=&quot;1.0&quot; ?&gt;<br>
+    &lt;metadata&gt;<br>
+    &lt;table database=&quot;Postgres&quot; isSynonym=&quot;false&quot; name=&quot;films&quot; 
+    schema=&quot;public&quot;&gt;<br>
+    &lt;column java.sql.Types=&quot;1&quot; name=&quot;code&quot; nullable=&quot;false&quot; 
+    position=&quot;1&quot; primaryKey=&quot;true&quot; size=&quot;5&quot; type=&quot;bpchar&quot; 
+    /&gt;<br>
+    &lt;column java.sql.Types=&quot;12&quot; name=&quot;title&quot; nullable=&quot;false&quot; 
+    position=&quot;2&quot; primaryKey=&quot;false&quot; size=&quot;40&quot; type=&quot;varchar&quot; 
+    /&gt;<br>
+    &lt;column java.sql.Types=&quot;2&quot; name=&quot;did&quot; nullable=&quot;false&quot; 
+    position=&quot;3&quot; primaryKey=&quot;false&quot; size=&quot;3&quot; type=&quot;numeric&quot; 
+    /&gt;<br>
+    &lt;column java.sql.Types=&quot;91&quot; name=&quot;date_prod&quot; nullable=&quot;true&quot; 
+    position=&quot;4&quot; primaryKey=&quot;false&quot; size=&quot;4&quot; type=&quot;date&quot; 
+    /&gt;<br>
+    &lt;column java.sql.Types=&quot;1&quot; name=&quot;kind&quot; nullable=&quot;true&quot; 
+    position=&quot;5&quot; primaryKey=&quot;false&quot; size=&quot;10&quot; type=&quot;bpchar&quot; 
+    /&gt;<br>
+    &lt;column java.sql.Types=&quot;1111&quot; name=&quot;len&quot; nullable=&quot;true&quot; 
+    position=&quot;6&quot; primaryKey=&quot;false&quot; size=&quot;12&quot; type=&quot;interval&quot; 
+    /&gt;<br>
+    &lt;/table&gt;<br>
+    &lt;/metadata&gt;</code> </p>
+</blockquote>
+<p>The format is still in flow, as new items are added to it. No formal description 
+  of it is to be had, till some semblance of stability is adquired. So if you 
+  plan to invest time in some program that uses this format as input, please check 
+  first the status of the format with the developers.</p>
+<p><b>Export</b> and <b>Import </b>are the standard eclipse functions. Quantum 
+  extends Eclipse with a couple of export possibilities. To learn more about it, 
+  see <a href="export_import.html">Export and Import</a>.</p>
+<p><b>View Table</b> is the default action, taken also when you double-click on 
+  the table. It opens the table on the Table View.</p>
+<p><b>View Table Details</b> will open in the Table View a fake table (fake in 
+  the sense that it's not a proper table of any database) with the metadata of 
+  the table you have selected. This metadata is got from the database in a different 
+  way as the others, so the infos it can display are also different.</p>
+<p><img src="images/quantum_view_table_details.jpg" width="407" height="108"></p>
+<p><b>Add to Quick List</b> adds the table to the quick list of its bookmark. 
+  In the menu image is not active because the selected table is already in the 
+  Quick List. For the same reason is <b>Remove from Quick List</b> active. That 
+  option removes the table from the Quick List. This action of course affects 
+  not the underlying database table.</p>
+<p>The <b>SQL Statements</b> is a submenu for options that generate and execute 
+  an SQL Statement refering to the selected table. It has two options to date: 
+</p>
+<blockquote> 
+  <p><b> Drop Table/View/Sequence</b> that allows you to generate a simple DROP 
+    statement with the selected item (table, view or sequence). This of course 
+    would delete the underlying table, view or sequence from the database, so 
+    use with care. Even if the <b>Auto-Commit</b> option is not active, some databases 
+    make the changes to data dictionary to be always auto commited, so test your 
+    setup before using that command.</p>
+  <p><b>Delete All Rows</b> does just that, generating a DELETE statement that 
+    will delete all table rows.</p>
+</blockquote>
+<p>The <b>Structure </b>submenu groups all actions having to do with the metadata 
+  of the selected table(s) or view(s).</p>
+<blockquote>
+  <p><b>Copy</b> will make a full structure copy of the selected items. The resulting 
+    XML may differ, usually being more extensive than the normal Copy action of 
+    the table.</p>
+  <p><b>Write to file...</b> saves the full structure XML to a file that the user 
+    selects.</p>
+  <p><b>DDL from clipboard</b> is a VERY experimental feature that tries to create 
+    a DDL statement that would create a table, view or sequence similar in structure 
+    to the ones selected. The structure data is taken from the clipboard. Note 
+    that even if this option appears when you select a table, you must be on a 
+    Bookmark or Schema to generate DDL for a table. The development of this feature 
+    is in very early stages, basically working only partially for ORACLE at the 
+    moment, but we make it available in case somebody has a use for it. The generated 
+    DDL will be pasted into the Query View, <font color="#FF0000">deleting whatever 
+    is there.</font></p>
+  <p>&nbsp;</p>
+</blockquote>
+<p><b>Search</b> opens up the Eclipse Search dialog with the Database search page. You can search for text, regular expressions, numbers and dates. More info in <a href="search.html">this 
+  link</a>. </p>
+<p><b>Refresh</b> applies to the whole opened tables or views folder, not only 
+  to the selected table or view. It refreshes the list of tables/views to reflect 
+  changes in the database. For example, if you drop a table using the previous 
+  command, the change will not be reflected into the bookmarks tree structrure 
+  till you refresh it.</p>
+<p><b>Properties</b> opens up a Properties dialog where you can check and sometimes 
+  change different data from the bookmarks, tables, views, etc. More info in <a href="preferences_properties.html">this 
+  link</a>. </p>
+<h2>The toolbar</h2>
+<p>In the toolbar there are a couple of buttons and a toolbar menu. The first 
+  button is a <b>Create New Bookmark</b> button <img src="images/quantum_new_bookmark_button.jpg" width="31" height="24"> 
+  and works same as selecting the <b>New Bookmark</b> context menu item.</p>
+<p>The second button <img src="images/quantum_collapse_all_button.jpg" width="24" height="29"> 
+  allows you to collapse all your opened trees in the bookmark view, to reduce 
+  clutter.</p>
+<h3></h3>
+<h3><a name="toolbarMenu"></a>The Toolbar Menu</h3>
+<p>If you open the toolbar menu in the <img src="images/quantum_bookmark_toolbar_menu_arrow.jpg" width="15" height="17"> 
+  sign on the toolbar, the following menu will pop up. </p>
+<h2><img src="images/quantum_bookmark_toolbar_menu.jpg" width="189" height="122"></h2>
+<p>The <b>Show Tabe Sizes</b> menu selection will show the table size, in number 
+  or records, at every table name you have in the bookmark view. That can be pretty 
+  expensive in terms of time and resources, as a query needs to be done for every 
+  table in view.</p>
+<p>The <b>Show Database Info</b> will show the type of the database and version 
+  at every open bookmark in the bookmark view.</p>
+<p><b>Export Bookmarks</b> creates an export file with info about the bookmarks 
+  you select. That allows you to re-create some previous bookmark structure after 
+  making changes to it, or copying the same bookmarks between machines.In the 
+  latter case, please note that the bookmarks have the driver path info, so that 
+  path might have to be changed if the driver is not at the same place in the 
+  different machines.</p>
+<p><b>Import Bookmarks</b> allows to import one such file. The import won't change 
+  or substitute any existing bookmark, so delete all bookmarks previously if you 
+  want a full substitution.</p>
+<h2>Using Working Sets</h2>
+<p>As from 3.0.4, you can use working sets to filter the bookmarks. For the moment, 
+  just the bookmark list, not the database objects inside. To do that, just open 
+  your working set manager dialog using the toolbar button<img src="images/working_set_button.jpg" width="39" height="28">, 
+  and then selecting a new working set in the dialog that will appear. Then you 
+  should get something like:</p>
+<p><img src="images/working_set_dialog.jpg" width="373" height="343"></p>
+<p>With the Quantum Database Bookmarks type on it. If it doesn't appear, something 
+  isn't working, or you have Quantum release previous to 3.0.4. You select the 
+  Quantum Database Bookmarks type and then you can select which bookmarks to show 
+  when the working set is selected. You can define several working sets and select 
+  one or more at each time. If you have none selected, or the selected ones have 
+  no bookmark selected inside, all bookmarks will be shown. This allow you to 
+  filter your bookmarks depending on your work context. If you are used to working 
+  sets, know that the Bookmark View will use only the Window Working Set, and 
+  cannot select a different one.</p>
+
+</body>
+</html>
