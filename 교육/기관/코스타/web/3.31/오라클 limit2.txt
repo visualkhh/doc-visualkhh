@@ -1,0 +1,4 @@
+String query = "
+
+SELECT * FROM (SELECT aa.*, FLOOR((ROWNUM - 1) / " + 10 + " + 1) PAGE FROM " +
+            "(SELECT * FROM board2 order by num desc) aa) WHERE PAGE = ?";

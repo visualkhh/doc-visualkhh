@@ -1,0 +1,121 @@
+abstract class TwoDShape
+{
+	private double width;
+	private double height;
+	private String name;
+
+	TwoDShape(double w, double h, String n)
+	{
+		width=w;
+		height=h;
+		name=n;
+	}
+
+	double getwidth(){return width;};
+	double getheight(){return height;};
+	String getname(){return name;};
+
+abstract double areas();
+	double area()
+	{
+		System.out.println("이것이 오버라이딩");
+		return 0.0;
+	}
+
+
+}
+
+
+class Triangle extends TwoDShape
+{
+	Triangle (double w, double h)
+	{
+		super(w,h,"삼각");
+	}
+ double areas(){return 0.0;}
+	double area()  // 오버라이딩하여 사요용
+	{
+
+		return getwidth()*getheight()/2;
+	}
+
+}
+
+
+
+
+class Rectangle extends TwoDShape
+{
+	Rectangle (double w, double h)
+	{
+		super(w,h,"사각");
+	}
+ double areas(){return 0.0;}
+	double area()  // 오버라이딩하여 사요용
+	{
+
+		return getwidth()*getheight();
+	}
+
+}
+
+
+class overridetest2{
+	public static void main(String[] args){
+		System.out.println("Hello World!");
+				Triangle t1 =new Triangle(5.0,12.0);
+				Triangle t2 =new Triangle(2.45,62.0);
+				Triangle t3 =new Triangle(6.5,9.0);
+
+				Rectangle r1 =new Rectangle(30,40);
+				Rectangle r2 =new Rectangle(10,70);
+				Rectangle r3 =new Rectangle(20,90);
+
+
+				System.out.println("t1삼각");
+					System.out.println("이름"+t1.getname());
+					System.out.println("면적"+t1.area());
+					System.out.println();
+				System.out.println("t2삼각");
+					System.out.println("이름"+t2.getname());
+					System.out.println("면적"+t2.area());
+					System.out.println();
+				System.out.println("t3삼각");
+					System.out.println("이름"+t3.getname());
+					System.out.println("면적"+t3.area());
+					System.out.println();
+				System.out.println("r1사각");
+					System.out.println("이름"+r1.getname());
+					System.out.println("면적"+r1.area());
+					System.out.println();
+				System.out.println("r2사각");
+					System.out.println("이름"+r2.getname());
+					System.out.println("면적"+r2.area());
+					System.out.println();
+				System.out.println("r3사각");
+					System.out.println("이름"+r3.getname());
+					System.out.println("면적"+r3.area());
+					System.out.println();
+
+
+					TwoDShape shapes[] =new TwoDShape[5];
+					shapes[0]=t1;
+					shapes[1]=t2;
+					shapes[2]=t3;
+					shapes[3]=r1;
+					shapes[4]=r2;
+					
+					for(int i=0;i<5;i++)
+					{
+						System.out.println("이름"+shapes[i].getname());
+						System.out.println("면적"+shapes[i].area());
+						System.out.println();
+					}
+
+
+
+
+
+
+	}
+}

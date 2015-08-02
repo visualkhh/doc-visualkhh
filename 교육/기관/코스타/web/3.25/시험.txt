@@ -1,0 +1,15 @@
+rist -arraylist   [intrator]...
+
+map - hashmap 
+ 
+
+생성 , 추가 줄세는거..등등.....
+
+jsp 예제로써!!!!!
+
+예제  주로 object를 주고받고 하자
+
+
+ public abstract boolean drawImage(Image img, int x, int y,
+				      int width, int height, 
+				      ImageObserver observer);

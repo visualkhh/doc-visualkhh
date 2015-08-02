@@ -1,0 +1,17 @@
+import java.util.*;
+class CalendarTest{
+	public static void main(String[] args){
+		System.out.println("Calendar rightNow = Calendar.getInstance();");
+
+
+		Calendar cal = Calendar.getInstance();
+
+		int hour = cal.get(Calendar.HOUR)
+		int min = cal.get(Calendar.MINUTE)
+		int sec = cal.get(Calendar.SECOND)
+
+		System.out.println("%d Ω√ %d ∫– %d √ ",hour,min,sec)
+//		int hour = cal.get(Calendar.HOUR)
+	
+	}
+}

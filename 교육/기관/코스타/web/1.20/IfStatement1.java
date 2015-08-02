@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.Random;
+class IfStatement1{
+
+public static void main(String[] args) throws IOException{
+		System.out.println("A~Z KeyInput");
+		char i ;
+		i=(char)System.in.read();
+
+
+
+	java.util.Random ran = new java.util.Random();
+	int cont=0;
+while(true)
+	{ char temp=(char)ran.nextInt(172);
+System.out.println(temp);
+	if(i==temp)
+		{
+
+		System.out.println("Good Job"+cont);
+		break;
+		}
+
+cont++;
+	}
+
+
+
+
+
+	}
+}

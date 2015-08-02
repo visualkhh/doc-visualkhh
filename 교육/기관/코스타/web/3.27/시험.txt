@@ -1,0 +1,31 @@
+월요일 
+SIMPLE 계시판 시험 쓰기 , 읽기  상세 페이지
+
+DB컬럼
+
+NUM MEMBER PRIMARY KEY;
+TITLE VARCHAR(20)
+CANTENT VARCHAR2(100);
+
+
+
+DTA  - INSERTBOARD();
+	-GETBOARD()
+	-GETBOARDLIST();
+
+
+
+
+
+목 : 게시판 만들기(하드코딩, 아무것도 없이)
+
+
+- 기본 게시판(추가, 리스트, 세부, 수정, 삭제 - 페이징 처리) - 100
+
+
+- 이미지(+5점) (씸네일)
+- 파일업로드(+5점)
+- 답글(+5점)
+- 검색(+5점)
+- 댓글(+5점)
+- EL/JSTL 사용(+5점)

@@ -1,0 +1,51 @@
+select  b_id,b_name,b_email,b_title,b_content,b_pwd,b_date,b_hit,b_ip, b_ref,b_step,b_level  
+
+from(select rownum num ,b_id,b_name,b_email,b_title,b_content,b_pwd,b_date,b_hit,b_ip, b_ref,b_step,b_level  
+
+from (select * from board order by b_ref desc, b_step asc ))a  
+
+where a.num > " +pageNum + " and a.num <= " +(pageNum+ boardPerPage)+" "; 
+
+
+
+------------
+select * from 
+(SELECT ROWNUM AS rn,total.*  FROM 
+
+(select  original.*,response.* from originalboard original left outer join 
+				responseboard response 
+				on original.seq= response.superseq order by original.seq desc	) total
+
+)WHERE rn BETWEEN 1 AND 5
+
+
+-----
+
+
+
+
+
+SELECT *
+  FROM (SELECT a.*,
+               ROWNUM AS rn
+          FROM board a
+         WHERE 
+
+
+
+(a.b_name like '%keyword%'  OR a.b_title like '%keyword%')
+         ORDER BY ref desc, re_step asc
+       )
+
+
+
+ WHERE rn BETWEEN 1 AND 10
+
+
+
+
+
+
+SELECT *  FROM (SELECT a.*,ROWNUM AS rn  FROM board a    WHERE (a.b_name like '%4%'  OR a.b_title like '%4%')
+         ORDER BY b_ref desc, b_step asc    )
+ WHERE rn BETWEEN 1 AND 10 

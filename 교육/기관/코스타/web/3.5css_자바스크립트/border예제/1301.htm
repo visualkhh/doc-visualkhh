@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>문단 테두리 스타일</title>
+
+<style type="text/css">
+<!--
+body{font-size:11pt; font-weight:bold; text-align:center; }
+/*코딩1 : 문단 테두리 기본 스타일*/
+div{width: 500px; padding:5px; background-color:#FFCC33; color:white }
+/*코딩2 : 테두리 종류 비교에 사용되는 span태그의 기본 스타일*/
+span{border-width:5px; border-color: red; padding:5px; color:black}
+-->
+</style>
+
+
+</head>
+
+<body>
+
+<h3>&gt;&gt;문단 테두리 스타일&lt;&lt; </h3>
+
+<!-- 코딩3 -->
+<div style="border:2px solid #FF9900; ">
+한번에 지정 : border속성</div><br><br>
+
+<!-- 코딩4 -->
+<div style="border-width:5px; border-color: #FF9900 ;border-style:dotted;">
+세분화시켜서 지정 : <br>border-width, border-color, border-style속성</div><br><br>
+
+<!-- 코딩5 -->
+<div style="border-top:2px solid #FF9900; border-bottom:5px solid #FF9900; ">
+위,아래만 선 표시 : <br>border-top, border-bottom 속성</div><br><br>
+
+<!-- 코딩6 -->
+<div style="border:0px dotted #FF9900; border-bottom-width:5px; border-top-width:5px; ">
+위,아래 점선 표시 : <br>border, border-bottom-width, border-top-width 속성</div><br><br>
+
+<!-- 코딩7 -->
+<div style="border:0px dotted #FF9900; border-bottom-width:thin; border-top-width:thick;  border-left-width:medium; border-right-width:1px; ">
+선두께 다양하게 지정 : <br>아래쪽은 thin, 위쪽은 thick, 왼쪽은 medium, 오른쪽은 1px;</div><br><br>
+
+<!-- 코딩8 -->
+<div style="border:7px none #FF9900; border-bottom-style:dotted; border-top-style:dashed; ">
+점선의 모양 비교 : <br>dotted는 동그란 모양,  dashed는 사각형 모양</div><br><br>
+
+<!-- 코딩9 -->
+<div style="border:3px solid; border-bottom-color:#CC6600; border-top-color:#FF0066; ">
+선의 색상을 다르게 표현 : <br>아래쪽은 #CC6600, 위쪽은 #FF0066</div><br><br>
+
+<!-- 코딩10 -->
+<div style="border:1px solid #FF9900; padding:0pt; margin:0px; ">
+padding은 안쪽여백, margin은 바깥여백</div>안쪽여백 0px, 바깥여백 0px<br><br><br>
+
+<!-- 코딩11 -->
+<div style="border:1px solid #FF9900; background-image:url(bg.gif);color:orange; padding:20px">
+배경이미지 : background-image속성</div><br><br>
+
+<!-- 코딩12 -->
+<div style="border:1px solid #FF9900; position:absolute; left:50%; width:200px">
+위치지정 : position</div><br><br><br><br><br>
+
+<!-- 코딩13 -->
+<h3>&gt;&gt;border-style의 종류 비교&lt;&lt;</h3>
+<span style="border-style:none">none</span> 
+<span style="border-style:solid">solid</span> 
+<span style="border-style:double">double</span> 
+<span style="border-style:groove">groove</span> 
+<span style="border-style:ridge">ridge</span> <br><br><br>
+<span style="border-style:inset">inset</span> 
+<span style="border-style:outset">outset</span> 
+<span style="border-style:dashed">dashed</span> 
+<span style="border-style:dotted">dotted</span> 
+<span style="border-style:hidden">hidden</span> <br><br><br><br><br>
+
+</body>
+</html>

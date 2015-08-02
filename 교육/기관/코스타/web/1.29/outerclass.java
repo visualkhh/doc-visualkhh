@@ -1,0 +1,39 @@
+class outerclass{
+
+	private int i;
+
+
+
+
+static	class innerclass
+	{
+	private int j;	
+
+		void print()
+		{
+		System.out.println("aa");
+
+outerclass ob=new outerclass();
+	ob.i=100;
+
+
+			System.out.println(ob.i);
+
+		}
+	
+
+	}
+
+
+
+	public static void main(String[] args){
+		System.out.println("class");
+
+		innerclass ob=new innerclass();
+		ob.print();
+
+		ob.j=10;
+	}
+
+
+}

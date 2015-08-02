@@ -1,0 +1,153 @@
+class OperatorTest{
+	public static void main(String[] args){
+
+
+
+//논리연산자  &&, ||
+int y=10,z=3;
+System.out.println(y>15 && z<5);
+
+
+
+
+
+// 비트연산자 &, | 
+System.out.println(y&z);
+System.out.println(y>15 & z<5);
+
+
+
+//단락효과
+System.out.println(y<10 && ++z<5);
+System.out.println(z);
+
+
+
+
+						//명시적
+						double x=10.0, xx=3.5;
+						int u=(int)(x/xx);
+						System.out.println(u);
+
+
+						//묵시적
+						byte g=5;
+						u=g;
+						System.out.println(u);
+
+
+						//명시적
+						g=(byte)(g+10);
+						System.out.println(g);
+
+
+						//명시적
+						g+=10;  //복합치환 연산자 는 케스팅기능을 가지고 있다.
+						System.out.println(g);
+
+
+						float f = 3.14f;  //명시적인 상수값입력
+						System.out.println(f);
+
+						f =f +2.5f;  //명시적인 상수값입력
+						System.out.println(f);
+						System.out.println(f==5.64f);
+
+					java.text.DecimalFormat fo= new java.text.DecimalFormat("#.####"); //포맷맞춰줌
+					String str=fo.format(f); //사용하여 문자열로 변경
+
+						System.out.println(Double.parseDouble(str)==5.64); //더블형으로 형변환
+
+
+//2진 변환
+	long temp=91L;
+	String result="";
+
+		while(true)
+		{
+
+			if(temp==0)
+				{
+				System.out.println(result);
+				break;
+				}
+
+
+
+				result=temp%2+result;
+				temp=temp/2;
+				
+		}
+
+
+
+
+
+//16진 변환
+
+long hhk=1;
+result="";
+temp=0;
+
+
+
+
+while(hhk<5000000)
+		{
+	
+	result="";
+		
+						while(true)
+								{
+
+									if(temp==0L)
+										{
+										System.out.println(result);
+										
+											break;
+										}
+
+											int tt=(int)temp%16;
+										switch (tt)
+										{
+
+										case 15 :
+											result='F'+result; break;
+										case 14 :
+											result='E'+result; break;
+										case 13 :
+											result='D'+result; break;
+										case 12 :
+											result='C'+result; break;
+										case 11 :
+											result='B'+result; break;
+										case 10 :
+											result='A'+result; break;
+										default :
+											result=temp%16+result;
+																				
+									
+										}
+										
+										temp=temp/16;
+
+							
+							}
+							hhk++;
+							temp=hhk;
+							System.out.println("10진수="+hhk);
+					
+}
+
+
+
+
+	}
+
+
+	
+
+
+
+
+}

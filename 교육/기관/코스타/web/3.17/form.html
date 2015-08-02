@@ -1,0 +1,54 @@
+<html><head><title>FORM</title></head>
+<body>
+<center><h2>HTML FORM 테스트</h2></center>
+   
+<form method=POST action=>
+   
+<table width="100%" border=1><tr><td>
+이름 <input type=text  name=name><br>
+암호 <input type=password name=passwd><br><br>
+  
+<input type=button value="버튼"><br>
+  
+</td><td>
+성별<br>
+<input type=radio name=sex value=male>남자
+<input type=radio name=sex value=female>여자<br>
+  
+<br>사용중인 편집기는 ?<br>
+<input type=checkbox name="tool" value="eclipse"> Eclipse <br>
+<input type=checkbox name="tool" value="jbuilder"> Jbuilder <br>
+  
+</td></tr>
+  
+<tr><td>
+<input type=hidden name="state" value="ready">
+  
+사용중인 운영 체제는 ? <br>
+<select name=os size=3 multiple>
+<option value="win32">윈도우
+<option value="linux">리눅스
+<option value="solaris">솔라리스
+<option value="misc">기타
+</select>
+  
+<br><br>사용중인 컴퓨터 하드웨어는 ? <br>
+<select name=hw>
+<option value="pentium">펜티엄
+<option value="misc">기타
+</select>
+  
+</td><td>
+<br>기타 건의 사항<br>
+<textarea name=tx rows=10 cols=40>
+  
+</textarea>
+</td></tr>
+<tr><td colspan=2><center>
+<input type=submit value="전 송">
+<input type=reset value="취 소"></center>
+</td></tr></table>
+</form>
+  
+</body>
+</html>

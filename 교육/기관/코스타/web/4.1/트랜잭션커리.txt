@@ -1,0 +1,15 @@
+create table bank1(
+	aid number primary key,
+	aname varchar2(20),
+	balance number
+)
+
+
+create table bank2(
+	aid number primary key,
+	aname varchar2(20),
+	balance number
+)
+
+insert into bank1 values(101, '홍길동', 100);
+insert into bank2 values(201, '아무개', 50);

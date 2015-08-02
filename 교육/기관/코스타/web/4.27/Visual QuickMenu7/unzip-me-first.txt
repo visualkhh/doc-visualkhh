@@ -1,0 +1,4 @@
+If you downloaded the .zip copy of QuickMenu you must unzip the file before running the software.
+
+Attemting to view the samples or use the QuickMenu visual interface directly from the zip will
+cause errors!

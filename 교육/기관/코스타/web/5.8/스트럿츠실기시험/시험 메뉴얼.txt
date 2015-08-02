@@ -1,0 +1,28 @@
+스트럿츠 실기 시험
+
+1. 시간 : 오늘 1차: 12시 30분   
+
+2. 내용 : 스트럿츠를 이용한 회원가입 관리자 페이지 구현
+
+3. View  :   Controll :  Model :  DB 
+
+4. ActionForm클래스, DTO 클래스는 따로 만드시고요.
+
+6. Validate 프레임워크를 구현하시오.
+
+7. 시험 방법 -> openbook, 단 >  다른 프로그램소스는 열지 말것(탐색기 열지 말것)
+
+8. 보너스로 추가적인 기능을 구현 했을시 --> JS,Ajax(수준에 따라 차별적으로 적용) 
+
+9. 내용 확인 --> el사용 확인
+
+10. 옆에 있는 사람 pc를 보고 조언 불가  --> 밖에서 조언 가능 
+
+11. DB connection --> DataSource 객체 이용
+
+
+
+CREATE SEQUENCE member_sq;
+
+create table strutsmember(num number(10) , name varchar2(50), pass varchar(50), email varchar(50) ,regedate date default sysdate);
+insert into strutsmember (num,name,pass,email) values(member_sq.nextval,'1','1','1@1');

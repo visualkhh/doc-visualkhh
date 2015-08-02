@@ -1,0 +1,1 @@
+select * from test1 a left outer join (select supernum , count(supernum) from test2 group by supernum ) b on a.num=b.supernum

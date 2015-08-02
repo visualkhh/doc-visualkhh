@@ -1,0 +1,18 @@
+class CommandLine{
+	public static void main(String[] args){
+
+
+if(args.length>0)
+{
+			for(int i=0;i<args.length;i++)
+			{
+			System.out.println("Hello World!\t"+args[i]);
+			}
+
+
+}else{
+		System.out.println("아무것도 파라미터로 들어오지않았습니다.");
+}
+
+	}
+}

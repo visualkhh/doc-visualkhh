@@ -1,0 +1,33 @@
+class car
+{
+	String name;
+	String color;
+	int wheelnum;
+}
+
+
+class taxi extends car
+{
+	int meter;
+	String isPrivate;
+
+}
+
+
+
+class truck extends car
+{
+	double ton;
+}
+
+
+class trailer extends truck
+{
+}
+
+
+class inheritance extends {
+	public static void main(String[] args){
+		System.out.println("Hello World!");
+	}
+}

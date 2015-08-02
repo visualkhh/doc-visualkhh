@@ -1,0 +1,46 @@
+<html>
+<head>
+<title></title>
+<SCRIPT language="JAVASCRIPT" type ="text/javascript">
+
+function pop_up() {
+ var noticeCookie=getCookie("CookieName");  // cookie의 값을 얻어 온다.
+ if (noticeCookie != "no")  //setCookie() function에서 체크를 한경우에는 cookie값이 no이므로 popup를 하지 않음
+ window.open("pop_01.html","","WIDTH=550 HEIGHT=530");
+}
+
+
+function getCookie( name ){
+   var nameOfCookie = name + "=";
+   var x = 0;
+   while ( x <= document.cookie.length ){
+        var y = (x+nameOfCookie.length);
+        if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+             if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 )
+                  endOfCookie = document.cookie.length;
+             return unescape( document.cookie.substring( y, endOfCookie ) );
+        }
+        x = document.cookie.indexOf( " ", x ) + 1;
+        if ( x == 0 )
+            break;
+    }
+    return "";
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+window.onload=pop_up;
+</SCRIPT>
+
+</head>
+<body topmargin=0 leftmargin=0>
+<table width=362 height=330 border="0" cellspacing="0" cellpadding="0">
+<tr> 
+ <td valign="top">
+ aa </td>
+</tr>
+</table>
+
+</body>
+</html>
+
+

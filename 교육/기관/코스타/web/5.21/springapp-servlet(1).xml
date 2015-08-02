@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+  <!-- the application context definition for the springapp DispatcherServlet -->
+  
+  	<bean id="boardAnnotationController" class="springapp.board.BoardAnnotationController">
+  		<property name="boardDao" ref="boardDao"></property>
+
+  	</bean>
+	
+	<!-- Tiles 관련 내용 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"></property>
+	</bean>
+	
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles2def.xml</value>
+			</list>
+		</property>
+		
+	</bean>	
+
+	
+	<!-- boardCommand용 Validator -->
+	<bean id="boardCommandValidator" class="springapp.board.BoardCommandValidator">
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages.validation</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="ibatisJdbcTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<property name="sqlMapClient" ref="sqlMapClient"></property>
+	</bean>
+	
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="dataSource" ref="springDataSource"></property>
+		<property name="configLocation" value="/WEB-INF/sqlMap/sqlMapConfig.xml"></property>
+	</bean>
+	
+	<bean id="springDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/oracle"></property>
+		<property name="resourceRef" value="true"></property>
+	</bean>
+	
+	<bean id="boardDao" class="springapp.board.IbatisBoardDao">
+		<property name="myJdbcTemplate" ref="ibatisJdbcTemplate"></property>
+	</bean>
+	
+	<!--  A. O. P. -->
+	<!-- advice (언제?) -->
+	<bean id="beforeLogAdvice"
+		class="springapp.advice.MethodBeforeLogAdvice">
+	</bean>
+	
+	<!-- Pointcut (어떤 메서드?) -->
+	<bean id="listPointcut"
+		class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+		<property name="pattern" value=".*list.*"></property>
+	</bean>
+	
+	<!-- Advisor (advice+pointcut)-->
+	<bean id="listAdvisor"
+		class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="beforeLogAdvice"></property>
+		<property name="pointcut" ref="listPointcut"></property>
+	</bean>
+	   
+
+	
+	<!-- 프록시객체생성하기 위한 타겟객체+advisor 등록 -->
+	<bean id="listBoardService"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="boardDao"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>listAdvisor</value>
+			</list>
+		</property>
+	</bean>
+
+		<!-- POJO 방식-->
+	
+	<bean id="logging"
+		class="springapp.advice.LoggingAspect">
+	</bean>
+	
+	<aop:config>
+		<aop:aspect id="loggingAspect" ref="logging">
+			<aop:pointcut id="publicMethod"
+		expression="execution(public * springapp.board..*(..))"/>
+			<aop:after pointcut-ref="publicMethod"
+						method="returningLogging"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
+</beans>
+
+
+
+
+
+
+
+
+
+

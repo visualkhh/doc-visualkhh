@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Visual QuickMenu</title>
+
+
+<link rel="stylesheet" type="text/css" href="help.css">
+<style type="text/css">
+.rname {font-weight:normal;}
+</style>
+
+<script type="text/javascript">
+
+	function goto_bookmark()
+	{
+		if (window.location.search)
+		{
+
+			var tobj = document.getElementById(window.location.search.substring(1));
+			if (window.showHelp)
+				window.scrollTo(0,tobj.offsetTop+10);
+			else
+				window.scrollTo(0,tobj.offsetTop);
+	
+		}
+
+
+	}
+
+
+
+</script>
+
+</head><body onload="goto_bookmark()" class="title" style="margin:20px;"><div style="padding-bottom:5px;font-size:13px;font-weight:bold;">
+	Saving and Opening Your Menu</div><div class="topdivider"></div><div class="content">
+
+
+<div class="ctitle" style="color:#111111;">Saving Your Menu</div>
+<div style="padding:10px;">
+
+<!-- <div class="ctitle" id=backgroundColor>bg-color <span class="rname">[Background Color]</span></div> -->
+<div class="icontent" style="margin-bottom:10px;">
+
+Where QuickMenu is a browser based application, it cannot generate save files for you because it does not have access to your hard drive. In order to save your menu, you must generate the code and save it to a local file.
+<br><br>
+This can be done from within the visual interface by selecting File>Save. This will bring up a new dialog window with the code for your menu. Click the 'Select Contents' button to highlight the code for your menu. Copy the code for your menu using either ctrl+c (command+c on the Mac platform) or by right clicking the code and selecting the Copy option from the context menu.
+<br><br>
+Once the code has been copied, you will need to open either a simple text editor  or your HTML editor. Paste the copied code for your menu into a new document in your editor of choice. Use File>'Save As' from within the editor, and save the document with a .HTML extension.
+
+</div></div>
+
+<div class="ctitle" style="color:#111111;">Opening Your Saved Menu File</div>
+<div style="padding:10px;">
+
+
+<div class="icontent" style="margin-bottom:10px;">
+
+To load your menu back inside of the visual interface, open your saved HTML file inside of a browser supported by the visual interface (FireFox, Internet Explorer 6/7, Safari 3, or Google Chrome). The saved menu will work in additional browsers, however the visual interface requires a supporting browser to make edits and changes to your menu. With the saved file loaded in the browser, you will see a preview of your menu and a link directly above the menu preview that says "Open Visual Interface." Clicking the "Open Visual Interface" link will pull your menu back into the design view  for QuickMenu where you can make further changes or updates.
+</div> </div>
+
+
+</div><div class="bottomdivider"></div><div class="copyright">Copyright (c) 2009, OpenCube Inc., All Rights Reserved.</div></body></html>
+
+
+

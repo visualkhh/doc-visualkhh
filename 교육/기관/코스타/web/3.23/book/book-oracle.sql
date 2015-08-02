@@ -1,0 +1,16 @@
+CREATE TABLE book (
+	num NUMBER(7) NOT NULL,
+	name VARCHAR (50), 
+	email VARCHAR (30),
+	home VARCHAR (30), 
+	contents NVARCHAR2(2000),
+	CONSTRAINT book_num_pk PRIMARY KEY(num)
+);
+
+CREATE SEQUENCE book_num 
+	START WITH 1 
+	INCREMENT BY 1 
+	NOMAXVALUE;
+	
+
+

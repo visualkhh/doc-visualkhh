@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <!-- the application context definition for the springapp DispatcherServlet -->
+  
+  	<bean id="boardAnnotationController" class="springapp.board.BoardAnnotationController">
+  		<property name="boardDao" ref="boardDao"></property>
+
+  	</bean>
+	
+	<!-- Tiles 관련 내용 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"></property>
+	</bean>
+	
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles2def.xml</value>
+			</list>
+		</property>
+		
+	</bean>	
+
+	
+	<!-- boardCommand용 Validator -->
+	<bean id="boardCommandValidator" class="springapp.board.BoardCommandValidator">
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages.validation</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="boardDao" class="springapp.board.BoardDao">
+		<property name="myJdbcTemplate" ref="springJdbcTemplate"></property>
+	</bean>
+	
+	<bean id="springJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="springDataSource"></property>
+	</bean>
+	
+	<bean id="springDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/oracle"></property>
+		<property name="resourceRef" value="true"></property>
+	</bean>
+
+	
+</beans>
+
+
+
+
+
+
+
+
+
+

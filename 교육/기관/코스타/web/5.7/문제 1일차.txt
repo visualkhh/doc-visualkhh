@@ -1,0 +1,84 @@
+﻿
+
+DB bbs테이블
+
+NUM		NUMBER,
+SUBJECT		VARCHAR2(50)
+WRITER		VARCHAR2(30)
+PASSWORD	VARCHAR2(15)
+DATE		VARCHAR2(20)
+HTML		CHAR(1)
+CONTENTS	NVARCHAR2(2000)
+EMAIL		VARCHAR2(30)
+HOMEPAGE	VARCHAR2(30)
+IP		VARCHAR2(15)
+RCOUNT	조회횟수	NUMBER(6)
+VCOUNT	추천횟수	NUMBER(6)
+
+
+CREATE TABLE bbs
+(
+	num		NUMBER primary key
+	, SUBJECT	VARCHAR2(100)
+	, WRITER	VARCHAR2(30)
+	, PASSWORD	VARCHAR2(15)
+	, IDATE		DATE
+	, HTML		CHAR(1)
+	, CONTENTS	NVARCHAR2(2000)
+	, EMAIL		VARCHAR2(30)
+	, HOMEPAGE	VARCHAR2(30)
+	, IP		VARCHAR2(15)
+	, RCOUNT	NUMBER(6)
+	, VCOUNT	NUMBER(6)
+);
+
+CREATE SEQUENCE bbs_autonum;
+CREATE SEQUENCE bbs_comment_autonum;
+
+insert into bbs  (num,subject,writer,password,contents,email,homepage,ip) 
+values(bbs_autonum.nextval,?,?,?,?,?,?)
+
+
+CREATE TABLE bbs_comment
+(
+	num		NUMBER PRIMARY KEY
+	, rnum		NUMBER
+	, writer	VARCHAR2(30)	
+	, contents	NVARCHAR2(2000)
+	, password	VARCHAR2(15)
+	, ip		VARCHAR2(15)
+	, idate		DATE
+	, CONSTRAINT bbs_comment_rnum_fk FOREIGN KEY(rnum) REFERENCES bbs(num) ON DELETE CASCADE
+)
+
+
+
+1. Dispatch Action Class 사용 (BbsAction) - 파라미터 값을 통해서 처리하는 방법
+2. ValidationForm Class 사용 (BbsForm) - Validation Framework 사용
+ -> Message 처리(한글 or 영어)
+3. DAO Class -> (BbsDAO),	DTO Class -> (BbsArticle)
+4. Tiles 이용(top, menu, body, bottom)
+
+
+
+* 글쓰기
+ - bbs_write.jsp
+  - ActionForm - (BbsForm) 클래스
+ - html 사용유무 선택
+ - Message 처리 (Validation 구현)
+ - DispatchAction 클래스 사용(BbsAction)
+ - bbs_list.jsp
+
+* 글 리스트
+ - bbs_list.jsp
+ - 페이징 처리
+ - 검색
+ - DAO(글 리스트 불러오기)
+ - bbs_read.jsp(글세부보기)
+
+ * 글 세부보기
+  - bbs_read.jsp
+  - 댓글쓰기(CommentForm(폼클래스), Comment(DTO))
+  - list.jsp 댓글 갯수 표시
+  - 댓글 목록 출력
+  - 추천 글 선택(쿠키클래스 생성 -> 한 번 생성하도록)

@@ -1,0 +1,10 @@
+memo.do  -----> /test/memo.jsp -->메모남기기---->ac-memoInput.do
+----->my.memo.MemoInputAction--->/test/memoMsg.jsp
+----->ac-memoList.do--->my.memo.MemoListAction
+----->/test/memoList.jsp
+
+
+create table struts_memo(
+	name varchar2(20) not null,
+	memo varchar2(100)
+);

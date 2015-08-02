@@ -1,0 +1,87 @@
+class homework{
+	public static void main(String[] args){
+int input = 21;
+int cat=7;
+
+/*put 
+
+ 1  2  3  4  5  5  7 
+ 8  9  10 11 12 13 14
+ 15 16 17 18 19 20 21
+
+*/
+			
+			for(int i=1;i<=(input/7);i++)
+			{
+	
+
+				for(int y=(i*cat)-cat+1; y<=i*cat ; y++)
+				{
+
+					System.out.print("\t"+y);
+				}
+
+
+				System.out.println();
+
+			}
+
+
+
+
+
+int star=26;  //찍을별수
+int cnt=1; 
+
+int line=0;  // 별찍을때 행의수
+
+double temp=0;
+
+//행수를 구하는 
+	while(cnt<=star)
+	{
+
+temp=star;
+temp=temp/cnt;
+//System.out.println(temp); 테스트
+line++;
+star-=cnt;
+cnt+=2;
+
+	}
+
+
+//System.out.println(line); 테스트
+
+		System.out.println();
+
+
+		for(int i=0; i<=line;i++)
+		{
+
+			for(int z=line-i; z>=0;z--)
+			{
+				System.out.print(' ');
+			}
+		
+
+
+
+			for(int y=0;y<i+i-1;y++)
+			{
+				System.out.print('v');
+			}
+
+		System.out.println();
+
+		}
+
+
+
+
+
+
+
+
+	}
+}
