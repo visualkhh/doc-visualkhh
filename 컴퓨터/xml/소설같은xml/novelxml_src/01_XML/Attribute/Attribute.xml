@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="euc-kr"?>
-
-<Book>
-	<Title number="3">XML</Title>
-	<Title number='3'>XML</Title>
-	<Title number>XML</Title>
-	<Title number=3>XML</Title>
-</Book>
